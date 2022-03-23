@@ -10,7 +10,7 @@
 import appHeader from "./components/app-header.vue";
 import appFooter from "./components/app-footer.vue";
 export default {
-  name: "Apppp",
+  name: "Ap",
   components: {
     appHeader,
     appFooter,
