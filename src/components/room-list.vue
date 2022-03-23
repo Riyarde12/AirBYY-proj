@@ -3,7 +3,8 @@
     <ul>
       <li v-for="room in rooms" :key="room._id">
         <pre>
-          {{ room }}
+          {{ room._id }}
+           XXXX
         </pre>
       </li>
     </ul>
@@ -17,14 +18,16 @@
 <script>
 export default {
   props: {
-    rooms: { type: Array, required: true },
+    rooms: {
+      type: [Object],
+    },
   },
   name: "room-list",
   props: {},
   created() {},
   data() {
     return {
-      rooms: this.rooms,
+      // rooms: this.rooms,
     };
   },
   components: {},

@@ -1,8 +1,8 @@
 <template>
   <section class="room-app page-layout">
     <!-- <room-filter @setFilter="setFilter" /> -->
-    <room-list v-if="rooms && rooms.length" :rooms="rooms"></room-list>
-    <pre>{{ rooms }}</pre>
+    <room-list v-if="rooms && rooms.length" :rooms="rooms">XXX</room-list>
+    <!-- <pre>{{ rooms }}</pre> -->
   </section>
 </template>
 
