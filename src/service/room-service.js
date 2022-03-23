@@ -9,6 +9,7 @@ export const roomService = {
   // remove,
   save,
   getEmptyRoom,
+  homepageDisplay
 };
 
 const gRooms = (JSON.parse(localStorage.getItem(STAY_KEY)));
@@ -1914,6 +1915,15 @@ async function query(filterBy = {}) {
   const rooms = await storageService.query(STAY_KEY);
   const roomsForDisplay = _roomsForDisplay(rooms, filterBy);
   return roomsForDisplay;
+}
+
+async function homepageDisplay (){
+  const rooms = await storageService.query(STAY_KEY)
+  // console.log(rooms[0].reviewScores.rating);
+  console.log(rooms);
+  const homeRooms = rooms.filter(room => room.reviewScores.rating > 80)
+  console.log(homeRooms);
+  return homeRooms
 }
 
 function _roomsForDisplay(rooms, filterBy) {

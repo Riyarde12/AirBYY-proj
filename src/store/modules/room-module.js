@@ -4,7 +4,8 @@ export default {
   state: {
     rooms: null,
     destination: null,
-    // filterBy: null,
+    filterBy: null,
+    homeRooms:null,
     // roomToEdit: null,
     // userSignUp: {
     //   fullname: "",
@@ -33,9 +34,13 @@ export default {
       if (idx !== -1) state.rooms.splice(idx, 1, savedRoom);
       else state.rooms.push(savedRoom);
     },
+    // if some one use that function (setfilter) tell yosef please
     setFilter(state, { filterBy }) {
       state.filterBy = filterBy;
     },
+    setHomeRoom(state,{homeRooms}) {
+      state.homeRooms = homeRooms
+    }
     // setDestination(state, { destination }) {
     //   console.log('destination :>> commit', destination);
     //   const currDestination = state.rooms.find(room => room.address.country = destination);
@@ -58,6 +63,12 @@ export default {
         console.log('err', err);
       }
     },
+      async topRoomsForDisplay({commit}) {
+          const homeRooms = await roomService.homepageDisplay()
+          commit({type:'setHomeRoom',homeRooms}) 
+          console.log(homeRooms);       
+          return JSON.parse(JSON.stringify(homeRooms.slice(0, 4))) 
+      }
     // async removeRoom({ commit }, { id }) {
     //   console.log('id', id);
     //   try {
@@ -77,13 +88,13 @@ export default {
     //   catch (err) {
     //     console.log('err', err);
     //   }
+    // // },
+    //  getRoom({ commit, state }, { id }) {
+    //   return id ? roomService.getById(id) : roomService.getEmptyRoom();
+    //  },
+    // filter({ commit, dispatch }, { filterBy }) {
+    //   commit({ type: 'setFilter', filterBy });
+    //   dispatch({ type: 'loadRooms' });
     // },
-    getRoom({ commit, state }, { id }) {
-      return id ? roomService.getById(id) : roomService.getEmptyRoom();
-    },
-    filter({ commit, dispatch }, { filterBy }) {
-      commit({ type: 'setFilter', filterBy });
-      dispatch({ type: 'loadRooms' });
-    },
   },
 };
