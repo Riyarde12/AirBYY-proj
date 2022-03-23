@@ -1,6 +1,6 @@
 <template>
   <section class="home-app page-layout">
-    <h1>main</h1>
+    <h1 class="filter-btn">main</h1>
   </section>
 </template>
 
