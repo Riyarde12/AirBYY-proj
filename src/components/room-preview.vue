@@ -1,11 +1,14 @@
 <template>
-  <section class="room-preview"></section>
+  <section v-if="room" class="room-preview">
+  </section>
 </template>
 
 <script>
 export default {
   name: "room-preview",
-  props: {},
+  props: {
+    room: Object,
+  },
   data() {
     return {};
   },
