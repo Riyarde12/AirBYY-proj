@@ -1,5 +1,8 @@
 <template>
-  <section class="stay-app page-layout">APP</section>
+  <section class="stay-app page-layout">
+    <stay-filter @setFilter="setFilter" />
+    APP
+    </section>
 </template>
 
 <script>
