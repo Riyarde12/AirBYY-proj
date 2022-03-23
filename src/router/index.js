@@ -3,7 +3,7 @@ import HomePage from "../views/home-page.vue";
 import roomApp from "../views/room-app.vue";
 import roomDetails from "../views/room-details.vue";
 import roomEdit from "../views/room-edit.vue";
-import userDetails from "../views/user-details.vue";
+// import userDetails from "../views/user-details.vue";
 
 
 const router = createRouter({
