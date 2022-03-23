@@ -2,9 +2,9 @@
   <section class="home-app page-layout">
     <h1>Air BYY</h1>
     <div class="card-container">
-      <div @click="goTo(`US`)" class="home-card"><div>img</div> United States</div>
-      <div @click="goTo(`CA`)" class="home-card"><div>img</div> Canada</div>
-      <div  @click="goTo(`PT`)" class="home-card"><div>img</div> Portugal</div>
+      <div @click="goTo(`United States`)" class="home-card"><div>img</div> United States</div>
+      <div @click="goTo(`Canada`)" class="home-card"><div>img</div> Canada</div>
+      <div  @click="goTo(`Portugal`)" class="home-card"><div>img</div> Portugal</div>
       <div class="home-card"></div>
     </div>
   </section>
@@ -15,7 +15,8 @@ export default {
   name: "home-app",
   methods:{
 goTo(place){
-  console.log(place);
+  // console.log(place);
+  this.$router.push({path:'explore',query:{destination:place}})
 }
   }
 };
