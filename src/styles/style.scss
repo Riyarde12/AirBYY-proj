@@ -1,11 +1,17 @@
 /* SETUP  */
 
-@import "./setup/vars";
+@import "./setup/typography";
+@import "./setup/variables";
+@import "./setup/mixins";
+@import "./setup/functions";
 
-/* BASE */
+/* BASICS */
 
 @import "./basic/base";
 @import "./basic/layout";
+@import "./basic/helpers";
+@import "./basic/mq";
+@import "./basic/buttons";
 
 /* COMPONENTS */
 
@@ -14,4 +20,7 @@
 
 /* PAGES */
 
-@import "./view/home-app";
+@import "./view/home-page";
+@import "./view/stay-app";
+@import "./view/stay-details";
+@import "./view/stay-edit";
