@@ -1,5 +1,5 @@
 <template>
-  <section class="room-details page-layout">DETAILS
+  <section class="room-details page-layout">DETAILS</section>
 </template>
 
 <script>

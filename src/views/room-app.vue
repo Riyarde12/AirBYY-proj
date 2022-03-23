@@ -1,7 +1,10 @@
 <template>
   <section class="room-app page-layout">
     <!-- <room-filter @setFilter="setFilter" /> -->
-    <room-list v-if="rooms" :rooms="rooms"></room-list>
+    <room-list v-if="rooms && rooms.length" :rooms="rooms">XXXX</room-list>
+    <!-- <pre>
+      {{ rooms }}
+    </pre> -->
     APP
   </section>
 </template>
@@ -16,22 +19,31 @@ export default {
     roomList,
     roomFilter,
   },
-  created() {
+  async created() {
     const params = this.$route.query;
-    console.log("params", params);
-    this.$store.dispatch({
-      type: "loadRooms",
-      filterBy: params,
-    });
+    try {
+      await this.$store.dispatch({
+        type: "loadRooms",
+        filterBy: params,
+      });
+      this.rooms = this.$store.getters.rooms;
+      console.log("this.rooms", this.rooms);
+    } catch (err) {
+      console.log("err", err);
+    }
   },
+
   data() {
-    return {};
+    return {
+      rooms: null,
+    };
   },
   methods: {},
   computed: {
-    rooms() {
-      return this.$store.getters.rooms;
-    },
+    // rooms() {
+    //   console.log("example", this.$store.getters.rooms);
+    //   return this.$store.getters.rooms;
+    // },
   },
 };
 </script>
