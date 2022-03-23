@@ -14,9 +14,7 @@ export default {
     };
   },
   computed: {},
-  created() {
-    // const destination = this.$route.params;
-  },
+  created() {},
   methods: {},
   components: {},
 };
