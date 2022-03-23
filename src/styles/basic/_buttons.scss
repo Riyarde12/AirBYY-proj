@@ -1,0 +1,16 @@
+.filter-btn {
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid $clr5;
+    background-color: $clr8;
+    margin: auto;
+    color: $clr2;
+    padding: 0.625rem 1rem;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    width: 100%;
+    // transition-property: -ms-transform, -webkit-transform, transform, background-color, border-color;
+    // transition-duration: 0.15s;
+    // transition-timing-function: ease-in-out;
+}
