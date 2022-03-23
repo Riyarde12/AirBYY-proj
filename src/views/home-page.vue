@@ -51,6 +51,10 @@
   </div>
 </div>
 </div>
+<hr>
+<div v-if="rooms" v-for="room in rooms" key="room._id" class="card-container">
+<pre>{{room.name}}</pre>
+</div>
   </section>
 </template>
 
@@ -58,14 +62,20 @@
 export default {
   name: "home-app",
   data(){
-    return {}
+    return {
+      rooms:null
+    }
   },
   methods:{
 goTo(place){
   // console.log(place);
   this.$router.push({path:'explore',query:{destination:place}})
 }
-  }
+  },
+   async created() {
+      const topRooms = await this.$store.dispatch({type: "topRoomsForDisplay"}) 
+      this.rooms=topRooms
+   }
 };
 
 </script>
