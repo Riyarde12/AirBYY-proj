@@ -4,7 +4,7 @@ import roomApp from "../views/room-app.vue";
 import roomDetails from "../views/room-details.vue";
 import roomEdit from "../views/room-edit.vue";
 import userDetails from "../views/user-details.vue";
-import explorePage from "../views/explore-page.vue";
+
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -20,12 +20,7 @@ const router = createRouter({
     //   component: userDetails,
     // },
     {
-      path: "/explore/",
-      name: "explore-page",
-      component: explorePage,
-    },
-    {
-      path: "/room/:roomId?",
+      path: "/explore",
       name: "room-app",
       component: roomApp,
     },

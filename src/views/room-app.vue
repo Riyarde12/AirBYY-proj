@@ -1,25 +1,49 @@
 <template>
   <section class="room-app page-layout">
-    <room-filter @setFilter="setFilter" />
+    <!-- <room-filter @setFilter="setFilter" /> -->
+    <room-list v-if="rooms && rooms.length" :rooms="rooms">XXXX</room-list>
+    <!-- <pre>
+      {{ rooms }}
+    </pre> -->
     APP
   </section>
 </template>
 
 <script>
+import roomList from "../components/room-list.vue";
+import roomFilter from "../components/room-filter.vue";
+
 export default {
-  name: "room-app",
+  name: "explore-page",
+  components: {
+    roomList,
+    roomFilter,
+  },
+  async created() {
+    const params = this.$route.query;
+    try {
+      await this.$store.dispatch({
+        type: "loadRooms",
+        filterBy: params,
+      });
+      this.rooms = this.$store.getters.rooms;
+      console.log("this.rooms", this.rooms);
+    } catch (err) {
+      console.log("err", err);
+    }
+  },
+
   data() {
     return {
       rooms: null,
     };
   },
-  computed: {},
-  created() {
-    // const destination = this.$route.params;
-  },
   methods: {},
-  components: {},
+  computed: {
+    // rooms() {
+    //   console.log("example", this.$store.getters.rooms);
+    //   return this.$store.getters.rooms;
+    // },
+  },
 };
 </script>
-
-<style></style>
