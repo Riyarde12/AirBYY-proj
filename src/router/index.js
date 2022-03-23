@@ -20,7 +20,7 @@ const router = createRouter({
     //   component: userDetails,
     // },
     {
-      path: "/explore/",
+      path: "/explore",
       name: "explore-page",
       component: explorePage,
     },
