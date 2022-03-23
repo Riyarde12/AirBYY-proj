@@ -4,18 +4,18 @@ const ENDPOINT = "stay";
 const STAY_KEY = "stay_db";
 
 export const stayService = {
-	query,
-	getById,
-	// remove,
-	save,
-	// getEmptyStay,
+  query,
+  getById,
+  // remove,
+  save,
+  getEmptyStay,
 };
 
-const gStays = (JSON.parse(localStorage.getItem(STAY_KEY)))
-_createStays()
+const gStays = (JSON.parse(localStorage.getItem(STAY_KEY)));
+_createStays();
 
 function _createStays() {
-  if(!gStays || !gStays.length){
+  if (!gStays || !gStays.length) {
     const gStays = [
       {
         "name": "Westin Kaanapali KORVN 2BR",
@@ -920,21 +920,21 @@ function _createStays() {
     ];
     localStorage.setItem(STAY_KEY, JSON.stringify(gStays));
   }
-  return
+  return;
 }
 
 const BASE_URL = process.env.NODE_ENV !== "development"
-	? "/api/stay/"
-	: "//localhost:3030/api/stay/";
+  ? "/api/stay/"
+  : "//localhost:3030/api/stay/";
 
 async function query(filterBy = {}) {
-	// return await httpService.get(ENDPOINT, filterBy);
-	return await storageService.query(STAY_KEY);
+  // return await httpService.get(ENDPOINT, filterBy);
+  return await storageService.query(STAY_KEY);
 }
 
 async function getById(id) {
-	// return await httpService.get(`${ENDPOINT}/${id}`);
-	return await storageService.get(STAY_KEY, id);
+  // return await httpService.get(`${ENDPOINT}/${id}`);
+  return await storageService.get(STAY_KEY, id);
 }
 
 // async function remove(id) {
@@ -942,10 +942,10 @@ async function getById(id) {
 // }
 
 async function save(stay) {
-	// return stay._id
-	// 	? await httpService.put(`${ENDPOINT}/${stay._id}`, stay)
-	// 	: await httpService.post(ENDPOINT, stay);
-	return await storageService._save(STAY_KEY, stay);
+  // return stay._id
+  // 	? await httpService.put(`${ENDPOINT}/${stay._id}`, stay)
+  // 	: await httpService.post(ENDPOINT, stay);
+  return await storageService._save(STAY_KEY, stay);
 }
 
 function getEmptyStay() {
