@@ -52,7 +52,7 @@
 </div>
 </div>
 <hr>
-<div v-if="rooms" v-for="room in rooms" key="room._id" class="card-container">
+<div  v-for="room in rooms" :key="room._id" class="card-container">
 <pre>{{room.name}}</pre>
 </div>
   </section>
@@ -74,6 +74,7 @@ goTo(place){
   },
    async created() {
       const topRooms = await this.$store.dispatch({type: "topRoomsForDisplay"}) 
+      console.log(topRooms);
       this.rooms=topRooms
    }
 };

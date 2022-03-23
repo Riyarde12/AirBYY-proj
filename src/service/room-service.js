@@ -1918,8 +1918,11 @@ async function query(filterBy = {}) {
 }
 
 async function homepageDisplay (){
-  const rooms = await query()
-  const homeRooms = rooms.map(room => room.reviewScores.rating=== 100)
+  const rooms = await storageService.query(STAY_KEY)
+  // console.log(rooms[0].reviewScores.rating);
+  console.log(rooms);
+  const homeRooms = rooms.filter(room => room.reviewScores.rating > 80)
+  console.log(homeRooms);
   return homeRooms
 }
 

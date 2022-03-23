@@ -65,8 +65,9 @@ export default {
     },
       async topRoomsForDisplay({commit}) {
           const homeRooms = await roomService.homepageDisplay()
-          commit({type:'setHomeRoom',homeRooms})        
-          return JSON.parse(JSON.stringify(homeRooms.splice(0,0,4))) 
+          commit({type:'setHomeRoom',homeRooms}) 
+          console.log(homeRooms);       
+          return JSON.parse(JSON.stringify(homeRooms.slice(0, 4))) 
       }
     // async removeRoom({ commit }, { id }) {
     //   console.log('id', id);
