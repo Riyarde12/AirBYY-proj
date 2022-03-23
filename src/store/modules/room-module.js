@@ -3,6 +3,7 @@ import { roomService } from '../../service/room-service.js';
 export default {
   state: {
     rooms: null,
+    destination: null,
     // filterBy: null,
     // roomToEdit: null,
     // userSignUp: {
@@ -15,9 +16,9 @@ export default {
     rooms(state) {
       return JSON.parse(JSON.stringify(state.rooms));
     },
-    // room(state) {
-    //     return JSON.parse(JSON.stringify(state.roomToEdit));
-    // },
+    destination(state) {
+      return state.destination;
+    }
   },
   mutations: {
     setRooms(state, { rooms }) {
@@ -35,15 +36,22 @@ export default {
     setFilter(state, { filterBy }) {
       state.filterBy = filterBy;
     },
+    // setDestination(state, { destination }) {
+    //   console.log('destination :>> commit', destination);
+    //   const currDestination = state.rooms.find(room => room.address.country = destination);
+    //   console.log('currDestination: ', currDestination);
+    //   state.destination = currDestination;
+    //   console.log('state.destination', state.destination);
+    // }
     // setRoomToEdit(state, { room }) {
     //     state.roomToEdit = room;
     // },
   },
   actions: {
-    async loadRooms({ commit, state }) {
+    async loadRooms({ commit, state }, { filterBy }) {
+      console.log('filterBy', filterBy);
       try {
-        const rooms = await roomService.query(state.filterBy);
-
+        const rooms = await roomService.query(filterBy);
         commit({ type: 'setRooms', rooms });
       }
       catch (err) {

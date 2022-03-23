@@ -1,5 +1,5 @@
 <template>
-  <section class="room-details page-layout">DETAILS</section>
+  <section class="room-details page-layout">DETAILS
 </template>
 
 <script>
@@ -14,4 +14,6 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+</style>
+

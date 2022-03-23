@@ -929,7 +929,16 @@ const BASE_URL = process.env.NODE_ENV !== "development"
 
 async function query(filterBy = {}) {
   // return await httpService.get(ENDPOINT, filterBy);
-  return await storageService.query(STAY_KEY);
+  const rooms = await storageService.query(STAY_KEY);
+  const roomsForDisplay = _roomsForDisplay(rooms, filterBy);
+  return roomsForDisplay;
+}
+
+function _roomsForDisplay(rooms, filterBy) {
+
+  const currRooms = rooms.filter(room => room.address.country === filterBy.destination);
+  console.log('currRooms', currRooms);
+  return currRooms;
 }
 
 async function getById(id) {

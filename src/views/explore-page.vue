@@ -1,26 +1,34 @@
 
-
 <template>
   <section>
-    <pre>{{ destination }}</pre>
+    <!-- <pre>{{ rooms }}</pre> -->
+    <room-list v-if="rooms" :rooms="rooms"></room-list>
   </section>
 </template>
 
-
 <script>
-// import '' from ''
+import roomList from "../components/room-list.vue";
 export default {
   name: "explore-page",
-  components: {},
+  components: {
+    roomList,
+  },
   created() {
-    this.destination = this.$route.query;
+    const params = this.$route.query;
+    console.log("params", params);
+    this.$store.dispatch({
+      type: "loadRooms",
+      filterBy: params,
+    });
   },
   data() {
-    return {
-      destination: null,
-    };
+    return {};
   },
   methods: {},
-  computed: {},
+  computed: {
+    rooms() {
+      return this.$store.getters.rooms;
+    },
+  },
 };
 </script>
