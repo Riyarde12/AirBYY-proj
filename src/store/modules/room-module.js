@@ -5,7 +5,7 @@ export default {
     rooms: null,
     destination: null,
     filterBy: null,
-    homeRooms:null,
+    homeRooms: null,
     // roomToEdit: null,
     // userSignUp: {
     //   fullname: "",
@@ -38,8 +38,8 @@ export default {
     setFilter(state, { filterBy }) {
       state.filterBy = filterBy;
     },
-    setHomeRoom(state,{homeRooms}) {
-      state.homeRooms = homeRooms
+    setHomeRoom(state, { homeRooms }) {
+      state.homeRooms = homeRooms;
     }
     // setDestination(state, { destination }) {
     //   console.log('destination :>> commit', destination);
@@ -53,22 +53,23 @@ export default {
     // },
   },
   actions: {
-    async loadRooms({ commit, state }, { filterBy }) {
+    async loadRooms({ commit, state }, { filterBy = {} }) {
       console.log('filterBy', filterBy);
       try {
         const rooms = await roomService.query(filterBy);
         commit({ type: 'setRooms', rooms });
+        return rooms;
       }
       catch (err) {
         console.log('err', err);
       }
     },
-      async topRoomsForDisplay({commit}) {
-          const homeRooms = await roomService.homepageDisplay()
-          commit({type:'setHomeRoom',homeRooms}) 
-          console.log(homeRooms);       
-          return JSON.parse(JSON.stringify(homeRooms.slice(0, 4))) 
-      }
+    // async topRoomsForDisplay({ commit }) {
+    //   const homeRooms = await roomService.homepageDisplay();
+    //   commit({ type: 'setHomeRoom', homeRooms });
+    //   console.log(homeRooms);
+    //   return JSON.parse(JSON.stringify(homeRooms.slice(0, 4)));
+    // }
     // async removeRoom({ commit }, { id }) {
     //   console.log('id', id);
     //   try {
