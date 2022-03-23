@@ -2,7 +2,7 @@
   <section class="room-app page-layout">
     <!-- <room-filter @setFilter="setFilter" /> -->
     <room-list v-if="rooms && rooms.length" :rooms="rooms"></room-list>
-    <pre>{{rooms}}</pre>
+    <pre>{{ rooms }}</pre>
   </section>
 </template>
 
@@ -16,11 +16,11 @@ export default {
     roomList,
     // roomFilter,
   },
-    data() {
-      return {
-        rooms: null,
-      };
-    },
+  data() {
+    return {
+      rooms: null,
+    };
+  },
   async created() {
     const params = this.$route.query;
 
