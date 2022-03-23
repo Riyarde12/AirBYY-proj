@@ -17,9 +17,9 @@ export default {
     rooms(state) {
       return JSON.parse(JSON.stringify(state.rooms));
     },
-    destination(state) {
-      return state.destination;
-    }
+    // destination(state) {
+    //   return state.destination;
+    // }
   },
   mutations: {
     setRooms(state, { rooms }) {
