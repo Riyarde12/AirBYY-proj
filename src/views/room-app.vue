@@ -1,8 +1,10 @@
 <template>
   <section class="room-app page-layout">
     <!-- <room-filter @setFilter="setFilter" /> -->
-    <room-list v-if="rooms && rooms.length" :rooms="rooms">XXX</room-list>
-    <!-- <pre>{{ rooms }}</pre> -->
+    <room-list v-if="rooms && rooms.length" :rooms="rooms"></room-list>
+    <!-- <pre>
+      {{ rooms }}
+    </pre> -->
   </section>
 </template>
 
@@ -11,7 +13,7 @@ import roomList from "../components/room-list.vue";
 import roomFilter from "../components/room-filter.vue";
 
 export default {
-  name: "explore-page",
+  name: "room-app",
   components: {
     roomList,
     // roomFilter,

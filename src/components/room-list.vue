@@ -1,29 +1,20 @@
 <template>
   <section class="room-list">
-    <ul>
-      <li v-for="room in rooms" :key="room._id">
-        <pre>
-          {{ room._id }}
-           XXXX
-        </pre>
-      </li>
-    </ul>
-    <pre>
-  {{ rooms }}
-  <!-- {{ console.log(rooms) }} -->
-</pre>
+    <h1>hello</h1>
+    <h2 v-if="rooms">
+      {{ roomss }}
+    </h2>
   </section>
 </template>
 
 <script>
 export default {
+  name: "room-list",
   props: {
     rooms: {
-      type: [Object],
+      type: Array,
     },
   },
-  name: "room-list",
-  props: {},
   created() {},
   data() {
     return {
@@ -32,7 +23,11 @@ export default {
   },
   components: {},
   methods: {},
-  computed: {},
+  computed: {
+    roomss() {
+      return this.rooms;
+    },
+  },
 };
 </script>
 
