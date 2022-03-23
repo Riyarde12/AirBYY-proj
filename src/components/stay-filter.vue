@@ -1,5 +1,5 @@
 <template>
-  <section class="stay-filter"></section>
+  <section class="stay-filter">filter</section>
 </template>
 
 <script>
