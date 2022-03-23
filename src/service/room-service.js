@@ -916,7 +916,989 @@ function _createRooms() {
           "043.jpeg",
           "113.jpeg"
         ]
-      }
+      },
+      {
+        "name": "Sunny and quiet room with private shower room",
+        "summary": "Very quite and sunny room with private shower room My place is in Poble Sec, one of the most charming neighborhood in Barcelona. Located in the shadow of Montjuic's hill,the biggest and most beautiful parc in the city Just 2min far from  metro station and 15min from the airport bus stop Poble Sec is sizzling with open air bars and  quite streets ,pretty squares and friendly locals make it worthy The flat is in the 5th FLOOR NO LIFT  There's a lovely fat cat living",
+        "interaction": "I am willing to make your stay in Barcelona as pleasant as possible",
+        "houseRules": "1. Please tidy up after yourself. 2. Be respectful of the other residents in the building and keep the noise down after 11.30pm.  3. No smoking in the room and living room. It 's allow in the balcony",
+        "propertyType": "Apartment",
+        "roomType": "Private room",
+        "bedType": "Real Bed",
+        "cancellationPolicy": "strict_14_with_grace_period",
+        "capacity": 2,
+        "bedrooms": 1,
+        "beds": 1,
+        "numOfReviews": 132,
+        "amenities": [
+          "Internet",
+          "Wifi",
+          "Kitchen",
+          "Pets live on this property",
+          "Cat(s)",
+          "Buzzer/wireless intercom",
+          "Heating",
+          "Washer",
+          "First aid kit",
+          "Essentials",
+          "Shampoo",
+          "24-hour check-in",
+          "Hangers",
+          "Hair dryer",
+          "Iron",
+          "Laptop friendly workspace",
+          "translation missing: en.hosting_amenity_49",
+          "translation missing: en.hosting_amenity_50",
+          "Hot water",
+          "Bed linens",
+          "Refrigerator",
+          "Dishes and silverware",
+          "Cooking basics",
+          "Stove"
+        ],
+        "host": {
+          "_id": "622f3402e36c59e6164facd5",
+          "fullname": "Montserrat",
+          "location": "Barcelona, Catalonia, Spain",
+          "about": "\r\nI love traveling. Therefore, I am delighted to help travelers to discover the magical places of this incredible city. I am completely available to give any kind of suggestions, information and help on what they need to make the stay in Barcelona as pleasant as possible !!\r\n\r\n",
+          "responseTime": "within an hour",
+          "thumbnailUrl": "https://a0.muscache.com/im/pictures/fdb58b71-1613-4905-8850-024dc23f1cb0.jpg?aki_policy=profile_small",
+          "pictureUrl": "https://a0.muscache.com/im/pictures/fdb58b71-1613-4905-8850-024dc23f1cb0.jpg?aki_policy=profile_x_medium",
+          "isSuperhost": false,
+          "id": "80740340"
+        },
+        "address": {
+          "street": "Barcelona, Catalunya, Spain",
+          "country": "Spain",
+          "location": {
+            "lat": 2.15691,
+            "lan": 41.37475
+          },
+          "countryCode": "ES",
+          "city": "Barcelona"
+        },
+        "id": "13766096",
+        "bathrooms": 1,
+        "price": 40,
+        "securityDeposit": null,
+        "cleaningFee": null,
+        "extraPeople": 0,
+        "reviewScores": {
+          "accuracy": 10,
+          "cleanliness": 10,
+          "checkin": 10,
+          "communication": 10,
+          "location": 10,
+          "value": 9,
+          "rating": 93
+        },
+        "reviews": [
+          {
+            "at": "2016-07-24T04:00:00.000Z",
+            "by": {
+              "_id": "622f3402e36c59e6164faf17",
+              "fullname": "Ida",
+              "imgUrl": "https://robohash.org/23772603?set=set1",
+              "id": "23772603"
+            },
+            "txt": "Montse was such a welcoming host and we had a fantastic stay at her place! The apartment is upper nice and we loved the cat and the turtle. The neighborhood is full of small bars and cafes and it's not too far from the beach. We really loved staying here and we would definitely come back!"
+          },
+          {
+            "at": "2016-08-07T04:00:00.000Z",
+            "by": {
+              "_id": "622f3406e36c59e6164fbcca",
+              "fullname": "Alicja",
+              "imgUrl": "https://robohash.org/45092009?set=set1",
+              "id": "45092009"
+            },
+            "txt": "Gospodarz bardzo miły! zero problemów, mieszkanie idealne na podróż do Barcelony, świetna lokalizacja, tuż przy głównej drodze, w związku z czym nie bylo problemu z transportem z lotniska. Mieszkanie schludne, dużym plusem jest prywatna łazienka, do której można wejść z pokoju. Jedynym problemem był nasz późny przyjazd oraz utrudniona komunikacja z gospodarzem (nie zostaliśmy poinformowani o numerze domu) na szczęście wszystko dobrze się skończyło i znaleźliśmy swoje cudne mieszkanie na 3 noce ;)"
+          },
+          {
+            "at": "2016-08-14T04:00:00.000Z",
+            "by": {
+              "_id": "622f3407e36c59e6164fbdf5",
+              "fullname": "Marvin & Henrica",
+              "imgUrl": "https://robohash.org/74586972?set=set1",
+              "id": "74586972"
+            },
+            "txt": "Our experience with Montserrat and her apartment is positive. We've had a pleasant stay end we felt very welcome. Montserrat is a lovely host. The room is exactly like it's advertised. The apartment is located right in the city centre of Barcelona. It's close to places like shops, the beach, monuments, parks, site seeing, places to go out, etc. Moreover there's an easy airport connection to the apartment. We are happy to recommend this place to everyone! "
+          },
+          {
+            "at": "2016-08-15T04:00:00.000Z",
+            "by": {
+              "_id": "622f3406e36c59e6164fbafe",
+              "fullname": "Francesco",
+              "imgUrl": "https://robohash.org/88526009?set=set1",
+              "id": "88526009"
+            },
+            "txt": "Montserrat has been a great host. She was so happy to give us the welcome in Barcelona. Extremely suggested."
+          },
+          {
+            "at": "2016-08-24T04:00:00.000Z",
+            "by": {
+              "_id": "622f3402e36c59e6164fae90",
+              "fullname": "Lola",
+              "imgUrl": "https://robohash.org/81936880?set=set1",
+              "id": "81936880"
+            },
+            "txt": "Séjour agréable, le logement correspond tout à fait à la description et hôte  accueillante "
+          },
+          {
+            "at": "2016-08-29T04:00:00.000Z",
+            "by": {
+              "_id": "622f3403e36c59e6164fb069",
+              "fullname": "Sébastien",
+              "imgUrl": "https://robohash.org/84836844?set=set1",
+              "id": "84836844"
+            },
+            "txt": "2 jours agréables dans l'appartement de Montse et de Palomita (son chat). Barcelone est une très jolie ville. Montse était extrêmement sympathique, elle nous a fait à manger à notre arrivée et était souriante. On était seuls dans l'appart par la suite mais bon ça n'était pas dérangeant.\nPetit conseil néanmoins : évitez de prendre une trop grosse valise que vous devrez monter et descendre sur 5 étages."
+          },
+          {
+            "at": "2016-09-03T04:00:00.000Z",
+            "by": {
+              "_id": "622f3408e36c59e6164fc06c",
+              "fullname": "Olesya",
+              "imgUrl": "https://robohash.org/2709574?set=set1",
+              "id": "2709574"
+            },
+            "txt": "Montserrat is a great host, very friendly and helpful. The location is very good and close to all important places. Cosy balcony and true Barcelona experience :) thank you Palomita and Montse! "
+          },
+          {
+            "at": "2016-09-05T04:00:00.000Z",
+            "by": {
+              "_id": "622f3406e36c59e6164fb9ef",
+              "fullname": "Alice",
+              "imgUrl": "https://robohash.org/8965690?set=set1",
+              "id": "8965690"
+            },
+            "txt": "Montse and her friend were super welcoming : we had the pleasure to have breakfast and chat with them on our arrival. It was really nice. The flat is located in a non-touristy neighborhood, with plenty of local bars and good food places, and well connected to the public transportation system. "
+          },
+          {
+            "at": "2016-09-07T04:00:00.000Z",
+            "by": {
+              "_id": "622f3406e36c59e6164fbc26",
+              "fullname": "Jenny",
+              "imgUrl": "https://robohash.org/7913652?set=set1",
+              "id": "7913652"
+            },
+            "txt": "Mi estancia con Montse fue genial! Me encantó la habitación y Montse fue una anfitriona muy acogedora y generosa. Me aconsejó sobre lo que podría hacer en la ciudad, con transporte etc. Me encantaría volver algún día, muchísimas gracias Montse!!"
+          },
+          {
+            "at": "2016-09-09T04:00:00.000Z",
+            "by": {
+              "_id": "622f3407e36c59e6164fc04f",
+              "fullname": "Dora",
+              "imgUrl": "https://robohash.org/20022395?set=set1",
+              "id": "20022395"
+            },
+            "txt": "We stayed with Montse for two nights and had a lovely all round experience. Montse was super welcoming and helpful, the flat is lovely and cozy and exactly as described. The neighborhood is not overrun by tourists like many other parts of the city and is in walking distance from many great sights and landmarks. We would definitely stay with Montse again and are more than happy to recommend her place."
+          },
+          {
+            "at": "2016-09-20T04:00:00.000Z",
+            "by": {
+              "_id": "622f3407e36c59e6164fbf4e",
+              "fullname": "Marie Laure",
+              "imgUrl": "https://robohash.org/2238447?set=set1",
+              "id": "2238447"
+            },
+            "txt": "Nous avons été très bien accueillies par Montce qui est une personne très aimable, l appartement typique espagnol est très agréable.le luxe une salle de bain privée. L appartement est situé à 4 mn du métro, il y a tout à côté avenue parallèl êt a 10 mn à pied de Plaza espana d une côte êt le port de l autre.  Montce nous a laissé l appartement pour nous seules les 3 jours. La chambre est très agréable et le lit deux places très confortable. Wi fi. N oublions pas qu il y a 5 étages sans ascenseurs..mais montce nous a aidé à l arrivée êt au départ pour tout porter. Très bonne entraînement après les délicieux repas. J y retournerais avec grand plaisir!!!! Muchas gracias montce."
+          },
+          {
+            "at": "2016-10-02T04:00:00.000Z",
+            "by": {
+              "_id": "622f3404e36c59e6164fb325",
+              "fullname": "Federica",
+              "imgUrl": "https://robohash.org/48080783?set=set1",
+              "id": "48080783"
+            },
+            "txt": "Il soggiorno da Montserrat è stato molto piacevole. Lei è davvero gentile e disponibile. Ci ha permesso di usare qualsiasi cosa era in casa. L'appartamento è abbastanza pulito e la camera è luminosa, così come la si vede in foto. L'unico aspetto negativo sono le 5 rampe di scale strette e buie."
+          },
+          {
+            "at": "2016-10-08T04:00:00.000Z",
+            "by": {
+              "_id": "622f3407e36c59e6164fbd00",
+              "fullname": "Lucia",
+              "imgUrl": "https://robohash.org/89169569?set=set1",
+              "id": "89169569"
+            },
+            "txt": "La camera e' semlice ma confortevole, corrisponde esattamente alla foto.\r\nIo ho dormito benissimo, il materasso e' tipo futon..C'e' un piccolo bagno con doccia annesso alla camera, ma per il wc bisogna attraversare un piccolo soggiorno, Per noi non ci sono stati problemi, la padrona di casa aveva orari di lavoro tali che non ci vedavamo mai, ma quando rientrava o si alzava nell'unica altra camera dell'appartamentino, era molto discreta e non faceva (Website hidden by Airbnb) nostro arrivo, non potendo essere presente,ha lasciato le chiavi da un suo amico negoziante che e' stato facile trovare, proprio vicino alla casa, naturalmente ci ha ha avvertito prima tramite sms.\r\nAppartamentino piccolo e semplice ma carino e pulito, l'unico difetto tanti scalini da fare senza ascensore, ma se non si hanno problemi di gambe o di cuore, sono un bell'allenamento per tenersi in forma nonostante le mangiate, oltretutto sono rampe di scale molto tipiche e interessanti..L'esperianza in generale e' stata senz'altro positiva, l'ospite , gentile e discreta si e' preoccupata di facilitarci le cose..Il posto e' anche vicino alla metropolitana o naturalmente anche ai bus.\r\n Wi-fi penso che vada. l'ospite ci ha lasciato la sua password, ma poi non abbiamo piu' provato perché stavamo molto fuori .."
+          },
+          {
+            "at": "2016-10-16T04:00:00.000Z",
+            "by": {
+              "_id": "622f3403e36c59e6164fb1c6",
+              "fullname": "Friedrich",
+              "imgUrl": "https://robohash.org/19083236?set=set1",
+              "id": "19083236"
+            },
+            "txt": "We had a nice time!"
+          },
+          {
+            "at": "2016-10-18T04:00:00.000Z",
+            "by": {
+              "_id": "622f3403e36c59e6164fb03f",
+              "fullname": "Irene",
+              "imgUrl": "https://robohash.org/80711464?set=set1",
+              "id": "80711464"
+            },
+            "txt": "Montserrat是位很好的女主人,热情好客,亲切地招待我们,提供茶点和咖啡,为了不打扰我们休息还搬去外面吃饭^^ 和她聊了很多,也学到了很多,过得非常愉快｡房间与图片描述一致,很干净舒服｡不便之处是WIFI不是很稳定,以及房间在很高的4楼且没有电梯｡不过Montserrat有帮我们搬行李减轻我们的负担,感谢Montserrat｡我推荐不携带行李箱的游客入住~"
+          },
+          {
+            "at": "2016-10-22T04:00:00.000Z",
+            "by": {
+              "_id": "622f3405e36c59e6164fb6e2",
+              "fullname": "Simen",
+              "imgUrl": "https://robohash.org/21913799?set=set1",
+              "id": "21913799"
+            },
+            "txt": "Very cosy apartment in a nice and local neighborhood. Montserrat was a really nice host and we felt very comfortable in her apartment. Location is perfect and just 2 min to metro and bus. She has an awesome juice machine to make fresh orange juice:) \r\nHighly recommended!"
+          },
+          {
+            "at": "2016-10-26T04:00:00.000Z",
+            "by": {
+              "_id": "622f3404e36c59e6164fb5e3",
+              "fullname": "Ines",
+              "imgUrl": "https://robohash.org/18449869?set=set1",
+              "id": "18449869"
+            },
+            "txt": "Montce a été très gentille et accueillante, c'était un plaisir d'être dans son appartement qu'elle nous a gentiment laissé pendant notre séjour de 5 jours, nous l'avons vu que quelques fois et c'était pour qu'elle nous donne des informations sur la ville de Barcelone! L'appartement est très bien situé, à deux pas du métro! Les escaliers de la résidence étaient bien étroits, et il y à 5 étages à monter! Mais nous étions prévenu, c'est écrit sur l'annonce, ça nous a permis de bien digérer le repas avant de dormir! Et si on a une grosse valise Montce est prête à nous aider dans les escaliers ! \r\nMuchas gracias Montce, espero que nos vemos un otro dia por el pais vasco!! :) Hechamos de menos palomita ! "
+          },
+          {
+            "at": "2016-10-28T04:00:00.000Z",
+            "by": {
+              "_id": "622f3407e36c59e6164fbd45",
+              "fullname": "Ylenia",
+              "imgUrl": "https://robohash.org/60807862?set=set1",
+              "id": "60807862"
+            },
+            "txt": "El piso es como un 6 sin acensor pero es más, las escaleras de acceso a la última planta son infernales. Tiene por ambos lados unos patios que no son aptos para personas con vértigo y si a eso le sumamos que la barandilla está suelta por sitios... El edificio en general es muy antiguo y tiene muchísimas grietas y El Barrio tampoco es de fiar. En resumen, no nos quedamos en el alojamiento finalmente."
+          },
+          {
+            "at": "2016-11-02T04:00:00.000Z",
+            "by": {
+              "_id": "622f3403e36c59e6164fb09a",
+              "fullname": "Ainara",
+              "imgUrl": "https://robohash.org/64867465?set=set1",
+              "id": "64867465"
+            },
+            "txt": "Montse nos dió todas las facilidades posibles para que nuestra estancia en Barcelona fuese inmejorable y de verdad nos hizo sentir que su casa era nuestra casa."
+          },
+          {
+            "at": "2016-11-13T05:00:00.000Z",
+            "by": {
+              "_id": "622f3407e36c59e6164fbeeb",
+              "fullname": "Ольга",
+              "imgUrl": "https://robohash.org/99467277?set=set1",
+              "id": "99467277"
+            },
+            "txt": "Монсерат очень позитивна и отзывчива, весела и приятна в общении, деликатна и ненавязчива. Встретила нас, несмотря на поздний заезд. Квартира соответствует фотографиям и описаниям, все чисто и аккуратно. Квартира расположена в старинном доме в хорошем и тихом районе. До метро Poble Sec три минуты ходьбы.Для нас оказался необычным подъезд, лестница и правда узкая и высокая, об этом все тут пишут, если есть проблемы со здоровьем, лучше не рисковать. Удачное расположение квартиры позволяет экономить на проезде, до площади Испании и фонтана Монжуик десять минут, до площади Каталонии чуть подальше. Рядом много кафе и магазинов. Из-за рабочего графика Монс, мы видели ее очень редко, поэтому фактически вся квартира была в нашем распоряжении. Это был наш первый опыт с airbnb и он оказался удачным."
+          }
+        ],
+        "_id": "622f337a75c7d36e498aab12",
+        "imgUrls": [
+          "025.jpeg",
+          "016.jpeg",
+          "063.jpeg",
+          "023.jpeg",
+          "050.jpeg"
+        ]
+      },
+      {
+        "name": "Inner City Terrace - 2 rooms 2 beds - 4 ppl.",
+        "summary": "Our home is located in Darlington, a small niche suburb of Sydney with a relaxed, friendly and safe atmosphere. We are located a 10 min walk to Broadway, Glebe, Newtown, The University, surrounded by fantastic restaurants, cafes, pubs, markets and public transport. It is a 20 min walk to the city centre.",
+        "interaction": "We have a good knowledge of restaurants, bars and clubs, tourist attractions and sights to see in Sydney and other parts of Australia. There are maps of Sydney and Australia and guidebooks on the bookshelf. We are happy to assist with information or let you explore on your own.",
+        "houseRules": "We enjoy sharing our home with you and other Airbnb guests, please be considerate, enjoy the house, treat it with respect and apply some common sense! We are relaxed and easy going, we do not have rules or a curfew, however from our hosting experience we have generated some simple guidelines; •\tPlease ensure the house is locked for everyone's safety and security when you leave.  •\tIf you cook or use things in the kitchen place it in the dishwasher, and if you make a mess please clean it up. •\tPlease be considerate when using the bathroom, and be thoughtful for the next person to use it.  •\tPlease hang wet towels behind the door or on the rack provided. •\tWe enjoy cooking and are happy to share what we have in the fridge or pantry, but please do not freeload, for longer stays please be thoughtful by replacing or buying your own products. •\tWe appreciate that people enjoy their own space, may be tired after a long day or have limited/basic English. This is our home, please be courteous t",
+        "propertyType": "Townhouse",
+        "roomType": "Private room",
+        "bedType": "Real Bed",
+        "cancellationPolicy": "flexible",
+        "capacity": 4,
+        "bedrooms": 2,
+        "beds": 2,
+        "numOfReviews": 3,
+        "amenities": [
+          "TV",
+          "Internet",
+          "Wifi",
+          "Kitchen",
+          "Paid parking off premises",
+          "Smoking allowed",
+          "Free street parking",
+          "Heating",
+          "Washer",
+          "Dryer",
+          "Smoke detector",
+          "Carbon monoxide detector",
+          "First aid kit",
+          "Fire extinguisher",
+          "Essentials",
+          "Shampoo",
+          "24-hour check-in",
+          "Hangers",
+          "Hair dryer",
+          "Iron",
+          "Laptop friendly workspace",
+          "translation missing: en.hosting_amenity_49",
+          "translation missing: en.hosting_amenity_50",
+          "Hot water",
+          "Host greets you"
+        ],
+        "host": {
+          "_id": "622f3406e36c59e6164fba46",
+          "fullname": "Jason",
+          "location": "New South Wales, Australia",
+          "about": "Hey I'm Jason. I enjoy travelling, photography and beer!\r\n\r\nWe have had a little girl!\r\nOur calender will be closed for a while. If you are a repeat guest send me a message and we might be able to open the calender for you.\r\n\r\nI spent many years living in England, Ireland and Italy; and have travelled to Andorra, Austria, Bali, Belgium, Bulgaria, France, Germany, Hungary, Malaysia, Portugal, Romania, Singapore, Spain, Switzerland, Thailand & Vietnam. \r\n\r\nMy partner Luana is from Verona, Italy. \r\n\r\nWe started hosting in Oct 2015 and enjoy meeting people from around the world and listening to stories about their country and travels.\r\n\r\nWe have a good knowledge of Sydney (sights, attractions, shopping, beaches, day treks, restaurants, pubs & night clubs) and various places around Australia. ",
+          "thumbnailUrl": "https://a0.muscache.com/im/pictures/440690bd-73f1-411a-8194-5e6a17bc39ff.jpg?aki_policy=profile_small",
+          "pictureUrl": "https://a0.muscache.com/im/pictures/440690bd-73f1-411a-8194-5e6a17bc39ff.jpg?aki_policy=profile_x_medium",
+          "isSuperhost": false,
+          "id": "9031139"
+        },
+        "address": {
+          "street": "Darlington, NSW, Australia",
+          "country": "Australia",
+          "location": {
+            "lat": 151.1965,
+            "lan": -33.88848
+          },
+          "countryCode": "AU",
+          "city": "Sydney"
+        },
+        "id": "11778959",
+        "bathrooms": 1,
+        "price": 171,
+        "securityDeposit": 0,
+        "cleaningFee": 0,
+        "extraPeople": 0,
+        "reviewScores": {
+          "accuracy": 10,
+          "cleanliness": 10,
+          "checkin": 10,
+          "communication": 10,
+          "location": 10,
+          "value": 10,
+          "rating": 100
+        },
+        "reviews": [
+          {
+            "at": "2016-08-15T04:00:00.000Z",
+            "by": {
+              "_id": "622f3407e36c59e6164fbfd7",
+              "fullname": "Joshua",
+              "imgUrl": "https://robohash.org/61019353?set=set1",
+              "id": "61019353"
+            },
+            "txt": "My production company booked Jason's home to shoot the second series of our online show, A Shared House and we had an incredible time.\r\n\r\nIn the months leading up to our booking Jason made himself available to assist us with any questions or queries we had about our time in the house.\r\n\r\nJason was flexible with our schedule and did everything he could to make our stay as perfect and problem free as it could be.\r\nThe home is immaculately kept and in great condition.  Close to public transport and near by shops. \r\n\r\nBy the end of the two weeks, Jason's home felt like home to our cast and crew. Both Jason and his partner are so welcoming and accomodating - We have now become great friends!!"
+          },
+          {
+            "at": "2016-11-05T04:00:00.000Z",
+            "by": {
+              "_id": "622f3404e36c59e6164fb4f4",
+              "fullname": "Sung Hui(Audrey)",
+              "imgUrl": "https://robohash.org/101450846?set=set1",
+              "id": "101450846"
+            },
+            "txt": "It was a great time as the host was really kind and helpful. My two boys loved there, they wanted to stay longer but we had to go. Thank you Jason, we hope your always happy. Bye~"
+          },
+          {
+            "at": "2017-06-11T04:00:00.000Z",
+            "by": {
+              "_id": "622f3403e36c59e6164fb109",
+              "fullname": "Jiaojie",
+              "imgUrl": "https://robohash.org/132136782?set=set1",
+              "id": "132136782"
+            },
+            "txt": "house is so so so…lovely and Jason and his wife are friendly!"
+          }
+        ],
+        "_id": "622f337a75c7d36e498aab13",
+        "imgUrls": [
+          "004.jpeg",
+          "133.jpeg",
+          "144.jpeg",
+          "128.jpeg",
+          "046.jpeg"
+        ]
+      },
+      {
+        "name": "Nice room with queen sized bed",
+        "summary": "A lovely room with a queen sized bed, chair, dresser, lamp and closet. This room has AC for the hotter months. Guests are welcome to use the kitchen, living room and study.",
+        "interaction": "Check in, by chance daily, guests are free to email, text or call me any time if I'm not there.",
+        "houseRules": "Respectful.",
+        "propertyType": "Apartment",
+        "roomType": "Private room",
+        "bedType": "Real Bed",
+        "cancellationPolicy": "moderate",
+        "capacity": 1,
+        "bedrooms": 1,
+        "beds": 1,
+        "numOfReviews": 122,
+        "amenities": [
+          "Wifi",
+          "Air conditioning",
+          "Kitchen",
+          "Free street parking",
+          "Heating",
+          "Smoke detector",
+          "First aid kit",
+          "Fire extinguisher",
+          "Essentials",
+          "Shampoo",
+          "Lock on bedroom door",
+          "translation missing: en.hosting_amenity_49",
+          "translation missing: en.hosting_amenity_50",
+          "Host greets you"
+        ],
+        "host": {
+          "_id": "622f3404e36c59e6164fb5d8",
+          "fullname": "Jen",
+          "location": "Montreal, Quebec, Canada",
+          "about": "Massage therapist, artist, writer, gardener, traveler, filmmaker and B&B Host.",
+          "responseTime": "within a few hours",
+          "thumbnailUrl": "https://a0.muscache.com/im/users/528512/profile_pic/1303510673/original.jpg?aki_policy=profile_small",
+          "pictureUrl": "https://a0.muscache.com/im/users/528512/profile_pic/1303510673/original.jpg?aki_policy=profile_x_medium",
+          "isSuperhost": false,
+          "id": "528512"
+        },
+        "address": {
+          "street": "Montreal, QC, Canada",
+          "country": "Canada",
+          "location": {
+            "lat": -73.58677,
+            "lan": 45.52572
+          },
+          "countryCode": "CA",
+          "city": "Montreal"
+        },
+        "id": "116931",
+        "bathrooms": 1,
+        "price": 30,
+        "securityDeposit": 0,
+        "cleaningFee": 20,
+        "extraPeople": 0,
+        "reviewScores": {
+          "accuracy": 9,
+          "cleanliness": 8,
+          "checkin": 10,
+          "communication": 9,
+          "location": 10,
+          "value": 9,
+          "rating": 88
+        },
+        "reviews": [
+          {
+            "at": "2011-05-22T04:00:00.000Z",
+            "by": {
+              "_id": "622f3405e36c59e6164fb685",
+              "fullname": "Jesse",
+              "imgUrl": "https://robohash.org/601664?set=set1",
+              "id": "601664"
+            },
+            "txt": "Jen was very accomodating.  The room was fine, though being an old building you hear any conversations/people there.  Great location though, near the metro, plateau, mile end.  Lots of great restaurants nearby."
+          },
+          {
+            "at": "2011-06-25T04:00:00.000Z",
+            "by": {
+              "_id": "622f3402e36c59e6164fae87",
+              "fullname": "Peter",
+              "imgUrl": "https://robohash.org/568834?set=set1",
+              "id": "568834"
+            },
+            "txt": "Plateau Montreal Artisinal is value for money.  The location is ideal and there is an excellent range of cafes, restaurants and bars handy.  The Metro is close by.  The accommodation was adequate and the breakfast was great.  This accommodation is more in the range of a guest house than a BnB.  \r\nPeter and Jenny"
+          },
+          {
+            "at": "2011-07-01T04:00:00.000Z",
+            "by": {
+              "_id": "622f3407e36c59e6164fbeec",
+              "fullname": "Kim",
+              "imgUrl": "https://robohash.org/99155?set=set1",
+              "id": "99155"
+            },
+            "txt": "We really enjoyed our stay.  Great location – close to BIXI stand, metro, shops, restaurants and cafes.  Jen is super easy to get along with."
+          },
+          {
+            "at": "2011-07-07T04:00:00.000Z",
+            "by": {
+              "_id": "622f3407e36c59e6164fbe06",
+              "fullname": "Robert Halley",
+              "imgUrl": "https://robohash.org/731216?set=set1",
+              "id": "731216"
+            },
+            "txt": "We had a great stay at Jen's place, It was  an old buliding but full of  characteristics, close to METRO, and shops.  The rooms are colorful with comfortable beds. Breakfast was excellent. Jen is very accomodating. i highly recommend Jen's place."
+          },
+          {
+            "at": "2011-07-08T04:00:00.000Z",
+            "by": {
+              "_id": "622f3406e36c59e6164fba59",
+              "fullname": "Hana",
+              "imgUrl": "https://robohash.org/784195?set=set1",
+              "id": "784195"
+            },
+            "txt": "I do not recommend this place. I arrived on a hot day, there was no air condotion, bed much to small for a couple, room is dark and not appealing at all\r\nThe room description is definitely deciving\r\nNot worth even to stay even for free!\r\n\r\nCheck out other places\r\nBest of luck - H.\r\n"
+          },
+          {
+            "at": "2011-07-10T04:00:00.000Z",
+            "by": {
+              "_id": "622f3404e36c59e6164fb586",
+              "fullname": "Rosa",
+              "imgUrl": "https://robohash.org/745274?set=set1",
+              "id": "745274"
+            },
+            "txt": "I stayed in Montreal for one night so my friends and I enjoyed Jen's hospitality!! The breakfast was really good, thanks for everything"
+          },
+          {
+            "at": "2011-07-16T04:00:00.000Z",
+            "by": {
+              "_id": "622f3402e36c59e6164fac57",
+              "fullname": "Kristin",
+              "imgUrl": "https://robohash.org/787367?set=set1",
+              "id": "787367"
+            },
+            "txt": "This was a cute apartment in a very great location in Montreal.  Jen was a very helpful and generous host.  Breakfast was simple, but very delicious.  My only complaint was that the room is on a fairly busy street and when you have the window open in the morning (which is needed in the summer), it can be very load very early (~6am).  Other than that, it was a great place.  "
+          },
+          {
+            "at": "2011-07-18T04:00:00.000Z",
+            "by": {
+              "_id": "622f3404e36c59e6164fb323",
+              "fullname": "Antonia",
+              "imgUrl": "https://robohash.org/378883?set=set1",
+              "id": "378883"
+            },
+            "txt": "Jen's b&b is a great place to stay, she is very sweet, prepares breakfast with lots of love, the rooms and bathroom are super clean, great location and very independent, it is easy to feel at home.\r\nAlso, you should try Jen's massage, she is awesome!"
+          },
+          {
+            "at": "2011-08-06T04:00:00.000Z",
+            "by": {
+              "_id": "622f3407e36c59e6164fc014",
+              "fullname": "Alex",
+              "imgUrl": "https://robohash.org/881081?set=set1",
+              "id": "881081"
+            },
+            "txt": "Great location. Nice breakfast. Jen was a pleasant and informative host. I'm very glad I did this for my first trip to Montreal and I would definitely do this again."
+          },
+          {
+            "at": "2011-08-08T04:00:00.000Z",
+            "by": {
+              "_id": "622f3403e36c59e6164fb1b1",
+              "fullname": "Danielle",
+              "imgUrl": "https://robohash.org/884737?set=set1",
+              "id": "884737"
+            },
+            "txt": "Jen is a great host--very accommodating, makes a lovely breakfast with endless cups of coffee and her rooms are all neat and clean. The location is perfect and within walking distance of lots of great food and Montreal sights. Our room had a fan but others might find the lack of air conditioning challenging in the summer. We had a really nice stay."
+          },
+          {
+            "at": "2011-08-13T04:00:00.000Z",
+            "by": {
+              "_id": "622f3404e36c59e6164fb555",
+              "fullname": "Jean",
+              "imgUrl": "https://robohash.org/946460?set=set1",
+              "id": "946460"
+            },
+            "txt": "It was perfect! the house is charming and you feel like in your own home. Jen is very welcoming and her breakfast is delicious. A very great host!\r\nI've already decided to come back.. Thanks Jen!"
+          },
+          {
+            "at": "2012-05-21T04:00:00.000Z",
+            "by": {
+              "_id": "622f3403e36c59e6164faffb",
+              "fullname": "Huda",
+              "imgUrl": "https://robohash.org/1575627?set=set1",
+              "id": "1575627"
+            },
+            "txt": "We booked with Jen pretty last minute and found her to be very cooperative and accommodating. The location is centrally located, right next to a subway stop and near everything Montreal has to offer. Jen made us a delicious bagel breakfast in the morning, and was very flexible with our check-in/check-out time."
+          },
+          {
+            "at": "2012-05-24T04:00:00.000Z",
+            "by": {
+              "_id": "622f3403e36c59e6164fb083",
+              "fullname": "Matthew",
+              "imgUrl": "https://robohash.org/1216607?set=set1",
+              "id": "1216607"
+            },
+            "txt": "The place was great. Jen was very hospitable and we had a really comfortable and fun visit to Montreal"
+          },
+          {
+            "at": "2012-06-12T04:00:00.000Z",
+            "by": {
+              "_id": "622f3402e36c59e6164fae33",
+              "fullname": "Tara",
+              "imgUrl": "https://robohash.org/2215882?set=set1",
+              "id": "2215882"
+            },
+            "txt": "Great place in a really handy location very easy to see the city, on a lovely street full of restaurants and shops. Very nice building with old school charm, very arty feel. Beds where comfortable room was large and airy with huge window. no air con but the fan in the room worked grand. Wifi and free parking was an extra bonus. Breakfast every morning was lovely. If I get back to Montreal I will stay there again."
+          },
+          {
+            "at": "2012-06-29T04:00:00.000Z",
+            "by": {
+              "_id": "622f3402e36c59e6164fad61",
+              "fullname": "Bill",
+              "imgUrl": "https://robohash.org/11624?set=set1",
+              "id": "11624"
+            },
+            "txt": "We were in town just for one night, and Jen's place worked great!  Very easy to arrive, and everyone was very friendly."
+          },
+          {
+            "at": "2012-07-02T04:00:00.000Z",
+            "by": {
+              "_id": "622f3406e36c59e6164fbc84",
+              "fullname": "Anna",
+              "imgUrl": "https://robohash.org/1730984?set=set1",
+              "id": "1730984"
+            },
+            "txt": "Jen was very welcoming and responsive.  She and her friend provided a delicious and substantive breakfast in the morning.  Nice neighborhood right on St. Denis.  Large sunny room with comfy queen mattress. Fun and funky decor, nice little terrace and ktichen.  Couple of things: 1)  there are two bathrooms- one with toilet, the other with sink and bathtub.  The sink drained realy slowly so was a little discouraging.  Shower was fine, water pressure a little low.  2) our room, the Green Room, is right on St. Denis - trucks ROARing woke us early a.m.  3) be sure to take your room key with you when you go to the bathroom, etc, otherwise your door will lock!  Maybe I'm fussier than my younger reviewers, but these are important to note.  Otherwise, a very nice stay with friendly and knowledgable hosts.\r\n"
+          },
+          {
+            "at": "2012-07-06T04:00:00.000Z",
+            "by": {
+              "_id": "622f3402e36c59e6164fac71",
+              "fullname": "Marshall And Denise",
+              "imgUrl": "https://robohash.org/2659870?set=set1",
+              "id": "2659870"
+            },
+            "txt": "Jen was a gracious host and very friendly. The accomodations were more than adequate and breakfasts were yummy.  We even got a free concert in the bargain."
+          },
+          {
+            "at": "2012-07-15T04:00:00.000Z",
+            "by": {
+              "_id": "622f3402e36c59e6164faf25",
+              "fullname": "Steve",
+              "imgUrl": "https://robohash.org/2797722?set=set1",
+              "id": "2797722"
+            },
+            "txt": " We strongly recommend this location. We would surely stay here again in the future.\r\nNOTE: There are 3 rooms at this location. 2 of them face St Denis, and this is a busy street with traffic noise. The 1 room in the back, away from St Denis, is much quieter. This is our favorite room.\r\nThe location, one block from Metro/Laurier is excellent. The building is from 1890, and has a lot of character. There are 2 flights of stairs to get up to the rooms.\r\nJen is a very welcoming and conscientious host. She went beyond our expectations and helped us with some issues with our room and the AirBNB website. We are most appreciative.\r\nBreakfast was very good.\r\nWe stayed here for one week. in 2 of the 3 rooms. (BTW: The beds in these 2 rooms are folders, and are a bit harder than we like.)"
+          },
+          {
+            "at": "2012-07-19T04:00:00.000Z",
+            "by": {
+              "_id": "622f3402e36c59e6164faf25",
+              "fullname": "Steve",
+              "imgUrl": "https://robohash.org/2797722?set=set1",
+              "id": "2797722"
+            },
+            "txt": "This is a fine place to stay. Jen is calm, welcoming, and has a nice sense of humor."
+          },
+          {
+            "at": "2012-07-23T04:00:00.000Z",
+            "by": {
+              "_id": "622f3403e36c59e6164faffd",
+              "fullname": "Jackie",
+              "imgUrl": "https://robohash.org/2762720?set=set1",
+              "id": "2762720"
+            },
+            "txt": "I thoroughly enjoyed my stay at Jen's B&B.  Rooms were airy and clean with a kind of artistic feel that I fell immediately in love with.  B&B is in a great central location, surrounded by many great shops, restaurants, and bars, and near Metro station.  Jen is welcoming, enthusiastic, and warm.  Yummy, filling breakfast was a great start to each morning!"
+          }
+        ],
+        "_id": "622f337a75c7d36e498aab14",
+        "imgUrls": [
+          "111.jpeg",
+          "072.jpeg",
+          "133.jpeg",
+          "048.jpeg",
+          "083.jpeg"
+        ]
+      },
+      {
+        "name": "Cozy and modern Lapa-studio",
+        "summary": "Studio in modernized building with games room, gym, computer room, ballroom and rooftop pool. The studio with modern, cheerful decor, with light vintage feel is divided into bedroom and living room with kitchen.",
+        "interaction": "Guests can contact the owner anytime they need it via phone, Whatsaap or email. The owner will not be present during the stay of the guest, leaving him very at ease.",
+        "houseRules": "Cinco passos para ser um ótimo hóspede e ganhar uma excelente avaliação! : 1) Não é permitido a entrada de pessoas que não estejam registradas.  2) Não é permitido barulho,  respeite as regras do condomínio.  3) Não é permitido a presença de animais.  4) If you break glasses and/or plates, you replace it, please..... 5) Não é permitido fumar dentro do apartamento, nem mesmo na janela, ótima oportunidade para ficar ao ar livre! 6) Não deixe as luzes acessas, nem o ar condicionado ligado ao sair. O ambiente e eu agradecemos! 7) Não leve as toalhas de banho para a praia, se ficarem manchadas com protetor solar terei que solicitar a sua reposição. All over, please leave it in a shape you would like to find!",
+        "propertyType": "Apartment",
+        "roomType": "Entire home/apt",
+        "bedType": "Real Bed",
+        "cancellationPolicy": "moderate",
+        "capacity": 2,
+        "bedrooms": 1,
+        "beds": 2,
+        "numOfReviews": 33,
+        "amenities": [
+          "TV",
+          "Cable TV",
+          "Wifi",
+          "Wheelchair accessible",
+          "Pool",
+          "Kitchen",
+          "Paid parking off premises",
+          "Doorman",
+          "Gym",
+          "Elevator",
+          "Buzzer/wireless intercom",
+          "Smoke detector",
+          "Carbon monoxide detector",
+          "Essentials",
+          "Shampoo",
+          "24-hour check-in",
+          "Hangers",
+          "Hair dryer",
+          "Iron",
+          "Laptop friendly workspace",
+          "translation missing: en.hosting_amenity_49",
+          "translation missing: en.hosting_amenity_50",
+          "Self check-in",
+          "Building staff",
+          "Microwave",
+          "Coffee maker",
+          "Refrigerator",
+          "Dishes and silverware",
+          "Cooking basics",
+          "Oven",
+          "Stove",
+          "BBQ grill",
+          "Patio or balcony",
+          "Garden or backyard",
+          "Luggage dropoff allowed",
+          "Long term stays allowed",
+          "Wide hallway clearance",
+          "Wide doorway",
+          "Flat path to front door",
+          "Well-lit path to entrance",
+          "Accessible-height bed",
+          "Step-free access"
+        ],
+        "host": {
+          "_id": "622f3407e36c59e6164fbf87",
+          "fullname": "Dejanira",
+          "location": "Rio de Janeiro, Rio de Janeiro, Brazil",
+          "about": "Moro no Rio de Janeiro, nascida em Salvador. Resolvi alugar este apartamento,  principalmente por que gosto muito de viajar e quando viajo, prefiro alugar um espaço para ficar. Alugar um apartamento em outra cidade, outro país, além de ser mais barato do que hotel, possibilita uma maior interação com os moradores locais e um maior conhecimento sobre o seu modo de vida. Como são os supermercados e as padarias, o que vendem ali ? qual é o dia a dia da população?  Além disto não há horário para o café da manhã e posso fazer um lanche ou almoço se não quiser ir a um restaurante.\r\nProcuro trazer as minhas experiências de hospedagem para o meu apartamento, pois quero que o hóspede se sinta confortável, em casa.\r\nAlém de gostar muito de viajar, adoro ler e ouvir música e pretendo com o dinheiro que ganho hospedando, poder me hospedar mais pelo mundo a fora. ",
+          "responseTime": "within a few hours",
+          "thumbnailUrl": "https://a0.muscache.com/im/users/8557006/profile_pic/1378865375/original.jpg?aki_policy=profile_small",
+          "pictureUrl": "https://a0.muscache.com/im/users/8557006/profile_pic/1378865375/original.jpg?aki_policy=profile_x_medium",
+          "isSuperhost": true,
+          "id": "8557006"
+        },
+        "address": {
+          "street": "Rio de Janeiro, Rio de Janeiro, Brazil",
+          "country": "Brazil",
+          "location": {
+            "lat": -43.182736348008305,
+            "lan": -22.9106385343457
+          },
+          "countryCode": "BR",
+          "city": "Rio De Janeiro"
+        },
+        "id": "11695437",
+        "bathrooms": 1,
+        "price": 112,
+        "securityDeposit": 373,
+        "cleaningFee": 131,
+        "extraPeople": 0,
+        "reviewScores": {
+          "accuracy": 10,
+          "cleanliness": 10,
+          "checkin": 10,
+          "communication": 10,
+          "location": 10,
+          "value": 10,
+          "rating": 97
+        },
+        "reviews": [
+          {
+            "at": "2016-03-17T04:00:00.000Z",
+            "by": {
+              "_id": "622f3406e36c59e6164fbb81",
+              "fullname": "Joska",
+              "imgUrl": "https://robohash.org/45960885?set=set1",
+              "id": "45960885"
+            },
+            "txt": "What a great appartement in the most vivid neighbourhood of Rio de Janeiro. The appartment was clean and had everything I needed and more! Rio Scenarium just around the corner, so If you like samba and dancing, this is the pace to be. And Dejanira was a great host. "
+          },
+          {
+            "at": "2016-03-30T04:00:00.000Z",
+            "by": {
+              "_id": "622f3403e36c59e6164fb052",
+              "fullname": "Débora",
+              "imgUrl": "https://robohash.org/22211470?set=set1",
+              "id": "22211470"
+            },
+            "txt": "O estúdio é muito bem localizado, com mercado, padaria, bares e restaurantes próximos. O estúdio é exatamente como nas fotos e é bem equipado, com louças, cafeteira, torradeira, etc. O prédio é muito seguro e possui uma infra muito boa. Não cheguei a conhecer Dejanira pessoalmente, mas ela foi muito atenciosa conosco. Recomendo! "
+          },
+          {
+            "at": "2016-04-17T04:00:00.000Z",
+            "by": {
+              "_id": "622f3405e36c59e6164fb862",
+              "fullname": "Danielle",
+              "imgUrl": "https://robohash.org/31815003?set=set1",
+              "id": "31815003"
+            },
+            "txt": "Apartamento muito confortável e bem localizado! Foi perfeito para a nossa estadia! A Dejanira nos deixou super a vontade e não deixou nada a desejar! Voltaremos mais vezes com certeza!"
+          },
+          {
+            "at": "2016-04-24T04:00:00.000Z",
+            "by": {
+              "_id": "622f3407e36c59e6164fbd24",
+              "fullname": "Gustavo",
+              "imgUrl": "https://robohash.org/65810582?set=set1",
+              "id": "65810582"
+            },
+            "txt": "Tudo conforme descrito, apto bem localizado, Dejanira sempre pronta para nos atender, uma Brahma na geladeira de boas vindas, enfim foi uma experiência excelente em minha primeira viagem via Airbnb. Abraço e muito obrigado Dejanira."
+          },
+          {
+            "at": "2016-05-04T04:00:00.000Z",
+            "by": {
+              "_id": "622f3404e36c59e6164fb40d",
+              "fullname": "Kitty",
+              "imgUrl": "https://robohash.org/6372268?set=set1",
+              "id": "6372268"
+            },
+            "txt": "When i came at the adres the doorman gave me the keys. The appartment is in the middle of Lapa on a perfect location!! Bars and restaurants are just around the corner. The appartment was so nice with everything you need. A small kitchen, fridge, nice hot shower, good bed, television. And the gym and sauna down and pool on the rooftop made it all perfect. Come back for sure!! Love this city and place to stay:) thanks!!"
+          },
+          {
+            "at": "2016-05-09T04:00:00.000Z",
+            "by": {
+              "_id": "622f3404e36c59e6164fb317",
+              "fullname": "Jorge",
+              "imgUrl": "https://robohash.org/41829590?set=set1",
+              "id": "41829590"
+            },
+            "txt": "El departamento está muy bueno, corresponde exactamente a las fotografías.\r\nEstá ubicado exactamente en la movida de Río. Esta inmerso en pleno centro de Río. Al lado de Lapa, muy cerca de barrio Santa Teresa. La calle del edificio es dónde pasan ómnibus y taxis. \r\nEsta a un par de cuadras de estación del tren subterráneo.\r\nLa comunicación con la conserjería del edificio es muy buena y tratan de ayudar ante cualquier problema."
+          },
+          {
+            "at": "2016-06-01T04:00:00.000Z",
+            "by": {
+              "_id": "622f3407e36c59e6164fbf9d",
+              "fullname": "Raphie",
+              "imgUrl": "https://robohash.org/22001571?set=set1",
+              "id": "22001571"
+            },
+            "txt": "Very nice apartment, with a pool and steam rroom available, dejinara was very helpful. Lapa is the place to be if you like to party. Highly recommended "
+          },
+          {
+            "at": "2016-06-24T04:00:00.000Z",
+            "by": {
+              "_id": "622f3407e36c59e6164fbd82",
+              "fullname": "Andrea",
+              "imgUrl": "https://robohash.org/40940251?set=set1",
+              "id": "40940251"
+            },
+            "txt": "I really had great time in Dejanira's place. The location is perfect, close to everything I needed to do and lovely atmosphere during the June's Lapa parties. The place corresponds to the pictures and Dejanira is always ready to reply to any questions. I would love to stay there again!"
+          },
+          {
+            "at": "2016-07-16T04:00:00.000Z",
+            "by": {
+              "_id": "622f3405e36c59e6164fb690",
+              "fullname": "Vladimir",
+              "imgUrl": "https://robohash.org/50758819?set=set1",
+              "id": "50758819"
+            },
+            "txt": "I highly appreciated safety of the place: secure entry and someone at the reception 24 hours. \nThe place was extremely clean and had most of the necessary appliances with exception of an iron. Yet the apartment complex has laundry services.\nThere were some issues with internet (36 hours or so) but that was not Dejanira's fault, rather local provider's.\n\nDejanira was very responsive.\nTLDR: if you want to stay in that part of the city, I strongly recommend considering that apartment."
+          },
+          {
+            "at": "2016-08-21T04:00:00.000Z",
+            "by": {
+              "_id": "622f3403e36c59e6164fb095",
+              "fullname": "Emily",
+              "imgUrl": "https://robohash.org/32290254?set=set1",
+              "id": "32290254"
+            },
+            "txt": "Our time in Rio staying at Dejanira's apartment was fantastic, I personally don't think that the photos do the property justice and feel that in person the property is actually bigger! The facilities were fantastic and we enjoyed using the pool (which is also a lot bigger in person) which has stunning views over Rio, including Christ the Redeemer on Corcovado mountain. The staff were extremely friendly and helpful and learnt our faces immediately so we had no problem at all gaining access to the very secure apartment (the staff buzz you in the gates via CCTV). The neighbourhood is more downtown Rio and if you like a good night out it will be perfect for you. We didn't feel that the neighbourhood was the safest of areas in Rio, but then again anywhere in Rio during the night isn't the safest place to be. The noise from the street at night was sometimes a little loud especially on Fridays and Saturdays which are extremely busy times in Lapa however we understand that this noise is unavoidable and inevitable. It must also be taken into consideration that we were in Rio for the busiest two weeks of the year, during the 2016 Olympics, a time when at night there were hundreds of thousands of tourists on the streets as well as the locals! Despite this as soon as we entered the double electronic gated apartment block we felt completely at ease and safe and during or time in Rio we spent one of the day's exploring Lapa, admiring its arches and the colourful artwork and graffiti that the locality had to offer. The apartment was perfect for us, size, location, accessibility were all excellent. Our neighbours were very friendly and helpful and would always say \"good morning\" and \"good evening\" in the elevator throughout the day. There was a very convenient supermarket just 1 minutes  walk from the apartment and the kitchen had everything you could possible need. If however you prefer to eat out, Lapa has many excellent bars and restaurants and so does Copacabana and Ipanena if you want to travel a little further away. The shower was particularly excellent-hot water was always in abundance. This apartment had everything we wanted and we couldn't have asked for a better place to stay during our time spent in Rio De Janeiro for the Olympics. If and when we ever return to Rio Dejanira's apartment is the only option for us and we would love to stay there again."
+          },
+          {
+            "at": "2016-09-21T04:00:00.000Z",
+            "by": {
+              "_id": "622f3402e36c59e6164fae52",
+              "fullname": "Flávio",
+              "imgUrl": "https://robohash.org/67209131?set=set1",
+              "id": "67209131"
+            },
+            "txt": "Excelente! Tudo conforme o combinado! Retorno garantido!"
+          },
+          {
+            "at": "2016-10-11T04:00:00.000Z",
+            "by": {
+              "_id": "622f3406e36c59e6164fbc7e",
+              "fullname": "Taiane",
+              "imgUrl": "https://robohash.org/52128069?set=set1",
+              "id": "52128069"
+            },
+            "txt": "Gostamos muito do apartamento, as fotos são exatamente como ele é. A Dejanira foi muito atenciosa, simpática, antes, durante e após a nossa viagem. O apt é excelente tem tudo que se precisa, me senti em casa. É bem localizado, fácil acesso a tudo. Recomendo sem dúvidas. Obrigada até a próxima."
+          },
+          {
+            "at": "2016-10-26T04:00:00.000Z",
+            "by": {
+              "_id": "622f3404e36c59e6164fb633",
+              "fullname": "W'Hander",
+              "imgUrl": "https://robohash.org/16597673?set=set1",
+              "id": "16597673"
+            },
+            "txt": "the place is really amazing, everything in the building, services and the apto are great."
+          },
+          {
+            "at": "2016-11-26T05:00:00.000Z",
+            "by": {
+              "_id": "622f3406e36c59e6164fbb9a",
+              "fullname": "Alberto",
+              "imgUrl": "https://robohash.org/74312085?set=set1",
+              "id": "74312085"
+            },
+            "txt": "My experience at Dejanira's flat was very good. The apartment itself is spacious, clean, with all the facilities that you might need, like AC, WiFi, Fan etc. The Building is very good located, close to Lapa, with a lot of restaurants, bars, pubs. Metro Station is about 15 mins walk (Cinelandia). Dejanira was attentive and made sure that everything was ok. I can just recommend her and her apartment."
+          },
+          {
+            "at": "2017-01-02T05:00:00.000Z",
+            "by": {
+              "_id": "622f3407e36c59e6164fbf0a",
+              "fullname": "Francisca",
+              "imgUrl": "https://robohash.org/55171995?set=set1",
+              "id": "55171995"
+            },
+            "txt": "Dejanira fue una excelente host, siempre muy atenta"
+          },
+          {
+            "at": "2017-01-19T05:00:00.000Z",
+            "by": {
+              "_id": "622f3406e36c59e6164fbc04",
+              "fullname": "Federico",
+              "imgUrl": "https://robohash.org/105496190?set=set1",
+              "id": "105496190"
+            },
+            "txt": "El departamento es excelente, muy confortable, tal cual se muestra en las fotos. El barrio es muy típico de Río, muy bohemio, mucho movimiento nocturno. Bien conectado con el resto de la ciudad y cómodo en cuanto a servicios y abastecimiento diarios. \nLa pileta es muy cómoda, la gente del edificio muy cordial y amable. Dejanira sumamente atenta, contesta en seguida los mensajes y es muy clara y cálida.\nUn gusto alojarse acá, lo recomendaría siempre. Imperdible."
+          },
+          {
+            "at": "2017-02-14T05:00:00.000Z",
+            "by": {
+              "_id": "622f3402e36c59e6164fae97",
+              "fullname": "Ana Maria",
+              "imgUrl": "https://robohash.org/25399239?set=set1",
+              "id": "25399239"
+            },
+            "txt": "O apartamento é fiel as fotos. Muito confortável, bonito e tudo funciona. Tivemos acesso a piscina, o que foi muito bom para os momentos em que não queríamos andar pela cidade. Bem localizado, não tivemos dificuldade para ir a lugar algum. Os funcionários do prédio são muito educados e solicitos e aproveitamos muito a Lapa a pé, sempre nos sentindo seguros. Obrigada Dejanira!"
+          },
+          {
+            "at": "2017-02-20T05:00:00.000Z",
+            "by": {
+              "_id": "622f3403e36c59e6164fb100",
+              "fullname": "Kimberly",
+              "imgUrl": "https://robohash.org/87423192?set=set1",
+              "id": "87423192"
+            },
+            "txt": "Great place to stay!! Has everything you need and it's close to everything. It's thee perfect place to stay in Rio"
+          },
+          {
+            "at": "2017-03-16T04:00:00.000Z",
+            "by": {
+              "_id": "622f3404e36c59e6164fb418",
+              "fullname": "Igor",
+              "imgUrl": "https://robohash.org/102219917?set=set1",
+              "id": "102219917"
+            },
+            "txt": "Adoramos o apartamento da Dejanira. Eu e minha namorada ficamos lá por 6 dias, e saímos encantados. O apartamento é bem localizado, fica próximo a pontos turísticos da cidade, no centro da Lapa, próximo a bares e ao mesmo tempo um prédio seguro. E a anfitriã é bastante solícita, acessível. O apartamento estava limpo e organizado. Só elogios ao apartamento da Dejanira. Não vemos a hora de voltar."
+          },
+          {
+            "at": "2017-03-22T04:00:00.000Z",
+            "by": {
+              "_id": "622f3402e36c59e6164fac6a",
+              "fullname": "Teemu",
+              "imgUrl": "https://robohash.org/74958291?set=set1",
+              "id": "74958291"
+            },
+            "txt": "Stay at Dejanira's place was the best stay in Airbnb for me. With a decent price you'll get everything. A modern and clean apartment with a very good air-conditioning, sauna, 24h gym and the most welcoming host.\n\nIf one thing should be said about the apartment it is that in the weekends it can get a bit noisy, but that is what you should expect when staying in Lapa.\n\nHighly recommend this stay!"
+          }
+        ],
+        "_id": "622f337a75c7d36e498aab15",
+        "imgUrls": [
+          "135.jpeg",
+          "020.jpeg",
+          "015.jpeg",
+          "039.jpeg",
+          "125.jpeg"
+        ]
+      },
     ];
     localStorage.setItem(STAY_KEY, JSON.stringify(gRooms));
   }
