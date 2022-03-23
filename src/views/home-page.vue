@@ -1,97 +1,93 @@
 <template>
   <section class="home-app page-layout">
     <h1>Air BYY</h1>
-    <!-- <div class="card-container">
-      <div @click="goTo(`United States`)" class="home-card"><div>img</div> United States</div>
-      <div @click="goTo(`Canada`)" class="home-card"><div>img</div> Canada</div>
-      <div  @click="goTo(`Portugal`)" class="home-card"><div>img</div> Portugal</div>
-      <div class="home-card"></div>
-    </div> -->
-<div class="card-container">
-    <div class="coupon" @click="goTo(`United States`)">
-  <div class="container">
-    <h3>Company Logo</h3>
-  </div>
-  <img src="../assets/img/US.jpg" alt="Avatar" style="width:100%;">
-  <div class="container" style="background-color:white">
-    <h2><b>20% OFF YOUR PURCHASE</b></h2> 
-    <p>Lorem ipsum dolor sit amet, et nam pertinax gloriatur. Sea te minim soleat senserit, ex quo luptatum tacimates voluptatum, salutandi delicatissimi eam ea. In sed nullam laboramus appellantur, mei ei omnis dolorem mnesarchum.</p>
-  </div>
-  <div class="container">
-    <p>Use Promo Code: <span class="promo">BOH232</span></p>
-    <p class="expire">Expires: Jan 03, 2021</p>
-  </div>
-</div>
-<div class="coupon" @click="goTo(`Canada`)">
-  <div class="container">
-    <h3>Company Logo</h3>
-  </div>
-  <img src="../assets/img/CA.jpg"  style="width:100%;">
-  <div class="container" style="background-color:white">
-    <h2><b>20% OFF YOUR PURCHASE</b></h2> 
-    <p>Lorem ipsum dolor sit amet, et nam pertinax gloriatur. Sea te minim soleat senserit, ex quo luptatum tacimates voluptatum, salutandi delicatissimi eam ea. In sed nullam laboramus appellantur, mei ei omnis dolorem mnesarchum.</p>
-  </div>
-  <div class="container">
-    <p>Use Promo Code: <span class="promo">BOH232</span></p>
-    <p class="expire">Expires: Jan 03, 2021</p>
-  </div>
-</div>
-<div class="coupon" @click="goTo(`Portugal`)">
-  <div class="container">
-    <h3>Company Logo</h3>
-  </div>
-  <img src="../assets/img/PT.jpg" alt="Avatar" style="width:100%;">
-  <div class="container" style="background-color:white">
-    <h2><b>20% OFF YOUR PURCHASE</b></h2> 
-    <p>Lorem ipsum dolor sit amet, et nam pertinax gloriatur. Sea te minim soleat senserit, ex quo luptatum tacimates voluptatum, salutandi delicatissimi eam ea. In sed nullam laboramus appellantur, mei ei omnis dolorem mnesarchum.</p>
-  </div>
-  <div class="container">
-    <p>Use Promo Code: <span class="promo">BOH232</span></p>
-    <p class="expire">Expires: Jan 03, 2021</p>
-  </div>
-</div>
-</div>
-<hr>
-<div  v-for="room in rooms" :key="room._id" class="card-container">
-<pre>{{room.name}}</pre>
-</div>
+    <div v-if="rooms">
+      <div v-for="destination in destinations" :key="destination._id">
+        <div class="container">
+          <div class="coupon" @click="goTo(destination.address.country)">
+            <img src="../assets/img/US.jpg" alt="Avatar" style="width: 100%" />
+            <div class="container" style="background-color: white">
+              <h2><b>20% OFF YOUR PURCHASE</b></h2>
+              <p>
+                Lorem ipsum dolor sit amet, et nam pertinax gloriatur. Sea te
+                minim soleat senserit, ex quo luptatum tacimates voluptatum,
+                salutandi delicatissimi eam ea. In sed nullam laboramus
+                appellantur, mei ei omnis dolorem mnesarchum.s
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div v-if="rooms">
+      <div v-for="item in topRooms" :key="item._id" class="card-container">
+        <pre>{{ item.name }}</pre>
+      </div>
+    </div>
   </section>
 </template>
 
 <script>
+import { utilService } from "../service/util-service.js";
+
 export default {
   name: "home-app",
-  data(){
+  data() {
     return {
-      rooms:null
+      rooms: null,
+    };
+  },
+  methods: {
+    goTo(place) {
+      // console.log(place);
+      this.$router.push({ path: "explore", query: { destination: place } });
+    },
+  },
+  async created() {
+    // const topRooms = await this.$store.dispatch({ type: "topRoomsForDisplay" });
+    // console.log(topRooms);
+    // this.rooms = topRooms;
+    try {
+      this.rooms = await this.$store.dispatch({
+        type: "loadRooms",
+      });
+      console.log("this.rooms", this.rooms);
+    } catch (err) {
+      console.log("err", err);
     }
   },
-  methods:{
-goTo(place){
-  // console.log(place);
-  this.$router.push({path:'explore',query:{destination:place}})
-}
+  computed: {
+    destinations() {
+      const destinations = [];
+      this.rooms.map((room) => {
+        if (!destinations.includes(room.address.country)) {
+          destinations.push(room);
+        }
+      });
+      return destinations;
+    },
+    topRooms() {
+      const topRated = this.rooms.filter(
+        (room) => room.reviewScores.rating > 80
+      );
+      return topRated.slice(0, 4);
+    },
   },
-   async created() {
-      const topRooms = await this.$store.dispatch({type: "topRoomsForDisplay"}) 
-      console.log(topRooms);
-      this.rooms=topRooms
-   }
 };
-
 </script>
 
 <style>
-h1{
+h1 {
   text-align: center;
   /* margin: 25px; */
 }
-.card-container{
+.card-container {
   display: flex;
   gap: 50px;
   justify-content: center;
 }
-.home-card{
+.home-card {
   cursor: pointer;
 }
 
