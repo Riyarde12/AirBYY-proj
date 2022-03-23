@@ -911,8 +911,7 @@ const gStay = [
 		]
 	}
 ]
-const BASE_URL =
-  process.env.NODE_ENV !== "development"
+const BASE_URL = process.env.NODE_ENV !== "development"
     ? "/api/stay/"
     : "//localhost:3030/api/stay/";
 
