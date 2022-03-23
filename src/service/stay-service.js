@@ -1,16 +1,17 @@
 import { httpService } from "./http.service.js";
-
+import { storageService } from './async-storage-service.js';
 const ENDPOINT = "stay";
+const STAY_KEY = "stay_db";
 
 export const stayService = {
-  query,
-  getById,
-  remove,
-  save,
-  getEmptyStay,
+	query,
+	getById,
+	// remove,
+	save,
+	getEmptyStay,
 };
 const gStay = [
-  {
+	{
 		"name": "Westin Kaanapali KORVN 2BR",
 		"summary": "Westin Kaanapali Ocean Resort Villas North timeshare - Pay resort: $14-20/day, stays under 7 night $38/res - Inquire about availability, I review then offer/approve if available :) - READ \"The Space\" for cleaning/etc AND brief explanation about timeshare reservations - Want guaranteed view for additional cost? Must be weekly rental, other restrictions - Wheelchair accessible / ADA, call resort directly to ensure U receive. If U need ADA U MUST inform us BEFORE booking.",
 		"interaction": "There are activities programs and concierge activities booking services at this resort.",
@@ -910,29 +911,33 @@ const gStay = [
 			"113.jpeg"
 		]
 	}
-]
-const BASE_URL = process.env.NODE_ENV !== "development"
-    ? "/api/stay/"
-    : "//localhost:3030/api/stay/";
+];
 
-async function query(filterBy) {
-  return await httpService.get(ENDPOINT, filterBy);
+const BASE_URL = process.env.NODE_ENV !== "development"
+	? "/api/stay/"
+	: "//localhost:3030/api/stay/";
+
+async function query(filterBy = {}) {
+	// return await httpService.get(ENDPOINT, filterBy);
+	return await storageService.query(STAY_KEY);
 }
 
 async function getById(id) {
-  return await httpService.get(`${ENDPOINT}/${id}`);
+	// return await httpService.get(`${ENDPOINT}/${id}`);
+	return await storageService.get(STAY_KEY, id);
 }
 
-async function remove(id) {
-  return await httpService.delete(`${ENDPOINT}/${id}`);
-}
+// async function remove(id) {
+// 	// return await httpService.delete(`${ENDPOINT}/${id}`);
+// }
 
 async function save(stay) {
-  return stay._id
-    ? await httpService.put(`${ENDPOINT}/${stay._id}`, stay)
-    : await httpService.post(ENDPOINT, stay);
+	// return stay._id
+	// 	? await httpService.put(`${ENDPOINT}/${stay._id}`, stay)
+	// 	: await httpService.post(ENDPOINT, stay);
+	return await storageService._save(STAY_KEY, stay);
 }
 
 function getEmptyStay() {
-  return {};
+
 }
