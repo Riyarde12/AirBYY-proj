@@ -21,11 +21,6 @@ const router = createRouter({
     // },
     {
       path: "/explore",
-      name: "explore-page",
-      component: explorePage,
-    },
-    {
-      path: "/room/:roomId?",
       name: "room-app",
       component: roomApp,
     },
