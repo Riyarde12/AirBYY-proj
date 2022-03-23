@@ -22,7 +22,7 @@
     <p class="expire">Expires: Jan 03, 2021</p>
   </div>
 </div>
-<div class="coupon" @click="goTo(`canada`)">
+<div class="coupon" @click="goTo(`Canada`)">
   <div class="container">
     <h3>Company Logo</h3>
   </div>
