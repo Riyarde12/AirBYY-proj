@@ -1,17 +1,13 @@
 <template>
-  <section class="stay-preview"></section>
+  <section class="room-list"></section>
 </template>
 
 <script>
 export default {
-  name: "stay-preview",
+  name: "room-list",
   props: {},
-  data() {
-    return {};
-  },
   components: {},
   methods: {},
-  computed: {},
 };
 </script>
 

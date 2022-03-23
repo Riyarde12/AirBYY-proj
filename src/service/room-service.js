@@ -1,25 +1,25 @@
 import { httpService } from "./http.service.js";
 import { storageService } from './async-storage-service.js';
-const ENDPOINT = "stay";
-const STAY_KEY = "stay_db";
+const ENDPOINT = "room";
+const STAY_KEY = "room_db";
 
-export const stayService = {
+export const roomService = {
   query,
   getById,
   // remove,
   save,
-  getEmptyStay,
+  getEmptyRoom,
 };
 
-const gStays = (JSON.parse(localStorage.getItem(STAY_KEY)));
-_createStays();
+const gRooms = (JSON.parse(localStorage.getItem(STAY_KEY)));
+_createRooms();
 
-function _createStays() {
-  if (!gStays || !gStays.length) {
-    const gStays = [
+function _createRooms() {
+  if (!gRooms || !gRooms.length) {
+    const gRooms = [
       {
         "name": "Westin Kaanapali KORVN 2BR",
-        "summary": "Westin Kaanapali Ocean Resort Villas North timeshare - Pay resort: $14-20/day, stays under 7 night $38/res - Inquire about availability, I review then offer/approve if available :) - READ \"The Space\" for cleaning/etc AND brief explanation about timeshare reservations - Want guaranteed view for additional cost? Must be weekly rental, other restrictions - Wheelchair accessible / ADA, call resort directly to ensure U receive. If U need ADA U MUST inform us BEFORE booking.",
+        "summary": "Westin Kaanapali Ocean Resort Villas North timeshare - Pay resort: $14-20/day, rooms under 7 night $38/res - Inquire about availability, I review then offer/approve if available :) - READ \"The Space\" for cleaning/etc AND brief explanation about timeshare reservations - Want guaranteed view for additional cost? Must be weekly rental, other restrictions - Wheelchair accessible / ADA, call resort directly to ensure U receive. If U need ADA U MUST inform us BEFORE booking.",
         "interaction": "There are activities programs and concierge activities booking services at this resort.",
         "houseRules": "No smoking; No Pets; This resort's rules apply. Please call the resort directly to verify details.",
         "propertyType": "Serviced apartment",
@@ -70,7 +70,7 @@ function _createStays() {
           "Extra pillows and blankets",
           "Ethernet connection",
           "Luggage dropoff allowed",
-          "Long term stays allowed",
+          "Long term rooms allowed",
           "Ground floor access",
           "Wide hallway clearance",
           "Step-free access",
@@ -299,7 +299,7 @@ function _createStays() {
               "imgUrl": "https://robohash.org/81703602?set=set1",
               "id": "81703602"
             },
-            "txt": "The place was great, as was the host! I would recommend staying here."
+            "txt": "The place was great, as was the host! I would recommend rooming here."
           },
           {
             "at": "2016-07-08T04:00:00.000Z",
@@ -393,7 +393,7 @@ function _createStays() {
           "Stove",
           "Patio or balcony",
           "Luggage dropoff allowed",
-          "Long term stays allowed",
+          "Long term rooms allowed",
           "Wide doorway",
           "Well-lit path to entrance",
           "Step-free access",
@@ -484,7 +484,7 @@ function _createStays() {
               "imgUrl": "https://robohash.org/40501338?set=set1",
               "id": "40501338"
             },
-            "txt": "Thanks Maria for your warm welcome. The appartement was really clean. It has everything that we needed for our stay and is really well located. It was easy to park for free near the appartement. Thanks!"
+            "txt": "Thanks Maria for your warm welcome. The appartement was really clean. It has everything that we needed for our room and is really well located. It was easy to park for free near the appartement. Thanks!"
           },
           {
             "at": "2017-05-13T04:00:00.000Z",
@@ -639,8 +639,8 @@ function _createStays() {
       {
         "name": "Fresh and modern 1BR in Bed-Stuy",
         "summary": "A spacious, art-filled one-bedroom apartment near the express train (28 minutes to Times Square) and a Citibike station. Sample Bed-Stuy life at a nearby French restaurant,  a sunny Haitian cafe, a boutique grocery and more. We do NOT discriminate based on race, religion or sexual orientation.",
-        "interaction": ".  Guests stay in a separate,  private apartment and we make every effort to not disturb you unless absolutely necessary. We live above the apartment and will be happy to accommodate any reasonable requests",
-        "houseRules": "A/C may be used only when you are at home.  Please respect our delicate old pipes (no grease down the drain, etc.).  No smoking on premises. Guests are expected to wash take out their trash and recycling as needed. Guests are expected to wash and put away dishes prior to check-out (apartment has a dishwasher, soap packets are under the sink) Longer term guests may wish to launder the sheets and towels during their stay. This service is not provided. (There are two sets of bed linens provided and two sets of towels for each adult guest.) Owners may occasionally need to go through the apartment to access the basement. We shall endeavor to give advance notice of this and find a mutually convenient time.  $50 fee if keys are lost or not returned.",
+        "interaction": ".  Guests room in a separate,  private apartment and we make every effort to not disturb you unless absolutely necessary. We live above the apartment and will be happy to accommodate any reasonable requests",
+        "houseRules": "A/C may be used only when you are at home.  Please respect our delicate old pipes (no grease down the drain, etc.).  No smoking on premises. Guests are expected to wash take out their trash and recycling as needed. Guests are expected to wash and put away dishes prior to check-out (apartment has a dishwasher, soap packets are under the sink) Longer term guests may wish to launder the sheets and towels during their room. This service is not provided. (There are two sets of bed linens provided and two sets of towels for each adult guest.) Owners may occasionally need to go through the apartment to access the basement. We shall endeavor to give advance notice of this and find a mutually convenient time.  $50 fee if keys are lost or not returned.",
         "propertyType": "Apartment",
         "roomType": "Entire home/apt",
         "bedType": "Real Bed",
@@ -725,7 +725,7 @@ function _createStays() {
               "imgUrl": "https://robohash.org/6443424?set=set1",
               "id": "6443424"
             },
-            "txt": "Great, quiet place to stay. It is great having Shaila just upstairs to answer any questions, and especially to give great tips on places to go. "
+            "txt": "Great, quiet place to room. It is great having Shaila just upstairs to answer any questions, and especially to give great tips on places to go. "
           },
           {
             "at": "2013-06-13T04:00:00.000Z",
@@ -735,7 +735,7 @@ function _createStays() {
               "imgUrl": "https://robohash.org/6121036?set=set1",
               "id": "6121036"
             },
-            "txt": "Shaila and Alex are wonderful hosts really, they helped us every time we needed with directions, the internet, the supermarket, the post office !!! (thank you guys !!!).The place and the neighbord are great, 8 blocks far from the apartment you have the subway and 30 min. later you are in the island, we moved early in the morning, late at night (sometimes we came back at 2am) and everything turned out great.Definetly I would come back to their apartment, It's bigger than ours in Argentina !!! I look forward to stay there again and, next time, go out with you guys and have a beer or anything.\r\nBye !!! - Guido and Carla - "
+            "txt": "Shaila and Alex are wonderful hosts really, they helped us every time we needed with directions, the internet, the supermarket, the post office !!! (thank you guys !!!).The place and the neighbord are great, 8 blocks far from the apartment you have the subway and 30 min. later you are in the island, we moved early in the morning, late at night (sometimes we came back at 2am) and everything turned out great.Definetly I would come back to their apartment, It's bigger than ours in Argentina !!! I look forward to room there again and, next time, go out with you guys and have a beer or anything.\r\nBye !!! - Guido and Carla - "
           },
           {
             "at": "2013-06-20T04:00:00.000Z",
@@ -745,7 +745,7 @@ function _createStays() {
               "imgUrl": "https://robohash.org/6460525?set=set1",
               "id": "6460525"
             },
-            "txt": "Shaila and Alex were incredibly accommodating and me and my girlfriend enjoyed our stay thoroughly. Highly recommended. The place was very private and homely. I didn't really know anything about New York and was nervous about staying in bed stuy but it was safe and friendly everywhere I went. Very easy to get to the airport and manhattan by train."
+            "txt": "Shaila and Alex were incredibly accommodating and me and my girlfriend enjoyed our room thoroughly. Highly recommended. The place was very private and homely. I didn't really know anything about New York and was nervous about rooming in bed stuy but it was safe and friendly everywhere I went. Very easy to get to the airport and manhattan by train."
           },
           {
             "at": "2013-06-25T04:00:00.000Z",
@@ -755,7 +755,7 @@ function _createStays() {
               "imgUrl": "https://robohash.org/6825718?set=set1",
               "id": "6825718"
             },
-            "txt": "Great place to stay in Brooklyn! Alex gave us a really useful list of nice restaurants and coffee places near the place (We are very happy to have discovered, the restaurant \"Saraghina\", thanks to Alex's map!).  The apartment is vast, furnished with taste and very convenient. We highly recommend!"
+            "txt": "Great place to room in Brooklyn! Alex gave us a really useful list of nice restaurants and coffee places near the place (We are very happy to have discovered, the restaurant \"Saraghina\", thanks to Alex's map!).  The apartment is vast, furnished with taste and very convenient. We highly recommend!"
           },
           {
             "at": "2013-07-03T04:00:00.000Z",
@@ -775,7 +775,7 @@ function _createStays() {
               "imgUrl": "https://robohash.org/5729991?set=set1",
               "id": "5729991"
             },
-            "txt": "My sister and I loved staying here! The apartment is very spacious and recently renovated so it looks amazing. The kitchen has everything you need with Alex and Shalia stocking it with a few basics. The neighbourhood is a little shabby, especially compared to the home we stayed in. We were told by some people in Manhattan that the neighbour of Bed-Stuy used to be very dangerous and just to be careful walking around at night. Walking from the subway after dark was a little daunting but we remained safe. We did catch a cab a few times from Manhattan as it was very late. Overall, it was a positive experience with Alex and Shalia being very helpful, even going out of their way to let us store our luggage at Shalia's work the day we were to fly out. They were great hosts."
+            "txt": "My sister and I loved rooming here! The apartment is very spacious and recently renovated so it looks amazing. The kitchen has everything you need with Alex and Shalia stocking it with a few basics. The neighbourhood is a little shabby, especially compared to the home we roomed in. We were told by some people in Manhattan that the neighbour of Bed-Stuy used to be very dangerous and just to be careful walking around at night. Walking from the subway after dark was a little daunting but we remained safe. We did catch a cab a few times from Manhattan as it was very late. Overall, it was a positive experience with Alex and Shalia being very helpful, even going out of their way to let us store our luggage at Shalia's work the day we were to fly out. They were great hosts."
           },
           {
             "at": "2013-07-24T04:00:00.000Z",
@@ -785,7 +785,7 @@ function _createStays() {
               "imgUrl": "https://robohash.org/6063814?set=set1",
               "id": "6063814"
             },
-            "txt": "We just met Alex when we checked in, but anyhow he had been a very friendly and helpful host. He was reachable anytime and answered my mails prompt.\r\nThe apartment was great! It was really beautiful and big. It has a perfectly equipped kitchen and there are also a few basics for breakfast and cooking. The bed is very comfortable. It is not that soundproofed as we are accustomed to (the steps from upstairs waked me every day - my son slept well, he did not hear it), but I think that is normal for american houses. But apart from this it is very quiet.\r\nThe neighbourhood is great! It is very authentic, people are friendly and helpful if required, no problems even late at night. We loved staying there!\r\nIn any case: apartment, host and neighbourhood are high recommended! If we are in New York again, we certainly return to this place!"
+            "txt": "We just met Alex when we checked in, but anyhow he had been a very friendly and helpful host. He was reachable anytime and answered my mails prompt.\r\nThe apartment was great! It was really beautiful and big. It has a perfectly equipped kitchen and there are also a few basics for breakfast and cooking. The bed is very comfortable. It is not that soundproofed as we are accustomed to (the steps from upstairs waked me every day - my son slept well, he did not hear it), but I think that is normal for american houses. But apart from this it is very quiet.\r\nThe neighbourhood is great! It is very authentic, people are friendly and helpful if required, no problems even late at night. We loved rooming there!\r\nIn any case: apartment, host and neighbourhood are high recommended! If we are in New York again, we certainly return to this place!"
           },
           {
             "at": "2013-07-29T04:00:00.000Z",
@@ -815,7 +815,7 @@ function _createStays() {
               "imgUrl": "https://robohash.org/8866660?set=set1",
               "id": "8866660"
             },
-            "txt": "The appartment was really clean, pretty spacious and kitchen was very well equipped! Its totally in line with all the information posted. \r\n\r\nAlex was very nice host, even allowed us to keep the luggage  after check out as we had a flight in the evening. Thank you once again for that! \r\n\r\nThe neighboorhood itself was safe, we had no issues at all, however I`d prefer staying   in Brooklyn districts closer to Manhattan area next time as  we were travelling to Midtown up to 1h. Being a citizen of the huge city too (Moscow, Russia) , underground is not our favorite place to be  :) \r\n\r\nOverall , it was a great stay. \r\n\r\n\r\n\r\n"
+            "txt": "The appartment was really clean, pretty spacious and kitchen was very well equipped! Its totally in line with all the information posted. \r\n\r\nAlex was very nice host, even allowed us to keep the luggage  after check out as we had a flight in the evening. Thank you once again for that! \r\n\r\nThe neighboorhood itself was safe, we had no issues at all, however I`d prefer rooming   in Brooklyn districts closer to Manhattan area next time as  we were travelling to Midtown up to 1h. Being a citizen of the huge city too (Moscow, Russia) , underground is not our favorite place to be  :) \r\n\r\nOverall , it was a great room. \r\n\r\n\r\n\r\n"
           },
           {
             "at": "2013-11-01T04:00:00.000Z",
@@ -825,7 +825,7 @@ function _createStays() {
               "imgUrl": "https://robohash.org/228580?set=set1",
               "id": "228580"
             },
-            "txt": "Communication with Alex was spot on.  He happily answered any questions and made it easy for me to arrive late at night and went above and beyond to help me have a good stay. \r\nThe apartment has been tastefully refurbished.  Extremely clean, and with all you could need for cooking.  The bed is so comfy.  The apartment is peaceful at night and I slept so well.   Some noise travels from Alex' apartment upstairs but it is only a little during the day.\r\nThe area is a bit out of the main hub of Williamsburg and Bushwick but everything is easily accessible with a short walk or the subway about 8 mins walk away.\r\nAlex left me a list of great stores, cafes and restaurants in the immediate area.  \r\nSome people may be concerned about the area at face value as it is a white minority but I felt safe at all times.  People seemed friendly.\r\n\r\n"
+            "txt": "Communication with Alex was spot on.  He happily answered any questions and made it easy for me to arrive late at night and went above and beyond to help me have a good room. \r\nThe apartment has been tastefully refurbished.  Extremely clean, and with all you could need for cooking.  The bed is so comfy.  The apartment is peaceful at night and I slept so well.   Some noise travels from Alex' apartment upstairs but it is only a little during the day.\r\nThe area is a bit out of the main hub of Williamsburg and Bushwick but everything is easily accessible with a short walk or the subway about 8 mins walk away.\r\nAlex left me a list of great stores, cafes and restaurants in the immediate area.  \r\nSome people may be concerned about the area at face value as it is a white minority but I felt safe at all times.  People seemed friendly.\r\n\r\n"
           },
           {
             "at": "2013-11-10T05:00:00.000Z",
@@ -835,7 +835,7 @@ function _createStays() {
               "imgUrl": "https://robohash.org/8145538?set=set1",
               "id": "8145538"
             },
-            "txt": "Was an amazing stay, we charm your apartment and were very friendly. Thank you for all your attentions."
+            "txt": "Was an amazing room, we charm your apartment and were very friendly. Thank you for all your attentions."
           },
           {
             "at": "2013-11-14T05:00:00.000Z",
@@ -845,7 +845,7 @@ function _createStays() {
               "imgUrl": "https://robohash.org/979464?set=set1",
               "id": "979464"
             },
-            "txt": "Shaila and Alex are wonderful hosts - very accommodating, friendly, and easy to communicate with. We found it fairly easy to get around the city from Bed-Stuy, even with the weekend subway schedule. The apartment is lovely, bright, and very clean, and overall it was a pleasure to stay for a few nights. It's been recently renovated and thoughtfully decorated - we felt quite comfortable during our stay and appreciated the art and other nice touches throughout. I'd highly recommend staying with Shaila and Alex."
+            "txt": "Shaila and Alex are wonderful hosts - very accommodating, friendly, and easy to communicate with. We found it fairly easy to get around the city from Bed-Stuy, even with the weekend subway schedule. The apartment is lovely, bright, and very clean, and overall it was a pleasure to room for a few nights. It's been recently renovated and thoughtfully decorated - we felt quite comfortable during our room and appreciated the art and other nice touches throughout. I'd highly recommend rooming with Shaila and Alex."
           },
           {
             "at": "2013-12-01T05:00:00.000Z",
@@ -875,7 +875,7 @@ function _createStays() {
               "imgUrl": "https://robohash.org/9935301?set=set1",
               "id": "9935301"
             },
-            "txt": "We had a great time staying with Alex & Shaila. The apartment is just as depicted in the photos. Lots of space and very comfortable.  The house is located really close to buses and subway which was very convenient. The neighbourhood is fine with a couple of nice places to eat nearby.\r\n\r\nShaila and alex were really friendly and easy to communicate with if needed.  \r\n\r\nWe stayed for 2 months and would recommend it to others who are looking for a place in Brooklyn."
+            "txt": "We had a great time rooming with Alex & Shaila. The apartment is just as depicted in the photos. Lots of space and very comfortable.  The house is located really close to buses and subway which was very convenient. The neighbourhood is fine with a couple of nice places to eat nearby.\r\n\r\nShaila and alex were really friendly and easy to communicate with if needed.  \r\n\r\nWe roomed for 2 months and would recommend it to others who are looking for a place in Brooklyn."
           },
           {
             "at": "2014-03-26T04:00:00.000Z",
@@ -885,7 +885,7 @@ function _createStays() {
               "imgUrl": "https://robohash.org/11278447?set=set1",
               "id": "11278447"
             },
-            "txt": "Upon arriving, Alex was very helpful giving directions to the location. , he gave us a brief overview of everything, and let us settle in. It was a very cozy place to come back to after long days out exploring New York. The subways are very close. We preferred heading up to broadway to catch our trains (Depending where we were going) only because it was much more pleasant on sunny days to be above grounds if we could. It was great to have all amenities available, and at such a reasonable price.The only thing I will mention is that if you do plan on sleeping in- it might not happen as they do have a newborn who you can sometimes hear in the morning if you are a light sleeper.\r\nOverall,  I would recommend you stay at Alex & Shailas airbnb! It was a great and pleasant environment."
+            "txt": "Upon arriving, Alex was very helpful giving directions to the location. , he gave us a brief overview of everything, and let us settle in. It was a very cozy place to come back to after long days out exploring New York. The subways are very close. We preferred heading up to broadway to catch our trains (Depending where we were going) only because it was much more pleasant on sunny days to be above grounds if we could. It was great to have all amenities available, and at such a reasonable price.The only thing I will mention is that if you do plan on sleeping in- it might not happen as they do have a newborn who you can sometimes hear in the morning if you are a light sleeper.\r\nOverall,  I would recommend you room at Alex & Shailas airbnb! It was a great and pleasant environment."
           },
           {
             "at": "2014-04-10T04:00:00.000Z",
@@ -918,14 +918,14 @@ function _createStays() {
         ]
       }
     ];
-    localStorage.setItem(STAY_KEY, JSON.stringify(gStays));
+    localStorage.setItem(STAY_KEY, JSON.stringify(gRooms));
   }
   return;
 }
 
 const BASE_URL = process.env.NODE_ENV !== "development"
-  ? "/api/stay/"
-  : "//localhost:3030/api/stay/";
+  ? "/api/room/"
+  : "//localhost:3030/api/room/";
 
 async function query(filterBy = {}) {
   // return await httpService.get(ENDPOINT, filterBy);
@@ -941,13 +941,13 @@ async function getById(id) {
 // 	// return await httpService.delete(`${ENDPOINT}/${id}`);
 // }
 
-async function save(stay) {
-  // return stay._id
-  // 	? await httpService.put(`${ENDPOINT}/${stay._id}`, stay)
-  // 	: await httpService.post(ENDPOINT, stay);
-  return await storageService._save(STAY_KEY, stay);
+async function save(room) {
+  // return room._id
+  // 	? await httpService.put(`${ENDPOINT}/${room._id}`, room)
+  // 	: await httpService.post(ENDPOINT, room);
+  return await storageService._save(STAY_KEY, room);
 }
 
-function getEmptyStay() {
+function getEmptyRoom() {
 
 }

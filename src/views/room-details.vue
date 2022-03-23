@@ -1,13 +1,14 @@
 <template>
-  <section class="stay-edit page-layout">EDIT</section>
+  <section class="room-details page-layout">DETAILS</section>
 </template>
 
 <script>
 export default {
-  name: "stay-edit",
+  name: "room-detail",
   data() {
     return {};
   },
+  created() {},
   computed: {},
   methods: {},
 };

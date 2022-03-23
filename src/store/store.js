@@ -1,5 +1,5 @@
 import { createStore } from "vuex";
-import stayStore from "./modules/stay-module.js";
+import roomStore from "./modules/room-module.js";
 
 const store = createStore({
   strict: true,
@@ -8,7 +8,7 @@ const store = createStore({
   mutations: {},
   actions: {},
   modules: {
-    stayStore,
+    roomStore,
   },
 });
 

@@ -1,10 +1,10 @@
 <template>
-  <section class="stay-filter">filter</section>
+  <section class="room-filter">filter</section>
 </template>
 
 <script>
 export default {
-  name: "stay-filter",
+  name: "room-filter",
   created() {},
   data() {
     return {};

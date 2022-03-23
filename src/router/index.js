@@ -1,8 +1,8 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import HomePage from "../views/home-page.vue";
-import stayApp from "../views/stay-app.vue";
-import stayDetails from "../views/stay-details.vue";
-import stayEdit from "../views/stay-edit.vue";
+import roomApp from "../views/room-app.vue";
+import roomDetails from "../views/room-details.vue";
+import roomEdit from "../views/room-edit.vue";
 import userDetails from "../views/user-details.vue";
 
 const router = createRouter({
@@ -13,25 +13,30 @@ const router = createRouter({
       name: "HomePage",
       component: HomePage,
     },
+    // {
+    //   path: "/user/:userId?",
+    //   name: "user-details",
+    //   component: userDetails,
+    // },
     {
-      path: "/user/:userId?",
-      name: "user-details",
-      component: userDetails,
+      path: "/explore/:destination?",
+      name: "explore-page",
+      component: explorePage,
     },
     {
-      path: "/stay",
-      name: "stay-app",
-      component: stayApp,
+      path: "/room/:roomId?",
+      name: "room-app",
+      component: roomApp,
     },
     {
-      path: "/stay/:stayId",
-      name: "stay-details",
-      component: stayDetails,
+      path: "/room/:roomId",
+      name: "room-details",
+      component: roomDetails,
     },
     {
-      path: "/stay/edit/:stayId?",
-      name: "stay-edit",
-      component: stayEdit,
+      path: "/room/edit/:roomId?",
+      name: "room-edit",
+      component: roomEdit,
     },
   ],
 });
