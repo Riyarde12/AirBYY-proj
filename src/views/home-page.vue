@@ -22,7 +22,9 @@
     <hr />
     <div v-if="rooms">
       <div v-for="item in topRooms" :key="item._id" class="card-container">
-        <pre>{{ item.name }}</pre>
+        <router-link :to="`/room/${item._id}`">
+          <pre>{{ item.name }}</pre>
+        </router-link>
       </div>
     </div>
   </section>
@@ -45,9 +47,6 @@ export default {
     },
   },
   async created() {
-    // const topRooms = await this.$store.dispatch({ type: "topRoomsForDisplay" });
-    // console.log(topRooms);
-    // this.rooms = topRooms;
     try {
       this.rooms = await this.$store.dispatch({
         type: "loadRooms",

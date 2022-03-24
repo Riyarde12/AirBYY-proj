@@ -1918,14 +1918,14 @@ async function query(filterBy = []) {
   return roomsForDisplay;
 }
 
-async function homepageDisplay() {
-  const rooms = await storageService.query(STAY_KEY);
-  // console.log(rooms[0].reviewScores.rating);
-  console.log(rooms);
-  const homeRooms = rooms.filter(room => room.reviewScores.rating > 80);
-  console.log(homeRooms);
-  return homeRooms;
-}
+// async function homepageDisplay() {
+//   const rooms = await storageService.query(STAY_KEY);
+//   // console.log(rooms[0].reviewScores.rating);
+//   console.log(rooms);
+//   const homeRooms = rooms.filter(room => room.reviewScores.rating > 80);
+//   console.log(homeRooms);
+//   return homeRooms;
+// }
 
 function _roomsForDisplay(rooms, filterBy) {
   if (filterBy.destination) {

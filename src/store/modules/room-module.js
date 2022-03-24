@@ -17,9 +17,6 @@ export default {
     rooms(state) {
       return JSON.parse(JSON.stringify(state.rooms));
     },
-    // destination(state) {
-    //   return state.destination;
-    // }
   },
   mutations: {
     setRooms(state, { rooms }) {
@@ -38,19 +35,9 @@ export default {
     setFilter(state, { filterBy }) {
       state.filterBy = filterBy;
     },
-    setHomeRoom(state, { homeRooms }) {
-      state.homeRooms = homeRooms;
-    }
-    // setDestination(state, { destination }) {
-    //   console.log('destination :>> commit', destination);
-    //   const currDestination = state.rooms.find(room => room.address.country = destination);
-    //   console.log('currDestination: ', currDestination);
-    //   state.destination = currDestination;
-    //   console.log('state.destination', state.destination);
+    // setHomeRoom(state, { homeRooms }) {
+    //   state.homeRooms = homeRooms;
     // }
-    // setRoomToEdit(state, { room }) {
-    //     state.roomToEdit = room;
-    // },
   },
   actions: {
     async loadRooms({ commit, state }, { filterBy = {} }) {
@@ -90,9 +77,17 @@ export default {
     //     console.log('err', err);
     //   }
     // // },
-    //  getRoom({ commit, state }, { id }) {
-    //   return id ? roomService.getById(id) : roomService.getEmptyRoom();
-    //  },
+    async getRoom({ commit, state }, { id }) {
+      console.log('id', id);
+      try {
+        const room = await roomService.getById(id);
+        console.log('room', room);
+        return room;
+      }
+      catch (err) {
+        console.log('err', err);
+      }
+    },
     // filter({ commit, dispatch }, { filterBy }) {
     //   commit({ type: 'setFilter', filterBy });
     //   dispatch({ type: 'loadRooms' });
