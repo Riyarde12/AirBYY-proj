@@ -7,8 +7,8 @@
         <h4 class="star-review">
           <img src="../assets/img/star.png" alt="" />
         </h4>
-        <h4>{{ room.reviewScores.rating / 10 }}</h4>
-        <h4>{{ room.numOfReviews }}</h4>
+        <h4>{{ avgReviewScores }}</h4>
+        <h4>Reviews {{ room.numOfReviews }}</h4>
         <h4>{{ room.address.city }}</h4>
         <h4>{{ room.address.street }}</h4>
         <div>
@@ -70,7 +70,7 @@
           ><img src="../assets/img/star.png" alt=""
         /></span>
         <h2>{{ avgReviewScores }}</h2>
-        <h2>{{ room.numOfReviews }}</h2>
+        <h2>Reviews {{ room.numOfReviews }}</h2>
       </div>
       <section class="room-review-list">
         <ul class="review-list-container clean-list">
