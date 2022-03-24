@@ -1,5 +1,6 @@
 <template>
   <section v-if="room" class="room-preview">
+    <!-- router-link -->
     <div class="preview-img-section">
       <svg
         class="preview-like-btn"
@@ -29,6 +30,7 @@
         <span class="price">${{ room.price }}</span> / night
       </p>
     </div>
+    <!-- router-link -->
   </section>
 </template>
 
