@@ -1,32 +1,35 @@
 <template>
   <section class="room-filter">
     <div class="main-filter-btn">
-    <button  class="filter-btn">Price 🔻</button>
-     <div class="filter-modals" v-if="modal"> 
-<div class="modal-type">
-  <input type="checkbox">
-  <span>some</span><br><hr>
-  <input type="checkbox">
-  <span>place</span><br><hr>
-  <input type="checkbox">
-  <span>top rated</span><br><hr>
-  <input type="checkbox">
-  <span>allayoster</span>
-</div>
-    </div> 
-    <button @click="change" class="filter-btn">Type Of Place 🔻</button><div class="vartical"></div>
+      <button class="filter-btn">Price 🔻</button>
+      <div class="filter-modals" v-if="modal">
+        <div class="modal-type">
+          <input type="checkbox" />
+          <span>some</span><br />
+          <hr />
+          <input type="checkbox" />
+          <span>place</span><br />
+          <hr />
+          <input type="checkbox" />
+          <span>top rated</span><br />
+          <hr />
+          <input type="checkbox" />
+          <span>allayoster</span>
+        </div>
       </div>
-      <div class="wifi">  
-    <button class="filter-btn">Free cancellation</button>
-    <button class="filter-btn">Wifi</button>
-    <button class="filter-btn">Kitchen</button>
-    <button class="filter-btn">Air conditioning</button>
-    <button class="filter-btn">Washer</button>
-    <!-- <button class="filter-btn">Iron</button> -->
-    <!-- <button class="filter-btn">Free parking</button> -->
-    <!-- <button class="filter-btn">Filter</button> -->
+      <button @click="change" class="filter-btn">Type Of Place 🔻</button>
+      <div class="vartical"></div>
     </div>
-   
+    <div class="wifi">
+      <!-- <button class="filter-btn">Free cancellation</button>
+      <button class="filter-btn">Wifi</button>
+      <button class="filter-btn">Kitchen</button>
+      <button class="filter-btn">Air conditioning</button>
+      <button class="filter-btn">Washer</button> -->
+      <!-- <button class="filter-btn">Iron</button> -->
+      <!-- <button class="filter-btn">Free parking</button> -->
+      <!-- <button class="filter-btn">Filter</button> -->
+    </div>
   </section>
 </template>
 
@@ -36,34 +39,34 @@ export default {
   created() {},
   data() {
     return {
-      modal:false
+      modal: false,
     };
   },
   methods: {
-    change(){
-      this.modal = !this.modal
-      console.log('s');
-    }
+    change() {
+      this.modal = !this.modal;
+      console.log("s");
+    },
   },
 };
 </script>
 <style>
-.room-filter{
+.room-filter {
   padding: 8px 24px;
   display: flex;
   justify-content: space-around;
 }
-.main-filter-btn{  
+.main-filter-btn {
   gap: 15px;
   display: flex;
   justify-content: space-around;
 }
 
-.filter-modals{
+.filter-modals {
   position: relative;
 }
 
-.modal-type{
+.modal-type {
   position: absolute;
   background-color: white;
   /* left: 50% ; */
@@ -76,15 +79,15 @@ export default {
   font-weight: bold;
 }
 
-input{
+input {
   color: black;
 }
 
-.wifi{
+.wifi {
   display: flex;
   flex-grow: 1;
   gap: 10px;
- justify-content: space-between;
+  justify-content: space-between;
 }
 .vartical {
   height: 100%;

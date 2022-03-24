@@ -7,4 +7,8 @@
 .explore-layout {
   display: grid;
   grid-template-columns: 7vw 1fr 7vw;
+
+  & > * {
+    grid-column: 2;
+  }
 }

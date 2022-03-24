@@ -1,5 +1,6 @@
 <template>
   <section v-if="room" class="room-preview">
+    <!-- router-link -->
     <div class="preview-img-section">
       <svg
         class="preview-like-btn"
@@ -17,19 +18,19 @@
     </div>
     <div class="preview-details">
       <div class="preview-reviews">
-        <div>
+        <div class="preview-rating">
           <img src="../assets/img/star.png" alt="" />
-          <span>{{ getAvgRating }}</span>
-          <span>({{ room.numOfReviews }})</span>
+          <span class="rating">{{ getAvgRating }}</span>
+          <span class="num-of-reviews">({{ room.numOfReviews }})</span>
         </div>
       </div>
       <p>{{ room.roomType }} · {{ room.address.city }}</p>
       <p>{{ room.name }}</p>
       <p>
-        <span>${{ room.price }}</span
-        >/ night
+        <span class="price">${{ room.price }}</span> / night
       </p>
     </div>
+    <!-- router-link -->
   </section>
 </template>
 
@@ -46,7 +47,7 @@ export default {
   methods: {},
   computed: {
     getAvgRating() {
-      return this.room.reviewScores.rating / 10;
+      return this.room.reviewScores.rating / 20;
     },
   },
 };
