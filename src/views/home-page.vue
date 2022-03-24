@@ -3,16 +3,14 @@
     <h1>Air BYY</h1>
     <div v-if="rooms">
       <div v-for="destination in destinations" :key="destination._id">
-        <div class="container">
+        <home-page-preview :destination="destination" @goTo="goTo" />
+        <!-- <div class="container">
           <div class="coupon" @click="goTo(destination.address.country)">
             <img src="../assets/img/US.jpg" alt="Avatar" style="width: 100%" />
             <div class="container" style="background-color: white">
               <h2><b>20% OFF YOUR PURCHASE</b></h2>
               <p>
                 Lorem ipsum dolor sit amet, et nam pertinax gloriatur. Sea te
-                minim soleat senserit, ex quo luptatum tacimates voluptatum,
-                salutandi delicatissimi eam ea. In sed nullam laboramus
-                appellantur, mei ei omnis dolorem mnesarchum.s
               </p>
             </div>
           </div>
@@ -24,8 +22,12 @@
       <div v-for="item in topRooms" :key="item._id" class="card-container">
         <router-link :to="`/room/${item._id}`">
           <pre>{{ item.name }}</pre>
+<<<<<<< HEAD
           <!-- <img src="" alt=""> -->
         </router-link>
+=======
+        </router-link> -->
+>>>>>>> 8a5915f3b9107f08ad52cb89e7c149cf49f1fea6
       </div>
     </div>
   </section>
@@ -33,13 +35,16 @@
 
 <script>
 import { utilService } from "../service/util-service.js";
-
+import homePagePreview from "../components/home-page-preview.vue";
 export default {
   name: "home-app",
   data() {
     return {
       rooms: null,
     };
+  },
+  components:{
+    homePagePreview
   },
   methods: {
     goTo(place) {
@@ -52,7 +57,6 @@ export default {
       this.rooms = await this.$store.dispatch({
         type: "loadRooms",
       });
-      console.log("this.rooms", this.rooms);
     } catch (err) {
       console.log("err", err);
     }
@@ -65,7 +69,7 @@ export default {
           destinations.push(room);
         }
       });
-      return destinations;
+      return destinations.slice(0, 4);
     },
     topRooms() {
       const topRated = this.rooms.filter(

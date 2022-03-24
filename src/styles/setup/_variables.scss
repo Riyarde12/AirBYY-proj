@@ -17,8 +17,10 @@ $clr15: #ff385c;
 $clr16: #92174d;
 $clr17: #460479;
 
-$clr18: linear-gradient(to right, #e61e4d 0%, #e31c5f 50%, #d70466 100%);
-$clr19: radial-gradient(
+// LINEAR-GRADIENT
+
+$lg1: linear-gradient(to right, #e61e4d 0%, #e31c5f 50%, #d70466 100%);
+$lg2: radial-gradient(
     circle at center,
     #ff385c 0%,
     #e61e4d 27.5%,
@@ -27,27 +29,23 @@ $clr19: radial-gradient(
     #bd1e59 75%,
     #bd1e59 100%
 );
-$clr20: linear-gradient(to right, #bd1e59 0%, #92174d 50%, #861453 100%);
-$clr21: radial-gradient(
-    circle at center,
-    #d70466 0%,
-    #bd1e59 30%,
-    #92174d 55%,
-    #861453 72.5%,
-    #6c0d63 90%,
-    #6c0d63 100%
-);
-$clr22: linear-gradient(to right, #59086e 0%, #460479 50%, #440589 100%);
-$clr23: radial-gradient(
-    circle at center,
-    #6c0d63 0%,
-    #59086e 30%,
-    #460479 55%,
-    #440589 72.5%,
-    #3b07bb 90%,
-    #3b07bb 100%
-);
+$lg3: linear-gradient(to right, #bd1e59 0%, #92174d 50%, #861453 100%);
+$lg4: radial-gradient(circle at center, #d70466 0%, #bd1e59 30%, #92174d 55%, #861453 72.5%, #6c0d63 90%, #6c0d63 100%);
+$lg5: linear-gradient(to right, #59086e 0%, #460479 50%, #440589 100%);
+$lg6: radial-gradient(circle at center, #6c0d63 0%, #59086e 30%, #460479 55%, #440589 72.5%, #3b07bb 90%, #3b07bb 100%);
 
 // TXT
+
 $txtDefault: Circular, Roboto, "Helvetica Neue", sans-serif;
 $txtBoldDefault: Circular-bold, Roboto-bold, "Helvetica Neue", sans-serif;
+
+// OPACITY
+
+$OP1: 0 8px 28px rgba(0, 0, 0, 0.28);
+$OP2: 1px solid rgba(0, 0, 0, 0.04);
+$OP3: 0 6px 20px rgba(0, 0, 0, 0.2);
+$OP4: 1px solid rgba(0, 0, 0, 0.04);
+$OP5: 0 6px 16px rgba(0, 0, 0, 0.12);
+$OP6: 1px solid rgba(0, 0, 0, 0.04);
+$OP7: 0 2px 4px rgba(0, 0, 0, 0.18);
+$OP8: 1px solid rgba(0, 0, 0, 0.08);

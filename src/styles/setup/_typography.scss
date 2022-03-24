@@ -1,19 +1,26 @@
 @font-face {
     font-family: "Circular";
-    src: url(~@assets/fonts/Circular/CircularStd-Medium.otf);
+    // src: url(~@assets/fonts/Circular/CircularStd-Medium.otf);
+    src: local("Circular"), url("@/assets/styles/fonts/Circular/CircularStd-Medium.otf") format("otf");
+    // src: url("../../assets/fonts/Circular/CircularStd-Medium.otf");
 }
 
 @font-face {
     font-family: "Circular-bold";
-    src: url(~@assets/fonts/Circular/CircularStd-Bold.otf);
+    // src: url(~@assets/fonts/Circular/CircularStd-Bold.otf);
+    src: url("../../assets/fonts/Circular/CircularStd-Bold.otf");
 }
 
 @font-face {
     font-family: "Roboto";
-    src: url(~@assets/fonts/Roboto/Roboto-Regular.ttf);
+    // src: url(~@/assets/fonts/Roboto/Roboto-Regular.ttf);
+    src: local("Roboto"), url("@/assets/styles/fonts/Roboto/Roboto-Regular.ttf") format("ttf");
+    // src: url("../../assets/fonts/Roboto/Roboto-Regular.ttf");
 }
 
 @font-face {
     font-family: "Roboto-bold";
-    src: url(~@assets/fonts/Roboto/Roboto-Bold.ttf);
+    // src: url(~@../assets/fonts/Roboto/Roboto-Bold.ttf);
+    src: url(../../assets/fonts/Roboto/Roboto-Bold.ttf);
 }
+// src: local("Opensans-Bold"), url(@/assets/styles/fonts/OpenSans-Bold.ttf) format("truetype");
