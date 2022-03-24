@@ -1,7 +1,7 @@
 <template>
   <section class="room-list">
     <div class="room-list-container explore-layout">
-      <ul>
+      <ul class="grid-layout">
         <li v-for="room in rooms" :key="room._id">
           <room-preview :room="room" />
         </li>

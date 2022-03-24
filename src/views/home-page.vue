@@ -1,15 +1,13 @@
 <template>
-  <section class="home-app page-layout">
-    <h1>AirBYY</h1>
-    <h2>Travel the world whith AirBYY</h2>
-    <div class="explore-layout" v-if="rooms">
-      <div>
-        <div v-for="destination in destinations" :key="destination._id">
-          <home-page-preview :destination="destination" @goTo="goTo" />
-        </div>
+  <section class="home-page explore-layout page-layout">
+    <h1 class="destination-title">Inspiration for your next trip</h1>
+    <div class="grid-layout destination-navbar" v-if="rooms">
+      <div v-for="destination in destinations" :key="destination._id">
+        <home-page-preview :destination="destination" @goTo="goTo" />
       </div>
-      <br />
-      <hr />
+    </div>
+    <h1 class="destination-title">Top rated</h1>
+    <div class="grid-layout destination-navbar" v-if="rooms">
       <div v-for="room in topRated" :key="room._id">
         <room-preview :room="room" />
       </div>
@@ -22,7 +20,7 @@ import { utilService } from "../service/util-service.js";
 import homePagePreview from "../components/home-page-preview.vue";
 import roomPreview from "../components/room-preview.vue";
 export default {
-  name: "home-app",
+  name: "home-page",
   data() {
     return {
       rooms: null,
@@ -78,38 +76,4 @@ export default {
 </script>
 
 <style>
-/* h1 {
-  text-align: center;
-  margin: 25px;
-}
-.card-container {
-  display: flex;
-  gap: 50px;
-  justify-content: center;
-}
-.home-card {
-  cursor: pointer;
-}
-
-.coupon {
-  border: 5px solid #bbb;
-  width: 80%;
-  border-radius: 15px;
-  margin: 0 auto;
-  max-width: 600px;
-}
-
-.container {
-  padding: 2px 16px;
-  background-color: #f1f1f1;
-}
-
-.promo {
-  background: #ccc;
-  padding: 3px;
-}
-
-.expire {
-  color: red;
-} */
 </style>
