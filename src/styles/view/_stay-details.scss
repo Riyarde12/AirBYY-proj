@@ -1,0 +1,23 @@
+.room-details-main-layout {
+    // main layout needed
+
+    .room-short-detail {
+        .short-detail-container {
+            .star-review {
+                img {
+                    height: em(14px);
+                    width: em(14px);
+                }
+            }
+        }
+    }
+}
+
+.room-reviews-header {
+    .star-review {
+        img {
+            height: em(15.7833px);
+            width: em(15.05px);
+        }
+    }
+}

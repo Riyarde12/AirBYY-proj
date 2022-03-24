@@ -1,9 +1,12 @@
 <template>
+  <!-- DETAIL HEADER -->
   <section v-if="room" class="room-details-main-layout page-layout">
     <h1 class="room-name">{{ room.name }}</h1>
     <section class="room-short-detail">
       <div class="short-detail-container">
-        <h4>Star(ICON)</h4>
+        <h4 class="star-review">
+          <img src="../assets/img/star.png" alt="" />
+        </h4>
         <h4>{{ room.reviewScores.rating / 10 }}</h4>
         <h4>{{ room.numOfReviews }}</h4>
         <h4>{{ room.address.city }}</h4>
@@ -15,9 +18,12 @@
       </div>
     </section>
 
-    <div v-for="imgUrl in room.imgUrls" :key="imgUrl">
-      <img :src="getImgForDisplay(imgUrl)" alt="" />
-    </div>
+    <!-- IMAGES SECTION -->
+    <!-- <section class="images-container">
+      <div v-for="imgUrl in room.imgUrls" :key="imgUrl">
+        <img :src="getImgForDisplay(imgUrl)" alt="" />
+      </div>
+    </section> -->
 
     <!-- DETAILS-INFO -->
 
@@ -56,12 +62,14 @@
       </section>
 
       <hr />
+      <!-- REVIEWS -->
     </article>
-
-    <!-- REVIEWS -->
     <section>
-      <div room-reviews-header>
-        <!-- <span>Star(img)</span> -->
+      <div class="room-reviews-header">
+        <span class="star-review"
+          ><img src="../assets/img/star.png" alt=""
+        /></span>
+        <h2>{{ avgReviewScores }}</h2>
         <h2>{{ room.numOfReviews }}</h2>
       </div>
       <section class="room-review-list">
@@ -110,18 +118,15 @@ export default {
     showGreatloc() {
       return this.room.reviewScores.location;
     },
-    // getAvgScoresReviews() {
-    //   this.room.reviews.reduce((accum, review) => {
-    //     review.
-    //   }, 0);
-    //   this.room.numOfReviews / (this.room.reviewScores.rating / 10);
-    // },
+    avgReviewScores() {
+      return this.room.reviewScores.rating / 20;
+    },
   },
   methods: {
-    getImgForDisplay(imgNumber) {
-      imgNumber.splice;
-      return `https://res.cloudinary.com/canjan22/image/upload/v1648083467/AirByy/${imgNumber}_bfhbli.jpg`;
-    },
+    // getImgForDisplay(imgNumber) {
+    //   imgNumber.splice;
+    //   return `https://res.cloudinary.com/canjan22/image/upload/v1648083467/AirByy/${imgNumber}_bfhbli.jpg`;
+    // },
   },
 };
 </script>
