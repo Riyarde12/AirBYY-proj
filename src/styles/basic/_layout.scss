@@ -3,3 +3,8 @@
   height: auto;
   background-color: var(--clr2);
 }
+
+.explore-layout {
+  display: grid;
+  grid-template-columns: 7vw 1fr 7vw;
+}

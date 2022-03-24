@@ -1,11 +1,11 @@
 <template>
   <section class="room-list">
-    <div class="room-list-container">
-    <ul>
-      <li v-for="room in rooms" :key="room._id">
-        <room-preview :room="room"/>
-      </li>
-    </ul>
+    <div class="room-list-container explore-layout">
+      <ul>
+        <li v-for="room in rooms" :key="room._id">
+          <room-preview :room="room" />
+        </li>
+      </ul>
     </div>
   </section>
 </template>
@@ -21,16 +21,14 @@ export default {
     },
   },
   components: {
-    roomPreview
+    roomPreview,
   },
   created() {},
   data() {
-    return {
-    };
+    return {};
   },
   methods: {},
-  computed: {
-  },
+  computed: {},
 };
 </script>
 
