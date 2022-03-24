@@ -4,6 +4,14 @@
   background-color: var(--clr2);
 }
 
+.details-layout {
+  display: grid;
+  grid-template-columns: minmax(20px, 1fr) minmax(auto, 1120px) minmax(20px, 1fr);
+
+  & > * {
+    grid-column: 2;
+  }
+}
 .explore-layout {
   display: grid;
   grid-template-columns: 7vw 1fr 7vw;

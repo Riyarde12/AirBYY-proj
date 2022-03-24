@@ -1,6 +1,6 @@
 <template>
   <!-- DETAIL HEADER -->
-  <section v-if="room" class="room-details-main-layout page-layout">
+  <section v-if="room" class="room-details details-layout page-layout">
     <h1 class="room-name">{{ room.name }}</h1>
     <section class="room-short-detail">
       <div class="short-detail-container">
@@ -55,7 +55,7 @@
           </form>
           <hr />
           <h3>What this place to offers</h3>
-          <ul v-for="(item, idx) in room.amenities" :key="idx">
+          <ul v-for="(item, idx) in amenitiesForDisplay" :key="idx">
             <li>{{ item }}</li>
           </ul>
         </div>
@@ -120,6 +120,9 @@ export default {
     },
     avgReviewScores() {
       return this.room.reviewScores.rating / 20;
+    },
+    amenitiesForDisplay() {
+      return this.room.amenities.slice(0, 8);
     },
   },
   methods: {
