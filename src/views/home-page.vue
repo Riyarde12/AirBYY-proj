@@ -22,12 +22,7 @@
       <div v-for="item in topRooms" :key="item._id" class="card-container">
         <router-link :to="`/room/${item._id}`">
           <pre>{{ item.name }}</pre>
-<<<<<<< HEAD
-          <!-- <img src="" alt=""> -->
-        </router-link>
-=======
         </router-link> -->
->>>>>>> 8a5915f3b9107f08ad52cb89e7c149cf49f1fea6
       </div>
     </div>
   </section>
@@ -43,8 +38,8 @@ export default {
       rooms: null,
     };
   },
-  components:{
-    homePagePreview
+  components: {
+    homePagePreview,
   },
   methods: {
     goTo(place) {
