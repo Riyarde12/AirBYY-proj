@@ -1,8 +1,20 @@
 <template>
   <section class="room-filter">
     <div class="main-filter-btn">
-    <button class="filter-btn">Price 🔻</button>
-    <button class="filter-btn">Type Of Place 🔻</button><div class="vartical"></div>
+    <button  class="filter-btn">Price 🔻</button>
+     <div class="filter-modals" v-if="modal"> 
+<div class="modal-type">
+  <input type="checkbox">
+  <span>some</span><br><hr>
+  <input type="checkbox">
+  <span>place</span><br><hr>
+  <input type="checkbox">
+  <span>top rated</span><br><hr>
+  <input type="checkbox">
+  <span>allayoster</span>
+</div>
+    </div> 
+    <button @click="change" class="filter-btn">Type Of Place 🔻</button><div class="vartical"></div>
       </div>
       <div class="wifi">  
     <button class="filter-btn">Free cancellation</button>
@@ -10,10 +22,11 @@
     <button class="filter-btn">Kitchen</button>
     <button class="filter-btn">Air conditioning</button>
     <button class="filter-btn">Washer</button>
-    <button class="filter-btn">Iron</button>
-    <button class="filter-btn">Free parking</button>
-    <button class="filter-btn">Filter</button>
+    <!-- <button class="filter-btn">Iron</button> -->
+    <!-- <button class="filter-btn">Free parking</button> -->
+    <!-- <button class="filter-btn">Filter</button> -->
     </div>
+   
   </section>
 </template>
 
@@ -22,9 +35,16 @@ export default {
   name: "room-filter",
   created() {},
   data() {
-    return {};
+    return {
+      modal:false
+    };
   },
-  methods: {},
+  methods: {
+    change(){
+      this.modal = !this.modal
+      console.log('s');
+    }
+  },
 };
 </script>
 <style>
@@ -37,6 +57,27 @@ export default {
   gap: 15px;
   display: flex;
   justify-content: space-around;
+}
+
+.filter-modals{
+  position: relative;
+}
+
+.modal-type{
+  position: absolute;
+  background-color: white;
+  /* left: 50% ; */
+  width: 300px;
+  height: 300px;
+  z-index: 15;
+  top: 50px;
+  box-shadow: rgb(0 0 0 / 15%) 0px 10px 37px;
+  padding: 10px;
+  font-weight: bold;
+}
+
+input{
+  color: black;
 }
 
 .wifi{
