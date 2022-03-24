@@ -1,7 +1,10 @@
 <template>
-  <section class="room-filter">
+  <section class="explore-layout">
+    <div class="room-filter">
     <div class="main-filter-btn">
+      <div>
       <button class="filter-btn">Price 🔻</button>
+     </div>
       <div class="filter-modals" v-if="modal">
         <div class="modal-type">
           <input type="checkbox" />
@@ -30,6 +33,7 @@
       <!-- <button class="filter-btn">Free parking</button> -->
       <!-- <button class="filter-btn">Filter</button> -->
     </div>
+    </div>
   </section>
 </template>
 
@@ -52,8 +56,9 @@ export default {
 </script>
 <style>
 .room-filter {
-  padding: 8px 24px;
+  padding: 10px 0px;
   display: flex;
+  justify-self: start;
   justify-content: space-around;
 }
 .main-filter-btn {
@@ -71,7 +76,6 @@ export default {
   background-color: white;
   /* left: 50% ; */
   width: 300px;
-  height: 300px;
   z-index: 15;
   top: 50px;
   box-shadow: rgb(0 0 0 / 15%) 0px 10px 37px;
@@ -80,7 +84,9 @@ export default {
 }
 
 input {
-  color: black;
+  /* height: 30px; */
+  
+  color: rgb(238, 15, 15);
 }
 
 .wifi {
