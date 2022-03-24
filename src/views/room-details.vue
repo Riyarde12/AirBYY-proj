@@ -1,47 +1,53 @@
 <template>
   <!-- DETAIL HEADER -->
-  <section v-if="room" class="room-details details-layout page-layout">
-    <h1 class="room-name">{{ room.name }}</h1>
-    <section class="room-short-detail">
-      <div class="short-detail-container">
+
+  <section v-if="room" class="room-detail detail-layout page-layout">
+    <h1>{{ room.name }}</h1>
+    <section class="room-short-detail flex align-center space-between">
+      <div class="short-detail-container flex">
         <h4 class="star-review">
           <img src="../assets/img/star.png" alt="" />
         </h4>
-        <h4>{{ avgReviewScores }}</h4>
-        <h4>Reviews {{ room.numOfReviews }}</h4>
-        <h4>{{ room.address.city }}</h4>
-        <h4>{{ room.address.street }}</h4>
-        <div>
-          <button>Save</button>
-          <button>Share</button>
-        </div>
+        <h4 class="review-scores">{{ avgReviewScores }}</h4>
+        <h4 class="under-line">Reviews {{ room.numOfReviews }}</h4>
+        <h4 class="under-line">{{ room.address.city }}</h4>
+        <h4 class="under-line">{{ room.address.street }}</h4>
+      </div>
+      <div>
+        <button class="flex">
+          <span>(ICON)</span>
+          <span class="under-line">Save</span>
+        </button>
+        <button class="flex">
+          <span>(ICON)</span>
+          <span class="under-line">Share</span>
+        </button>
       </div>
     </section>
 
     <!-- IMAGES SECTION -->
-    <!-- <section class="images-container">
-      <div v-for="imgUrl in room.imgUrls" :key="imgUrl">
-        <img :src="getImgForDisplay(imgUrl)" alt="" />
-      </div>
-    </section> -->
+    <section class="imgs-container grid">
+      <img v-for="imgUrl in imgForDisplay" :key="imgUrl" :src="imgUrl" alt="" />
+    </section>
 
     <!-- DETAILS-INFO -->
 
     <article class="room-detail-info">
-      <section class="room-summery-container">
-        <div>
-          <h2>Discripation {{ room.summary }}</h2>
+      <section class="">
+        <div class="room-present-info">
+          <h2>Entire rental unit hosted by {{ room.host.fullname }}</h2>
           <h5>
             Guests {{ room.capacity }} Beds {{ room.beds }} Bedrooms{{
               room.bedrooms
             }}
             Bathrooms {{ room.bathrooms }}
           </h5>
-        </div>
-        <div>
-          <!-- <img src="" alt=""> -->
+          <div>
+            <!-- <img src="" alt=""> -->
+          </div>
         </div>
       </section>
+      <hr />
       <section>
         <div>
           <h3>{{ room.propertyType }}</h3>
@@ -53,17 +59,40 @@
             </h5>
             <h3>{{ room.cancellationPolicy }}</h3>
           </form>
+          <h2>Discripation {{ room.summary }}</h2>
           <hr />
           <h3>What this place to offers</h3>
           <ul v-for="(item, idx) in amenitiesForDisplay" :key="idx">
             <li>{{ item }}</li>
           </ul>
         </div>
-      </section>
 
-      <hr />
-      <!-- REVIEWS -->
+        <!-- MODAL CHECKOUT -->
+
+        <section class="modal-display-checkout">
+          <div class="checkout-container">
+            <div>
+              <div
+                class="
+                  header-checkout-container
+                  flex
+                  space-between
+                  align-center
+                "
+              >
+                <span>${{ showPrice }} / Night</span>
+                <span><img src="../assets/img/star.png" alt="" /></span>
+                <span>{{ avgReviewScores }}</span>
+                <span>({{ room.numOfReviews }})</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
     </article>
+
+    <hr />
+    <!-- REVIEWS -->
     <section>
       <div class="room-reviews-header">
         <span class="star-review"
@@ -124,13 +153,14 @@ export default {
     amenitiesForDisplay() {
       return this.room.amenities.slice(0, 8);
     },
+    imgForDisplay() {
+      return this.room.imgUrls;
+    },
+    showPrice() {
+      return this.room.price;
+    },
   },
-  methods: {
-    // getImgForDisplay(imgNumber) {
-    //   imgNumber.splice;
-    //   return `https://res.cloudinary.com/canjan22/image/upload/v1648083467/AirByy/${imgNumber}_bfhbli.jpg`;
-    // },
-  },
+  methods: {},
 };
 </script>
 

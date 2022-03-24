@@ -1,23 +1,91 @@
-.room-details {
+.room-detail {
     // main layout needed
-
+    h1 {
+        font-size: 1.46875rem;
+        line-height: 1.6875rem;
+    }
     .room-short-detail {
+        margin-bottom: 24px;
+
+        h4 {
+            margin-block: 0;
+        }
+
         .short-detail-container {
             .star-review {
                 img {
                     height: em(14px);
                     width: em(14px);
+                    margin-right: 4px;
                 }
             }
+        }
+        .review-scores {
+            margin-inline: 2px;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            margin-left: 5px;
         }
     }
 }
 
+.imgs-container {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(180px, 1fr));
+    grid-template-rows: 180px 180px;
+    grid-gap: 8px;
+    gap: 8px;
+
+    & :nth-child(1) {
+        grid-column: 1 / span 2;
+        grid-row: 1 / span 2;
+        border-top-left-radius: 13px;
+        border-bottom-left-radius: 13px;
+    }
+
+    :nth-child(3) {
+        border-top-right-radius: 13px;
+    }
+    :nth-child(5) {
+        border-bottom-right-radius: 13px;
+    }
+
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+.modal-display-checkout {
+    .header-checkout-container {
+        border-radius: 12px;
+        border: 1px solid $clr5;
+        box-shadow: $op5;
+
+        & :nth-child(1) {
+            height: 20px;
+            width: 20px;
+        }
+    }
+}
+
+.room-detail-info {
+    h2 {
+        font-size: 1.375em;
+        margin-bottom: 8px;
+    }
+
+    .room-present-info {
+        padding-top: 48px;
+        padding-bottom: 24px;
+    }
+}
 .room-reviews-header {
     .star-review {
         img {
-            height: em(15.7833px);
-            width: em(15.05px);
+            height: 0.9864em;
+            width: 0.94062em;
         }
     }
 }
