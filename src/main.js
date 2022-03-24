@@ -6,11 +6,6 @@ import "./styles/style.scss";
 
 const app = createApp(App);
 
-import HistogramSlider from "vue-histogram-slider";
-import "vue-histogram-slider/dist/histogram-slider.css";
-
-app.component(HistogramSlider.name, HistogramSlider);
-
 app.config.productionTip = false;
 
 // app = ({
