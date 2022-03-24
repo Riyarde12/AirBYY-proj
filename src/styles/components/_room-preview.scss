@@ -1,6 +1,11 @@
 .room-preview {
     display: flex;
     flex-direction: column;
+    color: $clr1;
+
+    & > * {
+        color: $clr1;
+    }
 }
 
 .room-preview .preview-img-section {

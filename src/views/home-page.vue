@@ -2,17 +2,18 @@
   <section class="home-app page-layout">
     <h1>AirBYY</h1>
     <h2>Travel the world whith AirBYY</h2>
-  <div class="explore-layout" v-if="rooms">
-    <div >
-      <div v-for="destination in destinations" :key="destination._id">
-        <home-page-preview :destination="destination" @goTo="goTo" />
+    <div class="explore-layout" v-if="rooms">
+      <div>
+        <div v-for="destination in destinations" :key="destination._id">
+          <home-page-preview :destination="destination" @goTo="goTo" />
+        </div>
       </div>
-    </div> <br><hr>    
+      <br />
+      <hr />
       <div v-for="room in topRated" :key="room._id">
-          <room-preview :room="room" />    
+        <room-preview :room="room" />
       </div>
-  </div>
-      
+    </div>
   </section>
 </template>
 
@@ -25,25 +26,25 @@ export default {
   data() {
     return {
       rooms: null,
-      topRated:null
+      topRated: null,
     };
   },
   components: {
     homePagePreview,
-    roomPreview
+    roomPreview,
   },
   methods: {
     goTo(place) {
       // console.log(place);
       this.$router.push({ path: "explore", query: { destination: place } });
     },
-     topRooms() {
+    topRooms() {
       const topRated = this.rooms.filter(
         (room) => room.reviewScores.rating > 80
       );
-      const idx = utilService.getRandomInt(0,topRated.length-4)
-      this.topRated = topRated.slice(idx,idx+4);
-     },
+      const idx = utilService.getRandomInt(0, topRated.length - 4);
+      this.topRated = topRated.slice(idx, idx + 4);
+    },
   },
   async created() {
     try {
@@ -62,7 +63,7 @@ export default {
           destinations.push(room);
         }
       });
-      this.topRooms()
+      this.topRooms();
       return destinations.slice(0, 4);
     },
     // topRooms() {
@@ -70,16 +71,16 @@ export default {
     //     (room) => room.reviewScores.rating > 80
     //   );
     //   this.topRated = topRated.slice(0, 4);
-      // return topRated.slice(0, 4);
+    // return topRated.slice(0, 4);
     // },
   },
 };
 </script>
 
 <style>
-h1 {
+/* h1 {
   text-align: center;
-  /* margin: 25px; */
+  margin: 25px;
 }
 .card-container {
   display: flex;
@@ -110,5 +111,5 @@ h1 {
 
 .expire {
   color: red;
-}
+} */
 </style>
