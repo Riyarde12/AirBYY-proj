@@ -1,5 +1,6 @@
 <template>
   <section class="room-app page-layout">
+    <room-filter />
     <!-- <room-filter @setFilter="setFilter" /> -->
     <room-list v-if="rooms && rooms.length" :rooms="rooms"></room-list>
     <!-- <pre>
@@ -16,7 +17,7 @@ export default {
   name: "room-app",
   components: {
     roomList,
-    // roomFilter,
+    roomFilter,
   },
   data() {
     return {
