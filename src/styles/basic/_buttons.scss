@@ -10,6 +10,16 @@
     font-size: 0.75rem;
     line-height: 1rem;
     width: 100%;
+    max-height: 2.4375;
+    &:hover{
+        border: 1px solid black;
+    }
+    &:active{
+        border: 1px solid black;
+        padding: 0.315rem 0.5rem;
+        // font-size: 0.68rem;
+    }
+    // width: 100%;
     // transition-property: -ms-transform, -webkit-transform, transform, background-color, border-color;
     // transition-duration: 0.15s;
     // transition-timing-function: ease-in-out;

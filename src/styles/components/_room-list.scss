@@ -1,0 +1,9 @@
+.room-list ul {
+  display: grid;
+  grid-template-columns: 24px auto-fill(minmax(300px, 1fr)) 24px;
+  grid-area: 20px;
+}
+
+.room-list li {
+  list-style: none;
+}
