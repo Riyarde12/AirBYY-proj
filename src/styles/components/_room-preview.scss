@@ -32,6 +32,12 @@
     width: 15px;
 }
 
-// .room-preview .preview-details {
-//     background-color: blue;
-// }
+.room-preview .preview-reviews .preview-rating {
+    font-size: 0.875rem;
+    display: flex;
+    align-items: flex-start;
+
+    & > * {
+        margin-inline-end: 3px;
+    }
+}
