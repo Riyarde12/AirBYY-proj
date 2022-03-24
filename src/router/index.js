@@ -3,6 +3,7 @@ import HomePage from "../views/home-page.vue";
 import roomApp from "../views/room-app.vue";
 import roomDetails from "../views/room-details.vue";
 import roomEdit from "../views/room-edit.vue";
+import searchBar from "../components/search-bar.vue";
 // import userDetails from "../views/user-details.vue";
 
 
@@ -13,6 +14,10 @@ const router = createRouter({
       path: "/",
       name: "HomePage",
       component: HomePage,
+    },
+    {
+      path: "/serch",
+      component: searchBar,
     },
     // {
     //   path: "/user/:userId?",
