@@ -21,6 +21,7 @@
 import { utilService } from "../service/util-service.js";
 import homePagePreview from "../components/home-page-preview.vue";
 import roomPreview from "../components/room-preview.vue";
+
 export default {
   name: "home-app",
   data() {
