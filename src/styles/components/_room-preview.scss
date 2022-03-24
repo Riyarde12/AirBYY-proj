@@ -17,8 +17,8 @@
 .room-preview .preview-like-btn {
     display: inline;
     position: absolute;
-    top: 17px;
-    right: 25px;
+    top: 10px;
+    right: 10px;
     fill: rgba(0, 0, 0, 0.5);
     height: 24px;
     width: 24px;
@@ -27,11 +27,9 @@
     overflow: visible;
 }
 
-.room-preview .preview-reviews svg {
-    display: block;
-    height: 14px;
-    width: 14px;
-    fill: currentcolor;
+.room-preview .preview-reviews img {
+    height: 15px;
+    width: 15px;
 }
 
 // .room-preview .preview-details {
