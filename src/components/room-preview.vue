@@ -26,8 +26,7 @@
       <p>{{ room.roomType }} · {{ room.address.city }}</p>
       <p>{{ room.name }}</p>
       <p>
-        <span>${{ room.price }}</span
-        >/ night
+        <span class="price">${{ room.price }}</span> / night
       </p>
     </div>
   </section>
