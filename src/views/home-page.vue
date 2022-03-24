@@ -24,6 +24,7 @@
       <div v-for="item in topRooms" :key="item._id" class="card-container">
         <router-link :to="`/room/${item._id}`">
           <pre>{{ item.name }}</pre>
+          <!-- <img src="" alt=""> -->
         </router-link>
       </div>
     </div>
