@@ -1,7 +1,7 @@
 @font-face {
     font-family: "Circular";
     // src: url(~@assets/fonts/Circular/CircularStd-Medium.otf);
-    src: local("Circular"), url(@/assets/styles/fonts/Circular/CircularStd-Medium.otf) format("otf");
+    src: local("Circular"), url("@/assets/styles/fonts/Circular/CircularStd-Medium.otf") format("otf");
     // src: url("../../assets/fonts/Circular/CircularStd-Medium.otf");
 }
 
@@ -14,7 +14,8 @@
 @font-face {
     font-family: "Roboto";
     // src: url(~@/assets/fonts/Roboto/Roboto-Regular.ttf);
-    src: url("../../assets/fonts/Roboto/Roboto-Regular.ttf");
+    src: local("Roboto"), url("@/assets/styles/fonts/Roboto/Roboto-Regular.ttf") format("ttf");
+    // src: url("../../assets/fonts/Roboto/Roboto-Regular.ttf");
 }
 
 @font-face {

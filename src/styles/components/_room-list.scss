@@ -1,13 +1,13 @@
 .room-list .room-list-container {
   display: grid;
-  grid-template-columns: 8vw 1fr 8vw;
+  grid-template-columns: 7vw 1fr 7vw;
 }
 
 .room-list ul {
   grid-column: 2;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-  column-gap: 26px;
+  column-gap: 25px;
   row-gap: 30px;
 }
 
