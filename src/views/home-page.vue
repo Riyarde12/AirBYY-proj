@@ -38,8 +38,8 @@ export default {
       rooms: null,
     };
   },
-  components:{
-    homePagePreview
+  components: {
+    homePagePreview,
   },
   methods: {
     goTo(place) {
