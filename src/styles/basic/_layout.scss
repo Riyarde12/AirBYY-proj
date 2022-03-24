@@ -12,6 +12,7 @@
     grid-column: 2;
   }
 }
+
 .explore-layout {
   display: grid;
   grid-template-columns: 7vw 1fr 7vw;
@@ -19,4 +20,9 @@
   & > * {
     grid-column: 2;
   }
+}
+
+.grid-layout {
+  display: grid;
+  column-gap: 25px;
 }

@@ -1,0 +1,12 @@
+.home-page {
+    & .destination-title {
+        font-size: 2.625rem;
+        margin-block-end: 0;
+        margin-bottom: 3rem;
+    }
+
+    & .destination-navbar {
+        margin-bottom: 5.9375rem;
+        grid-template-columns: repeat(4, minmax(50px, 1fr));
+    }
+}

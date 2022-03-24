@@ -1,15 +1,13 @@
 <template>
-  <section class="room-preview">
-    <!-- <h1>pppp</h1> -->
-    <!-- <pre>{{destination}}</pre> -->
-    <div
-      class="preview-img-section "
-      @click="country(destination.address.country)"
-    >
+  <section
+    class="home-page-preview"
+    @click="country(destination.address.country)"
+  >
+    <img class="preview-carousel" src="src\assets\img\030.jpeg" alt="" />
+    <div class="location-title">
       <h1>{{ destination.address.country }}</h1>
-      <img class="preview-carousel" src="src\assets\img\030.jpeg" alt="" />
+      <h6>46 kilometers away</h6>
     </div>
-    <!-- <div class="preview-details"></div> -->
   </section>
 </template>
 

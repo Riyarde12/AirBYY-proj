@@ -16,6 +16,7 @@ $clr14: #428bff;
 $clr15: #ff385c;
 $clr16: #92174d;
 $clr17: #460479;
+$clr18: #cc2d4a;
 
 // LINEAR-GRADIENT
 
@@ -36,7 +37,11 @@ $lg6: radial-gradient(circle at center, #6c0d63 0%, #59086e 30%, #460479 55%, #4
 
 // TXT
 
-$txtDefault: Circular, Roboto, "Helvetica Neue", sans-serif;
+$txtDefault: sans-serif;
+$txtDefault: "Helvetica Neue";
+$txtDefault: Roboto;
+$txtDefault: Circular;
+// $txtDefault: Circular, Roboto, "Helvetica Neue", sans-serif;
 $txtBoldDefault: Circular-bold, Roboto-bold, "Helvetica Neue", sans-serif;
 
 // OPACITY
