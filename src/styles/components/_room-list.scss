@@ -1,9 +1,19 @@
-.room-list ul {
+.room-list .room-list-container {
   display: grid;
-  grid-template-columns: 24px auto-fill(minmax(300px, 1fr)) 24px;
-  grid-area: 20px;
+  grid-template-columns: 8vw 1fr 8vw;
+}
+
+.room-list ul {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  column-gap: 26px;
+  row-gap: 30px;
 }
 
 .room-list li {
   list-style: none;
+  width: auto;
+  // chang to auto when done on preview
+  height: 370px;
 }

@@ -1,5 +1,39 @@
 .room-preview {
-    background-color: blue;
-    width: 20px;
-    height: 20px;
+    display: flex;
+    flex-direction: column;
 }
+
+.room-preview .preview-img-section {
+    position: relative;
+}
+
+.room-preview .preview-carousel {
+    object-fit: fill;
+    height: 250px;
+    border-radius: 10px;
+    border: 1px rgba(0, 0, 0, 0.431) solid;
+}
+
+.room-preview .preview-like-btn {
+    display: inline;
+    position: absolute;
+    top: 17px;
+    right: 25px;
+    fill: rgba(0, 0, 0, 0.5);
+    height: 24px;
+    width: 24px;
+    stroke: $clr7;
+    stroke-width: 2;
+    overflow: visible;
+}
+
+.room-preview .preview-reviews svg {
+    display: block;
+    height: 14px;
+    width: 14px;
+    fill: currentcolor;
+}
+
+// .room-preview .preview-details {
+//     background-color: blue;
+// }

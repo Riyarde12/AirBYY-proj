@@ -1,10 +1,12 @@
 <template>
   <section class="room-list">
+    <div class="room-list-container">
     <ul>
       <li v-for="room in rooms" :key="room._id">
         <room-preview :room="room"/>
       </li>
     </ul>
+    </div>
   </section>
 </template>
 
