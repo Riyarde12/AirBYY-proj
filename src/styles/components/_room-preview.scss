@@ -8,15 +8,17 @@
     }
 }
 
-.room-preview .preview-img-section {
-    position: relative;
-}
-
 .room-preview .preview-carousel {
-    object-fit: cover;
-    height: 250px;
     border-radius: 10px;
-    border: 1px rgba(0, 0, 0, 0.431) solid;
+    & .el-carousel__arrow {
+        color: $clr5;
+        background-color: $op5;
+    }
+    & .el-carousel__indicators button {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+    }
 }
 
 .room-preview .preview-like-btn {

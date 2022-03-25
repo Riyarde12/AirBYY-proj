@@ -3,6 +3,8 @@ import App from "./App.vue";
 import router from "./router";
 import store from "../src/store/store.js";
 import "./styles/style.scss";
+import ElementPlus from "element-plus";
+import "element-plus/dist/index.css";
 
 const app = createApp(App);
 
@@ -12,6 +14,7 @@ app.config.productionTip = false;
 //   render: h => h(App)
 // }).mount("#app");
 
+app.use(ElementPlus);
 app.use(router);
 app.use(store);
 app.mount("#app");
