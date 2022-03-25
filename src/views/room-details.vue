@@ -47,7 +47,9 @@
           </div>
         </div>
 
-        <div>
+        <!-- SHORT DETAIL -->
+
+        <div class="short-info-container">
           <h3>{{ room.propertyType }}</h3>
           <h5>{{ room.roomType }}</h5>
           <form v-if="`${showGreatloc > 8}`">
@@ -58,12 +60,20 @@
             </h5>
             <h3>{{ room.cancellationPolicy }}</h3>
           </form>
-          <h2>Discripation {{ room.summary }}</h2>
         </div>
+
+        <div class="descripation-container">
+          <h2>{{ room.summary }}</h2>
+        </div>
+
+        <!-- OFFERS -->
+
         <div class="offer-info-container">
-          <h3>What this place to offers</h3>
-          <ul v-for="(item, idx) in amenitiesForDisplay" :key="idx">
-            <li>{{ item }}</li>
+          <h2>What this place to offers</h2>
+          <ul class="clean-list">
+            <li v-for="(item, idx) in amenitiesForDisplay" :key="idx">
+              {{ item }}
+            </li>
           </ul>
         </div>
       </div>
@@ -73,14 +83,7 @@
         <div class="checkout-modal sticky">
           <div class="checkout-container flex">
             <div>
-              <div
-                class="
-                  header-checkout-container
-                  flex
-                  space-between
-                  align-center
-                "
-              >
+              <div class="tools-container flex space-between align-center">
                 <div class="top-modal-container flex">
                   <div>${{ showPrice }} / Night</div>
                   <div class="display-review-info flex">
@@ -89,18 +92,28 @@
                     <span>({{ room.numOfReviews }})</span>
                   </div>
                 </div>
-                <div>
-                  <div class="display-order-container">
-                    <div class="checkin-checkout-container flex">
-                      <button class="checkin-btn">
-                        <div>
+
+                <div class="display-order-container">
+                  <div class="checkin-checkout-container flex">
+                    <button class="checkin-btn">
+                      <div class="flex">
+                        <div class="add-dates-container flex">
                           <span>CHECK-IN</span>
                           <span>Add date</span>
-                          <span>CHECKOUT</span>
-                          <div class="change-dates-checkin">Add dates</div>
                         </div>
+                        <div class="add-dates-container flex">
+                          <span>CHECKOUT</span>
+                          <span>Add dates</span>
+                        </div>
+                      </div>
+                      <div class="add-guests-container">
                         <div>GUESTS</div>
                         <div>1 guest</div>
+                      </div>
+                    </button>
+                    <div class="availability-container">
+                      <button class="btn">
+                        <span>Check availability</span>
                       </button>
                     </div>
                   </div>
@@ -114,14 +127,43 @@
 
     <hr />
     <!-- REVIEWS -->
-    <section>
-      <div class="room-reviews-header">
-        <span class="star-review"
-          ><img src="../assets/img/star.png" alt=""
-        /></span>
-        <h2>{{ avgReviewScores }}</h2>
-        <h2>Reviews {{ room.numOfReviews }}</h2>
-      </div>
+    <section class="room-review">
+      <section class="review-score">
+        <div>
+          <div class="room-reviews-header">
+            <div class="flex flex-start">
+              <span class="star-review"
+                ><img src="../assets/img/star.png" alt=""
+              /></span>
+              <span class="reviews"
+                >{{ avgReviewScores }} Reviews {{ room.numOfReviews }}</span
+              >
+              <!-- <h2>Reviews {{ room.numOfReviews }}</h2> -->
+            </div>
+            <div class="score-list-container">
+              <ul v-if="scoreNames">
+                <li
+                  class="clean-list"
+                  v-for="(item, key) in reviewScore"
+                  :key="key"
+                >
+                  <div class="flex space-between">
+                    <div class="progress-container">{{ key }}</div>
+                    <div class="flex">
+                      <el-progress class="progress-bar" :percentage="item * 10">
+                        <div>
+                          {{ item / 2 }}
+                        </div>
+                        <!-- <el-button type="text"></el-button> -->
+                      </el-progress>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
       <section class="room-review-list">
         <ul class="review-list-container clean-list">
           <li
@@ -131,8 +173,10 @@
           >
             <section class="review-header">
               <div>
-                <!-- <img src="" alt=""> -->
-                <div>
+                <div class="avatar-container">
+                  <!-- <img src="" alt=""> -->
+                </div>
+                <div class="review-by-container">
                   <h4>{{ review.by.fullname }}</h4>
                   <h5>{{ review.at }}</h5>
                 </div>
@@ -152,6 +196,14 @@ export default {
   data() {
     return {
       room: null,
+      scoreNames: [
+        "accuracy",
+        "cleanliness",
+        "checkin",
+        "communication",
+        "location",
+        "value",
+      ],
     };
   },
   async created() {
@@ -179,6 +231,21 @@ export default {
     },
     showPrice() {
       return this.room.price;
+    },
+    reviewScore() {
+      const { accuracy, cleanliness, checkin, communication, location, value } =
+        this.room.reviewScores;
+
+      const scores = {
+        accuracy,
+        cleanliness,
+        checkin,
+        communication,
+        location,
+        value,
+      };
+
+      return scores;
     },
   },
   methods: {},

@@ -1,7 +1,7 @@
 <template>
   <section class="home-page">
     <section class="main-hero">
-      <img src="../assets/img/hero.jpeg" alt="" />
+      <img src="../assets/img/hero.jpg" alt="" />
     </section>
     <section class="home-page explore-layout page-layout">
       <h1 class="destination-title">Inspiration for your next trip</h1>
