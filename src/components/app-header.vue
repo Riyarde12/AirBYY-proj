@@ -8,8 +8,8 @@
             <h1>airbyy</h1>
           </section>
         </router-link>
-        <search-bar />
       </section>
+        <search-bar />
       <section class="user-btn">
         <button>tom</button>
         <button>mor</button>

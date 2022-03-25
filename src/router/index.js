@@ -3,7 +3,7 @@ import HomePage from "../views/home-page.vue";
 import roomApp from "../views/room-app.vue";
 import roomDetails from "../views/room-details.vue";
 import roomEdit from "../views/room-edit.vue";
-import searchBar from "../components/search-bar.vue";
+import test from "../views/test.vue";
 // import userDetails from "../views/user-details.vue";
 
 
@@ -16,8 +16,8 @@ const router = createRouter({
       component: HomePage,
     },
     {
-      path: "/search",
-      component: searchBar,
+      path: "/test",
+      component: test,
     },
     // {
     //   path: "/user/:userId?",
