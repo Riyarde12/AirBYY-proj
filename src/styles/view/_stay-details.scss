@@ -57,15 +57,67 @@
     }
 }
 
+room-detail-info {
+    .room-present-info {
+        flex-basis: 60%;
+    }
+}
+
 .modal-display-checkout {
+    .modal-display-checkout {
+        margin-left: 5rem;
+        width: 21.1875rem;
+        flex-basis: 40%;
+    }
+
+    .checkout-container {
+        flex-direction: column;
+    }
+
     .header-checkout-container {
         border-radius: 12px;
         border: 1px solid $clr5;
         box-shadow: $op5;
+        flex-direction: column;
+        .top-modal-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 1.5em;
+        }
 
-        & :nth-child(1) {
+        img {
             height: 20px;
             width: 20px;
+        }
+
+        .top-modal-container {
+            & :nth-child(2) {
+            }
+            .display-review-info {
+            }
+        }
+    }
+    .display-order-container {
+        .checkin-checkout-container {
+            margin-bottom: 16px;
+            border-radius: 8px;
+
+            checkin-btn {
+                padding: 0px;
+                text-align: left;
+                border: medium none;
+                margin: 0px;
+                position: relative;
+
+                .change-dates-checkin {
+                    min-height: 3.5em;
+                    width: 100%;
+                    margin: 0px;
+                    padding: 1.625em 0.75em 0.625em;
+                    line-height: 1.125;
+                }
+            }
         }
     }
 }

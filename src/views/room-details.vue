@@ -32,8 +32,8 @@
 
     <!-- DETAILS-INFO -->
 
-    <article class="room-detail-info">
-      <section class="">
+    <article class="room-detail-info flex">
+      <div>
         <div class="room-present-info">
           <h2>Entire rental unit hosted by {{ room.host.fullname }}</h2>
           <h5>
@@ -46,31 +46,32 @@
             <!-- <img src="" alt=""> -->
           </div>
         </div>
-      </section>
-      <hr />
-      <section>
+
         <div>
           <h3>{{ room.propertyType }}</h3>
           <h5>{{ room.roomType }}</h5>
           <form v-if="`${showGreatloc > 8}`">
             <h3>Great location {{ showGreatloc }}</h3>
             <h5>
-              90% of recent guests gave the location a {{ showGreatloc }} scores
+              90% of recent guests gave the location a
+              {{ showGreatloc }} scores
             </h5>
             <h3>{{ room.cancellationPolicy }}</h3>
           </form>
           <h2>Discripation {{ room.summary }}</h2>
-          <hr />
+        </div>
+        <div class="offer-info-container">
           <h3>What this place to offers</h3>
           <ul v-for="(item, idx) in amenitiesForDisplay" :key="idx">
             <li>{{ item }}</li>
           </ul>
         </div>
+      </div>
+      <!-- MODAL CHECKOUT -->
 
-        <!-- MODAL CHECKOUT -->
-
-        <section class="modal-display-checkout">
-          <div class="checkout-container">
+      <section class="modal-display-checkout">
+        <div class="checkout-modal sticky">
+          <div class="checkout-container flex">
             <div>
               <div
                 class="
@@ -80,14 +81,34 @@
                   align-center
                 "
               >
-                <span>${{ showPrice }} / Night</span>
-                <span><img src="../assets/img/star.png" alt="" /></span>
-                <span>{{ avgReviewScores }}</span>
-                <span>({{ room.numOfReviews }})</span>
+                <div class="top-modal-container flex">
+                  <div>${{ showPrice }} / Night</div>
+                  <div class="display-review-info flex">
+                    <span><img src="../assets/img/star.png" alt="" /></span>
+                    <span>{{ avgReviewScores }}</span>
+                    <span>({{ room.numOfReviews }})</span>
+                  </div>
+                </div>
+                <div>
+                  <div class="display-order-container">
+                    <div class="checkin-checkout-container flex">
+                      <button class="checkin-btn">
+                        <div>
+                          <span>CHECK-IN</span>
+                          <span>Add date</span>
+                          <span>CHECKOUT</span>
+                          <div class="change-dates-checkin">Add dates</div>
+                        </div>
+                        <div>GUESTS</div>
+                        <div>1 guest</div>
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
       </section>
     </article>
 
