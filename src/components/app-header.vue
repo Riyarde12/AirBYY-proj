@@ -8,6 +8,7 @@
             <h1>airbyy</h1>
           </section>
         </router-link>
+        <search-bar />
       </section>
       <section class="user-btn">
         <button>tom</button>
@@ -19,8 +20,13 @@
 </template>
 
 <script>
+import searchBar from './search-bar.vue'
 export default {
   name: "app-header",
+
+  components :{
+    searchBar
+  }
 };
 </script>
 
