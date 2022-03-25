@@ -1,8 +1,40 @@
 .app-header {
-  height: 10vh;
-  background-color: var(--clr1);
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+  height: 80px;
+  background-color: $clr8;
+  position: fixed;
+  width: 100vw;
+  z-index: 10000;
+  border: 1px solid $clr5;
+  box-shadow: $op5;
+  & .header-contact {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-inline-end: 17px;
+    & .home-btn {
+      & .home-btn-link {
+        display: flex;
+        align-items: center;
+        & img {
+          width: 35px;
+          height: 35px;
+        }
+        & h1 {
+          font-family: $txtBoldDefault;
+          font-size: 1.25rem;
+          color: $clr2;
+          padding: 0 5px;
+        }
+      }
+    }
+    & .user-btn > * {
+      color: #484848;
+      padding: 5px 5px 5px 15px;
+      border-radius: 200px;
+      background-color: #fff;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      line-height: 20px;
+    }
+  }
 }

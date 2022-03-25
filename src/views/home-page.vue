@@ -1,17 +1,22 @@
 <template>
-  <section class="home-page explore-layout page-layout">
-    <h1 class="destination-title">Inspiration for your next trip</h1>
-    <div class="grid-layout destination-navbar" v-if="rooms">
-      <div v-for="destination in destinations" :key="destination._id">
-        <home-page-preview :destination="destination" @goTo="goTo" />
+  <section class="home-page">
+    <section class="main-hero">
+      <img src="../assets/img/hero.jpeg" alt="" />
+    </section>
+    <section class="home-page explore-layout page-layout">
+      <h1 class="destination-title">Inspiration for your next trip</h1>
+      <div class="grid-layout destination-navbar" v-if="rooms">
+        <div v-for="destination in destinations" :key="destination._id">
+          <home-page-preview :destination="destination" @goTo="goTo" />
+        </div>
       </div>
-    </div>
-    <h1 class="destination-title">Top rated</h1>
-    <div class="grid-layout destination-navbar" v-if="rooms">
-      <div v-for="room in topRated" :key="room._id">
-        <room-preview :room="room" />
+      <h1 class="destination-title">Top rated</h1>
+      <div class="grid-layout destination-navbar" v-if="rooms">
+        <div v-for="room in topRated" :key="room._id">
+          <room-preview :room="room" />
+        </div>
       </div>
-    </div>
+    </section>
   </section>
 </template>
 

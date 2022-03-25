@@ -1,14 +1,14 @@
 @font-face {
     font-family: "Circular";
     // src: url(~@assets/fonts/Circular/CircularStd-Medium.otf);
-    src: local("Circular"), url("@/assets/styles/fonts/Circular/CircularStd-Medium.otf") format("otf");
-    // src: url("../../assets/fonts/Circular/CircularStd-Medium.otf");
+    src: local("Circular"), url("@/assets/styles/fonts/Circular/Circular.otf") format("otf");
+    // src: url("../../assets/fonts/Circular/Circular.otf");
 }
 
 @font-face {
     font-family: "Circular-bold";
     // src: url(~@assets/fonts/Circular/CircularStd-Bold.otf);
-    src: url("../../assets/fonts/Circular/CircularStd-Bold.otf");
+    src: url("../../assets/fonts/Circular/CircularStd-Bold.ttf");
 }
 
 @font-face {
