@@ -20,6 +20,10 @@
     justify-content: space-between;
 }
 
+.flex.flex-start {
+    justify-content: flex-start;
+}
+
 .under-line {
     text-decoration: underline;
 }
@@ -30,4 +34,11 @@
 
 .sticky {
     position: sticky;
+}
+
+.btn {
+    cursor: pointer;
+    margin: 0px;
+    text-align: center;
+    text-decoration: none;
 }

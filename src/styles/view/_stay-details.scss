@@ -13,10 +13,11 @@
 
         .short-detail-container {
             .star-review {
+                margin-right: 5px;
+
                 img {
                     height: em(14px);
                     width: em(14px);
-                    margin-right: 4px;
                 }
             }
         }
@@ -57,13 +58,33 @@
     }
 }
 
-room-detail-info {
+.room-detail-info {
     .room-present-info {
         flex-basis: 60%;
+    }
+
+    .short-info-container {
+        padding-top: 32px;
+        padding: bottom;
+        padding-bottom: 32px;
+    }
+
+    .descripation-container {
+        padding-top: 32px;
+        padding-bottom: 32px;
+    }
+
+    .offer-info-container {
+        padding-top: 48px;
+        padding-bottom: 48px;
     }
 }
 
 .modal-display-checkout {
+    margin-left: 8.33333%;
+    margin-right: 0%;
+    padding-bottom: 48px;
+
     .modal-display-checkout {
         margin-left: 5rem;
         width: 21.1875rem;
@@ -74,11 +95,14 @@ room-detail-info {
         flex-direction: column;
     }
 
-    .header-checkout-container {
+    .tools-container {
         border-radius: 12px;
         border: 1px solid $clr5;
         box-shadow: $op5;
         flex-direction: column;
+        padding: 24px;
+        max-height: 17.3em;
+
         .top-modal-container {
             display: flex;
             justify-content: space-between;
@@ -92,33 +116,72 @@ room-detail-info {
         }
 
         .top-modal-container {
-            & :nth-child(2) {
-            }
             .display-review-info {
             }
         }
     }
     .display-order-container {
+        width: 20.17081em;
+        height: 14.2em;
+
         .checkin-checkout-container {
             margin-bottom: 16px;
             border-radius: 8px;
+            flex-direction: column;
 
-            checkin-btn {
+            .checkin-btn {
                 padding: 0px;
                 text-align: left;
                 border: medium none;
                 margin: 0px;
                 position: relative;
+                width: 100%;
+                border-radius: 8px;
+                margin-bottom: 16px;
 
-                .change-dates-checkin {
-                    min-height: 3.5em;
+                & :nth-child(1) {
+                    justify-content: space-between;
+                }
+
+                .add-dates-container {
+                    flex-direction: column;
+                    padding: 26px 12px 10px;
+                }
+
+                .add-guests-container {
+                }
+            }
+
+            .availability-container {
+                border-radius: 8px;
+                width: 20em;
+
+                button {
+                    padding: 14px 24px;
+                    font-size: 1rem;
+                    line-height: 1.25;
+                    font-weight: 600;
                     width: 100%;
-                    margin: 0px;
-                    padding: 1.625em 0.75em 0.625em;
-                    line-height: 1.125;
+                    height: 3em;
                 }
             }
         }
+    }
+}
+
+.room-reviews-header {
+    .star-review {
+        margin-right: 5px;
+        img {
+            height: 0.9864em;
+            width: 0.94062em;
+        }
+    }
+
+    .reviews {
+        font-size: 1.375em;
+        font-weight: 600;
+        line-height: 1.25;
     }
 }
 
@@ -133,11 +196,48 @@ room-detail-info {
         padding-bottom: 24px;
     }
 }
-.room-reviews-header {
-    .star-review {
-        img {
-            height: 0.9864em;
-            width: 0.94062em;
+
+.room-review {
+    padding-top: 42px;
+
+    .progress-bar {
+        height: 4px;
+        width: 11.25rem;
+    }
+
+    .score-list-container {
+        ul {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            width: 100%;
+        }
+
+        .progress-container {
+            font-weight: 400;
+            font-size: 1em;
+            line-height: 1.25;
+        }
+    }
+
+    .room-review-list {
+        ul {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 40px 1px;
+
+            li {
+                margin-right: 6.26562rem;
+            }
+        }
+
+        .review-header {
+            .review-by-container {
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+                padding-bottom: 10px;
+            }
         }
     }
 }
