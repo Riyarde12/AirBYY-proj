@@ -4,21 +4,21 @@
       <h1></h1>
       <div class="flex">
         <!-- <div @click="modalDestination = !modalDestination" class="filter-tag 1 fd"><p class="bold">Destination</p> -->
-        <div @click="clickedModal('modalDestination')" :class="modalDestination?'choose':''" class="filter-tag 1 fd"><p class="bold">Destination</p>
+        <div @click="clickedModal('modalDestination')" :class="modalDestination?'choose':''" class="filter-tag 1 fd"><p class="bold">Location</p>
         <input type="text" v-model="filterBy.destination" placeholder="Where are you going?"></div>
         <!-- <p>Where are you going?</p></div> -->
         <div class="vert"></div>
-        <div @click="clickedModal('modalDate',4)" :class="modal4?'choose':''" class="filter-tag 2"><p class="bold">Check in</p>
+        <div @click="clickedModal('modalDate',4)" :class="modal4?'choose':''" class="filter-tag first-date"><p class="bold">Check in</p>
         <p>Add dates</p></div>
         <div class="vert"></div>
-        <div @click="clickedModal('modalDate',5)" :class="modal5?'choose':''" class="filter-tag 3"><p class="bold">Check out</p>
+        <div @click="clickedModal('modalDate',5)" :class="modal5?'choose':''" class="filter-tag first-date"><p class="bold">Check out</p>
         <p>Add dates</p></div>
         <div class="vert"></div>
         <div @click="clickedModal('modalGuests')" :class="modalGuests?'choose':''" class="filter-tag 4 ld"><div class="last-line"><p class="bold">Guests</p>
         <p>Add guests</p></div>
         <!-- </div> -->
         <el-button
-          @click="sendFilter"
+          @click.prevent="sendFilter"
           class="search-btn"
           v-if="searchBarTaped"
           size="large"
@@ -135,10 +135,10 @@ export default {
         }
       },
       sendFilter(){
-         this.$router.push({ path: "explore", query: { filterBY: this.filterBY } });
+        // console.log(this.filterBy);
+         this.$router.push({ path: "explore", query: { destination: JSON.stringify(this.filterBy) } });
       },
       clickedModal(modal,modal45 = null){
-        console.log(modal45);
         if(modal==="modalDate"){
           if(modal45===4 ){
           if (this.modal4 === true) {
