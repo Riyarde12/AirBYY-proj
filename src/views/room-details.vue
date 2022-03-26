@@ -96,30 +96,42 @@
                   </div>
                 </div>
 
-                <div class="display-order-container">
+                <div class="display-order-container pointer">
                   <div class="checkin-checkout-container flex">
-                    <button class="checkin-btn">
+                    <div class="checkin-btn">
                       <div class="flex">
                         <div class="add-dates-container flex">
-                          <span>CHECK-IN</span>
-                          <span>Add date</span>
+                          <div>
+                            <div class="checkin">CHECK-IN</div>
+                            <div class="checkin">Add date</div>
+                          </div>
                         </div>
-                        <div class="add-dates-container flex">
-                          <span>CHECKOUT</span>
-                          <span>Add dates</span>
+                        <div class="add-dates-container flex border-left">
+                          <div class="checkout">CHECKOUT</div>
+                          <div class="checkout">Add dates</div>
                         </div>
                       </div>
-                      <div class="add-guests-container">
-                        <div>GUESTS</div>
-                        <div>1 guest</div>
+                      <div class="add-guests-container flex space-between">
+                        <div class="guests">GUESTS</div>
+                        <div>
+                          <svg
+                            viewBox="0 0 32 32"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
+                            role="presentation"
+                            focusable="false"
+                          >
+                            <g fill="none">
+                              <path
+                                d="m28 12-11.2928932 11.2928932c-.3905243.3905243-1.0236893.3905243-1.4142136 0l-11.2928932-11.2928932"
+                              ></path>
+                            </g>
+                          </svg>
+                        </div>
                       </div>
-                    </button>
-                    <div class="availability-container">
-                      <button class="btn">
-                        <span>Check availability</span>
-                      </button>
                     </div>
                   </div>
+                  <div class="availability-container">Check availability</div>
                 </div>
               </div>
             </div>
@@ -154,9 +166,9 @@
                     <div class="progress-container">{{ key }}</div>
                     <div class="flex">
                       <el-progress class="progress-bar" :percentage="item * 10">
-                        <div>
+                        <span>
                           {{ item / 2 }}
-                        </div>
+                        </span>
                         <!-- <el-button type="text"></el-button> -->
                       </el-progress>
                     </div>
@@ -199,14 +211,6 @@ export default {
   data() {
     return {
       room: null,
-      scoreNames: [
-        "accuracy",
-        "cleanliness",
-        "checkin",
-        "communication",
-        "location",
-        "value",
-      ],
     };
   },
   async created() {
@@ -256,5 +260,8 @@ export default {
 </script>
 
 <style>
+.el-progress__text {
+  min-width: 0 !important;
+}
 </style>
 
