@@ -1,5 +1,5 @@
 <template>
-  <section class="room-app page-layout">
+  <section class="room-app page-layout header-reco">
     <room-filter />
     <!-- <room-filter @setFilter="setFilter" /> -->
     <room-list v-if="rooms && rooms.length" :rooms="rooms"></room-list>

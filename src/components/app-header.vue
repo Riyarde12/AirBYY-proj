@@ -1,5 +1,6 @@
 <template>
   <section class="app-header explore-layout">
+    <!-- switching between 'explore-layout'&'detail-layout' from params -->
     <section class="header-contact">
       <section class="home-btn">
         <router-link to="/">
@@ -9,11 +10,11 @@
             <h1>yy</h1>
           </section>
         </router-link>
-        <!-- <search-bar /> -->
       </section>
       <section class="search">
         <div class="tsearch">search</div>
       </section>
+      <!-- <search-bar /> -->
       <section class="user-btn">
         <button class="become-host-btn">Become a Host</button>
         <button class="change-lang-btn">

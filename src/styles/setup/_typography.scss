@@ -1,4 +1,51 @@
+// CIRCULAR
+
+@font-face {
+    font-family: "Circular";
+    src: url("@/assets/fonts/Circular/CircularStd-Light.otf");
+}
+@font-face {
+    font-family: "Circular-book";
+    src: url("@/assets/fonts/Circular/CircularStd-Book.otf");
+}
+@font-face {
+    font-family: "Circular-bold";
+    src: url("@/assets/fonts/Circular/CircularStd-Bold.otf");
+}
+
+// CRERAL
+
+@font-face {
+    font-family: "Cereal";
+    src: url("@/assets/fonts/Cereal/Airbnb_Cereal-Regular.ttf");
+}
+@font-face {
+    font-family: "Cereal-book";
+    src: url("@/assets/fonts/Cereal/Airbnb_Cereal-Medium.woff2");
+}
+@font-face {
+    font-family: "Cereal-bold";
+    src: url("@/assets/fonts/Cereal/Airbnb_Cereal-Bold.ttf");
+}
+
+// ROBOTO
+
 @font-face {
     font-family: "Roboto";
-    src: local("Roboto"), url("@/assets/styles/fonts/Roboto/Airbnb_Cereal-Medium.woff2") format("woff2");
+    src: url("@/assets/fonts/frontend/Roboto/Roboto-Regular.ttf");
+}
+@font-face {
+    font-family: "Roboto-book";
+    src: url("@/assets/fonts/Roboto/Roboto-Medium.ttf");
+}
+@font-face {
+    font-family: "Roboto-bold";
+    src: url("@/assets/fonts/Roboto/Roboto-Bold.ttf");
+}
+
+// Renogare
+
+@font-face {
+    font-family: "Renogare";
+    src: url("@/assets/fonts/Renogare/Renogare-Regular.otf");
 }
