@@ -29,6 +29,9 @@
             justify-content: space-between;
             width: 6.5rem;
             & .div-btn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 cursor: pointer;
                 line-height: 1.875;
               font-size: 20;
@@ -53,11 +56,9 @@
 
 .last-line {
     display: inline-block;
+    padding: 0px 0px 0px 20px;
 }
-.ld {
-    display:flex;
-    
-}
+
 
 .modal-2 {
     z-index: 10;
@@ -97,6 +98,7 @@
     border-radius: 50px;
     text-align: center;
     & .search-btn{
+        margin-right: 11px;
         width: 6.98rem;
         height: 3rem;
         border-radius: 24px !important;
@@ -116,19 +118,30 @@
     // align-items: center;
     padding: 14px 24px ;
     line-height: 1rem;
+     & input {
+         color: $clr1;
+     }   
     & .bold {
         line-height: 1.125rem;
     }
-    // background-color: red;
     &:hover{
-        background-color: #ebebeb;
-        // box-shadow: rgb(0 0 0 / 15%) 0px 10px 37px;
+        background-color: $clr6;
+    
     }
     &:active{
-        box-shadow: rgb(0 0 0 / 15%) 0px 10px 37px;
-        background-color: #ffffff;
+        box-shadow: $op9;
+        background-color: $clr8;
     }
 
+}
+
+.choose{
+    box-shadow: $op9;
+        background-color: $clr8;
+        &:hover{
+            background-color: $clr8
+            // pointer-events: none;
+        }
 }
 
 .flex {
@@ -137,5 +150,16 @@
     /* align-content: center; */
     align-items: center;
   }
+.fd {
+    text-align: start;
+    margin: 0px -5px 0px  -20px;
+}
 
-  
+  .ld {
+    display:flex;
+    padding: 11px 5px 11px 5px;
+    gap: 20px;
+    justify-content: space-evenly;
+    margin: 0px -27px 0px 0px;
+}
+    

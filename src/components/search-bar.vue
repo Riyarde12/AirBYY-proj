@@ -3,19 +3,22 @@
     <div class="search-bar">
       <h1></h1>
       <div class="flex">
-        <div @click="modal3 = !modal3" class="filter-tag 1"><p class="bold">Guests</p>
-        <p>Add guests</p></div>
+        <!-- <div @click="modalDestination = !modalDestination" class="filter-tag 1 fd"><p class="bold">Destination</p> -->
+        <div @click="clickedModal('modalDestination')" :class="modalDestination?'choose':''" class="filter-tag 1 fd"><p class="bold">Destination</p>
+        <input type="text" v-model="filterBy.destination" placeholder="Where are you going?"></div>
+        <!-- <p>Where are you going?</p></div> -->
         <div class="vert"></div>
-        <div @click="modal2 = !modal2" class="filter-tag 2"><p class="bold">Guests</p>
-        <p>Add guests</p></div>
+        <div @click="clickedModal('modalDate',4)" :class="modal4?'choose':''" class="filter-tag 2"><p class="bold">Check in</p>
+        <p>Add dates</p></div>
         <div class="vert"></div>
-        <div @click="modal2 = !modal2" class="filter-tag 3"><p class="bold">Guests</p>
-        <p>Add guests</p></div>
+        <div @click="clickedModal('modalDate',5)" :class="modal5?'choose':''" class="filter-tag 3"><p class="bold">Check out</p>
+        <p>Add dates</p></div>
         <div class="vert"></div>
-        <div @click="modal1 = !modal1" class="filter-tag 4 ld"><div class="last-line"><p class="bold">Guests</p>
+        <div @click="clickedModal('modalGuests')" :class="modalGuests?'choose':''" class="filter-tag 4 ld"><div class="last-line"><p class="bold">Guests</p>
         <p>Add guests</p></div>
         <!-- </div> -->
         <el-button
+          @click="sendFilter"
           class="search-btn"
           v-if="searchBarTaped"
           size="large"
@@ -24,11 +27,10 @@
           round
         >search</el-button>
         </div>
-        <!-- <el-button v-else size="large" type="danger" :icon="searchIcon" round  /> -->
       </div>
     </div>
     <teleport to="#models">
-      <div v-if="modal1" class="modal">
+      <div v-if="modalGuests" class="modal">
         <div class="line flex">
           <div class="txt">
             <h3 class="title">Adults</h3>
@@ -80,12 +82,12 @@
       </div>
     </teleport>
     <teleport to="#models">
-      <div v-if="modal2" class="modal-2">
+      <div v-if="modalDate" class="modal-2">
         <h1>date</h1>
       </div>
     </teleport>
     <teleport to="#models">
-      <div v-if="modal3" class="modal-3">
+      <div v-if="modalDestination" class="modal-3">
         <h1>date</h1>
       </div>
     </teleport>
@@ -104,14 +106,24 @@ export default {
         adults:0,
         children:0,
         infants:0,
-        pets:0
+        pets:0,
+        destination:''
         },
-      modal1: false,
-      modal2: false,
-      modal3: false,
+      modalGuests: false,
+      modalDate: false,
+      modalDestination: false,
+      modal4: false,
+      modal5: false,
       searchIcon,
       searchBarTaped: true,
     };
+  },
+  created(){
+    const params = this.$route.query;
+    console.log(params);
+    if(params.destination) {
+      this.filterBy.destination = params.destination
+    }
   },
   methods:{
       add(addedVal,key){
@@ -122,6 +134,46 @@ export default {
             this.filterBy[key]--
         }
       },
+      sendFilter(){
+         this.$router.push({ path: "explore", query: { filterBY: this.filterBY } });
+      },
+      clickedModal(modal,modal45 = null){
+        console.log(modal45);
+        if(modal==="modalDate"){
+          if(modal45===4 ){
+          if (this.modal4 === true) {
+            this.modal4 = false
+            this.modalDate=false  
+          } else {
+            this.modal4 = true
+            this.modal5 = false
+            this.modalDate=true
+            console.log('modal4',this.modal4);
+          console.log('modal5',this.modal5);
+          }
+          }else {
+          if (this.modal5 === true){ 
+            this.modal5 = false
+            this.modalDate=false  
+          } else {
+            this.modal5 = true
+            this.modal4 = false
+            this.modalDate=true
+          } }
+          return
+        } else {
+          this.modal4 = false
+          this.modal5 = false
+        }
+        if(this[modal] === true) {
+          this[modal] = false
+          return
+        }
+        this.modalGuests = false
+        this.modalDate = false
+        this.modalDestination = false
+        this[modal] = true
+      }
   },
   computed:{
       adults(){
@@ -130,92 +182,20 @@ export default {
   }
 };
 </script>
-
 <style>
-/* .flex {
-  display: flex;
-} */
-/* .number {
-  font-size: 20px;
-  margin: 0 5px;
-} */
-/* .title{
-    line-height: 20px;
-} */
-/* .content{
-    line-height: 18px; */
-/* } */
-/* .main-line{
-    justify-content: space-between;
-    width: 104px;
-} */
 .vert {
   width: 1px;
   height: 100%;
   background-color: rgb(134, 134, 134);
 }
-/* .txt{
-    text-align: start;
-} */
-.el-button {
-  display: none;
+ 
+.search-btn {
+  margin: 0px 20px 0px 0px;
+ 
 }
-/* .bottomModal{
-    margin: 8px 0px 16px 0px;
-} */
-/* .div-btn {
-    cursor: pointer;
-    line-height: 30px;
-  font-size: 20;
-  height: 32px;
-  width: 32px;
-  background-color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.284);
-  font-size: 30px;
-  border: ;
-  border-radius: 50%;
-} */
-/* .flex {
-  display: flex;
-  justify-content: space-evenly;
-  align-content: center;
-  align-items: center;
-} */
-/* .line {
-  justify-content: space-between;
-   padding: 16px 4px 16px 0px;
-   border-bottom: 1px solid $slr6;
-   border-bottom: 1px solid black;
-} */
-
-/* .modal {
-    
-  padding: 16px 32px 16px 32px;
-  z-index: 10;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 365px;
-  width: 483px;
-  background-color: rgb(255, 255, 255);
-  text-align: center;
-  border-radius: 32px;
-  box-shadow: rgb(0 0 0 / 15%) 0px 10px 37px;
-  border-bottom: 1px solid rgb(235, 235, 235)
-} */
-/* .modal-2 {
-  z-index: 10;
-  position: fixed;
-  top: 50%;
-  left: 49%;
-  transform: translate(-50%, -50%);
-  height: 501px;
-  width: 850px;
-  background-color:#ffffff;
-  background-color: #d32b2b;
-  text-align: center;
-  border-radius: 32px;
-} */
+input{
+  color: black;
+  border: none;
+}
 
 </style>
