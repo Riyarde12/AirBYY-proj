@@ -9,13 +9,10 @@
             <h1>yy</h1>
           </section>
         </router-link>
-<<<<<<< HEAD
-=======
         <!-- <search-bar /> -->
       </section>
       <section class="search">
         <div class="tsearch">search</div>
->>>>>>> ebdd56ebd23cf8c46527193998fef48a46272cde
       </section>
         <search-bar />
       <section class="user-btn">
