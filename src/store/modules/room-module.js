@@ -6,7 +6,6 @@ export default {
     destination: null,
     filterBy: null,
     homeRooms: null,
-    // roomToEdit: null,
     // userSignUp: {
     //   fullname: "",
     //   inputUsername: "",
