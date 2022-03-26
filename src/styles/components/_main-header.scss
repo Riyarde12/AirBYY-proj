@@ -3,6 +3,7 @@
   background-color: $clr8;
   position: fixed;
   width: 100vw;
+  max-width: 100%;
   z-index: 10000;
   border: 1px solid $clr5;
   box-shadow: $op5;
@@ -11,7 +12,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-inline-end: 17px;
 
     & .home-btn {
       cursor: pointer;
@@ -24,9 +24,10 @@
         }
         & h1 {
           color: $clr15;
-          font-family: $txtBoldDefault;
+          font-family: $txtLogoDefault;
           font-size: 1.25rem;
-          padding: 0 5px;
+          font-weight: lighter;
+          padding-right: 2px;
         }
       }
     }
