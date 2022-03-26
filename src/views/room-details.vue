@@ -1,7 +1,10 @@
 <template>
   <!-- DETAIL HEADER -->
 
-  <section v-if="room" class="room-detail detail-layout page-layout">
+  <section
+    v-if="room"
+    class="room-detail detail-layout page-layout header-reco"
+  >
     <h1>{{ room.name }}</h1>
     <section class="room-short-detail flex align-center space-between">
       <div class="short-detail-container flex">
