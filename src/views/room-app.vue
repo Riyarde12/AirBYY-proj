@@ -26,6 +26,8 @@ export default {
   },
   async created() {
     const params = this.$route.query;
+    // var filter = JSON.parse(params)
+    // console.log(filter);
 
     try {
       await this.$store.dispatch({

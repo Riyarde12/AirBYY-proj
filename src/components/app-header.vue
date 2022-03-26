@@ -1,6 +1,15 @@
 <template>
-  <section class="app-header explore-layout">
-    <!-- switching between 'explore-layout'&'detail-layout' from params -->
+  <section
+    class="app-header"
+    :style="{ backgroundColor: x ? ' white' : '#00000000' }"
+    :class="checkPage() ? 'explore-layout' : 'detail-layout'"
+  >
+    <section class="extanded-header">
+      <search-bar
+        class="search-bar"
+        :style="{ display: x ? 'none' : 'block' }"
+      />
+    </section>
     <section class="header-contact">
       <section class="home-btn">
         <router-link to="/">
@@ -12,7 +21,7 @@
         </router-link>
         <!-- <search-bar /> -->
       </section>
-      <section class="search">
+      <section class="search" :style="{ display: x ? 'block' : 'none' }">
         <button class="search-btn">
           <h4>Start your search</h4>
           <div
@@ -37,8 +46,7 @@
           </div>
         </button>
       </section>
-      <!-- <search-bar /> -->
-      <section class="user-btn">
+      <section class="user-btn" :style="{ color: x ? ' white' : 'black' }">
         <button class="become-host-btn">Become a Host</button>
         <button class="change-lang-btn">
           <svg
@@ -91,9 +99,30 @@
 import searchBar from "./search-bar.vue";
 export default {
   name: "app-header",
-
+  data() {
+    return {
+      currPage: null,
+      x: true,
+      currPage: "details",
+    };
+  },
   components: {
     searchBar,
+  },
+  created() {
+    window.addEventListener("scroll", this.onScroll);
+  },
+  methods: {
+    onScroll() {
+      if (window.scrollY > 10) {
+        this.x = true;
+      } else {
+        this.x = false;
+      }
+    },
+    checkPage() {
+      return this.currPage === "details" ? true : false;
+    },
   },
 };
 </script>
