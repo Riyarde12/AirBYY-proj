@@ -6,7 +6,6 @@ import roomEdit from "../views/room-edit.vue";
 import test from "../views/test.vue";
 // import userDetails from "../views/user-details.vue";
 
-
 const router = createRouter({
   history: createWebHashHistory(),
   routes: [

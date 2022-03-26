@@ -53,3 +53,26 @@
 .header-reco {
     padding-top: 80px;
 }
+
+.title {
+    font-family: $txtBookDefault;
+}
+
+.subtitle {
+    color: $clr3;
+}
+
+.max-height {
+    height: 100%;
+}
+
+.discription {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: $clr2;
+}
+
+.flex.culumn {
+    flex-direction: column;
+}
