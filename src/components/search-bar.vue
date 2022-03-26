@@ -4,17 +4,17 @@
       <h1></h1>
       <div class="flex">
         <!-- <div @click="modalDestination = !modalDestination" class="filter-tag 1 fd"><p class="bold">Destination</p> -->
-        <div @click="clickedModal('modalDestination')" :class="modalDestination?'choose':''" class="filter-tag 1 fd"><p class="bold">Location</p>
-        <input type="text" v-model="filterBy.destination" placeholder="Where are you going?"></div>|
+        <div @click="clickedModal('modalDestination')" :class="modalDestination?'choose':''" class="filter-tag 1 fd"><p class="bold title">Location</p>
+        <input type="text" v-model="filterBy.destination" placeholder="Where are you going?"></div>
         <!-- <p>Where are you going?</p></div> -->
         <div class="vert"></div>
-        <div @click="clickedModal('modalDate',4)" :class="modal4?'choose':''" class="filter-tag first-date"><p class="bold">Check in</p>
-        <p>Add dates</p></div>|
+        <div @click="clickedModal('modalDate',4)" :class="modal4?'choose':''" class="filter-tag first-date"><p class="bold title">Check in</p>
+        <p>Add dates</p></div>
         <div class="vert"></div>
-        <div @click="clickedModal('modalDate',5)" :class="modal5?'choose':''" class="filter-tag first-date"><p class="bold">Check out</p>
-        <p>Add dates</p></div>|
+        <div @click="clickedModal('modalDate',5)" :class="modal5?'choose':''" class="filter-tag first-date"><p class="bold title">Check out</p>
+        <p>Add dates</p></div>
         <div class="vert"></div>
-        <div @click="clickedModal('modalGuests')" :class="modalGuests?'choose':''" class="filter-tag 4 ld"><div class="last-line"><p class="bold">Guests</p>
+        <div @click="clickedModal('modalGuests')" :class="modalGuests?'choose':''" class="filter-tag 4 ld"><div class="last-line "><p class="bold title">Guests</p>
         <p>Add guests</p></div>
         <!-- </div> -->
         <el-button
@@ -160,6 +160,8 @@ export default {
             this.modal4 = false
             this.modalDate=true
           } }
+          this.modalGuests = false
+          this.modalDestination = false
           return
         } else {
           this.modal4 = false
@@ -190,7 +192,7 @@ export default {
 }
  
 .search-btn {
-  margin: 0px 20px 0px 0px;
+  margin: 0px 10px 0px 0px;
  
 }
 input{
