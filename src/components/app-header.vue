@@ -10,6 +10,7 @@
             <h1>yy</h1>
           </section>
         </router-link>
+        <!-- <search-bar /> -->
       </section>
       <section class="search">
         <button class="search-btn">

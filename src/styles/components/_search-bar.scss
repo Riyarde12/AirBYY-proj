@@ -1,0 +1,103 @@
+.modal {
+    padding: 1rem 2rem 1rem 2rem;
+    z-index: 10;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* height: 365px; */
+    width: 30.1875rem;
+    background-color:$clr8;
+    text-align: center;
+    border-radius: 2rem;
+    box-shadow: rgb(0 0 0 / 15%) 0px 0.625rem 2.3125rem;
+    /* border-bottom: 1px solid rgb(235, 235, 235) */
+    & .line {
+        justify-content: space-between;
+        padding: 1rem 0.25rem 1rem 0px;
+        border-bottom: 1px solid $clr6;
+        & .txt{
+            text-align: start;
+            & .title{
+                line-height: 1.25;
+                & .content {
+                    line-height: 1.125;
+                }
+            }
+        }
+        & .main-line{
+            justify-content: space-between;
+            width: 6.5rem;
+            & .div-btn {
+                cursor: pointer;
+                line-height: 1.875;
+              font-size: 20;
+              height: 32px;
+              width: 32px;
+              background-color: #fff;
+              border: 1px solid rgba(0, 0, 0, 0.284);
+              font-size: 30px;
+              /* border: ; */
+              border-radius: 50%;
+            }
+            & .number {
+                font-size: 20px;
+                margin: 0 5px;
+            }
+        }
+        & .bottomModal{
+            margin: 8px 0px 16px 0px;
+        }
+    }
+}
+
+.modal-2 {
+    z-index: 10;
+    position: fixed;
+    top: 50%;
+    left: 49%;
+    transform: translate(-50%, -50%);
+    height: 31.3125rem;
+    width: 53.125rem;
+    /* background-color:#ffffff; */
+    background-color: #d32b2b;
+    text-align: center;
+    border-radius: 2rem;
+  }
+
+  .search-bar{
+    z-index: 100;
+    height: 70px;
+    // width: 56.17vw;
+    max-width: 850px;
+    background-color: #f7f7f7;
+    border-radius: 50px;
+    text-align: center
+    
+}
+
+.filter-tag {
+    cursor: pointer;
+    height: 70px;
+   width: 200px;
+    border-radius: 50px;
+    // background-color: red;
+    &:hover{
+        background-color: #ebebeb;
+        // box-shadow: rgb(0 0 0 / 15%) 0px 10px 37px;
+    }
+    &:active{
+        box-shadow: rgb(0 0 0 / 15%) 0px 10px 37px;
+        background-color: #ffffff;
+    }
+
+}
+
+.flex {
+    display: flex;
+    justify-content: space-evenly;
+    /* align-content: center; */
+    align-items: center;
+  }
+
+  
