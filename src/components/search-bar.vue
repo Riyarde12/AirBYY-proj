@@ -3,21 +3,27 @@
     <div class="search-bar">
       <h1></h1>
       <div class="flex">
-        <div class="filter-tag 1">c</div>
+        <div @click="modal3 = !modal3" class="filter-tag 1"><p class="bold">Guests</p>
+        <p>Add guests</p></div>
         <div class="vert"></div>
-        <div @click="modal2 = !modal2" class="filter-tag 2">date</div>
+        <div @click="modal2 = !modal2" class="filter-tag 2"><p class="bold">Guests</p>
+        <p>Add guests</p></div>
         <div class="vert"></div>
-        <div @click="modal2 = !modal2" class="filter-tag 3">date</div>
+        <div @click="modal2 = !modal2" class="filter-tag 3"><p class="bold">Guests</p>
+        <p>Add guests</p></div>
         <div class="vert"></div>
-        <div @click="modal1 = !modal1" class="filter-tag 4">c</div>
+        <div @click="modal1 = !modal1" class="filter-tag 4 ld"><div class="last-line"><p class="bold">Guests</p>
+        <p>Add guests</p></div>
+        <!-- </div> -->
         <el-button
+          class="search-btn"
           v-if="searchBarTaped"
           size="large"
           type="danger"
           :icon="searchIcon"
-          circle
-        />
-
+          round
+        >search</el-button>
+        </div>
         <!-- <el-button v-else size="large" type="danger" :icon="searchIcon" round  /> -->
       </div>
     </div>
@@ -78,6 +84,11 @@
         <h1>date</h1>
       </div>
     </teleport>
+    <teleport to="#models">
+      <div v-if="modal3" class="modal-3">
+        <h1>date</h1>
+      </div>
+    </teleport>
   </section>
 </template>
 
@@ -97,6 +108,7 @@ export default {
         },
       modal1: false,
       modal2: false,
+      modal3: false,
       searchIcon,
       searchBarTaped: true,
     };
