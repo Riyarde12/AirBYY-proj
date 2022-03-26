@@ -17,15 +17,28 @@
               <div class="checkin-checkout-container flex">
                 <div class="checkin-btn">
                   <div class="flex">
-                    <div class="add-dates-container flex">
-                      <div>
-                        <div class="checkin">CHECK-IN</div>
-                        <div class="checkin">Add date</div>
-                      </div>
-                    </div>
+                    <!-- <div class="add-dates-container flex"> -->
+                      <!-- <div> -->
+                        <!-- <div class="checkin">CHECK-IN</div>
+                        <div class="checkin">Add date</div> -->
+                        <div class="datePicker">
+                          <div class="demo-date-picker">
+                            <div class="block">
+                              <el-date-picker
+                                v-model="value1"
+                                type="daterange"
+                                range-separator="To"
+                                start-placeholder="Start date"
+                                end-placeholder="End date"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      <!-- </div> -->
+                    <!-- </div> -->
                     <div class="add-dates-container flex border-left">
-                      <div class="checkout">CHECKOUT</div>
-                      <div class="checkout">Add dates</div>
+                      <!-- <div class="checkout">CHECKOUT</div>
+                      <div class="checkout">Add dates</div> -->
                     </div>
                   </div>
                   <div class="add-guests-container flex space-between">
@@ -82,3 +95,21 @@ export default {
   },
 };
 </script>
+
+<style>
+.el-date-editor{
+  width: 320px !important;
+  height: 56px !important;
+}
+.el-picker-panel{
+  z-index: 100 !important;
+  position: relative !important;
+}
+.el-picker-panel__body-wrapper{
+  /* position: relative !important;
+  bottom: 80px;
+  left: 100px;
+  z-index: 100 !important;
+  background-color: aqua; */
+}
+</style>
