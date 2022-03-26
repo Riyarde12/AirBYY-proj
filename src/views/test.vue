@@ -1,6 +1,6 @@
 <template>
   <h1>hhh</h1>
-  <search-bar></search-bar>
+  <search-bar />
 </template>
 
 <script>
