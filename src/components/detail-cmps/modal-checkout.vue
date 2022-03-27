@@ -23,7 +23,7 @@
 												<div class="add-date">Add date</div>
 
 												<!-- DATE-PICKER -->
-												<div class="datePicker">
+												<!-- <div class="datePicker">
 													<div class="demo-date-picker">
 														<div class="block">
 															<el-date-picker
@@ -35,7 +35,7 @@
 															/>
 														</div>
 													</div>
-												</div>
+												</div> -->
 												<!-- DATE-PICKER -->
 											</div>
 										</div>

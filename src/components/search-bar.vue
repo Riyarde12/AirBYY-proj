@@ -118,12 +118,12 @@
     </teleport>
     <teleport to="#models">
       <div v-if="modalDate" class="modal-2">
-        <h1>date</h1>
+        <h1></h1>
       </div>
     </teleport>
     <teleport to="#models">
       <div v-if="modalDestination" class="modal-3">
-        <h1>date</h1>
+        <h1></h1>
       </div>
     </teleport>
 
