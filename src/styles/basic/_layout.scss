@@ -26,3 +26,14 @@
   display: grid;
   column-gap: 25px;
 }
+
+.modals {
+  border-radius: 10px;
+  z-index: 1000;
+  box-shadow: $op1;
+  background-color: $clr8;
+  padding: 20px;
+  position: fixed;
+  top: 136px;
+  left: 190px;
+}

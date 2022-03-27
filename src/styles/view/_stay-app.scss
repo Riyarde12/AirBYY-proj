@@ -1,0 +1,13 @@
+.room-app {
+    .alerts {
+        border-bottom: 1px solid $clr5;
+        margin-bottom: 25px;
+        & p {
+            font-size: 0.875rem;
+            margin-top: 25px;
+            &.covid-alerts {
+                margin-bottom: 25px;
+            }
+        }
+    }
+}
