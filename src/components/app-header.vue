@@ -15,7 +15,7 @@
 		</section>
 		<section class="header-contact">
 			<section class="home-btn">
-				<router-link to="/">
+				<router-link @click.native="scrollToTop" to="/">
 					<section
 						class="home-btn-link"
 						:style="{ color: headerOnTop ? '#ff385c' : 'white' }"
@@ -135,6 +135,9 @@
 			);
 		},
 		methods: {
+			scrollToTop(){
+				window.scrollTo(0,0)
+			},
 			onScroll() {
 				if (window.scrollY > 10) {
 					this.shrinkedHeader = true;
