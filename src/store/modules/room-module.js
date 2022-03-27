@@ -86,10 +86,8 @@ export default {
     //   }
     // // },
     async getRoom({ commit, state }, { id }) {
-      console.log('id', id);
       try {
         const room = await roomService.getById(id);
-        console.log('room', room);
         return room;
       }
       catch (err) {

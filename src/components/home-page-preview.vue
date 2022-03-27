@@ -6,7 +6,7 @@
     <img class="preview-carousel" :src="getImg" alt="" />
     <div class="location-title">
       <h1>{{ destination.address.country }}</h1>
-      <h6>46 kilometers away</h6>
+      <h6>{{ destination.numOfReviews }} kilometers away</h6>
     </div>
   </section>
 </template>

@@ -9,7 +9,7 @@
         arrow="always"
       >
         <el-carousel-item v-for="imgUrl in imgForDisplay" :key="imgUrl">
-          <img @click="goToRoom" :src="imgUrl" alt="roomImg" />
+          <img @click="scrollToTop() , goToRoom()" :src="imgUrl" alt="roomImg" />
         </el-carousel-item>
         <svg
           class="preview-like-btn"
@@ -55,6 +55,10 @@ export default {
   },
   components: {},
   methods: {
+    scrollToTop(){
+      console.log('gggggggg');
+      window.scrollTo(0,0)
+    },
     goToRoom() {
       this.$router.push(`/room/${this.room._id}`);
     },
