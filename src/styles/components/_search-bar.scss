@@ -2,10 +2,10 @@
     padding: 1rem 2rem 1rem 2rem;
     z-index: 10;
     position: absolute;
-    top: 60%;
-    left: 0%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
-     height: 365px; 
+    /* height: 365px; */
     width: 30.1875rem;
     background-color: $clr8;
     text-align: center;
@@ -18,7 +18,7 @@
         border-bottom: 1px solid $clr6;
         & .txt {
             text-align: start;
-            & .title-tag {
+            & .title {
                 line-height: 1.25;
                 & .content {
                     line-height: 1.125;
@@ -54,7 +54,6 @@
     }
 }
 
-
 .last-line {
     display: inline-block;
     padding: 0px 0px 0px 20px;
@@ -63,11 +62,11 @@
 .modal-2 {
     z-index: 10;
     position: fixed;
-    top: 44%;
-    left: 51%;
+    top: 50%;
+    left: 49%;
     transform: translate(-50%, -50%);
     height: 31.3125rem;
-    width: 50.5rem;
+    width: 53.125rem;
     /* background-color:#ffffff; */
     background-color: #d32b2b;
     text-align: center;
@@ -76,8 +75,8 @@
 .modal-3 {
     z-index: 10;
     position: fixed;
-    top: 61%;
-    left: 28%;
+    top: 50%;
+    left: 49%;
     transform: translate(-50%, -50%);
     height: 35.725rem;
     width: 26.05rem;
@@ -134,10 +133,11 @@
     }
 }
 
-.title-tag {
+.title {
     font-size: 0.75rem;
     color: $clr1;
 }
+
 .choose {
     box-shadow: $op5;
     background-color: $clr8;
@@ -168,7 +168,7 @@
     padding: 11px 1px 11px 5px;
     gap: 20px;
     justify-content: space-evenly;
-    margin: 0px -15px 0px 0px;
+    margin: 0px -27px 0px 0px;
 }
 
 .first-date {
