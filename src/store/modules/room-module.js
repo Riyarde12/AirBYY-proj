@@ -39,7 +39,7 @@ export default {
     // }
   },
   actions: {
-    async loadRooms({ commit, state }, { filterBy = {} }) {
+    async loadRooms({ commit, state }, { filterBy }) {
 
       console.log('filterBy', filterBy);
       try {

@@ -153,7 +153,6 @@ export default {
   },
   created() {
     const params = this.$route.query;
-    console.log(params);
     if (params.destination) {
       this.filterBy.destination = params.destination;
     }
@@ -166,13 +165,14 @@ export default {
         if (this.filterBy[key] <= 0) return;
         this.filterBy[key]--;
       }
+      console.log('this.filterBy.adults',this.filterBy.adults);
     },
     sendFilter() {
-      // console.log(this.filterBy);
       this.$router.push({
         path: "explore",
         query: { destination: this.filterBy.destination },
       });
+      this.$store.dispatch({type: 'loadRooms', filterBy: {...this.filterBy}})
     },
     clickedModal(modal, modal45 = null) {
       if (modal === "modalDate") {
