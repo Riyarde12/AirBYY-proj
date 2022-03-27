@@ -1,11 +1,13 @@
 <template>
-	<section class="room-app page-layout header-reco">
+	<section class="room-app page-layout explore-layout header-reco">
 		<room-filter />
-		<!-- <room-filter @setFilter="setFilter" /> -->
+		<div class="alerts">
+			<p>{{ getNumberOfRooms }} stays in {{ getSearch }}</p>
+			<p class="covid-alerts">
+				Review COVID-19 travel restrictions before you book.
+			</p>
+		</div>
 		<room-list v-if="rooms && rooms.length" :rooms="rooms"></room-list>
-		<!-- <pre>
-      {{ rooms }}
-    </pre> -->
 	</section>
 </template>
 

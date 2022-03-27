@@ -19,6 +19,9 @@ export default {
     destinations(state) {
       return JSON.parse(JSON.stringify(state.destination));
     },
+    currSearch({ filterBy }) {
+      return filterBy.destination;
+    },
   },
   mutations: {
     setRooms(state, { rooms }) {
