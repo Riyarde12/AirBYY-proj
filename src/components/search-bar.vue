@@ -127,7 +127,7 @@
       </div>
     </teleport>
 
-    <!-- <div class="demo-date-picker">
+    <div class="demo-date-picker">
 			<div class="block">
 				<el-date-picker
 					ref="input"
@@ -138,7 +138,7 @@
 					end-placeholder="End date"
 				/>
 			</div>
-		</div> -->
+		</div>
   </section>
 </template>
 
@@ -271,5 +271,9 @@ input {
 }
 .el-popper {
   left: 29% !important;
+}
+
+.search-section {
+  height: 4.1875rem !important;
 }
 </style>
