@@ -27,11 +27,16 @@
           <p>Add dates</p>
         </div>
         <div class="vert"></div>
+          <!-- DATE-PICKER -->
+         
+
+ 
+
+          <!-- DATE-PICKER -->
         <div
           @click="clickedModal('modalDate', 5)"
           :class="modal5 ? 'choose' : ''"
-          class="filter-tag first-date"
-        >
+          class="filter-tag first-date" >
           <p class="bold title">Check out</p>
           <p>Add dates</p>
         </div>
@@ -124,6 +129,20 @@
         <h1>date</h1>
       </div>
     </teleport>
+
+<div class="demo-date-picker ">
+              <div class="block">
+                <el-date-picker
+                 ref="input"
+                  v-model="value1"
+                  type="daterange"
+                  range-separator="To"
+                  start-placeholder="Start date"
+                  end-placeholder="End date"
+                />
+              </div>
+            </div>
+
   </section>
 </template>
 
@@ -175,6 +194,7 @@ export default {
       });
     },
     clickedModal(modal, modal45 = null) {
+      this.$refs.input.focus()
       if (modal === "modalDate") {
         if (modal45 === 4) {
           if (this.modal4 === true) {
@@ -234,5 +254,10 @@ export default {
 input {
   color: black;
   border: none;
+}
+
+.el-picker-panel{
+  z-index: 100 !important;
+  position: absolute !important;
 }
 </style>
