@@ -47,7 +47,7 @@
 									<div class="add-guests-container flex space-between">
 										<div class="guests">GUESTS</div>
 										<div>
-											<svg
+											<!-- <svg
 												viewBox="0 0 32 32"
 												xmlns="http://www.w3.org/2000/svg"
 												aria-hidden="true"
@@ -59,7 +59,7 @@
 														d="m28 12-11.2928932 11.2928932c-.3905243.3905243-1.0236893.3905243-1.4142136 0l-11.2928932-11.2928932"
 													></path>
 												</g>
-											</svg>
+											</svg> -->
 										</div>
 									</div>
 								</div>
