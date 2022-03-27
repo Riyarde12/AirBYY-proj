@@ -1,7 +1,7 @@
 <template>
-  <section>
+  
+  <section class="search-section">
     <div class="search-bar">
-      <h1></h1>
       <div class="flex">
         <!-- <div @click="modalDestination = !modalDestination" class="filter-tag 1 fd"><p class="bold">Destination</p> -->
         <div
@@ -9,7 +9,7 @@
           :class="modalDestination ? 'choose' : ''"
           class="filter-tag 1 fd"
         >
-          <p class="bold title">Location</p>
+          <p class="bold title-tag">Location</p>
           <input
             type="text"
             v-model="filterBy.destination"
@@ -23,16 +23,21 @@
           :class="modal4 ? 'choose' : ''"
           class="filter-tag first-date"
         >
-          <p class="bold title">Check in</p>
+          <p class="bold title-tag">Check in</p>
           <p>Add dates</p>
         </div>
         <div class="vert"></div>
+          <!-- DATE-PICKER -->
+         
+
+ 
+
+          <!-- DATE-PICKER -->
         <div
           @click="clickedModal('modalDate', 5)"
           :class="modal5 ? 'choose' : ''"
-          class="filter-tag first-date"
-        >
-          <p class="bold title">Check out</p>
+          class="filter-tag first-date" >
+          <p class="bold title-tag">Check out</p>
           <p>Add dates</p>
         </div>
         <div class="vert"></div>
@@ -42,7 +47,7 @@
           class="filter-tag 4 ld"
         >
           <div class="last-line">
-            <p class="bold title">Guests</p>
+            <p class="bold title-tag">Guests</p>
             <p>Add guests</p>
           </div>
           <!-- </div> -->
@@ -63,7 +68,7 @@
       <div v-if="modalGuests" class="modal">
         <div class="line flex">
           <div class="txt">
-            <h3 class="title">Adults</h3>
+            <h3 class="title-tag">Adults</h3>
             <p class="content">Age 13 or above</p>
           </div>
           <div class="flex main-line">
@@ -75,7 +80,7 @@
 
         <div class="line flex">
           <div class="txt">
-            <h3 class="title">Children</h3>
+            <h3 class="title-tag">Children</h3>
             <p class="content">Age 2-12</p>
           </div>
           <div class="flex main-line">
@@ -87,7 +92,7 @@
 
         <div class="line flex">
           <div class="txt">
-            <h3 class="title">Infants</h3>
+            <h3 class="title-tag">Infants</h3>
             <p class="content">Under 2</p>
           </div>
           <div class="flex main-line">
@@ -99,7 +104,7 @@
 
         <div class="line flex">
           <div class="txt">
-            <h3 class="title">Pets</h3>
+            <h3 class="title-tag">Pets</h3>
             <p class="content under-line">Bringing a service animal?</p>
           </div>
           <div class="flex main-line">
@@ -124,6 +129,20 @@
         <h1>date</h1>
       </div>
     </teleport>
+
+<div class="demo-date-picker ">
+              <div class="block">
+                <el-date-picker
+                 ref="input"
+                  v-model="value1"
+                  type="daterange"
+                  range-separator="To"
+                  start-placeholder="Start date"
+                  end-placeholder="End date"
+                />
+              </div>
+            </div>
+
   </section>
 </template>
 
@@ -153,7 +172,6 @@ export default {
   },
   created() {
     const params = this.$route.query;
-    console.log(params);
     if (params.destination) {
       this.filterBy.destination = params.destination;
     }
@@ -166,15 +184,17 @@ export default {
         if (this.filterBy[key] <= 0) return;
         this.filterBy[key]--;
       }
+      console.log('this.filterBy.adults',this.filterBy.adults);
     },
     sendFilter() {
-      // console.log(this.filterBy);
       this.$router.push({
         path: "explore",
         query: { destination: this.filterBy.destination },
       });
+      this.$store.dispatch({type: 'loadRooms', filterBy: {...this.filterBy}})
     },
     clickedModal(modal, modal45 = null) {
+      
       if (modal === "modalDate") {
         if (modal45 === 4) {
           if (this.modal4 === true) {
@@ -186,12 +206,14 @@ export default {
             this.modalDate = true;
             console.log("modal4", this.modal4);
             console.log("modal5", this.modal5);
+            this.$refs.input.focus()
           }
         } else {
           if (this.modal5 === true) {
             this.modal5 = false;
             this.modalDate = false;
           } else {
+            this.$refs.input.focus()
             this.modal5 = true;
             this.modal4 = false;
             this.modalDate = true;
@@ -234,5 +256,19 @@ export default {
 input {
   color: black;
   border: none;
+}
+
+.block{
+  opacity: 0;
+}
+
+.el-picker-panel{
+  z-index: 100 !important;
+  margin: 72px;
+  
+  /* position: absolute !important; */
+}
+.el-popper {
+left: 29% !important;
 }
 </style>

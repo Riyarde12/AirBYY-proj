@@ -52,7 +52,7 @@
                     :size="56"
                     :src="'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'"
                   />
-                  <div class="flex culumn">
+                  <div class="container flex culumn">
                     <span>{{ review.by.fullname }}</span>
                     <span>{{ review.at }}</span>
                   </div>

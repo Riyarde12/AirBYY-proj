@@ -328,8 +328,12 @@
         .review-header {
             .review-by-container {
                 align-items: center;
-                justify-content: space-between;
+                justify-content: flex-start;
                 padding-bottom: 10px;
+
+                .container {
+                    margin-left: 14px;
+                }
             }
         }
     }
