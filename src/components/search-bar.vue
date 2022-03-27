@@ -11,6 +11,7 @@
         >
           <p class="bold title-tag">Location</p>
           <input
+          @input="destinationToDisplay"
             type="text"
             v-model="filterBy.destination"
             placeholder="Where are you going?"
@@ -126,7 +127,12 @@
     </teleport>
     <teleport to="#models">
       <div v-if="modalDestination" class="modal-3">
-        <h1>date</h1>
+        <ul>
+          <li>d</li>
+          <li>d</li>
+          <li>d</li>
+          <li>d</li>
+        </ul>
       </div>
     </teleport>
 
@@ -235,6 +241,18 @@ export default {
       this.modalDestination = false;
       this[modal] = true;
     },
+    // destinationToDisplay(){
+    //    try {
+    //   await this.$store.dispatch({
+    //     type: "loadRooms",
+    //     filterBy: params,
+    //   });
+    //   this.rooms = this.$store.getters.rooms;
+    //   console.log("this.rooms", this.rooms);
+    // } catch (err) {
+    //   console.log("err", err);
+    // }
+    // }
   },
   computed: {
     adults() {

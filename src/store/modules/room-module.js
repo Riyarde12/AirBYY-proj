@@ -16,6 +16,9 @@ export default {
     rooms(state) {
       return JSON.parse(JSON.stringify(state.rooms));
     },
+    destinations(state) {
+      return JSON.parse(JSON.stringify(state.destination));
+    },
   },
   mutations: {
     setRooms(state, { rooms }) {
@@ -34,6 +37,10 @@ export default {
     setFilter(state, { filterBy }) {
       state.filterBy = filterBy;
     },
+    saveDestination(state) {
+      const destinationToSave = state.rooms.filter(room => room.address.country)
+      state.destination = destinationToSave
+    }
     // setHomeRoom(state, { homeRooms }) {
     //   state.homeRooms = homeRooms;
     // }

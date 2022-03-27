@@ -49,12 +49,16 @@ export default {
       const idx = utilService.getRandomInt(0, topRated.length - 4);
       this.topRated = topRated.slice(idx, idx + 4);
     },
+    setDestination(){
+      this.$store.commit({type: 'saveDestination'})
+    }
   },
   async created() {
     try {
       this.rooms = await this.$store.dispatch({
         type: "loadRooms",
       });
+      this.setDestination()
     } catch (err) {
       console.log("err", err);
     }
