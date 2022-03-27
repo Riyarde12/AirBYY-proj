@@ -127,7 +127,6 @@
 			} catch (err) {
 				console.log("err", err);
 			}
-			console.log("roomId", roomId);
 		},
 		computed: {
 			showGreatloc() {

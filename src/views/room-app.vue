@@ -31,10 +31,9 @@
 			try {
 				await this.$store.dispatch({
 					type: "filter",
-					filterBy: { ...params },
+					filterBy: JSON.parse(JSON.stringify(params)),
 				});
 				this.rooms = this.$store.getters.rooms;
-				console.log("this.rooms", this.rooms);
 			} catch (err) {
 				console.log("err", err);
 			}
