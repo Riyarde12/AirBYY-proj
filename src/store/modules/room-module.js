@@ -39,35 +39,26 @@ export default {
     // if some one use that function (setfilter) tell yosef please
     setFilter(state, { filterBy }) {
       state.filterBy = filterBy;
-      console.log('state.filterBy', state.filterBy);
     },
     saveDestination(state) {
       const destinationToSave = state.rooms.filter(room => room.address.country);
       state.destination = destinationToSave;
     }
-    // setHomeRoom(state, { homeRooms }) {
-    //   state.homeRooms = homeRooms;
-    // }
+
   },
   actions: {
     async loadRooms({ commit, state }) {
-
       console.log('filterBy', state.filterBy);
       try {
         const rooms = await roomService.query(state.filterBy);
         commit({ type: 'setRooms', rooms });
+        commit({ type: 'setFilter', filterBy: {} });
         return rooms;
       }
       catch (err) {
         console.log('err', err);
       }
     },
-    // async topRoomsForDisplay({ commit }) {
-    //   const homeRooms = await roomService.homepageDisplay();
-    //   commit({ type: 'setHomeRoom', homeRooms });
-    //   console.log(homeRooms);
-    //   return JSON.parse(JSON.stringify(homeRooms.slice(0, 4)));
-    // }
     // async removeRoom({ commit }, { id }) {
     //   console.log('id', id);
     //   try {

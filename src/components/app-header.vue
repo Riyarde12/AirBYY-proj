@@ -15,7 +15,7 @@
 		</section>
 		<section class="header-contact">
 			<section class="home-btn">
-				<router-link to="/">
+				<router-link @click.native="scrollToTop" to="/">
 					<section
 						class="home-btn-link"
 						:style="{ color: headerOnTop ? '#ff385c' : 'white' }"
@@ -127,18 +127,17 @@
 			this.$watch(
 				() => this.$route.params,
 				(toParams, previousParams) => {
-					console.log("this.$route.params", this.$route.query);
-					if (toParams) console.log("toParams", toParams);
-					console.log("previousParams", previousParams);
+					console.log("this.$route.params", this.$route.params);
 					// roomId = for detail page
 					// destination = for explore page
-					let paging = this.$route.query;
-					console.log("paging", paging);
-					if (previousParams) console.log("previousParams", previousParams);
+					this.setCurrPage();
 				}
 			);
 		},
 		methods: {
+			scrollToTop(){
+				window.scrollTo(0,0)
+			},
 			onScroll() {
 				if (window.scrollY > 10) {
 					this.shrinkedHeader = true;
@@ -153,6 +152,15 @@
 			},
 			exstandHeader() {
 				this.shrinkedHeader = !this.shrinkedHeader;
+			},
+			setCurrPage() {
+				let { destination } = this.$route.query;
+				let { roomId } = this.$route.params;
+				if (destination) {
+					this.currPage = "explore";
+					return;
+				} else if (roomId) return (this.currPage = "details");
+				else this.currPage = "home";
 			},
 		},
 		computed: {
