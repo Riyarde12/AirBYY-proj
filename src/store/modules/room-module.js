@@ -33,17 +33,18 @@ export default {
     // if some one use that function (setfilter) tell yosef please
     setFilter(state, { filterBy }) {
       state.filterBy = filterBy;
+      console.log('state.filterBy', state.filterBy);
     },
     // setHomeRoom(state, { homeRooms }) {
     //   state.homeRooms = homeRooms;
     // }
   },
   actions: {
-    async loadRooms({ commit, state }, { filterBy }) {
+    async loadRooms({ commit, state }) {
 
-      console.log('filterBy', filterBy);
+      console.log('filterBy', state.filterBy);
       try {
-        const rooms = await roomService.query(filterBy);
+        const rooms = await roomService.query(state.filterBy);
         commit({ type: 'setRooms', rooms });
         return rooms;
       }
@@ -88,9 +89,9 @@ export default {
         console.log('err', err);
       }
     },
-    // filter({ commit, dispatch }, { filterBy }) {
-    //   commit({ type: 'setFilter', filterBy });
-    //   dispatch({ type: 'loadRooms' });
-    // },
+    filter({ commit, dispatch }, { filterBy }) {
+      commit({ type: 'setFilter', filterBy });
+      dispatch({ type: 'loadRooms' });
+    },
   },
 };
