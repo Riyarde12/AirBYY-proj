@@ -187,11 +187,19 @@ export default {
       console.log('this.filterBy.adults',this.filterBy.adults);
     },
     sendFilter() {
+      const {adults, children,infants,pets, destination} = this.filterBy
+let guests = null,
+
       this.$router.push({
         path: "explore",
-        query: { destination: this.filterBy.destination },
+        query: { destination: this.filterBy.destination,
+        adults: this.filterBy.adults,
+        children: this.filterBy.children,
+        infants: this.filterBy.infants,
+        pets: this.filterBy.pets,
+        },
       });
-      this.$store.dispatch({type: 'loadRooms', filterBy: {...this.filterBy}})
+      // this.$store.dispatch({type: 'loadRooms', filterBy: {...this.filterBy}})
     },
     clickedModal(modal, modal45 = null) {
       
