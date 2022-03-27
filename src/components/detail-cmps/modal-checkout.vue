@@ -21,6 +21,24 @@
                       <div>
                         <div class="checkin">CHECK-IN</div>
                         <div class="checkin">Add date</div>
+
+                              <!-- DATE-PICKER -->
+                        <div class="datePicker">
+                          <div class="demo-date-picker">
+                            <div class="block">
+                              <el-date-picker
+                                v-model="value1"
+                                type="daterange"
+                                range-separator="To"
+                                start-placeholder="CHECK-IN"
+                                end-placeholder="CHECKOUT"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                          <!-- DATE-PICKER -->
+
+
                       </div>
                     </div>
                     <div class="add-dates-container flex border-left">
@@ -82,3 +100,21 @@ export default {
   },
 };
 </script>
+
+<style>
+.el-date-editor{
+  left: 205px;
+  bottom: 60px;
+  z-index: -1;
+  position: relative  !important;
+  /* opacity: 0 !important; */
+  /* width: 320px !important; */
+  height: 56px !important;
+  /* --el-input-hover-border-color:none !important */
+}
+.el-picker-panel{
+  z-index: 100 !important;
+  position: relative !important;
+}
+
+</style>
