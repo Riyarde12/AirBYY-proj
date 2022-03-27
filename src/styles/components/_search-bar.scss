@@ -1,7 +1,7 @@
 .modal {
     padding: 1rem 2rem 1rem 2rem;
     z-index: 10;
-    position: absolute;
+    position: fixed;
     top: 50.5vh;
     left: 60.5vw;
     transform: translate(-50%, -50%);
@@ -82,7 +82,7 @@
     height: 35.725rem;
     width: 26.05rem;
     /* background-color:#ffffff; */
-    background-color: #4ae71a;
+    background-color: #f8f8f8;
     text-align: center;
     border-radius: 2rem;
     box-shadow: rgb(0 0 0 / 15%) 0px 0.625rem 2.3125rem;
