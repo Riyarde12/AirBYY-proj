@@ -1,5 +1,4 @@
 <template>
-  
   <section class="search-section">
     <div class="search-bar">
       <div class="flex">
@@ -28,16 +27,14 @@
           <p>Add dates</p>
         </div>
         <div class="vert"></div>
-          <!-- DATE-PICKER -->
-         
+        <!-- DATE-PICKER -->
 
- 
-
-          <!-- DATE-PICKER -->
+        <!-- DATE-PICKER -->
         <div
           @click="clickedModal('modalDate', 5)"
           :class="modal5 ? 'choose' : ''"
-          class="filter-tag first-date" >
+          class="filter-tag first-date"
+        >
           <p class="bold title-tag">Check out</p>
           <p>Add dates</p>
         </div>
@@ -136,19 +133,18 @@
       </div>
     </teleport>
 
-<div class="demo-date-picker ">
-              <div class="block">
-                <el-date-picker
-                 ref="input"
-                  v-model="value1"
-                  type="daterange"
-                  range-separator="To"
-                  start-placeholder="Start date"
-                  end-placeholder="End date"
-                />
-              </div>
-            </div>
-
+    <!-- <div class="demo-date-picker">
+      <div class="block">
+        <el-date-picker
+          ref="input"
+          v-model="value1"
+          type="daterange"
+          range-separator="To"
+          start-placeholder="Start date"
+          end-placeholder="End date"
+        />
+      </div>
+    </div> -->
   </section>
 </template>
 
@@ -178,7 +174,6 @@ export default {
   },
   created() {
     const params = this.$route.query;
-    console.log(params);
     if (params.destination) {
       this.filterBy.destination = params.destination;
     }
@@ -191,16 +186,19 @@ export default {
         if (this.filterBy[key] <= 0) return;
         this.filterBy[key]--;
       }
+      console.log("this.filterBy.adults", this.filterBy.adults);
     },
     sendFilter() {
-      // console.log(this.filterBy);
       this.$router.push({
         path: "explore",
         query: { destination: this.filterBy.destination },
       });
+      this.$store.dispatch({
+        type: "loadRooms",
+        filterBy: { ...this.filterBy },
+      });
     },
     clickedModal(modal, modal45 = null) {
-      
       if (modal === "modalDate") {
         if (modal45 === 4) {
           if (this.modal4 === true) {
@@ -212,14 +210,14 @@ export default {
             this.modalDate = true;
             console.log("modal4", this.modal4);
             console.log("modal5", this.modal5);
-            this.$refs.input.focus()
+            this.$refs.input.focus();
           }
         } else {
           if (this.modal5 === true) {
             this.modal5 = false;
             this.modalDate = false;
           } else {
-            this.$refs.input.focus()
+            this.$refs.input.focus();
             this.modal5 = true;
             this.modal4 = false;
             this.modalDate = true;
@@ -276,17 +274,17 @@ input {
   border: none;
 }
 
-.block{
+.block {
   opacity: 0;
 }
 
-.el-picker-panel{
+.el-picker-panel {
   z-index: 100 !important;
   margin: 72px;
-  
+
   /* position: absolute !important; */
 }
 .el-popper {
-left: 29% !important;
+  left: 29% !important;
 }
 </style>

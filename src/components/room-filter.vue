@@ -1,38 +1,38 @@
 <template>
   <section class="explore-layout">
     <div class="room-filter">
-    <div class="main-filter-btn">
-      <div>
-      <button class="filter-btn">Price 🔻</button>
-     </div>
-      <div class="filter-modals" v-if="modal">
-        <div class="modal-type">
-          <input type="checkbox" />
-          <span>some</span><br />
-          <hr />
-          <input type="checkbox" />
-          <span>place</span><br />
-          <hr />
-          <input type="checkbox" />
-          <span>top rated</span><br />
-          <hr />
-          <input type="checkbox" />
-          <span>allayoster</span>
+      <div class="main-filter-btn">
+        <div>
+          <button class="filter-btn">Price 🔻</button>
         </div>
+        <div class="filter-modals" v-if="modal">
+          <div class="modal-type">
+            <input type="checkbox" />
+            <span>some</span><br />
+            <hr />
+            <input type="checkbox" />
+            <span>place</span><br />
+            <hr />
+            <input type="checkbox" />
+            <span>top rated</span><br />
+            <hr />
+            <input type="checkbox" />
+            <span>allayoster</span>
+          </div>
+        </div>
+        <button @click="change" class="filter-btn">Type Of Place 🔻</button>
+        <div class="vartical"></div>
       </div>
-      <button @click="change" class="filter-btn">Type Of Place 🔻</button>
-      <div class="vartical"></div>
-    </div>
-    <div class="wifi">
-      <!-- <button class="filter-btn">Free cancellation</button>
+      <div class="wifi">
+        <!-- <button class="filter-btn">Free cancellation</button>
       <button class="filter-btn">Wifi</button>
       <button class="filter-btn">Kitchen</button>
       <button class="filter-btn">Air conditioning</button>
       <button class="filter-btn">Washer</button> -->
-      <!-- <button class="filter-btn">Iron</button> -->
-      <!-- <button class="filter-btn">Free parking</button> -->
-      <!-- <button class="filter-btn">Filter</button> -->
-    </div>
+        <!-- <button class="filter-btn">Iron</button> -->
+        <!-- <button class="filter-btn">Free parking</button> -->
+        <!-- <button class="filter-btn">Filter</button> -->
+      </div>
     </div>
   </section>
 </template>
@@ -48,6 +48,7 @@ export default {
   },
   methods: {
     change() {
+      
       this.modal = !this.modal;
       console.log("s");
     },
@@ -85,7 +86,7 @@ export default {
 
 input {
   /* height: 30px; */
-  
+
   color: rgb(238, 15, 15);
 }
 
