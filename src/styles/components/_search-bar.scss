@@ -7,7 +7,7 @@
     transform: translate(-50%, -50%);
     /* height: 365px; */
     width: 30.1875rem;
-    background-color:$clr8;
+    background-color: $clr8;
     text-align: center;
     border-radius: 2rem;
     box-shadow: rgb(0 0 0 / 15%) 0px 0.625rem 2.3125rem;
@@ -16,16 +16,16 @@
         justify-content: space-between;
         padding: 1rem 0.25rem 1rem 0px;
         border-bottom: 1px solid $clr6;
-        & .txt{
+        & .txt {
             text-align: start;
-            & .title{
+            & .title {
                 line-height: 1.25;
                 & .content {
                     line-height: 1.125;
                 }
             }
         }
-        & .main-line{
+        & .main-line {
             justify-content: space-between;
             width: 6.5rem;
             & .div-btn {
@@ -34,21 +34,21 @@
                 align-items: center;
                 cursor: pointer;
                 line-height: 1.875;
-              font-size: 20;
-              height: 32px;
-              width: 32px;
-              background-color: #fff;
-              border: 1px solid rgba(0, 0, 0, 0.284);
-              font-size: 30px;
-              /* border: ; */
-              border-radius: 50%;
+                font-size: 20;
+                height: 32px;
+                width: 32px;
+                background-color: #fff;
+                border: 1px solid rgba(0, 0, 0, 0.284);
+                font-size: 30px;
+                /* border: ; */
+                border-radius: 50%;
             }
             & .number {
                 font-size: 20px;
                 margin: 0 5px;
             }
         }
-        & .bottomModal{
+        & .bottomModal {
             margin: 8px 0px 16px 0px;
         }
     }
@@ -58,8 +58,6 @@
     display: inline-block;
     padding: 0px 0px 0px 20px;
 }
-
-
 
 .modal-2 {
     z-index: 10;
@@ -73,7 +71,7 @@
     background-color: #d32b2b;
     text-align: center;
     border-radius: 2rem;
-    }
+}
 .modal-3 {
     z-index: 10;
     position: fixed;
@@ -87,74 +85,71 @@
     text-align: center;
     border-radius: 2rem;
     box-shadow: rgb(0 0 0 / 15%) 0px 0.625rem 2.3125rem;
-    }
+}
 
-  .search-bar{
-      padding: 0px 15px 0px 10px;
+.search-bar {
+    padding: 0px 15px 0px 10px;
     z-index: 100;
     height: 4.125rem;
     // width: 56.17vw;
     max-width: 53.125rem;
     background-color: $clr8;
     border-radius: 50px;
-    & .search-btn{
+    & .search-btn {
         margin-right: 11px;
         width: 6.98rem;
         height: 3rem;
         border-radius: 24px !important;
         font-size: 1rem;
-        align-self:center ;
-        
+        align-self: center;
     }
 }
 
 .filter-tag {
     cursor: pointer;
     height: 4.125rem;
-//    width: 200px;
+    //    width: 200px;
     border-radius: 50px;
     white-space: nowrap;
     font-size: 0.85rem;
     color: #9a9a9a;
-    
-    padding: 14px 24px ;
+
+    padding: 14px 24px;
     line-height: 1rem;
-     & input {
-         color: $clr1;
-         background-color: rgba(255, 0, 0, 0);
-         border: 0px;
-     }   
+    & input {
+        color: $clr1;
+        background-color: rgba(255, 0, 0, 0);
+        border: 0px;
+    }
     & .bold {
         line-height: 1.125rem;
     }
-    &:hover{
+    &:hover {
         background-color: $clr6;
-    
     }
-    &:active{
+    &:active {
         box-shadow: $op5;
         background-color: $clr8;
     }
-
 }
 
-.title{
+.title {
     font-size: 0.75rem;
     color: $clr1;
 }
 
-.choose{
+.choose {
     box-shadow: $op5;
+    background-color: $clr8;
+    &:hover {
         background-color: $clr8;
-        &:hover{
-            background-color: $clr8
-            // pointer-events: none;
-        }
+        // pointer-events: none;
+    }
 }
 
 .vert {
     border-right: 1px solid $clr1;
-    height:2rem;
+    height: 2rem;
 }
 
 .flex {
@@ -162,14 +157,14 @@
     justify-content: space-evenly;
     /* align-content: center; */
     align-items: center;
-  }
+}
 .fd {
     text-align: start;
-    margin: 0px -5px 0px  -20px;
+    margin: 0px -5px 0px -20px;
 }
 
-  .ld {
-    display:flex;
+.ld {
+    display: flex;
     padding: 11px 1px 11px 5px;
     gap: 20px;
     justify-content: space-evenly;
@@ -177,10 +172,9 @@
 }
 
 .first-date {
-padding: 14px 30px 0px 30px;
-width: 180px;
+    padding: 14px 30px 0px 30px;
+    width: 180px;
 }
 
 .secand-date {
-
 }

@@ -1,27 +1,37 @@
 <template>
   <section
     class="app-header"
-    :style="{ backgroundColor: x ? ' white' : '#00000000' }"
+    :style="{
+      backgroundColor: headerOnTop ? 'white' : '#00000000',
+      height: shrinkedHeader ? '80px' : '160px',
+    }"
     :class="checkPage() ? 'explore-layout' : 'detail-layout'"
   >
     <section class="extanded-header">
       <search-bar
-        class="search-bar"
-        :style="{ display: x ? 'none' : 'block' }"
+        class="search-bar-outline"
+        :style="{ display: shrinkedHeader ? 'none' : 'block' }"
       />
     </section>
     <section class="header-contact">
       <section class="home-btn">
         <router-link to="/">
-          <section class="home-btn-link">
+          <section
+            class="home-btn-link"
+            :style="{ color: headerOnTop ? '#ff385c' : 'white' }"
+          >
             <h1>air</h1>
             <img src="../assets/logo/logol.ico" alt="home" />
             <h1>yy</h1>
           </section>
         </router-link>
-        <!-- <search-bar /> -->
       </section>
-      <section class="search" :style="{ display: x ? 'block' : 'none' }">
+      <section
+        class="search"
+        v-if="shrinkedHeader"
+        @click="exstandHeader"
+        :style="{ display: headerOnTop ? 'block' : 'none' }"
+      >
         <button class="search-btn">
           <h4>Start your search</h4>
           <div
@@ -46,9 +56,12 @@
           </div>
         </button>
       </section>
-      <section class="user-btn" :style="{ color: x ? ' white' : 'black' }">
-        <button class="become-host-btn">Become a Host</button>
-        <button class="change-lang-btn">
+      <section
+        class="user-btn"
+        :style="{ color: headerOnTop ? ' white' : 'black' }"
+      >
+        <button class="become-host-btn" :style="getStyle">Become a Host</button>
+        <button class="change-lang-btn" :style="getStyle">
           <svg
             class="lang-icon"
             viewBox="0 0 16 16"
@@ -102,8 +115,9 @@ export default {
   data() {
     return {
       currPage: null,
-      x: true,
-      currPage: "details",
+      headerOnTop: true,
+      currPage: "home",
+      shrinkedHeader: false,
     };
   },
   components: {
@@ -115,13 +129,27 @@ export default {
   methods: {
     onScroll() {
       if (window.scrollY > 10) {
-        this.x = true;
+        this.shrinkedHeader = true;
+        this.headerOnTop = true;
       } else {
-        this.x = false;
+        this.shrinkedHeader = false;
+        this.headerOnTop = false;
       }
     },
     checkPage() {
-      return this.currPage === "details" ? true : false;
+      return this.currPage === "home" ? true : false;
+    },
+    exstandHeader() {
+      this.shrinkedHeader = !this.shrinkedHeader;
+    },
+  },
+  computed: {
+    getStyle() {
+      if (this.headerOnTop) {
+        return { color: "black" };
+      } else {
+        return { color: "white" };
+      }
     },
   },
 };
