@@ -153,6 +153,9 @@
 
         .top-modal-container {
             .display-review-info {
+                :nth-child(3) {
+                    margin: 5px;
+                }
             }
         }
     }

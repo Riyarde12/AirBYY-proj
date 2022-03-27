@@ -8,7 +8,7 @@
 							<div v-if="room">${{ showPrice }} / Night</div>
 							<div class="display-review-info flex">
 								<span><img src="../../assets/img/star.png" alt="" /></span>
-								<span v-if="room">{{ avgReviewScores }}</span>
+								<span v-if="room">{{ avgReviewScores }} </span>
 								<span class="under-line">{{ room.numOfReviews }} reviews</span>
 							</div>
 						</div>
