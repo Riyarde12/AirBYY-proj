@@ -116,7 +116,7 @@ export default {
     return {
       currPage: null,
       headerOnTop: true,
-      currPage: "home",
+      currPage: "details",
       shrinkedHeader: false,
     };
   },
