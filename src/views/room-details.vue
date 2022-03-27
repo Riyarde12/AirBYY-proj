@@ -124,7 +124,6 @@
 			const { roomId } = this.$route.params;
 			try {
 				this.room = await this.$store.dispatch({ type: "getRoom", id: roomId });
-				console.log("this.room", this.room);
 			} catch (err) {
 				console.log("err", err);
 			}
