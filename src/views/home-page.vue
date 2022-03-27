@@ -73,7 +73,7 @@
 				// 		destinations.push(room);
 				// 	}
 				// });
-				// this.topRooms();
+				this.topRooms();
 				return this.rooms.slice(0, 4);
 				// return destinations.slice(0, 4);
 			},
