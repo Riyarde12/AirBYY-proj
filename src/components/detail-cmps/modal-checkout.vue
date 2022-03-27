@@ -105,16 +105,16 @@ export default {
 .el-date-editor{
   left: 205px;
   bottom: 60px;
-  z-index: -1;
-  position: relative  !important;
+  /* z-index: -1; */
+  /* position: relative  !important; */
   /* opacity: 0 !important; */
   /* width: 320px !important; */
-  height: 56px !important;
+  height: 1px !important;
   /* --el-input-hover-border-color:none !important */
 }
 .el-picker-panel{
   z-index: 100 !important;
-  position: relative !important;
+  /* position: relative !important; */
 }
 
 </style>
