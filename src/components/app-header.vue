@@ -114,9 +114,8 @@
 		name: "app-header",
 		data() {
 			return {
-				currPage: null,
 				headerOnTop: true,
-				currPage: "details",
+				currPage: "home",
 				shrinkedHeader: false,
 			};
 		},
@@ -130,9 +129,11 @@
 				(toParams, previousParams) => {
 					console.log("this.$route.params", this.$route.query);
 					if (toParams) console.log("toParams", toParams);
+					console.log("previousParams", previousParams);
 					// roomId = for detail page
-					// destination = for preview page
-
+					// destination = for explore page
+					let paging = this.$route.query;
+					console.log("paging", paging);
 					if (previousParams) console.log("previousParams", previousParams);
 				}
 			);

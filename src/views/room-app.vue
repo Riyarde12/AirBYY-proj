@@ -27,8 +27,6 @@
 		async created() {
 			const params = this.$route.query;
 			console.log("params", params);
-			// var filter = JSON.parse(params)
-			// console.log(filter);
 
 			try {
 				await this.$store.dispatch({
