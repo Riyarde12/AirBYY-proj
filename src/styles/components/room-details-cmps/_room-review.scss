@@ -1,0 +1,82 @@
+.room-review {
+    padding-top: 42px;
+
+    .progress-bar {
+        height: 4px;
+        width: 11.25rem;
+    }
+
+    .score-list-container {
+        ul {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            width: 100%;
+
+            li {
+                max-width: 457px;
+                margin-right: 6.26562rem;
+                margin-bottom: 20px;
+
+                & :first-child {
+                    max-width: 457px;
+                }
+            }
+        }
+
+        .progress-container {
+            font-weight: 400;
+            font-size: 1em;
+            line-height: 1.25;
+        }
+    }
+
+    .room-review-list {
+        ul {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 40px 1px;
+
+            li {
+                margin-right: 6.26562rem;
+            }
+        }
+
+        .review-header {
+            .review-by-container {
+                // align-items: center;
+                justify-content: flex-start;
+                padding-bottom: 10px;
+            }
+
+            .container {
+                display: flex;
+                flex-direction: column;
+                margin-left: 12px;
+
+                :first-child {
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+    .room-reviews-header {
+        .container {
+            padding-bottom: 31px;
+        }
+
+        .star-review {
+            margin-right: 5px;
+            img {
+                height: 0.9864em;
+                width: 0.94062em;
+            }
+        }
+
+        .reviews {
+            font-size: 1.375em;
+            font-weight: 600;
+            line-height: 1.25;
+        }
+    }
+}
