@@ -63,6 +63,7 @@
 												</g>
 											</svg> -->
 										</div>
+										<div>{{ guestsForDisplay }}</div>
 										<guests-modal
 											v-if="openGuestsModal"
 											:currOrder="currOrder"
@@ -107,27 +108,35 @@
 		methods: {
 			updatePreOrder() {},
 			addGuests() {
-				console.log("hey");
 				this.openGuestsModal = !this.openGuestsModal;
-				console.log("this.openGuestsModal", this.openGuestsModal);
 			},
 			closeModal(guests) {
 				this.openGuestsModal = false;
-				console.log("this.openGuestsModal", this.openGuestsModal);
+
 				this.currOrder.guests = guests;
 			},
+			// onRemove(guest) {
+			// 	this.currOrder.guests = guest;
+			// },
+			// onAdd(guest) {
+			// 	this.currOrder.guests = guest;
+			// },
 			onRemove(guest) {
-				if (this.currOrder.guests[guest] <= 0) return;
+				if (this.guests[guest] <= 0) return;
 				this.currOrder.guests[guest]--;
-				console.log(this.currOrder);
+				console.log("this.currOrder.guests[guest]", this.currOrder.guests[guest]);
+				// this.$emit("onRemove", this.guests);
 			},
 			onAdd(guest) {
 				this.currOrder.guests[guest]++;
-				console.log(this.currOrder);
+				console.log("this.currOrder.guests[guest]", this.currOrder.guests[guest]);
+				// this.$emit("onAdd", this.guests);
+				// console.log(this.guests);
 			},
 			onReserve() {
 				console.log("this.currOrder", this.currOrder);
-				this.$emit("onReserve", { ...this.currOrder });
+				this.$emit("onReserve", this.currOrder);
+				this.currOrder.guests = { adults: 0, children: 0, pets: 0, infants: 0 };
 			},
 		},
 		computed: {
@@ -136,6 +145,16 @@
 			},
 			avgReviewScores() {
 				return this.room.reviewScores.rating / 20;
+			},
+			guestsForDisplay() {
+				const guests = this.currOrder.guests;
+				console.log("guests", guests);
+				let sum = 0;
+				for (const item in guests) {
+					// console.log("item", guests[item]);
+					sum += guests[item];
+				}
+				return sum;
 			},
 		},
 	};

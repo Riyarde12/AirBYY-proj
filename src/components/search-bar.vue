@@ -150,6 +150,7 @@
 	export default {
 		data() {
 			return {
+				value1: null,
 				filterBy: {
 					adults: 0,
 					children: 0,
