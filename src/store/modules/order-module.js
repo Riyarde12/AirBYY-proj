@@ -20,6 +20,7 @@ export default {
         },
         saveOrder(state, { order }) {
             state.orders.push(order);
+            console.log('state.orders', state.orders);
         },
     },
     actions: {
@@ -36,8 +37,8 @@ export default {
         async addOrder({ commit }, { order }) {
             console.log('order', order);
             try {
-                const savedOrder = await orderService.save(order);
-                commit({ type: 'saveOrder', savedOrder });
+                await orderService.save(order);
+                // commit({ type: 'saveOrder', savedOrder });
             }
             catch (err) {
                 console.log('err', err);
