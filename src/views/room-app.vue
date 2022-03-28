@@ -2,7 +2,7 @@
   <section class="room-app page-layout explore-layout header-reco">
     <room-filter />
     <div class="alerts">
-      <p>{{ getNumberOfRooms }} stays in {{ getSearch }}</p>
+      <p>{{ getNumberOfRooms }} stays in {{ searchedLocation }}</p>
       <p class="covid-alerts">
         Review COVID-19 travel restrictions before you book.
       </p>
@@ -24,11 +24,12 @@ export default {
   data() {
     return {
       rooms: null,
+      searchedLocation: null,
     };
   },
   async created() {
     const params = this.$route.query;
-    console.log("params", params);
+    this.searchedLocation = params.destination;
 
     try {
       await this.$store.dispatch({
@@ -43,7 +44,6 @@ export default {
   methods: {},
   computed: {
     getNumberOfRooms() {
-      console.log("filterBy is:", this.$store.getters.rooms.length);
       return this.$store.getters.rooms.length;
     },
     getSearch() {

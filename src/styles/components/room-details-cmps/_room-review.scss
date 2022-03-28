@@ -1,26 +1,27 @@
 .room-review {
+    border-top: 1px solid $clr5;
     padding-top: 42px;
 
     .progress-bar {
         height: 4px;
         width: 11.25rem;
+        & .el-progress-bar__inner {
+            background-color: $clr2;
+        }
     }
 
     .score-list-container {
+        margin-bottom: 20px;
         ul {
             display: grid;
             grid-template-columns: 1fr 1fr;
 
-            width: 100%;
+            // width: 100%;
 
             li {
-                max-width: 457px;
+                // max-width: 457px;
                 margin-right: 6.26562rem;
-                margin-bottom: 20px;
-
-                & :first-child {
-                    max-width: 457px;
-                }
+                margin-bottom: 25px;
             }
         }
 
@@ -54,8 +55,12 @@
                 flex-direction: column;
                 margin-left: 12px;
 
-                :first-child {
+                & .name {
                     font-weight: 600;
+                }
+                & .date {
+                    font-size: 0.875rem;
+                    color: $clr3;
                 }
             }
         }
