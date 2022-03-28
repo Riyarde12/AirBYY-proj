@@ -45,7 +45,7 @@
 									</div>
 									<div
 										class="add-guests-container flex space-between"
-										@click="addGuests"
+										@click.stop="addGuests"
 									>
 										<div class="guests">GUESTS</div>
 										<div>
@@ -65,6 +65,7 @@
 										</div>
 										<guests-modal
 											v-if="openGuestsModal"
+											:currOrder="currOrder"
 											@onCloseModal="closeModal"
 											@onRemove="onRemove"
 											@onAdd="onAdd"
@@ -72,7 +73,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="availability-container" @reserve="onReserve">
+							<div class="availability-container" @click="onReserve">
 								Check availability
 							</div>
 						</div>
@@ -100,12 +101,6 @@
 			return {
 				openGuestsModal: false,
 				currOrder: this.preOrder,
-				// guests: {
-				// 	adults: 0,
-				// 	children: 0,
-				// 	pets: 0,
-				// 	infants: 0,
-				// },
 			};
 		},
 		created() {},
@@ -114,26 +109,25 @@
 			addGuests() {
 				console.log("hey");
 				this.openGuestsModal = !this.openGuestsModal;
-				console.log("this.openGuesysModal", this.openGuestsModal);
+				console.log("this.openGuestsModal", this.openGuestsModal);
 			},
-			closeModal() {
+			closeModal(guests) {
 				this.openGuestsModal = false;
+				console.log("this.openGuestsModal", this.openGuestsModal);
+				this.currOrder.guests = guests;
 			},
 			onRemove(guest) {
 				if (this.currOrder.guests[guest] <= 0) return;
 				this.currOrder.guests[guest]--;
-				// console.log("this.currOrder", this.currOrder.guests[guest]);
 				console.log(this.currOrder);
 			},
 			onAdd(guest) {
 				this.currOrder.guests[guest]++;
-				// console.log("this.currOrder", this.currOrder.guests[guest]);
 				console.log(this.currOrder);
 			},
 			onReserve() {
 				console.log("this.currOrder", this.currOrder);
 				this.$emit("onReserve", { ...this.currOrder });
-				// this.$store.dispatch({ type: "addOrder", order: { ...this.guests } });
 			},
 		},
 		computed: {

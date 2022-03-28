@@ -216,7 +216,10 @@
 		},
 		methods: {
 			sendReserve(order) {
-				this.$store.dispatch({ type: "addOrder", order });
+				this.$store.dispatch({
+					type: "addOrder",
+					order: JSON.parse(JSON.stringify(order)),
+				});
 			},
 		},
 	};

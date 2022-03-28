@@ -5,6 +5,7 @@ export const storageService = {
   put,
   remove,
   postMany,
+  save,
 };
 
 function query(entityType) {
@@ -22,7 +23,7 @@ function post(entityType, newEntity) {
   newEntity._id = _makeId();
   return query(entityType).then((entities) => {
     entities.push(newEntity);
-    _save(entityType, entities);
+    save(entityType, entities);
     return newEntity;
   });
 }
@@ -30,7 +31,7 @@ function post(entityType, newEntity) {
 function postMany(entityType, newEntities) {
   return query(entityType).then((entities) => {
     entities.push(...newEntities);
-    _save(entityType, entities);
+    save(entityType, entities);
     return entities;
   });
 }
@@ -41,7 +42,7 @@ function put(entityType, updatedEntity) {
       (entity) => entity._id === updatedEntity._id
     );
     entities.splice(idx, 1, updatedEntity);
-    _save(entityType, entities);
+    save(entityType, entities);
     return updatedEntity;
   });
 }
@@ -54,11 +55,11 @@ function remove(entityType, entityId) {
         `Unknown Entity ${entityType} with Id: ${entityId}`
       );
     entities.splice(idx, 1);
-    _save(entityType, entities);
+    save(entityType, entities);
   });
 }
 
-function _save(entityType, entities) {
+function save(entityType, entities) {
   localStorage.setItem(entityType, JSON.stringify(entities));
 }
 

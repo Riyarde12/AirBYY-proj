@@ -50,11 +50,11 @@ async function getById(id) {
 // 	// return await httpService.delete(`${ENDPOINT}/${id}`);
 // }
 
-async function save(room) {
+async function save(order) {
     // return room._id
     // 	? await httpService.put(`${ENDPOINT}/${room._id}`, room)
     // 	: await httpService.post(ENDPOINT, room);
-    return await storageService._save(ORDER_KEY, room);
+    return await storageService.save(ORDER_KEY, order);
 }
 
 function getEmptyOrder() {
@@ -64,3 +64,4 @@ function getEmptyOrder() {
         reserve: { destination: '', roomName: '', roomId: "" },
     };
 }
+
