@@ -23,11 +23,10 @@
 												<div class="add-date">Add date</div>
 
 												<!-- DATE-PICKER -->
-												<!-- <div class="datePicker">
+												<div class="datePicker">
 													<div class="demo-date-picker">
 														<div class="block">
 															<el-date-picker
-																v-model="value1"
 																type="daterange"
 																range-separator="To"
 																start-placeholder="CHECK-IN"
@@ -35,7 +34,7 @@
 															/>
 														</div>
 													</div>
-												</div> -->
+												</div>
 												<!-- DATE-PICKER -->
 											</div>
 										</div>
@@ -44,7 +43,10 @@
 											<div class="add-date">Add dates</div>
 										</div>
 									</div>
-									<div class="add-guests-container flex space-between">
+									<div
+										class="add-guests-container flex space-between"
+										@click="addGuests"
+									>
 										<div class="guests">GUESTS</div>
 										<div>
 											<!-- <svg
@@ -61,10 +63,18 @@
 												</g>
 											</svg> -->
 										</div>
+										<guests-modal
+											v-if="openGuestsModal"
+											@onCloseModal="closeModal"
+											@onRemove="onRemove"
+											@onAdd="onAdd"
+										/>
 									</div>
 								</div>
 							</div>
-							<div class="availability-container">Check availability</div>
+							<div class="availability-container" @reserve="onReserve">
+								Check availability
+							</div>
 						</div>
 					</div>
 				</div>
@@ -73,21 +83,59 @@
 	</section>
 </template>
 <script>
-	// import '' from ''
+	import guestsModal from "./guests-modal.vue";
 	export default {
 		name: "modal-checkout",
-		components: {},
+		components: {
+			guestsModal,
+		},
 		props: {
 			room: {
 				type: Object,
 				require: true,
 			},
+			preOrder: { type: Object },
 		},
 		data() {
-			return {};
+			return {
+				openGuestsModal: false,
+				currOrder: this.preOrder,
+				// guests: {
+				// 	adults: 0,
+				// 	children: 0,
+				// 	pets: 0,
+				// 	infants: 0,
+				// },
+			};
 		},
 		created() {},
-		methods: {},
+		methods: {
+			updatePreOrder() {},
+			addGuests() {
+				console.log("hey");
+				this.openGuestsModal = !this.openGuestsModal;
+				console.log("this.openGuesysModal", this.openGuestsModal);
+			},
+			closeModal() {
+				this.openGuestsModal = false;
+			},
+			onRemove(guest) {
+				if (this.currOrder.guests[guest] <= 0) return;
+				this.currOrder.guests[guest]--;
+				// console.log("this.currOrder", this.currOrder.guests[guest]);
+				console.log(this.currOrder);
+			},
+			onAdd(guest) {
+				this.currOrder.guests[guest]++;
+				// console.log("this.currOrder", this.currOrder.guests[guest]);
+				console.log(this.currOrder);
+			},
+			onReserve() {
+				console.log("this.currOrder", this.currOrder);
+				this.$emit("onReserve", { ...this.currOrder });
+				// this.$store.dispatch({ type: "addOrder", order: { ...this.guests } });
+			},
+		},
 		computed: {
 			showPrice() {
 				return this.room.price;

@@ -8,7 +8,7 @@ export const orderService = {
     getById,
     // remove,
     save,
-    getEmptyRoom,
+    getEmptyOrder,
 };
 
 
@@ -57,10 +57,10 @@ async function save(room) {
     return await storageService._save(ORDER_KEY, room);
 }
 
-function getEmptyRoom() {
+function getEmptyOrder() {
     return {
-        guests: { adults: null, children: null },
+        guests: { adults: 0, children: 0, pets: 0, infants: 0 },
         dates: { from: null, to: null },
-        destination: '',
+        reserve: { destination: '', roomName: '', roomId: "" },
     };
 }
