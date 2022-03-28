@@ -48,7 +48,6 @@ export default {
   },
   actions: {
     async loadRooms({ commit, state }) {
-      console.log('filterBy', state.filterBy);
       try {
         const rooms = await roomService.query(state.filterBy);
         commit({ type: 'setRooms', rooms });
