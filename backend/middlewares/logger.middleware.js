@@ -1,4 +1,4 @@
-const logger = require('../services/logger.service');
+const logger = require('../service/logger.service');
 
 async function log(req, res, next) {
   logger.info('Req!!!');

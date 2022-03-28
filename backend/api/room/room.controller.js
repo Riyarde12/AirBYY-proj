@@ -12,11 +12,24 @@ async function getRooms(req,res){
         logger.error('Failed to get rooms', err)
         res.status(500).send({ err: 'Failed to get rooms' })
     }
-
 }
+
+// single room by id
+async function getRoomById(req, res){
+    try {
+        const roomId = req.params.id;
+        const room = await roomService.getById(roomId)
+        res.json(room)
+    } catch (err) {
+        logger.error('Failed to get room', err)
+        res.status(500).send({ err: 'Failed to get room' })
+    }
+}
+
 
 module.exports = {
     getRooms,
+    getRoomById,
     // getToyById,
     // addToy,
     // updateToy,

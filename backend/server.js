@@ -31,15 +31,15 @@ if (process.env.NODE_ENV === 'production') {
   }
 
     // const authRoutes = require('./api/auth/auth.routes')
-    const authRoutes = require('./api/auth/auth.routes')
-    const userRoutes = require('./api/user/user.routes')
+    // const authRoutes = require('./api/auth/auth.routes')
+    // const userRoutes = require('./api/user/user.routes')
     const roomRoutes = require('./api/room/room.routes')
 
 
     // routes
 
-    app.use('/api/auth',authRoutes)
-    app.use('/api/user',userRoutes)
+    // app.use('/api/auth',authRoutes)
+    // app.use('/api/user',userRoutes)
     app.use('/api/room',roomRoutes)
 
 
@@ -47,7 +47,7 @@ if (process.env.NODE_ENV === 'production') {
         res.sendFile(path.join(__dirname, 'public', 'index.html'))
     })
 
-    const logger = require('./services/logger.service')
+    const logger = require('./service/logger.service')
     const port = process.env.PORT || 3030
     http.listen(port, () => {
     logger.info('Server is running on port: ' + port)
