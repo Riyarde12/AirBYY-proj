@@ -22,6 +22,7 @@ export default {
         saveOrder(state, { order }) {
             state.orders.push(order);
             console.log('state.orders', state.orders);
+
         },
         saveDate(state, { selectedDate }) {
             state.preOrder.dates = selectedDate;
