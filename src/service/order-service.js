@@ -51,6 +51,7 @@ async function getById(id) {
 // }
 
 async function save(order) {
+    console.log('order', order);
     // return room._id
     // 	? await httpService.put(`${ENDPOINT}/${room._id}`, room)
     // 	: await httpService.post(ENDPOINT, room);
@@ -58,6 +59,7 @@ async function save(order) {
 }
 
 function getEmptyOrder() {
+
     return {
         guests: { adults: 0, children: 0, pets: 0, infants: 0 },
         dates: { from: null, to: null },
