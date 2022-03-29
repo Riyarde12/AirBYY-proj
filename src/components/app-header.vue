@@ -159,13 +159,10 @@ export default {
       this.shrinkedHeader = !this.shrinkedHeader;
     },
     setCurrPage() {
-      let { destination } = this.$route.query;
-      let { roomId } = this.$route.params;
-      if (destination) {
-        this.currPage = "explore";
-      } else if (roomId) {
-        this.currPage = "details";
-      } else this.currPage = "home";
+      let { name } = this.$route;
+      if (name === "room-app") this.currPage = "explore";
+      else if (name === "room-details") this.currPage = "details";
+      else this.currPage = "home";
     },
     getLayout() {
       switch (this.currPage) {
@@ -221,12 +218,6 @@ export default {
       }
     },
   },
-  // watch: {
-  // 	$route: {
-  // 		handler() {},
-  // 		immidiate: true,
-  // 	},
-  // },
 };
 </script>
 

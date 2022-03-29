@@ -14,6 +14,7 @@ export default {
   },
   getters: {
     rooms(state) {
+      console.log(JSON.parse(JSON.stringify(state.rooms)));
       return JSON.parse(JSON.stringify(state.rooms));
     },
     destinations(state) {
@@ -26,6 +27,7 @@ export default {
   mutations: {
     setRooms(state, { rooms }) {
       state.rooms = rooms;
+      console.log('room ', state.rooms);
     },
     removeRoom(state, { id }) {
       const idx = state.rooms.findIndex(room => room._id === id);
@@ -50,6 +52,8 @@ export default {
     async loadRooms({ commit, state }) {
       try {
         const rooms = await roomService.query(state.filterBy);
+    
+
         commit({ type: 'setRooms', rooms });
         commit({ type: 'setFilter', filterBy: {} });
         return rooms;
@@ -87,9 +91,14 @@ export default {
         console.log('err', err);
       }
     },
-    filter({ commit, dispatch }, { filterBy }) {
-      commit({ type: 'setFilter', filterBy });
-      dispatch({ type: 'loadRooms' });
+    async filter({ commit, dispatch }, { filterBy }) {
+      try {
+        commit({ type: 'setFilter', filterBy });
+        await dispatch({ type: 'loadRooms' });
+      } catch (err) {
+        
+      }
+        
     },
   },
 };
