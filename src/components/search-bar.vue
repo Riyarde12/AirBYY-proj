@@ -18,24 +18,25 @@
 				<!-- <p>Where are you going?</p></div> -->
 				<div class="vert"></div>
 				<div
-					@click="clickedModal('modalDate', 4)"
+					@click="clickedModal('modalDate', 4, 0)"
 					:class="modal4 ? 'choose' : ''"
 					class="filter-tag first-date"
 				>
 					<p class="bold title-tag">Check in</p>
-					<p>Add dates</p>
+					<!-- <p>Add dates</p> -->
+					<p>{{ showDate(0) }}</p>
 				</div>
 				<div class="vert"></div>
-				<!-- DATE-PICKER -->
 
 				<!-- DATE-PICKER -->
 				<div
-					@click="clickedModal('modalDate', 5)"
+					@click="clickedModal('modalDate', 5, 1)"
 					:class="modal5 ? 'choose' : ''"
 					class="filter-tag first-date"
 				>
 					<p class="bold title-tag">Check out</p>
-					<p>Add dates</p>
+					<!-- <p>Add dates</p> -->
+					<p>{{ showDate(1) }}</p>
 				</div>
 				<div class="vert"></div>
 				<div
@@ -136,6 +137,7 @@
 					range-separator="To"
 					start-placeholder="Start date"
 					end-placeholder="End date"
+					@input="onSelectDate"
 				/>
 			</div>
 		</div>
@@ -150,6 +152,7 @@
 	export default {
 		data() {
 			return {
+				value1: null,
 				filterBy: {
 					adults: 0,
 					children: 0,
@@ -180,7 +183,6 @@
 					if (this.filterBy[key] <= 0) return;
 					this.filterBy[key]--;
 				}
-				console.log("this.filterBy.adults", this.filterBy.adults);
 			},
 			sendFilter() {
 				this.$router.push({
@@ -193,9 +195,8 @@
 						pets: this.filterBy.pets,
 					},
 				});
-				// this.$store.dispatch({type: 'loadRooms', filterBy: {...this.filterBy}})
 			},
-			clickedModal(modal, modal45 = null) {
+			clickedModal(modal, modal45 = null, idx) {
 				if (modal === "modalDate") {
 					if (modal45 === 4) {
 						if (this.modal4 === true) {
@@ -205,8 +206,6 @@
 							this.modal4 = true;
 							this.modal5 = false;
 							this.modalDate = true;
-							console.log("modal4", this.modal4);
-							console.log("modal5", this.modal5);
 							this.$refs.input.focus();
 						}
 					} else {
@@ -236,6 +235,15 @@
 				this.modalDestination = false;
 				this[modal] = true;
 			},
+			onSelectDate() {
+				this.$store.commit({ type: "saveDate", selectedDate: this.value1 });
+				console.log("this.value1", this.value1);
+			},
+			showDate(idx) {
+				if (!this.value1) return "Add dates";
+				const date = new Date(this.value1[idx]);
+				return date.toDateString();
+			},
 		},
 		computed: {
 			adults() {
@@ -244,6 +252,7 @@
 		},
 	};
 </script>
+
 <style>
 .vert {
   width: 1px;

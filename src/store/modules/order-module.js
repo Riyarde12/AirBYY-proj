@@ -2,7 +2,7 @@ import { orderService } from '../../service/order-service.js';
 
 export default {
     state: {
-        // preOrder: null,
+        preOrder: orderService.getEmptyOrder(),
         orders: [],
     },
     getters: {
@@ -11,6 +11,7 @@ export default {
         },
         getPreOrder({ preOrder }) {
             console.log('preOrder', preOrder);
+            // return JSON.parse(JSON.stringify(preOrder));
             return JSON.parse(JSON.stringify(preOrder));
         },
     },
@@ -20,7 +21,12 @@ export default {
         },
         saveOrder(state, { order }) {
             state.orders.push(order);
+            console.log('state.orders', state.orders);
         },
+        saveDate(state, { selectedDate }) {
+            state.preOrder.dates = selectedDate;
+        },
+
     },
     actions: {
         async loadOrders({ commit, state }) {
@@ -36,8 +42,8 @@ export default {
         async addOrder({ commit }, { order }) {
             console.log('order', order);
             try {
-                const savedOrder = await orderService.save(order);
-                commit({ type: 'saveOrder', savedOrder });
+                await orderService.save(order);
+                // commit({ type: 'saveOrder', savedOrder });
             }
             catch (err) {
                 console.log('err', err);

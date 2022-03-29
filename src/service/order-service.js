@@ -51,6 +51,8 @@ async function getById(id) {
 // }
 
 async function save(order) {
+    let ordered = [];
+    ordered.push(order);
     // return room._id
     // 	? await httpService.put(`${ENDPOINT}/${room._id}`, room)
     // 	: await httpService.post(ENDPOINT, room);

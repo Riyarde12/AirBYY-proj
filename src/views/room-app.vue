@@ -1,6 +1,5 @@
 <template>
-  <section class="room-app page-layout explore-layout header-reco">
-    <room-filter />
+  <section class="room-app page-layout explore-layout header-recognaizer">
     <div class="alerts">
       <p>{{ getNumberOfRooms }} stays in {{ searchedLocation }}</p>
       <p class="covid-alerts">
@@ -13,13 +12,11 @@
 
 <script>
 import roomList from "../components/room-list.vue";
-import roomFilter from "../components/room-filter.vue";
 
 export default {
   name: "room-app",
   components: {
     roomList,
-    roomFilter,
   },
   data() {
     return {
