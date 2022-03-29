@@ -57,6 +57,7 @@
 
                 & .name {
                     font-weight: 600;
+                    font-size: 1rem;
                 }
                 & .date {
                     font-size: 0.875rem;
@@ -83,5 +84,9 @@
             font-weight: 600;
             line-height: 1.25;
         }
+    }
+    & .show-more-btn {
+        background-color: none;
+        border: none;
     }
 }

@@ -49,7 +49,7 @@
                     :src="'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'"
                   />
                   <div class="container">
-                    <h1 class="name">{{ review.by.fullname }}</h1>
+                    <h3 class="name">{{ review.by.fullname }}</h3>
                     <h3 class="date">{{ getReviewDate(review.at) }}</h3>
                   </div>
                 </div>
@@ -58,7 +58,10 @@
             </div>
             <!-- <p>{{ review.txt }}</p> -->
             <p>{{ adjustTxt(review.txt) }}</p>
-            <button v-if="isLongReview(review.txt.length)">
+            <button
+              class="show-more-btn"
+              v-if="isLongReview(review.txt.length)"
+            >
               Show more<svg
                 viewBox="0 0 32 32"
                 xmlns="http://www.w3.org/2000/svg"
