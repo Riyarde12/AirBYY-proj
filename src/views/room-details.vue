@@ -71,7 +71,12 @@
 
 		<!-- IMAGES SECTION -->
 		<section class="imgs-container grid">
-			<img v-for="imgUrl in imgForDisplay" :key="imgUrl" :src="imgUrl" alt="" />
+			<img
+				v-for="imgUrl in imgForDisplay"
+				:key="imgUrl"
+				:src="`https://res.cloudinary.com/canjan22/image/upload/v1648083472/AirByy/${imgUrl}`"
+				alt="../assets/img/hero.jpg"
+			/>
 		</section>
 
 		<!-- DETAILS-INFO -->
@@ -132,10 +137,9 @@
 						<li v-for="(item, idx) in amenitiesForDisplay" :key="idx">
 							{{ item }}
 							<img
-								:src="`./../assets/icons/${item.replace(/\s/g, '')}.svg`"
+								:src="`src/assets/icons/${item.replace(/\s/g, '')}.svg`"
 								alt=""
 							/>
-							{{ (item = item.replace(/\s/g, "")) }}
 						</li>
 					</ul>
 				</div>
@@ -178,6 +182,7 @@
 			this.preOrder = this.$store.getters.getPreOrder;
 			try {
 				this.room = await this.$store.dispatch({ type: "getRoom", id: roomId });
+				console.log(this.room);
 			} catch (err) {
 				console.log("err", err);
 			}
