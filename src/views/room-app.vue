@@ -34,6 +34,7 @@ export default {
         filterBy: JSON.parse(JSON.stringify(params)),
       });
       this.rooms = this.$store.getters.rooms;
+      console.log('rooms',this.rooms );
     } catch (err) {
       console.log("err", err);
     }
