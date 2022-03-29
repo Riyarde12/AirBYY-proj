@@ -87,18 +87,23 @@
 				:min="0"
 				:max="250"
 				:barWidth="6"
+				:update="pricesForDisplay"
 			/>
-		</div> -->
+		</div>
+		<pre>{{ pricesForDisplay }}</pre> -->
 	</section>
 </template>
 
 <script>
 	export default {
 		name: "room-filter",
-		created() {},
+		created() {
+			this.value = this.$store.getters.roomsPrices;
+		},
 		data() {
 			return {
 				ModalType: false,
+				value: null,
 			};
 		},
 		methods: {

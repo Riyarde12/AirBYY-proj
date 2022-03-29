@@ -28,7 +28,6 @@ export default {
       state.rooms.forEach(room => {
         prices.push(room.price);
       });
-      console.log(prices);
       return prices;
     },
   },
