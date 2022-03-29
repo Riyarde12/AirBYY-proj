@@ -49,14 +49,39 @@
                     :src="'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'"
                   />
                   <div class="container">
-                    <span class="name">{{ review.by.fullname }}</span>
-                    <span class="date">{{ getReviewDate(review.at) }}</span>
+                    <h1 class="name">{{ review.by.fullname }}</h1>
+                    <h3 class="date">{{ getReviewDate(review.at) }}</h3>
                   </div>
                 </div>
                 <!-- </div> -->
               </div>
             </div>
-            <span>{{ review.txt }}</span>
+            <!-- <p>{{ review.txt }}</p> -->
+            <p>{{ adjustTxt(review.txt) }}</p>
+            <button v-if="isLongReview(review.txt.length)">
+              Show more<svg
+                viewBox="0 0 32 32"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                role="presentation"
+                focusable="false"
+                style="
+                  display: block;
+                  fill: none;
+                  height: 12px;
+                  width: 12px;
+                  stroke: currentcolor;
+                  stroke-width: 5.33333;
+                  overflow: visible;
+                "
+              >
+                <g fill="none">
+                  <path
+                    d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932"
+                  ></path>
+                </g>
+              </svg>
+            </button>
           </section>
         </li>
       </ul>
@@ -98,6 +123,17 @@ export default {
     },
   },
   methods: {
+    adjustTxt(review) {
+      console.log("review", review);
+      if (review.length <= 170) return review;
+      else {
+        const newTxt = review.substring(0, 170) + "...";
+        return newTxt;
+      }
+    },
+    isLongReview(review) {
+      return review >= 170 ? true : false;
+    },
     getReviewDate(reviewDate) {
       const date = new Date(reviewDate);
       return date.toDateString();
