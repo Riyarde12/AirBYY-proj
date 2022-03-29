@@ -7,58 +7,66 @@
     & > * {
         color: $clr2;
     }
-}
 
-.room-preview .preview-carousel {
-    border-radius: 10px;
-    & .el-carousel__arrow {
-        color: $clr5;
-        background-color: $op5;
-    }
-    & .el-carousel__indicators button {
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-    }
-}
-
-.room-preview .preview-like-btn {
-    display: inline;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    fill: rgba(0, 0, 0, 0.5);
-    height: 24px;
-    width: 24px;
-    stroke: $clr7;
-    stroke-width: 2;
-    overflow: visible;
-}
-
-.room-preview .preview-details > * {
-    margin: 3px 0;
-}
-
-.room-preview .preview-details .price {
-    font-weight: bold;
-}
-
-.room-preview .preview-reviews img {
-    height: 15px;
-    width: 15px;
-}
-
-.room-preview .preview-reviews .preview-rating {
-    font-size: 0.875rem;
-    display: flex;
-    align-items: flex-start;
-    margin: 6px 0;
-
-    & > * {
-        margin-inline-end: 3px;
+    & .preview-carousel {
+        border-radius: 10px;
+        & .el-carousel__arrow {
+            color: $clr2;
+            background-color: $clr7;
+            &:hover {
+                background-color: $clr9;
+                box-shadow: $op10;
+            }
+        }
+        & .el-carousel__indicators button {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+        }
     }
 
-    & .num-of-reviews {
-        color: $clr3;
+    & .preview-like-btn {
+        display: inline;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        fill: rgba(0, 0, 0, 0.5);
+        height: 24px;
+        width: 24px;
+        stroke: $clr7;
+        stroke-width: 2;
+        overflow: visible;
+    }
+
+    & .preview-details {
+        & > * {
+            margin: 3px 0;
+        }
+
+        & .price {
+            font-weight: bold;
+        }
+    }
+
+    & .preview-reviews {
+        & img {
+            height: 15px;
+            width: 15px;
+        }
+
+        & .preview-rating {
+            font-size: 0.875rem;
+            display: flex;
+            align-items: flex-start;
+            margin: 6px 0;
+
+            & > * {
+                margin-inline-end: 3px;
+            }
+
+            & .num-of-reviews {
+                color: $clr3;
+            }
+        }
     }
 }

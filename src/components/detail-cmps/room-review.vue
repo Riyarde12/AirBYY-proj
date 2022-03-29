@@ -50,7 +50,7 @@
                   />
                   <div class="container">
                     <span class="name">{{ review.by.fullname }}</span>
-                    <span class="date">{{ gtReviewDate(review.at) }}</span>
+                    <span class="date">{{ getReviewDate(review.at) }}</span>
                   </div>
                 </div>
                 <!-- </div> -->
@@ -98,7 +98,7 @@ export default {
     },
   },
   methods: {
-    gtReviewDate(reviewDate) {
+    getReviewDate(reviewDate) {
       const date = new Date(reviewDate);
       return date.toDateString();
     },
