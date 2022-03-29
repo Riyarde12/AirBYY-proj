@@ -74,18 +74,20 @@
 				<p>Stay in a shared space, like a common room</p>
 			</div>
 		</div>
-		<!-- 
-		<div id="room-filter">
+
+		<!-- <div id="app">
 			<HistogramSlider
 				style="margin: 200px auto"
-				:width="600"
+				:width="300"
 				:bar-height="100"
-				:data="data"
+				:data="pricesForDisplay"
 				:drag-interval="true"
 				:force-edges="false"
 				:colors="['#4facfe', '#00f2fe']"
 				:min="0"
-				:max="100"
+				:max="250"
+				:barWidth="6"
+			/>
 		</div> -->
 	</section>
 </template>
@@ -102,6 +104,15 @@
 		methods: {
 			toggleModalType() {
 				this.ModalType = !this.ModalType;
+			},
+		},
+		computed: {
+			pricesForDisplay() {
+				console.log(
+					"this.$store.getters.roomPrices",
+					this.$store.getters.roomPrices
+				);
+				return this.$store.getters.roomsPrices;
 			},
 		},
 	};
