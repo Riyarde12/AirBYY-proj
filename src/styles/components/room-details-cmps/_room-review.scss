@@ -65,6 +65,10 @@
                     color: $clr3;
                 }
             }
+
+            & p {
+                line-height: 1.5rem;
+            }
         }
     }
     .room-reviews-header {

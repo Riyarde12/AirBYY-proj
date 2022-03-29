@@ -42,7 +42,6 @@
           <section class="review-header">
             <div>
               <div class="avatar-container">
-                <!-- <div class="block"> -->
                 <div class="review-by-container flex">
                   <el-avatar
                     :size="56"
@@ -53,10 +52,8 @@
                     <h3 class="date">{{ getReviewDate(review.at) }}</h3>
                   </div>
                 </div>
-                <!-- </div> -->
               </div>
             </div>
-            <!-- <p>{{ review.txt }}</p> -->
             <p>{{ adjustTxt(review.txt) }}</p>
             <button
               class="show-more-btn"
