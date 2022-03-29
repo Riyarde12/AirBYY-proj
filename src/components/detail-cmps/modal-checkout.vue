@@ -20,7 +20,7 @@
 								<div class="modal-date-btn flex">
 									<div class="add-dates-container right-border">
 										<div class="checkin-out">CHECK-IN</div>
-										<div class="add-date">Add date</div>
+										<div class="add-date">{{ showDate(0) }}</div>
 
 										<!-- DATE-PICKER -->
 										<!-- <div class="datePicker"> -->
@@ -38,7 +38,7 @@
 									</div>
 									<div class="add-dates-container">
 										<div class="checkin-out">CHECKOUT</div>
-										<div class="add-date">Add date</div>
+										<div class="add-date">{{ showDate(1) }}</div>
 									</div>
 								</div>
 								<div
@@ -107,7 +107,6 @@
 			},
 			closeModal(guests) {
 				this.openGuestsModal = false;
-
 				this.currOrder.guests = guests;
 			},
 			// onRemove(guest) {
@@ -129,9 +128,13 @@
 				// console.log(this.guests);
 			},
 			onReserve() {
-				console.log("this.currOrder", this.currOrder);
+				// console.log("this.currOrder", this.currOrder);
 				this.$emit("onReserve", this.currOrder);
 				this.currOrder.guests = { adults: 0, children: 0, pets: 0, infants: 0 };
+			},
+			showDate(idx) {
+				if (this.preOrder.dates) return "Add date";
+				return this.preOrder.dates[idx];
 			},
 		},
 		computed: {
@@ -151,6 +154,10 @@
 				}
 				return sum;
 			},
+			// showDate(idx) {
+			//   if(this.preOrder.dates) "Add date"
+			// 	return this.preOrder.dates[idx]
+			// },
 		},
 	};
 </script>

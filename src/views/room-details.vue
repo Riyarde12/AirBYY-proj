@@ -174,7 +174,7 @@
 		},
 		async created() {
 			const { roomId } = this.$route.params;
-			this.preOrder = await this.$store.dispatch({ type: "getPreOrder" });
+			this.preOrder = this.$store.getters.getPreOrder;
 			console.log("this.preOrder", this.preOrder);
 			try {
 				this.room = await this.$store.dispatch({ type: "getRoom", id: roomId });
