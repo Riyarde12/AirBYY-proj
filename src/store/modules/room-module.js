@@ -25,7 +25,10 @@ export default {
     },
     roomsPrices(state) {
       let prices = [];
-      state.rooms;
+      state.rooms.forEach(room => {
+        prices.push(room.price);
+      });
+      log(prices);
     },
   },
   mutations: {
@@ -54,6 +57,7 @@ export default {
   },
   actions: {
     async loadRooms({ commit, state }) {
+      console.log('state.filterBy', state.filterBy);
       try {
         const rooms = await roomService.query(state.filterBy);
         commit({ type: 'setRooms', rooms });
