@@ -139,7 +139,7 @@
                 :src="`src/assets/icons/${item.replace(/\s/g, '')}.svg`"
                 alt=""
               />
-              {{ item }}
+              <p>{{ item }}</p>
             </li>
           </ul>
         </div>

@@ -61,6 +61,7 @@
                 }
                 & .date {
                     font-size: 0.875rem;
+                    font-weight: 500;
                     color: $clr3;
                 }
             }
@@ -86,7 +87,19 @@
         }
     }
     & .show-more-btn {
-        background-color: none;
+        background-color: $clr8;
         border: none;
+        width: 115px;
+        display: flex;
+        align-items: center;
+        margin-top: 7px;
+        font-size: 1rem;
+        padding: 0;
+        font-family: $txtBookDefault;
+
+        & p {
+            margin: 3px;
+            text-decoration: underline;
+        }
     }
 }
