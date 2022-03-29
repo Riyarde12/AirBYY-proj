@@ -35,6 +35,7 @@ async function login(username, password) {
 }
 
 async function signup(userSignUp) {
+    console.log('userSignUp', userSignUp);
     try {
         // console.log('password from front service ', password);
         // const user = await httpService.post(`${BASE_URL}/signup`, { fullname, username, password });

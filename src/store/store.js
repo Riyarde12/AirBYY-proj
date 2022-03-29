@@ -1,6 +1,7 @@
 import { createStore } from "vuex";
 import roomStore from "./modules/room-module.js";
 import orderStore from './modules/order-module.js';
+import userStore from './modules/user-module.js';
 
 const store = createStore({
   strict: true,
@@ -11,6 +12,7 @@ const store = createStore({
   modules: {
     roomStore,
     orderStore,
+    userStore,
   },
 });
 
