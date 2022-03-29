@@ -23,6 +23,10 @@ export default {
     currSearch({ filterBy }) {
       return filterBy.destination;
     },
+    roomsPrices(state) {
+      let prices = [];
+      state.rooms;
+    },
   },
   mutations: {
     setRooms(state, { rooms }) {
@@ -52,8 +56,6 @@ export default {
     async loadRooms({ commit, state }) {
       try {
         const rooms = await roomService.query(state.filterBy);
-    
-
         commit({ type: 'setRooms', rooms });
         commit({ type: 'setFilter', filterBy: {} });
         return rooms;
@@ -96,9 +98,9 @@ export default {
         commit({ type: 'setFilter', filterBy });
         await dispatch({ type: 'loadRooms' });
       } catch (err) {
-        
+
       }
-        
+
     },
   },
 };
