@@ -1,6 +1,6 @@
 <template>
   <section class="app">
-    <!-- <app-header /> -->
+    <app-header />
     <router-view />
     <app-footer />
   </section>
