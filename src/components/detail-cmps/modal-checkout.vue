@@ -65,6 +65,10 @@
               Check availability
             </button>
           </div>
+          <!-- <div>
+						<pre v-if="dates">{{ daysCounter }}</pre>
+						<pre v-if="dates">{{ totalPrice }}</pre>
+					</div> -->
         </div>
       </div>
     </div>
@@ -94,7 +98,6 @@ export default {
   },
   created() {},
   methods: {
-    updatePreOrder() {},
     addGuests() {
       this.openGuestsModal = !this.openGuestsModal;
     },
@@ -102,30 +105,21 @@ export default {
       this.openGuestsModal = false;
       this.currOrder.guests = guests;
     },
-    // onRemove(guest) {
-    // 	this.currOrder.guests = guest;
-    // },
-    // onAdd(guest) {
-    // 	this.currOrder.guests = guest;
-    // },
     onRemove(guest) {
       if (this.currOrder.guests[guest] <= 0) return;
       this.currOrder.guests[guest]--;
-      console.log("this.currOrder.guests[guest]", this.currOrder.guests[guest]);
-      // this.$emit("onRemove", this.guests);
+      console.log("this.currOrder", this.currOrder);
     },
     onAdd(guest) {
       this.currOrder.guests[guest]++;
-      console.log("this.currOrder.guests[guest]", this.currOrder.guests[guest]);
-      // this.$emit("onAdd", this.guests);
-      // console.log(this.guests);
+      console.log("this.currOrder", this.currOrder);
     },
     onReserve() {
       const { _id, address } = this.room;
       this.currOrder.reserve.roomId = _id;
       this.currOrder.reserve.destination = address.country;
-      this.currOrder.guests = { adults: 0, children: 0, pets: 0, infants: 0 };
       this.$emit("onReserve", this.currOrder);
+      this.currOrder.guests = { adults: 0, children: 0, pets: 0, infants: 0 };
     },
     showDate(idx) {
       if (!this.dates) return "Add dates";
@@ -150,6 +144,17 @@ export default {
         sum += guests[item];
       }
       return sum;
+    },
+    daysCounter() {
+      const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+      const firstDate = new Date(this.dates[0]);
+      const secondDate = new Date(this.dates[1]);
+      const diffDays = Math.round(Math.abs((firstDate - secondDate) / oneDay));
+      return diffDays;
+    },
+    totalPrice() {
+      // console.log("example", this.room.price * this.daysCounter);
+      return this.room.price * this.daysCounter();
     },
   },
 };
