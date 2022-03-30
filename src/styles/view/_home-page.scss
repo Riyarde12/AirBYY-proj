@@ -15,4 +15,38 @@
         margin-bottom: 5.9375rem;
         grid-template-columns: repeat(4, minmax(50px, 1fr));
     }
+
+    & .become-host {
+        margin-bottom: 40px;
+        position: relative;
+        & h1 {
+            position: absolute;
+            top: 35px;
+            left: 70px;
+            color: $clr8;
+            font-size: 5.9375rem;
+        }
+        & .img {
+            height: 65vh;
+            & img {
+                border-radius: 20px;
+                object-fit: cover;
+            }
+        }
+        & button {
+            position: absolute;
+            bottom: 35px;
+            left: 70px;
+            background-color: $clr8;
+            font-size: 1rem;
+            border: none;
+            font-family: $txtBoldDefault;
+            padding: 14px;
+            border-radius: 10px;
+
+            &:hover {
+                background-color: $clr5;
+            }
+        }
+    }
 }

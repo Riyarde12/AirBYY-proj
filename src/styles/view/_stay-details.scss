@@ -5,6 +5,15 @@
         line-height: 1.6875rem;
         margin: 20px 0;
     }
+
+    & .options-btn {
+        & p {
+            font-size: 0.875rem;
+        }
+        & svg {
+            margin-right: 6px;
+        }
+    }
     .room-short-detail {
         margin-bottom: 24px;
 
