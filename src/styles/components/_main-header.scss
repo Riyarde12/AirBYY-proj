@@ -2,13 +2,16 @@
   width: 100vw;
   max-width: 100%;
   z-index: 10000;
-  grid-template-rows: 80px 80px;
+  grid-template-rows: 80px;
 
   & .extanded-header {
     grid-column: 2;
     grid-row: 2;
     display: flex;
     align-items: center;
+  }
+  & .exploreSearch {
+    color: $clr3;
   }
   & .header-contact {
     display: flex;
@@ -127,11 +130,12 @@
       // }
       & .user-info-btn {
         background-color: $clr8;
+        width: 80px;
+        border: 1px solid $clr5;
+        position: relative;
         &:hover {
           box-shadow: $op7;
         }
-        width: 80px;
-        border: 1px solid $clr5;
         & .humb-icon {
           fill: none;
           height: 17px;
@@ -148,14 +152,6 @@
           fill: $clr3;
         }
       }
-
-      & .user-info-modal {
-        position: fixed;
-        background-color: #cc1818;
-        width: 70px;
-        height: 50px;
-        top: 70px;
-      }
     }
   }
 }
@@ -169,6 +165,7 @@
     grid-column: 2;
   }
   & .header-explore-extanded {
+    grid-template-rows: 80px 80px;
     justify-content: flex-start;
     padding-bottom: 15px;
   }
@@ -182,6 +179,7 @@
     grid-column: 2;
   }
   & .header-detail-extanded {
+    grid-template-rows: 80px 80px;
     justify-content: center;
   }
 }
@@ -195,8 +193,13 @@
     grid-column: 2;
   }
   & .header-home-extanded {
+    grid-template-rows: 80px 134px;
+    position: relative;
     justify-content: center;
+    top: -10px;
     & .search-bar-outline {
+      position: relative;
+      z-index: 100;
       border: 1px solid $clr5;
       border-radius: 50px;
       padding: 0 10px;

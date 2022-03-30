@@ -51,14 +51,14 @@
 											></path>
 										</g>
 									</svg>
-									<guests-modal
-										v-if="openGuestsModal"
-										:currOrder="currOrder"
-										@onCloseModal="closeModal"
-										@onRemove="onRemove"
-										@onAdd="onAdd"
-									/>
 								</div>
+								<guests-modal
+									v-if="openGuestsModal"
+									:currOrder="currOrder"
+									@onCloseModal="closeModal"
+									@onRemove="onRemove"
+									@onAdd="onAdd"
+								/>
 							</div>
 						</div>
 						<button class="availability-container" @click="onReserve">

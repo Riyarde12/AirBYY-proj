@@ -69,11 +69,13 @@
 		</section>
 
 		<!-- IMAGES SECTION -->
+
 		<section class="imgs-container grid">
 			<img
 				v-for="imgUrl in imgForDisplay"
 				:key="imgUrl"
 				:src="`https://res.cloudinary.com/canjan22/image/upload/v1648083472/AirByy/${imgUrl}`"
+				@error="replaceImgByDefault"
 				alt="room img"
 			/>
 		</section>
@@ -185,8 +187,10 @@
 						<li v-for="(item, idx) in amenitiesForDisplay" :key="idx">
 							<img
 								:src="`src/assets/icons/${item.replace(/\s/g, '')}.svg`"
+								@error="replaceByDefault"
 								alt=""
 							/>
+							<!-- <img v-else :src="`src/assets/icons/other.svg`" alt="" /> -->
 							<p>{{ item }}</p>
 						</li>
 					</ul>
@@ -248,6 +252,21 @@
 				console.log("err", err);
 			}
 		},
+		methods: {
+			sendReserve(order) {
+				this.$store.dispatch({
+					type: "addOrder",
+					order: JSON.parse(JSON.stringify(order)),
+				});
+				this.openModal = true;
+			},
+			replaceByDefault(e) {
+				e.target.src = `src/assets/icons/other.svg`;
+			},
+			replaceImgByDefault(e) {
+				e.target.src = `src/assets/img/hero.jpg`;
+			},
+		},
 		computed: {
 			showGreatloc() {
 				return this.room.reviewScores.location;
@@ -265,15 +284,6 @@
 				console.log(JSON.stringify(str));
 				str = str.replace(/\s/g, "");
 				console.log("str", str);
-			},
-		},
-		methods: {
-			sendReserve(order) {
-				this.$store.dispatch({
-					type: "addOrder",
-					order: JSON.parse(JSON.stringify(order)),
-				});
-				this.openModal = true;
 			},
 		},
 	};

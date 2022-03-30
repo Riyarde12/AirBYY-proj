@@ -1,19 +1,13 @@
 <template>
-  <section
-    class="app-header"
-    :style="{
-      backgroundColor: headerOnTop ? '#00000000' : 'white',
-      height: shrinkedHeader ? '80px' : '145px',
-    }"
-    :class="getLayout()"
-  >
+  <section class="app-header" :style="getHomeStyle()" :class="getLayout()">
+    <section class="extanded-header" :class="getLayoutExtanded()">
+      <room-filter v-if="currPage === 'explore'" />
+    </section>
     <section class="extanded-header" :class="getLayoutExtanded()">
       <search-bar
-        v-if="currPage === 'home'"
         class="search-bar-outline"
         :style="{ display: shrinkedHeader ? 'none' : 'block' }"
       />
-      <room-filter v-else-if="currPage === 'explore'" />
     </section>
     <section class="header-contact">
       <section class="home-btn">
@@ -25,14 +19,13 @@
           </section>
         </router-link>
       </section>
-      <section
-        class="search"
-        v-if="shrinkedHeader"
-        @click="exstandHeader"
-        :style="showSearch"
-      >
+      <section class="search" v-if="shrinkedHeader" @click="exstandHeader">
+        <!-- =======================================================================================> -->
         <button class="search-btn">
-          <h4>Start your search</h4>
+          <h4 v-if="currPage === 'explore'" class="exploreSearch">
+            Add place | Add dates | Add guests
+          </h4>
+          <h4 v-else>Start your search</h4>
           <div
             class="el-button el-button--danger el-button--large is-circle"
             type="button"
@@ -59,6 +52,7 @@
         class="user-btn"
         :style="{ color: headerOnTop ? 'black' : ' white' }"
       >
+        <!-- =======================================================================================> -->
         <router-link @click="scrollToTop" to="/explore">
           <button class="explore-btn-link" :style="getStyle">Explore</button>
         </router-link>
@@ -104,11 +98,7 @@
               d="m16 .7c-8.437 0-15.3 6.863-15.3 15.3s6.863 15.3 15.3 15.3 15.3-6.863 15.3-15.3-6.863-15.3-15.3-15.3zm0 28c-4.021 0-7.605-1.884-9.933-4.81a12.425 12.425 0 0 1 6.451-4.4 6.507 6.507 0 0 1 -3.018-5.49c0-3.584 2.916-6.5 6.5-6.5s6.5 2.916 6.5 6.5a6.513 6.513 0 0 1 -3.019 5.491 12.42 12.42 0 0 1 6.452 4.4c-2.328 2.925-5.912 4.809-9.933 4.809z"
             ></path>
           </svg>
-          <div class="user-info-modal" v-if="isUserModalOpen">
-            <router-link @click="scrollToTop" to="/login">
-              <button>log in</button>
-            </router-link>
-          </div>
+          <user-modal-log class="user-info-modal" v-if="isUserModalOpen" />
         </button>
       </section>
     </section>
@@ -116,8 +106,9 @@
 </template>
 
 <script>
-import searchBar from "./search-bar.vue";
-import roomFilter from "./room-filter.vue";
+import searchBar from "./header-cmps/search-bar.vue";
+import roomFilter from "./header-cmps/room-filter.vue";
+import userModalLog from "./header-cmps/user-modal-log.vue";
 export default {
   name: "app-header",
   data() {
@@ -131,6 +122,7 @@ export default {
   components: {
     searchBar,
     roomFilter,
+    userModalLog,
   },
   created() {
     window.addEventListener("scroll", this.onScroll);
@@ -146,8 +138,10 @@ export default {
       window.scrollTo(0, 0);
     },
     onScroll() {
+      this.shrinkedHeader = true;
       if (window.scrollY > 10) {
         this.headerOnTop = false;
+        if (this.currPage === "home") this.shrinkedHeader === false;
       } else {
         this.headerOnTop = true;
       }
@@ -167,13 +161,13 @@ export default {
     getLayout() {
       switch (this.currPage) {
         case "explore":
-          this.shrinkedHeader = false;
+          // this.shrinkedHeader = false;
           return "header-explore-layout fixed";
         case "details":
           this.shrinkedHeader = true;
           return "header-detail-layout";
         case "home":
-          this.shrinkedHeader = true;
+          // this.shrinkedHeader = true;
           return "header-home-layout fixed";
         default:
           return "header-detail-layout";
@@ -194,6 +188,15 @@ export default {
     toggleUserModal() {
       this.isUserModalOpen = !this.isUserModalOpen;
     },
+    getHomeStyle() {
+      if (this.headerOnTop && this.currPage === "home") {
+        return { backgroundColor: "#00000000" };
+      } else {
+        return { backgroundColor: "white" };
+      }
+
+      // height: shrinkedHeader ? '80px' : '145px',
+    },
   },
   computed: {
     getStyle() {
@@ -208,13 +211,6 @@ export default {
         return { color: "white" };
       } else {
         return { color: "#ff385c" };
-      }
-    },
-    showSearch() {
-      if (this.currPage === "explore") {
-        return { display: "none" };
-      } else {
-        return { display: "block" };
       }
     },
   },

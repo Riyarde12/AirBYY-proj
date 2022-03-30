@@ -1,8 +1,11 @@
+import { httpService } from './http.service.js';
 import { utilService } from './util-service.js';
 // import axios from 'axios';
 // import { httpService } from './http.service';
 // axios.defaults.withCredentials = true;
 const LOGGEDIN_USER = 'loggedin';
+const ENDPOINT = "auth/";
+
 
 const BASE_URL = (process.env.NODE_ENV !== 'development')
     ? '/api/auth/'
@@ -16,34 +19,30 @@ export const userService = {
 };
 
 async function login(username, password) {
-    console.log('username', username);
-    console.log('password', password);
-    const user = {
-        username,
-        password
-    };
+    const logedinUser = {username, password}
     try {
-        // const loggedinUser = await httpService.post(`${BASE_URL}login`, { username, password });
-        // const loggedinUser = await axios.post(`${BASE_URL}/login`, { username, password });
-        // utilService.saveToStorage(LOGGEDIN_USER, loggedinUser.data);
-        // return loggedinUser.data;
-        utilService.saveToStorage(LOGGEDIN_USER, user);
-        return user;
+        const user = await httpService.post("auth/login",logedinUser)
+        console.log('user login');
+        return user
     } catch (err) {
-        console.log('err', err);
+        console.log('cent login', err);
     }
-}
-
+};
+ 
 async function signup(userSignUp) {
     console.log('userSignUp', userSignUp);
     try {
+        userSignUp.id = utilService.makeId
+        const user = await httpService.post('auth/signup',userSignUp)
+        console.log('sucsess signup', user);
+        return user
         // console.log('password from front service ', password);
         // const user = await httpService.post(`${BASE_URL}/signup`, { fullname, username, password });
         // const res = axios.post(`${BASE_URL}/signup`, userSignUp);
         // utilService.saveToStorage(LOGGEDIN_USER, res.data);
         // return user.data;
-        utilService.saveToStorage(LOGGEDIN_USER, userSignUp);
-        return userSignUp;
+        // utilService.saveToStorage(LOGGEDIN_USER, userSignUp);
+        // return userSignUp;
     }
     catch (err) {
         console.log('err', err);
@@ -58,8 +57,9 @@ async function signup(userSignUp) {
 
 async function logout() {
     try {
-        utilService.saveToStorage('loggedinUser', '');
-        return await httpService.post(`${BASE_URL}/logout`);
+        return await httpService.post(`auth/logout`);
+
+        // utilService.saveToStorage('loggedinUser', '');
     }
     catch (err) {
         console.log('err', err);
