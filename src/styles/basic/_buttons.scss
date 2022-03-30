@@ -21,3 +21,52 @@
         border: 1px solid black;
     }
 }
+
+.tracking {
+    position: relative;
+    background: $clr21;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    border: none;
+    color: $clr8;
+    cursor: pointer;
+    outline: none;
+    overflow: hidden;
+
+    & span {
+        position: relative;
+        pointer-events: none;
+    }
+
+    &:before {
+        --size: 1;
+        content: "";
+        position: absolute;
+        left: var(--x);
+        top: var(--y);
+        width: var(--size);
+        height: var(--size);
+        background: $lg7;
+        transform: translate(-50%, -50%);
+        transition: width 0.2s ease, height 0.2s ease;
+    }
+
+    &:hover:before {
+        --size: 300px;
+    }
+
+    // <button class="tracking" ref="button" @mousemove="set($event)">
+
+    // methods: {
+    //     set(e) {
+    //       let btn = document.querySelector(".tracking");
+    //       btn.addEventListener("mousemove", (e) => {
+    //         let rect = e.target.getBoundingClientRect();
+    //         let x = e.clientX - rect.left;
+    //         let y = e.clientY - rect.top;
+    //         btn.style.setProperty("--x", x + "px");
+    //         btn.style.setProperty("--y", y + "px");
+    //       });
+    //     },
+    //   },
+}

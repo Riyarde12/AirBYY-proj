@@ -19,23 +19,38 @@ $clr17: #460479;
 $clr18: #cc2d4a;
 $clr19: #9e9e9e41;
 $clr20: #ffffff65;
+$clr21: #bd1e59;
 
 // LINEAR-GRADIENT
 
 $lg1: linear-gradient(to right, #e61e4d 0%, #e31c5f 50%, #d70466 100%);
 $lg2: radial-gradient(
-    circle at center,
-    #ff385c 0%,
-    #e61e4d 27.5%,
-    #e31c5f 40%,
-    #d70466 57.5%,
-    #bd1e59 75%,
-    #bd1e59 100%
+    circle closest-side,
+    #bd1e59 0%,
+    #bd1e59 27.5%,
+    #d70466 40%,
+    #e31c5f 57.5%,
+    #e61e4d 75%,
+    #ff385c 100%
 );
 $lg3: linear-gradient(to right, #bd1e59 0%, #92174d 50%, #861453 100%);
-$lg4: radial-gradient(circle at center, #d70466 0%, #bd1e59 30%, #92174d 55%, #861453 72.5%, #6c0d63 90%, #6c0d63 100%);
+$lg4: radial-gradient(
+    circle closest-side,
+    #d70466 0%,
+    #bd1e59 30%,
+    #92174d 55%,
+    #861453 72.5%,
+    #6c0d63 90%,
+    #6c0d63 100%
+);
 $lg5: linear-gradient(to right, #59086e 0%, #460479 50%, #440589 100%);
 $lg6: radial-gradient(circle at center, #6c0d63 0%, #59086e 30%, #460479 55%, #440589 72.5%, #3b07bb 90%, #3b07bb 100%);
+$lg7: radial-gradient(
+    circle at center,
+    #e51e51 0%,
+
+    #bd1e59 70%
+);
 
 // TXT
 
