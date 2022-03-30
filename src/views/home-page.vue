@@ -79,16 +79,27 @@ export default {
   },
   computed: {
     destinations() {
-      // const destinations = [];
+      // var ops = ['United States','Cnada','Portugal','brazil']
+      // const destination = [];
       // console.log("destinations", destinations);
       // let destinations = rooms[0].address.country;
-      // this.rooms.map((room) => {
-      // 	if (!destinations.includes(room.address.country)) {
-      // 		destinations.push(room);
+
+      // this.rooms.forEach((room) => {
+      // 	if (destination.indexOf(room.address.country)===-1) {
+      //     console.log(destination.indexOf(room.address.country));
+      //     console.log(room.address.country);
+      // 		destination.push(room);
       // 	}
       // });
+
+      
       this.topRooms();
-      return this.rooms.slice(0, 4);
+      return this.rooms.slice(1, 5);
+      // return destination;
+      // return ops;
+
+
+
       // return destinations.slice(0, 4);
     },
     // topRooms() {

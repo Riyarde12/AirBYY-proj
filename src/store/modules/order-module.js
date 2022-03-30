@@ -32,12 +32,15 @@ export default {
     actions: {
         async loadOrders({ commit, state }) {
             try {
-                const orders = await orderService.query();
-                commit({ type: 'setOrders', orders });
-                return orders;
+                const order = await orderService.query();
+                console.log('order', order);
+                commit({ type: 'setOrders', order });
+                return order;
             }
             catch (err) {
-                console.log('err', err);
+                console.log('Cannot load orders', err);
+                throw err;
+
             }
         },
         async addOrder({ commit }, { order }) {
@@ -45,10 +48,11 @@ export default {
             try {
                 const savedOrder = await orderService.save(order);
                 console.log(savedOrder);
-                // commit({ type: 'saveOrder', savedOrder });
+                commit({ type: 'saveOrder', savedOrder });
             }
             catch (err) {
-                console.log('err', err);
+                console.log('Cannot create order', err);
+                throw err;
             }
         },
         getPreOrder() {

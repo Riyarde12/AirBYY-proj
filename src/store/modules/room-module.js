@@ -24,11 +24,11 @@ export default {
       return filterBy.destination;
     },
     roomsPrices(state) {
-      let prices = [];
-      state.rooms.forEach(room => {
-        prices.push(room.price);
-      });
-      return prices;
+      // let prices = [];
+      // state.rooms.forEach(room => {
+      //   prices.push(room.price);
+      // });
+      // return prices;
     },
   },
   mutations: {

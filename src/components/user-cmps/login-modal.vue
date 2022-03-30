@@ -6,7 +6,7 @@
 		<hr />
 		<form v-if="!signUp">
 			<h1>sign in</h1>
-			<input type="text" placeholder="Full name" v-model="fullname" />
+			<input type="text" placeholder="username" v-model="username" />
 			<input type="text" placeholder="password" v-model="password" />
 			<button @click="onLogin">Continue</button>
 			<hr />
@@ -29,6 +29,9 @@
 <script>
 	export default {
 		name: "login-modal",
+		props: {
+			openModal: Boolean,
+		},
 		data() {
 			return {
 				fullname: "",
@@ -74,3 +77,4 @@
 
 <style>
 </style>
+

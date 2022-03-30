@@ -37,8 +37,6 @@ export default {
         //         .finally(() => context.commit({ type: 'setIsLoading', isLoading: false }));
         // },
         async login({ commit }, { username, password }) {
-            console.log('username', username);
-            console.log('password', password);
             try {
                 const loggedInUser = await userService.login(username, password);
                 // commit({ type: 'setLoggedInUser', loggedInUser });
