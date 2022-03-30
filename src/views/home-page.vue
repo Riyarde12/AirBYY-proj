@@ -17,8 +17,14 @@
         </div>
       </div>
       <div class="become-host">
-        <h1>Questions about hosting?</h1>
-        <img src="../assets/img/host.jpeg" alt="" />
+        <h1>
+          Questions <br />
+          about<br />
+          hosting?
+        </h1>
+        <div class="img">
+          <img src="../assets/img/host.jpg" alt="" />
+        </div>
         <button>Ask a Superhost</button>
       </div>
     </section>

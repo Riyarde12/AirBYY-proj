@@ -12,9 +12,7 @@
         border-radius: 10px;
         aspect-ratio: 3/1.9;
         overflow: hidden;
-        & img {
-            height: fit-content;
-        }
+
         & .el-carousel__arrow {
             color: $clr2;
             background-color: $clr6;
