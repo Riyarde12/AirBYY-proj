@@ -125,7 +125,6 @@ export default {
   },
   methods: {
     adjustTxt(review) {
-      console.log("review", review);
       if (review.length <= 170) return review;
       else {
         const newTxt = review.substring(0, 170) + "...";
