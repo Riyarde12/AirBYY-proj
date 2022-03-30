@@ -98,22 +98,18 @@
 		},
 		created() {},
 		methods: {
-			updatePreOrder() {},
 			addGuests() {
 				this.openGuestsModal = !this.openGuestsModal;
 			},
-			closeModal(guests) {
+			closeModal() {
 				this.openGuestsModal = false;
-				this.currOrder.guests = guests;
 			},
 			onRemove(guest) {
 				if (this.currOrder.guests[guest] <= 0) return;
 				this.currOrder.guests[guest]--;
-				// console.log("this.currOrder.guests[guest]", this.currOrder.guests[guest]);
 			},
 			onAdd(guest) {
 				this.currOrder.guests[guest]++;
-				// console.log("this.currOrder.guests[guest]", this.currOrder.guests[guest]);
 			},
 			onReserve() {
 				const { _id, address } = this.room;
