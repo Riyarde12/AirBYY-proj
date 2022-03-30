@@ -77,6 +77,7 @@
 
 <script>
 	import guestsModal from "./guests-modal.vue";
+
 	export default {
 		name: "modal-checkout",
 		components: {
@@ -108,11 +109,9 @@
 			onRemove(guest) {
 				if (this.currOrder.guests[guest] <= 0) return;
 				this.currOrder.guests[guest]--;
-				console.log("this.currOrder", this.currOrder);
 			},
 			onAdd(guest) {
 				this.currOrder.guests[guest]++;
-				console.log("this.currOrder", this.currOrder);
 			},
 			onReserve() {
 				const { _id, address } = this.room;
