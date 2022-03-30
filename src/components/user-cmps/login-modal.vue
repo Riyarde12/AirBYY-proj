@@ -29,6 +29,9 @@
 <script>
 	export default {
 		name: "login-modal",
+		props: {
+			openModal: Boolean,
+		},
 		data() {
 			return {
 				fullname: "",
@@ -74,3 +77,4 @@
 
 <style>
 </style>
+
