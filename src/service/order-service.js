@@ -2,6 +2,7 @@ import { httpService } from "./http.service.js";
 import { storageService } from './async-storage-service.js';
 
 const ORDER_KEY = 'order';
+const ENDPOINT = "order/";
 
 export const orderService = {
     query,
@@ -51,11 +52,14 @@ async function getById(id) {
 // }
 
 async function save(order) {
-    console.log('order', order);
+    const approvedOrder = await httpService.post(ENDPOINT , order);
+    return approvedOrder;
+
+    // console.log('order', order);
     // return room._id
     // 	? await httpService.put(`${ENDPOINT}/${room._id}`, room)
     // 	: await httpService.post(ENDPOINT, room);
-    return await storageService.save(ORDER_KEY, order);
+    // return await storageService.save(ORDER_KEY, order);
 }
 
 function getEmptyOrder() {

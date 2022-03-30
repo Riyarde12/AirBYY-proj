@@ -23,6 +23,7 @@ export const httpService = {
 };
 
 async function ajax(endpoint, method = "GET", data = null) {
+  console.log(endpoint);
   try {
     const res = await axios({
       url: `${BASE_URL}${endpoint}`,
@@ -30,7 +31,7 @@ async function ajax(endpoint, method = "GET", data = null) {
       data,
       params: method === "GET" ? data : null,
     });
-    // console.log(res.data);
+    console.log(res.data);
     return res.data;
   } catch (err) {
     console.log(
