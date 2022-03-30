@@ -14,14 +14,15 @@
 
 /* COMPONENTS */
 
-@import "./components/search-bar";
 @import "./components/main-header";
 @import "./components/main-footer";
 @import "./components/room-list";
 @import "./components/room-preview";
 @import "./components/home-page-preview";
-@import "./components/room-filter";
 @import "./components/user-login-modal";
+@import "./components/main-header-cmps/user-modal-log";
+@import "./components/main-header-cmps/room-filter";
+@import "./components/main-header-cmps/search-bar";
 @import "./components/room-details-cmps/room-review";
 @import "./components/room-details-cmps/modal-checkout";
 @import "./components/room-details-cmps/guest-modal";

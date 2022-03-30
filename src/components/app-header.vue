@@ -98,11 +98,7 @@
               d="m16 .7c-8.437 0-15.3 6.863-15.3 15.3s6.863 15.3 15.3 15.3 15.3-6.863 15.3-15.3-6.863-15.3-15.3-15.3zm0 28c-4.021 0-7.605-1.884-9.933-4.81a12.425 12.425 0 0 1 6.451-4.4 6.507 6.507 0 0 1 -3.018-5.49c0-3.584 2.916-6.5 6.5-6.5s6.5 2.916 6.5 6.5a6.513 6.513 0 0 1 -3.019 5.491 12.42 12.42 0 0 1 6.452 4.4c-2.328 2.925-5.912 4.809-9.933 4.809z"
             ></path>
           </svg>
-          <div class="user-info-modal" v-if="isUserModalOpen">
-            <router-link @click="scrollToTop" to="/login">
-              <button>log in</button>
-            </router-link>
-          </div>
+          <user-modal-log class="user-info-modal" v-if="isUserModalOpen" />
         </button>
       </section>
     </section>
@@ -110,8 +106,9 @@
 </template>
 
 <script>
-import searchBar from "./search-bar.vue";
-import roomFilter from "./room-filter.vue";
+import searchBar from "./header-cmps/search-bar.vue";
+import roomFilter from "./header-cmps/room-filter.vue";
+import userModalLog from "./header-cmps/user-modal-log.vue";
 export default {
   name: "app-header",
   data() {
@@ -125,6 +122,7 @@ export default {
   components: {
     searchBar,
     roomFilter,
+    userModalLog,
   },
   created() {
     window.addEventListener("scroll", this.onScroll);

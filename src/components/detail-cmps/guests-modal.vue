@@ -73,7 +73,7 @@ export default {
   },
   methods: {
     onCloseModal() {
-      this.$emit("onCloseModal");
+      this.$emit("closeModal");
     },
     onRemove(guest) {
       this.$emit("onRemove", guest);

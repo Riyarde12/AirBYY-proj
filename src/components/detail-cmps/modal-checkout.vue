@@ -101,7 +101,7 @@ export default {
     addGuests() {
       this.openGuestsModal = !this.openGuestsModal;
     },
-    closeModal(guests) {
+    onCloseModal(guests) {
       this.openGuestsModal = false;
       this.currOrder.guests = guests;
     },
