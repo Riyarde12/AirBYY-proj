@@ -1,19 +1,13 @@
 <template>
-  <section
-    class="app-header"
-    :style="{
-      backgroundColor: headerOnTop ? '#00000000' : 'white',
-      height: shrinkedHeader ? '80px' : '145px',
-    }"
-    :class="getLayout()"
-  >
+  <section class="app-header" :style="getHomeStyle()" :class="getLayout()">
+    <section class="extanded-header" :class="getLayoutExtanded()">
+      <room-filter v-if="currPage === 'explore'" />
+    </section>
     <section class="extanded-header" :class="getLayoutExtanded()">
       <search-bar
-        v-if="currPage === 'home'"
         class="search-bar-outline"
         :style="{ display: shrinkedHeader ? 'none' : 'block' }"
       />
-      <room-filter v-else-if="currPage === 'explore'" />
     </section>
     <section class="header-contact">
       <section class="home-btn">
@@ -25,14 +19,13 @@
           </section>
         </router-link>
       </section>
-      <section
-        class="search"
-        v-if="shrinkedHeader"
-        @click="exstandHeader"
-        :style="showSearch"
-      >
+      <section class="search" v-if="shrinkedHeader" @click="exstandHeader">
+        <!-- =======================================================================================> -->
         <button class="search-btn">
-          <h4>Start your search</h4>
+          <h4 v-if="currPage === 'explore'" class="exploreSearch">
+            Add place | Add dates | Add guests
+          </h4>
+          <h4 v-else>Start your search</h4>
           <div
             class="el-button el-button--danger el-button--large is-circle"
             type="button"
@@ -59,6 +52,7 @@
         class="user-btn"
         :style="{ color: headerOnTop ? 'black' : ' white' }"
       >
+        <!-- =======================================================================================> -->
         <router-link @click="scrollToTop" to="/explore">
           <button class="explore-btn-link" :style="getStyle">Explore</button>
         </router-link>
@@ -146,8 +140,10 @@ export default {
       window.scrollTo(0, 0);
     },
     onScroll() {
+      this.shrinkedHeader = true;
       if (window.scrollY > 10) {
         this.headerOnTop = false;
+        if (this.currPage === "home") this.shrinkedHeader === false;
       } else {
         this.headerOnTop = true;
       }
@@ -167,13 +163,13 @@ export default {
     getLayout() {
       switch (this.currPage) {
         case "explore":
-          this.shrinkedHeader = false;
+          // this.shrinkedHeader = false;
           return "header-explore-layout fixed";
         case "details":
           this.shrinkedHeader = true;
           return "header-detail-layout";
         case "home":
-          this.shrinkedHeader = true;
+          // this.shrinkedHeader = true;
           return "header-home-layout fixed";
         default:
           return "header-detail-layout";
@@ -194,6 +190,15 @@ export default {
     toggleUserModal() {
       this.isUserModalOpen = !this.isUserModalOpen;
     },
+    getHomeStyle() {
+      if (this.headerOnTop && this.currPage === "home") {
+        return { backgroundColor: "#00000000" };
+      } else {
+        return { backgroundColor: "white" };
+      }
+
+      // height: shrinkedHeader ? '80px' : '145px',
+    },
   },
   computed: {
     getStyle() {
@@ -208,13 +213,6 @@ export default {
         return { color: "white" };
       } else {
         return { color: "#ff385c" };
-      }
-    },
-    showSearch() {
-      if (this.currPage === "explore") {
-        return { display: "none" };
-      } else {
-        return { display: "block" };
       }
     },
   },
