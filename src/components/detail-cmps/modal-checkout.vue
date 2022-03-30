@@ -101,22 +101,25 @@
 			addGuests() {
 				this.openGuestsModal = !this.openGuestsModal;
 			},
-			closeModal() {
+			closeModal(guests) {
 				this.openGuestsModal = false;
+				this.currOrder.guests = guests;
 			},
 			onRemove(guest) {
 				if (this.currOrder.guests[guest] <= 0) return;
 				this.currOrder.guests[guest]--;
+				console.log("this.currOrder", this.currOrder);
 			},
 			onAdd(guest) {
 				this.currOrder.guests[guest]++;
+				console.log("this.currOrder", this.currOrder);
 			},
 			onReserve() {
 				const { _id, address } = this.room;
 				this.currOrder.reserve.roomId = _id;
 				this.currOrder.reserve.destination = address.country;
-				this.currOrder.guests = { adults: 0, children: 0, pets: 0, infants: 0 };
 				this.$emit("onReserve", this.currOrder);
+				this.currOrder.guests = { adults: 0, children: 0, pets: 0, infants: 0 };
 			},
 			showDate(idx) {
 				if (!this.dates) return "Add dates";
