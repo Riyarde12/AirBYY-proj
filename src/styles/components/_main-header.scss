@@ -34,7 +34,7 @@
     }
 
     & .search {
-      margin-left: 100px;
+      margin-left: 200px;
       cursor: pointer;
       & .search-btn {
         width: 300px;
@@ -96,6 +96,7 @@
         align-items: center;
         justify-content: space-between;
         height: 43px;
+        font-size: 0.875rem;
         cursor: pointer;
 
         &:hover {
@@ -104,6 +105,7 @@
       }
 
       & .become-host-btn {
+        font-size: 0.875rem;
         &:hover {
           background-color: $clr19;
         }
