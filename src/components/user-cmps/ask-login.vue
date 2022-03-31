@@ -1,76 +1,80 @@
 <template>
-  <section class="ask-login">
-    <!-- ASK_GUEST -->
+	<section class="ask-login">
+		<!-- ASK_GUEST -->
 
-    <Transition name="modal">
-      <div v-if="show" class="modal-mask">
-        <div class="modal-wrapper">
-          <div class="modal-container">
-            <svg
-              viewBox="0 0 32 32"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-              role="presentation"
-              focusable="false"
-            >
-              <path d="m6 6 20 20"></path>
-              <path d="m26 6-20 20"></path>
-            </svg>
-            <div class="modal-header">
-              <h1 name="header">You are not logged in</h1>
-            </div>
-            <div class="modal-body">
-              <button class="tracking" id="show-modal" @click="onLogin">
-                <span> Log in</span>
-              </button>
-            </div>
-            <div class="modal-footer">
-              <div name="footer">
-                <button class="modal-default-button" @click="$emit('close')">
-                  Stay guest
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </Transition>
+		<Transition name="modal">
+			<div v-if="showAskLoginModal" class="modal-mask">
+				<div class="modal-wrapper">
+					<div class="modal-container">
+						<svg
+							viewBox="0 0 32 32"
+							xmlns="http://www.w3.org/2000/svg"
+							aria-hidden="true"
+							role="presentation"
+							focusable="false"
+						>
+							<path d="m6 6 20 20"></path>
+							<path d="m26 6-20 20"></path>
+						</svg>
+						<div class="modal-header">
+							<h1 name="header">You are not logged in</h1>
+						</div>
+						<div class="modal-body">
+							<button class="tracking" id="show-modal" @click="onLogin">
+								<span> Log in</span>
+							</button>
+						</div>
+						<div class="modal-footer">
+							<div name="footer">
+								<button class="modal-default-button" @click="$emit('close')">
+									Stay guest
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</Transition>
 
-    <!-- LOGIN-SIGNUP -->
+		<!-- LOGIN-SIGNUP -->
 
-    <Teleport to="body">
-      <login-modal :show="loginModalOpen" @close="showModal">
-        <template #header>
-          <h3>custom header</h3>
-        </template>
-      </login-modal>
-    </Teleport>
-  </section>
+		<Teleport to="body">
+			<login-modal
+				:loginModalOpen="loginModalOpen"
+				@closeLoginModal="closeLoginModal"
+			>
+				<template #header> </template>
+			</login-modal>
+		</Teleport>
+	</section>
 </template>
 
 
 <script>
-import loginModal from "./login-modal.vue";
-export default {
-  name: "ask-login",
-  props: {
-    show: Boolean,
-  },
-  data() {
-    return {
-      loginModalOpen: false,
-    };
-  },
-  components: {
-    loginModal,
-  },
-  methods: {
-    onLogin() {
-      this.loginModalOpen = true;
-      this.show = false;
-    },
-  },
-};
+	import loginModal from "./login-modal.vue";
+	export default {
+		name: "ask-login",
+		props: {
+			showAskLoginModal: Boolean,
+		},
+		data() {
+			return {
+				loginModalOpen: false,
+			};
+		},
+		components: {
+			loginModal,
+		},
+		methods: {
+			onLogin() {
+				this.loginModalOpen = true;
+			},
+			closeLoginModal() {
+				this.loginModalOpen = false;
+				this.$emit("close");
+			},
+		},
+	};
 </script>
 
 

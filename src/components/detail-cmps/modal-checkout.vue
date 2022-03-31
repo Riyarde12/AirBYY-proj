@@ -54,8 +54,8 @@
 								</div>
 								<guests-modal
 									v-if="openGuestsModal"
-									:currOrder="currOrder"
-									@onCloseModal="closeModal"
+									:currOrder1="currOrder"
+									@closeModal="onCloseModal"
 									@onRemove="onRemove"
 									@onAdd="onAdd"
 								/>
@@ -65,8 +65,10 @@
 							class="availability-container tracking"
 							ref="button"
 							@click="onReserve"
+							@mousemove="set"
 						>
 							<span>Check availability</span>
+							<!-- <pre>{{ totalPrice }}</pre> -->
 						</button>
 					</div>
 					<!-- <div>
@@ -115,7 +117,7 @@
 				console.log("this.currOrder", this.currOrder);
 			},
 			onAdd(guest) {
-				this.currOrder.guests[guest]++;
+				this.currOrder.guests[guest] += 1;
 				console.log("this.currOrder", this.currOrder);
 			},
 			onReserve() {
@@ -156,20 +158,21 @@
 				const diffDays = Math.round(Math.abs((firstDate - secondDate) / oneDay));
 				return diffDays;
 			},
-			totalPrice() {
-				// console.log("example", this.room.price * this.daysCounter);
-				return this.room.price * this.daysCounter();
-			},
-			// set(e) {
-			//   let btn = document.querySelector(".tracking");
-			//   btn.addEventListener("mousemove", (e) => {
-			//     let rect = e.target.getBoundingClientRect();
-			//     let x = e.clientX - rect.left;
-			//     let y = e.clientY - rect.top;
-			//     btn.style.setProperty("--x", x + "px");
-			//     btn.style.setProperty("--y", y + "px");
-			//   });
+			// totalPrice() {
+			// 	if (!this.dates) return;
+			// 	let totalPrice = this.room.price * this.daysCounter;
+			// 	return totalPrice;
 			// },
+			set() {
+				let btn = document.querySelector(".tracking");
+				btn.addEventListener("mousemove", (e) => {
+					let rect = e.target.getBoundingClientRect();
+					let x = e.clientX - rect.left;
+					let y = e.clientY - rect.top;
+					btn.style.setProperty("--x", x + "px");
+					btn.style.setProperty("--y", y + "px");
+				});
+			},
 		},
 	};
 </script>
