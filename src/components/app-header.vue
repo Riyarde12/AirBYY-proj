@@ -20,7 +20,6 @@
 				</router-link>
 			</section>
 			<section class="search" v-if="shrinkedHeader" @click="exstandHeader">
-				<!-- =======================================================================================> -->
 				<button class="search-btn">
 					<h4 v-if="currPage === 'explore'" class="exploreSearch">
 						Add place | Add dates | Add guests
@@ -52,7 +51,6 @@
 				class="user-btn"
 				:style="{ color: headerOnTop ? 'black' : ' white' }"
 			>
-				<!-- =======================================================================================> -->
 				<router-link @click="scrollToTop" to="/explore">
 					<button class="explore-btn-link" :style="getStyle">Explore</button>
 				</router-link>
@@ -117,7 +115,6 @@
 				</template>
 			</login-modal>
 		</Teleport>
-		
 	</section>
 </template>
 
