@@ -109,7 +109,11 @@
 
 		<Teleport to="body">
 			<!-- use the modal component, pass in the prop -->
-			<login-modal :show="showModal" @close="showModal = false">
+			<login-modal
+				:loginModalOpen="showModal"
+				@close="showModal = false"
+				@closeLoginModal="closeLoginModal"
+			>
 				<template #header> </template>
 			</login-modal>
 		</Teleport>
@@ -215,6 +219,9 @@
 			onOpenloginModal() {
 				console.log("hey");
 				this.showModal = true;
+			},
+			closeLoginModal() {
+				this.showModal = false;
 			},
 		},
 		computed: {
