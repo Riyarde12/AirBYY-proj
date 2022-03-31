@@ -53,7 +53,25 @@
     </button>
 
     <button @click="ff" class="filter-btn">
-      <p>Txt</p>
+      <p>Wifi</p>
+    </button>
+    <button @click="ff" class="filter-btn">
+      <p>Kitchen</p>
+    </button>
+    <button @click="ff" class="filter-btn">
+      <p>Air conditioning</p>
+    </button>
+    <button @click="ff" class="filter-btn">
+      <p>Free cancellation</p>
+    </button>
+    <button @click="ff" class="filter-btn">
+      <p>Gym</p>
+    </button>
+    <button @click="ff" class="filter-btn">
+      <p>Dryer</p>
+    </button>
+    <button @click="ff" class="filter-btn">
+      <p>Pool</p>
     </button>
 
     <div class="modals modal-type" v-if="ModalType">
