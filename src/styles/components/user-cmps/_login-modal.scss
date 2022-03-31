@@ -30,23 +30,12 @@
             align-items: center;
             justify-content: space-between;
             padding-top: 35px;
-            & button {
-                margin-right: 30px;
-                height: 35px;
-                border-radius: 10px;
-                border: none;
-                padding: 8px 16px;
-                color: $clr8;
-                background-color: $clr2;
-                font-size: 0.875rem;
-                font-weight: 600;
-            }
         }
         & .modal-body {
             display: flex;
             align-items: center;
             justify-content: space-around;
-            height: 270px;
+            height: 250px;
             flex-direction: column;
             & input,
             button {
@@ -54,6 +43,23 @@
                 width: 100%;
                 border: 1px solid $clr4;
                 border-radius: 10px;
+            }
+            & input {
+                padding-left: 20px;
+            }
+        }
+        & .modal-footer {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            & button {
+                border: none;
+                font-size: 0.875rem;
+                padding: 8px 0;
+                background-color: $clr8;
+                font-weight: 600;
+                text-decoration: underline;
+                color: $clr4;
             }
         }
     }
