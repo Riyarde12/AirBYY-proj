@@ -22,10 +22,12 @@
           about<br />
           hosting?
         </h1>
+        <div class="home-host-btn">
+          <button>Ask a Superhost</button>
+        </div>
         <div class="img">
           <img src="../assets/img/host.jpg" alt="" />
         </div>
-        <button>Ask a Superhost</button>
       </div>
     </section>
   </section>
@@ -92,13 +94,10 @@ export default {
       // 	}
       // });
 
-      
       this.topRooms();
       return this.rooms.slice(1, 5);
       // return destination;
       // return ops;
-
-
 
       // return destinations.slice(0, 4);
     },

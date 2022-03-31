@@ -24,7 +24,7 @@
 
 .tracking {
     position: relative;
-    background: $clr21;
+    background: $clr15;
     padding: 0.5rem 1rem;
     font-size: 1.2rem;
     border: none;
@@ -46,7 +46,7 @@
         top: var(--y);
         width: var(--size);
         height: var(--size);
-        background: $lg7;
+        background: $lg2;
         transform: translate(-50%, -50%);
         transition: width 0.2s ease, height 0.2s ease;
     }
@@ -76,5 +76,5 @@
 }
 
 .large-padding {
-    padding: 23px !important;
+    padding: 15px !important;
 }

@@ -104,8 +104,12 @@
         border-radius: 24px !important;
         font-size: 1rem;
         align-self: center;
+        display: flex;
+        align-items: center;
+        & span {
+            margin-left: 5px;
+        }
     }
-    
 }
 
 .filter-tag {
@@ -123,7 +127,7 @@
         color: $clr1;
         background-color: rgba(255, 0, 0, 0);
         border: 0px;
-        font-family: 'Times New Roman', Times, serif;
+        font-family: "Times New Roman", Times, serif;
     }
     & .bold {
         line-height: 1.125rem;
