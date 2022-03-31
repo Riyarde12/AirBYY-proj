@@ -209,7 +209,7 @@
     </article>
 
     <!-- REVIEWS -->
-
+        
     <room-review v-if="room" :room="room" />
 
     <!-- RESERVE-MODAL -->
