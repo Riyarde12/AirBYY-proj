@@ -19,7 +19,6 @@
             </div>
             <div class="modal-title">
               <h1>Welcome to Airbyy</h1>
-              <button @click="onToggle">{{ getTitle }}</button>
             </div>
             <div class="modal-body" v-if="!signUp">
               <input type="text" placeholder="username" v-model="username" />
@@ -35,6 +34,9 @@
               <button class="tracking" @click.prevent="signup">
                 <span>Continue</span>
               </button>
+            </div>
+            <div class="modal-footer">
+              <button @click="onToggle">{{ getButton }}</button>
             </div>
           </section>
         </div>
@@ -92,6 +94,9 @@ export default {
   computed: {
     getTitle() {
       return this.signUp ? "Sign Up" : "Log In";
+    },
+    getButton() {
+      return this.signUp ? "Log In" : "Sign Up";
     },
   },
 };
