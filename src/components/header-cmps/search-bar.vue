@@ -51,7 +51,7 @@
           <!-- </div> -->
           <!-- TEST -->
           <div
-           @click.prevent="sendFilter"
+           @click.stop="sendFilter"
             :class="[modalOpen ? 'small-padding' : 'large-padding']"
             class="
               el-button el-button--danger el-button--large
@@ -224,6 +224,7 @@ export default {
       }
     },
     sendFilter() {
+      this.modalGuests = false
       this.$router.push({
         path: "explore",
         query: {
