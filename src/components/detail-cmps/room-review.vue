@@ -54,8 +54,9 @@
 								</div>
 							</div>
 						</div>
-						<p>{{ adjustTxt(review.txt) }}</p>
+						<p>{{ showMore[idx] ? review.txt : adjustTxt(review.txt) }}</p>
 						<button
+							@click="showUnshow(idx)"
 							class="show-more-btn"
 							v-if="isLongReview(review.txt.length)"
 						>
@@ -102,6 +103,9 @@
 		data() {
 			return {
 				avatar: "",
+				showMore: {
+					idx: false,
+				},
 			};
 		},
 		created() {},
@@ -132,6 +136,9 @@
 					const newTxt = review.substring(0, 170) + "...";
 					return newTxt;
 				}
+			},
+			showUnshow(idx) {
+				this.showMore[idx] = !this.showMore[idx];
 			},
 			isLongReview(review) {
 				return review >= 170 ? true : false;

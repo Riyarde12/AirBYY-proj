@@ -96,14 +96,16 @@
     max-width: 53.125rem;
     background-color: $clr8;
     border-radius: 50px;
-    & .search-btn {
+    & .search-bar-btn {
+        // padding: 1.5rem;
         margin-right: 11px;
-        width: 6.98rem;
+        // width: 6.98rem;
         height: 3rem;
         border-radius: 24px !important;
         font-size: 1rem;
         align-self: center;
     }
+    
 }
 
 .filter-tag {
@@ -121,6 +123,7 @@
         color: $clr1;
         background-color: rgba(255, 0, 0, 0);
         border: 0px;
+        font-family: 'Times New Roman', Times, serif;
     }
     & .bold {
         line-height: 1.125rem;
@@ -129,7 +132,7 @@
         background-color: $clr6;
     }
     &:active {
-        box-shadow: $op5;
+        box-shadow: $op3;
         background-color: $clr8;
     }
 }
@@ -149,7 +152,7 @@
 }
 
 .vert {
-    border-right: 1px solid $clr1;
+    border-right: 1px solid $clr5;
     height: 2rem;
 }
 
@@ -167,7 +170,7 @@
 .ld {
     display: flex;
     padding: 11px 1px 11px 5px;
-    gap: 20px;
+    gap: 40px;
     justify-content: space-evenly;
     margin: 0px -27px 0px 0px;
 }

@@ -49,16 +49,35 @@
             <p>Add guests</p>
           </div>
           <!-- </div> -->
-          <el-button
+         <!-- TEST -->
+         <div
+            :style="{padding:isModalOpen}"
+						class=" el-button el-button--danger el-button--large is-circle search-bar-btn"
+						type="button"
+					>
+						<i class="el-icon">
+              <svg viewBox="0 0 32 32" 
+              xmlns="http://www.w3.org/2000/svg" 
+              aria-hidden="true" role="presentation" 
+              focusable="false" 
+              style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 4; overflow: visible;">
+              <g fill="none">
+                <path d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9">
+                  </path></g></svg><span v-if="modalOpen">search</span>
+						</i>
+					</div>
+         <!-- TEST -->
+          <!-- <el-button
             @click.prevent="sendFilter"
             class="search-btn"
+            :style="{width:isModalOpen}"
             v-if="searchBarTaped"
             size="large"
             type="danger"
             :icon="searchIcon"
             round
-            >search</el-button
-          >
+            ><span v-if="modalOpen">search</span></el-button 
+          > -->
         </div>
       </div>
     </div>
@@ -167,6 +186,7 @@ export default {
       modal5: false,
       searchIcon,
       searchBarTaped: true,
+      modalOpen: false
     };
   },
   created() {
@@ -198,10 +218,12 @@ export default {
     },
     clickedModal(modal, modal45 = null, idx) {
       if (modal === "modalDate") {
+        this.modalOpen = true;
         if (modal45 === 4) {
           if (this.modal4 === true) {
             this.modal4 = false;
             this.modalDate = false;
+            this.modalOpen = false;
           } else {
             this.modal4 = true;
             this.modal5 = false;
@@ -212,6 +234,7 @@ export default {
           if (this.modal5 === true) {
             this.modal5 = false;
             this.modalDate = false;
+            this.modalOpen = false;
           } else {
             this.$refs.input.focus();
             this.modal5 = true;
@@ -228,12 +251,14 @@ export default {
       }
       if (this[modal] === true) {
         this[modal] = false;
+        this.modalOpen = false;
         return;
       }
       this.modalGuests = false;
       this.modalDate = false;
       this.modalDestination = false;
       this[modal] = true;
+      this.modalOpen = (this.modalGuests === false&& this.modalDate === false&&this.modalDestination === false)?false:true
     },
     onSelectDate() {
       this.$store.commit({ type: "saveDate", selectedDate: this.value1 });
@@ -249,6 +274,9 @@ export default {
     adults() {
       return this.filterBy.children;
     },
+    isModalOpen(){
+      return !this.modalOpen? '':'1.125rem 2.25rem 1.25rem 2.3125rem' 
+    }
   },
 };
 </script>
