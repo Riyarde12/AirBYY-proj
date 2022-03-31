@@ -54,8 +54,9 @@
                 </div>
               </div>
             </div>
-            <p>{{ adjustTxt(review.txt) }}</p>
+            <p>{{ showMore[idx]?review.txt: adjustTxt(review.txt) }}</p>
             <button
+              @click="showUnshow(idx)" 
               class="show-more-btn"
               v-if="isLongReview(review.txt.length)"
             >
@@ -100,7 +101,12 @@ export default {
     },
   },
   data() {
-    return {};
+    return {
+       showMore:{
+         idx: false
+       }
+      
+    };
   },
   created() {},
   computed: {
@@ -119,11 +125,15 @@ export default {
 
       return scores;
     },
+  
     avgReviewScores() {
       return this.room.reviewScores.rating / 20;
     },
   },
   methods: {
+     showUnshow(idx){
+        this.showMore[idx] = !this.showMore[idx]
+    },
     adjustTxt(review) {
       if (review.length <= 170) return review;
       else {
