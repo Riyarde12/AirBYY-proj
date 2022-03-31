@@ -51,6 +51,7 @@
           <!-- </div> -->
           <!-- TEST -->
           <div
+           @click.prevent="sendFilter"
             :class="[modalOpen ? 'small-padding' : 'large-padding']"
             class="
               el-button el-button--danger el-button--large
