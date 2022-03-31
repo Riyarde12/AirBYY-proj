@@ -13,7 +13,7 @@
 							<input type="text" placeholder="username" v-model="username" />
 							<input type="text" placeholder="password" v-model="password" />
 							<button @click="onLogin">Continue</button>
-							<button class="modal-default-button" @click="$emit('close')">
+							<button class="modal-default-button" @click.prevent="signup">
 								OK
 							</button>
 							<hr />
@@ -28,9 +28,8 @@
 								We’ll call or text you to confirm your number. Standard message
 								and data rates apply. <span>Privacy Policy</span>
 							</p>
-							<button @click.prevent="signup">Continue</button>
-							<button class="modal-default-button" @click="$emit('close')">
-								OK
+							<button class="modal-default-button" @click.prevent="signup">
+								Continue
 							</button>
 						</form>
 					</section>
@@ -64,11 +63,12 @@
 						password: this.password,
 					});
 					this.loggedInUser = user.data;
-					console.log("example", this.loggedInUser);
-					console.log("username:", this.username);
-					console.log("password:", this.password);
+					this.$emit("close");
+					// console.log("example", this.loggedInUser);
+					// console.log("username:", this.username);
+					// console.log("password:", this.password);
 				} catch (err) {
-					console.log("err", err);
+					console.log("Cannot login", err);
 				}
 			},
 			signup() {

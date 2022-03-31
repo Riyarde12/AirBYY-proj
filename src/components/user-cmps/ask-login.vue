@@ -48,8 +48,6 @@
 		data() {
 			return {
 				loginModalOpen: false,
-				// showModal: false,
-				// show: true,
 			};
 		},
 		components: {
