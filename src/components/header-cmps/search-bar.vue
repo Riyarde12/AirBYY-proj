@@ -51,6 +51,7 @@
           <!-- </div> -->
           <!-- TEST -->
           <button
+            @click.stop="sendFilter"
             :class="[modalOpen ? 'small-padding' : 'large-padding']"
             class="search-bar-btn tracking"
           >
@@ -218,6 +219,7 @@ export default {
       }
     },
     sendFilter() {
+      this.modalGuests = false;
       this.$router.push({
         path: "explore",
         query: {
