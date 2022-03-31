@@ -46,10 +46,11 @@
                 background-color: $clr8;
                 font-weight: 600;
                 text-decoration: underline;
-                color: $clr5;
+                color: $clr6;
             }
 
             & .save {
+                height: 35px;
                 border-radius: 10px;
                 border: none;
                 padding: 8px 16px;
