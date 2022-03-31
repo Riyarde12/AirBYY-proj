@@ -64,7 +64,7 @@
             <button
               class="availability-container tracking"
               ref="button"
-              @mousemove="set($event)"
+              @mousemove="set()"
               @click="onReserve"
             >
               <span>Check availability</span>
@@ -135,6 +135,16 @@ export default {
     },
   },
   computed: {
+    set() {
+      let btn = document.querySelector(".tracking");
+      btn.addEventListener("mousemove", (e) => {
+        let rect = e.target.getBoundingClientRect();
+        let x = e.clientX - rect.left;
+        let y = e.clientY - rect.top;
+        btn.style.setProperty("--x", x + "px");
+        btn.style.setProperty("--y", y + "px");
+      });
+    },
     showPrice() {
       return this.room.price;
     },
@@ -160,16 +170,6 @@ export default {
     totalPrice() {
       // console.log("example", this.room.price * this.daysCounter);
       return this.room.price * this.daysCounter();
-    },
-    set(e) {
-      let btn = document.querySelector(".tracking");
-      btn.addEventListener("mousemove", (e) => {
-        let rect = e.target.getBoundingClientRect();
-        let x = e.clientX - rect.left;
-        let y = e.clientY - rect.top;
-        btn.style.setProperty("--x", x + "px");
-        btn.style.setProperty("--y", y + "px");
-      });
     },
   },
 };

@@ -1,4 +1,63 @@
 .room-filter {
     display: flex;
     gap: 5px;
+
+    & .modal-type {
+        height: 380px;
+        width: 360px;
+        overflow: auto;
+        padding: 20px;
+        & .options {
+            border-bottom: 1px solid $clr6;
+            & .filter-option {
+                padding: 12px 0;
+                display: flex;
+                gap: 20px;
+                & input {
+                    border-color: $clr7;
+                    background-color: $clr2;
+                    margin-right: 20px;
+                }
+                & label {
+                    & .title-option {
+                        font-size: 1rem;
+                        margin-bottom: 5px;
+                        line-height: 1.25rem;
+                    }
+                    & .desc-option {
+                        line-height: 1.125rem;
+                        font-size: 0.875rem;
+                        color: $clr3;
+                    }
+                }
+            }
+        }
+        & .btns-area {
+            display: flex;
+            height: 40px;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-top: 15px;
+
+            & .clear {
+                border: none;
+                font-size: 0.875rem;
+                padding: 8px 0;
+                background-color: $clr8;
+                font-weight: 600;
+                text-decoration: underline;
+                color: $clr5;
+            }
+
+            & .save {
+                border-radius: 10px;
+                border: none;
+                padding: 8px 16px;
+                color: $clr8;
+                background-color: $clr2;
+                font-size: 0.875rem;
+                font-weight: 600;
+            }
+        }
+    }
 }
