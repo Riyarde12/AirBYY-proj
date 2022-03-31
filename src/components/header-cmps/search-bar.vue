@@ -49,15 +49,17 @@
             <p>Add guests</p>
           </div>
           <!-- </div> -->
+         
           <el-button
             @click.prevent="sendFilter"
             class="search-btn"
+            :style="{width:isModalOpen}"
             v-if="searchBarTaped"
             size="large"
             type="danger"
             :icon="searchIcon"
             round
-            >search</el-button
+            ><span v-if="modalOpen">search</span></el-button 
           >
         </div>
       </div>
@@ -167,6 +169,7 @@ export default {
       modal5: false,
       searchIcon,
       searchBarTaped: true,
+      modalOpen: false
     };
   },
   created() {
@@ -198,10 +201,12 @@ export default {
     },
     clickedModal(modal, modal45 = null, idx) {
       if (modal === "modalDate") {
+        this.modalOpen = true;
         if (modal45 === 4) {
           if (this.modal4 === true) {
             this.modal4 = false;
             this.modalDate = false;
+            this.modalOpen = false;
           } else {
             this.modal4 = true;
             this.modal5 = false;
@@ -212,6 +217,7 @@ export default {
           if (this.modal5 === true) {
             this.modal5 = false;
             this.modalDate = false;
+            this.modalOpen = false;
           } else {
             this.$refs.input.focus();
             this.modal5 = true;
@@ -228,12 +234,14 @@ export default {
       }
       if (this[modal] === true) {
         this[modal] = false;
+        this.modalOpen = false;
         return;
       }
       this.modalGuests = false;
       this.modalDate = false;
       this.modalDestination = false;
       this[modal] = true;
+      this.modalOpen = (this.modalGuests === false&& this.modalDate === false&&this.modalDestination === false)?false:true
     },
     onSelectDate() {
       this.$store.commit({ type: "saveDate", selectedDate: this.value1 });
@@ -249,6 +257,9 @@ export default {
     adults() {
       return this.filterBy.children;
     },
+    isModalOpen(){
+      return this.modalOpen? '':'2.9rem' 
+    }
   },
 };
 </script>
