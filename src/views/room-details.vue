@@ -97,7 +97,7 @@
 					<div>
 						<el-avatar
 							:size="56"
-							:src="'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'"
+							:src="'https://res.cloudinary.com/canjan22/image/upload/v1648736344/avatars/19.jpg'"
 						/>
 					</div>
 				</div>
