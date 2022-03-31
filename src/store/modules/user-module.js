@@ -2,14 +2,17 @@ import { userService } from '../../service/user-service.js';
 
 export default {
     state: {
-        loggedInUser: null
+        loggedInUser: null,
+        avatar: null,
         // loggedinUser: userService.getLoggedinUser(),
     },
     getters: {
         loggedInUser(state) {
             console.log('state.loggedInUser', state.loggedInUser);
-            // return JSON.parse(JSON.stringify(state.loggedInUser));
             return state.loggedInUser;
+        },
+        avatar(state) {
+            return state.avatar;
         }
     },
     mutations: {
@@ -20,7 +23,9 @@ export default {
             state.loggedInUser = loggedInUser;
             console.log('loggedInUser after mutation', state.loggedInUser);
         },
-
+        setAvatars(state, { avatar }) {
+            state.avatar = avatar;
+        },
     },
     actions: {
         // loadUser({ commit }) {
@@ -59,5 +64,17 @@ export default {
                 throw err;
             }
         },
+        async loadAvatars({ commit }) {
+            try {
+                const avatar = await userService.getUsersAvatar();
+                commit({ type: 'setAvatars', avatar });
+                return avatar;
+                console.log('avatar', avatar);
+            }
+            catch (err) {
+                console.log('Cannot load avatar', err);
+                throw err;
+            }
+        }
     },
 };

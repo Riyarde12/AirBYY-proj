@@ -1,7 +1,7 @@
 <template>
   <section class="login-modal">
     <Transition name="modal">
-      <div v-if="show" class="modal-mask">
+      <div v-if="loginModalOpen" class="modal-mask">
         <div class="modal-wrapper">
           <section class="modal-container">
             <svg
@@ -49,7 +49,7 @@
 export default {
   name: "login-modal",
   props: {
-    show: Boolean,
+    loginModalOpen: Boolean,
   },
   data() {
     return {
@@ -62,6 +62,7 @@ export default {
   },
   methods: {
     async onLogin() {
+      if (!this.username && !this.password) return;
       try {
         const user = await this.$store.dispatch({
           type: "login",
@@ -69,26 +70,36 @@ export default {
           password: this.password,
         });
         this.loggedInUser = user.data;
-        this.$emit("close");
-        // console.log("example", this.loggedInUser);
-        // console.log("username:", this.username);
-        // console.log("password:", this.password);
+        this.toggleShow();
       } catch (err) {
-        console.log("Cannot login", err);
+        console.log("Cannot signup", err);
+        throw err;
       }
     },
     signup() {
-      this.$store.dispatch({
-        type: "signUp",
-        userSignUp: {
-          fullname: this.fullname,
-          username: this.username,
-          password: this.password,
-        },
-      });
+      if (!this.fullname && !this.username && !this.password) return;
+      try {
+        this.$store.dispatch({
+          type: "signUp",
+          userSignUp: {
+            fullname: this.fullname,
+            username: this.username,
+            password: this.password,
+          },
+        });
+        this.toggleShow();
+      } catch (err) {
+        console.log("Cannot signup", err);
+        throw err;
+      }
     },
     onToggle() {
+      console.log("this.signUp", this.signUp);
       this.signUp = !this.signUp;
+    },
+    toggleShow() {
+      console.log("hey");
+      this.$emit("closeLoginModal");
     },
   },
   computed: {

@@ -110,9 +110,7 @@
 		<Teleport to="body">
 			<!-- use the modal component, pass in the prop -->
 			<login-modal :show="showModal" @close="showModal = false">
-				<template #header>
-					<h3>custom header</h3>
-				</template>
+				<template #header> </template>
 			</login-modal>
 		</Teleport>
 	</section>
