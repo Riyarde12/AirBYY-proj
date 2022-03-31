@@ -1,0 +1,45 @@
+.ask-login {
+    & .modal-container {
+        width: 800px;
+        & svg {
+            display: block;
+            fill: none;
+            height: 16px;
+            width: 16px;
+            stroke: currentcolor;
+            stroke-width: 3;
+            overflow: visible;
+            position: absolute;
+            margin: 5px;
+        }
+        & .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        & .modal-body {
+            & input,
+            button {
+                height: 50px;
+                width: 100%;
+                border: 1px solid $clr4;
+                border-radius: 10px;
+            }
+        }
+        & .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            & button {
+                height: 35px;
+                border-radius: 10px;
+                border: none;
+                padding: 8px 16px;
+                color: $clr8;
+                background-color: $clr2;
+                font-size: 0.875rem;
+                font-weight: 600;
+            }
+        }
+    }
+}

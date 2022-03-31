@@ -3,7 +3,7 @@
 @import "./setup/typography";
 @import "./setup/variables";
 @import "./setup/mixins";
-@import "./setup/functions";
+@import "./setup/modal";
 
 /* BASICS */
 @import "./basic/base";
@@ -20,9 +20,20 @@
 @import "./components/room-preview";
 @import "./components/home-page-preview";
 @import "./components/user-login-modal";
+
+/* user-CMPS */
+
+@import "./components/user-cmps/ask-login";
+@import "./components/user-cmps/login-modal";
+
+/* header-CMPS */
+
 @import "./components/main-header-cmps/user-modal-log";
 @import "./components/main-header-cmps/room-filter";
 @import "./components/main-header-cmps/search-bar";
+
+/* details-CMPS */
+
 @import "./components/room-details-cmps/room-review";
 @import "./components/room-details-cmps/modal-checkout";
 @import "./components/room-details-cmps/guest-modal";
