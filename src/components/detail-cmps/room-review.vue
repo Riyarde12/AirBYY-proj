@@ -135,9 +135,13 @@ export default {
       return review >= 170 ? true : false;
     },
     getReviewDate(reviewDate) {
-      const date = new Date(reviewDate);
-      return date.toDateString();
+      const date = new Date(reviewDate)
+      const year = date.toDateString().substring(11,15) 
+         const month = date.toDateString().substring(4,7)
+      return month + ' ' + year
     },
   },
 };
 </script>
+
+// .substring(4,5)
