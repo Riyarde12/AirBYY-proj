@@ -1,41 +1,69 @@
-
 <template>
-	<Transition name="modal">
-		<div v-if="show" class="modal-mask">
-			<div class="modal-wrapper">
-				<div class="modal-container">
-					<div class="modal-header">
-						<slot name="header">default header</slot>
-					</div>
+	<section>
+		<!-- ASK_GUEST -->
 
-					<div class="modal-body">
-						<slot name="body">
-							<h3>Thank you {{ loggedInUser.fullname }}</h3>
-						</slot>
-					</div>
-					<div class="modal-footer">
-						<slot name="footer">
-							default footer
-							<button class="modal-default-button" @click="$emit('close')">
-								OK
-							</button>
-						</slot>
+		<Transition name="modal">
+			<div v-if="show" class="modal-mask">
+				<div class="modal-wrapper">
+					<div class="modal-container">
+						<div class="modal-header">
+							<slot name="header"></slot>
+						</div>
+						<div class="modal-body">
+							<button id="show-modal" @click="onLogin">Log in</button>
+						</div>
+						<div class="modal-footer">
+							<slot name="footer">
+								Stay guest :
+								<button class="modal-default-button" @click="$emit('close')">
+									OK
+								</button>
+							</slot>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</Transition>
+		</Transition>
+
+		<!-- LOGIN-SIGNUP -->
+
+		<Teleport to="body">
+			<login-modal :show="loginModalOpen" @close="showModal">
+				<template #header>
+					<h3>custom header</h3>
+				</template>
+			</login-modal>
+		</Teleport>
+	</section>
 </template>
 
+
 <script>
+	import loginModal from "./login-modal.vue";
 	export default {
-		name: "reserve-modal",
+		name: "ask-login",
 		props: {
 			show: Boolean,
-			loggedInUser: Object,
+		},
+		data() {
+			return {
+				loginModalOpen: false,
+				// showModal: false,
+				// show: true,
+			};
+		},
+		components: {
+			loginModal,
+		},
+		methods: {
+			onLogin() {
+				this.loginModalOpen = true;
+				this.show = false;
+			},
 		},
 	};
 </script>
+
 
 <style>
 .modal-mask {

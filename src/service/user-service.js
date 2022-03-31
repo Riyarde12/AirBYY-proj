@@ -19,23 +19,23 @@ export const userService = {
 };
 
 async function login(username, password) {
-    const logedinUser = {username, password}
+    const logedinUser = { username, password };
     try {
-        const user = await httpService.post("auth/login",logedinUser)
+        const user = await httpService.post("auth/login", logedinUser);
         console.log('user login');
-        return user
+        return user;
     } catch (err) {
         console.log('cent login', err);
     }
 };
- 
+
 async function signup(userSignUp) {
     console.log('userSignUp', userSignUp);
     try {
-        userSignUp.id = utilService.makeId
-        const user = await httpService.post('auth/signup',userSignUp)
+        userSignUp.id = utilService.makeId;
+        const user = await httpService.post('auth/signup', userSignUp);
         console.log('sucsess signup', user);
-        return user
+        return user;
         // console.log('password from front service ', password);
         // const user = await httpService.post(`${BASE_URL}/signup`, { fullname, username, password });
         // const res = axios.post(`${BASE_URL}/signup`, userSignUp);
@@ -44,6 +44,7 @@ async function signup(userSignUp) {
         // utilService.saveToStorage(LOGGEDIN_USER, userSignUp);
         // return userSignUp;
     }
+
     catch (err) {
         console.log('err', err);
     }

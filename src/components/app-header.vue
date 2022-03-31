@@ -107,7 +107,17 @@
 			</section>
 		</section>
 
-		<login-modal v-if="openModal" :openModal="openModal" />
+		<!-- LOGIN / SIGNUP -->
+
+		<Teleport to="body">
+			<!-- use the modal component, pass in the prop -->
+			<login-modal :show="showModal" @close="showModal = false">
+				<template #header>
+					<h3>custom header</h3>
+				</template>
+			</login-modal>
+		</Teleport>
+		
 	</section>
 </template>
 
@@ -125,7 +135,7 @@
 				currPage: "home",
 				shrinkedHeader: false,
 				isUserModalOpen: false,
-				openModal: false,
+				showModal: false,
 			};
 		},
 		components: {
@@ -209,7 +219,7 @@
 			},
 			onOpenloginModal() {
 				console.log("hey");
-				this.openModal = true;
+				this.showModal = true;
 			},
 		},
 		computed: {

@@ -9,7 +9,7 @@ export default {
         loggedInUser(state) {
             console.log('state.loggedInUser', state.loggedInUser);
             // return JSON.parse(JSON.stringify(state.loggedInUser));
-            return state.loggedinUser;
+            return state.loggedInUser;
         }
     },
     mutations: {
@@ -18,12 +18,13 @@ export default {
         },
         setLoggedInUser(state, { loggedInUser }) {
             state.loggedInUser = loggedInUser;
+            console.log('loggedInUser after mutation', state.loggedInUser);
         },
 
     },
     actions: {
         // loadUser({ commit }) {
-        //     commit({ type: 'setIsLoading', isLoading: true });
+        //     // commit({ type: 'setIsLoading', isLoading: true });
         //     // debugger;
         //     return userService.getLoggedinUser()
         //         .then(user => {
@@ -39,22 +40,23 @@ export default {
         async login({ commit }, { username, password }) {
             try {
                 const loggedInUser = await userService.login(username, password);
-                // commit({ type: 'setLoggedInUser', loggedInUser });
-                // console.log('loggedInUser', loggedInUser);
+                commit({ type: 'setLoggedInUser', loggedInUser });
+                console.log('loggedInUser', loggedInUser);
                 return loggedInUser;
             }
             catch (err) {
-                console.log('err', err);
+                console.log('Cannot login ', err);
+                throw err;
             }
         },
         async signUp({ commit }, { userSignUp }) {
             console.log('userSignUp', userSignUp);
             try {
                 const newUser = await userService.signup(userSignUp);
-
             }
             catch (err) {
-                console.log('err', err);
+                console.log('Cannot signUp', err);
+                throw err;
             }
         },
     },

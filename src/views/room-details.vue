@@ -196,7 +196,9 @@
 					</ul>
 				</div>
 			</div>
+
 			<!-- MODAL CHECKOUT -->
+
 			<div class="max-height">
 				<modal-checkout
 					v-if="room"
@@ -213,19 +215,36 @@
 
 		<!-- RESERVE-MODAL -->
 
-		<Teleport to="reserve-modal">
-			<modal :show="reserveModal" @close="showModal = false">
+		<Teleport to="body">
+			<reserve-modal
+				v-if="loggedInUser && isOrderSuccesses"
+				:show="showModal"
+				@close="onClose"
+				:loggedInUser="loggedInUser"
+			>
 				<template #header>
 					<h3>custom header</h3>
 				</template>
-			</modal>
+			</reserve-modal>
+		</Teleport>
+
+		<!-- ASK-GUEST-FOR-LOGIN -->
+
+		<Teleport to="body">
+			<ask-login :show="showAskLoginModal" @close="showAskLoginModal = false">
+				<template #header>
+					<h3>custom header</h3>
+				</template>
+			</ask-login>
 		</Teleport>
 	</section>
 </template>
+
 <script>
 	import modalCheckout from "../components/detail-cmps/modal-checkout.vue";
 	import roomReview from "../components/detail-cmps/room-review.vue";
 	import reserveModal from "../components/detail-cmps/reserve-modal.vue";
+	import askLogin from "../components/user-cmps/ask-login.vue";
 
 	export default {
 		name: "room-detail",
@@ -233,38 +252,54 @@
 			return {
 				room: null,
 				preOrder: {},
-				status: false,
-				openModal: false,
+				isOrderSuccesses: false,
+				showModal: false,
+				loggedInUser: null,
+				showAskLoginModal: false,
 			};
 		},
 		components: {
 			modalCheckout,
 			roomReview,
 			reserveModal,
+			askLogin,
 		},
 		async created() {
 			const { roomId } = this.$route.params;
 			this.preOrder = this.$store.getters.getPreOrder;
 			try {
 				this.room = await this.$store.dispatch({ type: "getRoom", id: roomId });
-				console.log(this.room);
 			} catch (err) {
 				console.log("err", err);
+				throw err;
 			}
 		},
 		methods: {
 			sendReserve(order) {
+				if (!this.loggedInUser) {
+					this.showAskLoginModal = true;
+					return;
+				}
 				this.$store.dispatch({
 					type: "addOrder",
 					order: JSON.parse(JSON.stringify(order)),
 				});
-				this.openModal = true;
+				this.showModal = true;
+				this.changeStatusOrder();
 			},
 			replaceByDefault(e) {
 				e.target.src = `src/assets/icons/other.svg`;
 			},
 			replaceImgByDefault(e) {
 				e.target.src = `src/assets/img/hero.jpg`;
+			},
+			changeStatusOrder() {
+				this.isOrderSuccesses = !this.isOrderSuccesses;
+				console.log("this.isOrderSuccesses", this.isOrderSuccesses);
+			},
+			onClose() {
+				this.showModal = false;
+				this.changeStatusOrder();
 			},
 		},
 		computed: {
@@ -284,6 +319,17 @@
 				console.log(JSON.stringify(str));
 				str = str.replace(/\s/g, "");
 				console.log("str", str);
+			},
+			getLoggedInUser() {
+				return this.$store.getters.loggedInUser;
+			},
+		},
+		watch: {
+			getLoggedInUser: {
+				handler(newValue, oldValue) {
+					this.loggedInUser = this.getLoggedInUser;
+				},
+				flush: "post",
 			},
 		},
 	};

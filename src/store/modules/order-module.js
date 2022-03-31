@@ -49,6 +49,7 @@ export default {
                 const savedOrder = await orderService.save(order);
                 console.log(savedOrder);
                 commit({ type: 'saveOrder', savedOrder });
+                return 'ordered';
             }
             catch (err) {
                 console.log('Cannot create order', err);
