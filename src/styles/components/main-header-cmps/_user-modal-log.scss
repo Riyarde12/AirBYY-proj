@@ -2,7 +2,7 @@
   position: absolute;
   background-color: $clr8;
   width: 240px;
-  height: 270px;
+  height: 255px;
   top: 50px;
   right: 0px;
   z-index: 100;
@@ -11,12 +11,17 @@
   box-shadow: $op1;
   justify-content: center;
   border-radius: 10px;
+
+  & :first-child {
+    font-size: 1.03rem;
+  }
   & .break {
     height: 1px;
-    background-color: $clr4;
+    background-color: $clr5;
     margin: 5px 0;
   }
   & button {
+    padding-left: 20px;
     font-size: 0.875rem;
     height: 45px;
     display: flex;
