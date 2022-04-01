@@ -18,11 +18,11 @@ export const userService = {
 };
 
 async function login(username, password) {
-    const logedinUser = { username, password };
+    const loggedinUser = { username, password };
     try {
-        const user = await httpService.post("auth/login", logedinUser);
+        const user = await httpService.post("auth/login", loggedinUser);
         console.log('user login');
-        utilService.saveToStorage('loggedin', user.data);
+        utilService.saveToStorage('loggedin', loggedinUser);
         return user;
     } catch (err) {
         console.log('cent login', err);
@@ -56,7 +56,9 @@ async function logout() {
 
 function getLoggedinUser() {
     console.log('example', JSON.parse(sessionStorage.getItem(LOGGEDIN_USER) || 'null'));
-    return JSON.parse(sessionStorage.getItem(LOGGEDIN_USER) || 'null');
+    let loggedInUser = JSON.parse(sessionStorage.getItem(LOGGEDIN_USER) || 'null');
+    console.log('loggedInUser', loggedInUser);
+    return loggedInUser;
 }
 
 async function getUsersAvatar() {

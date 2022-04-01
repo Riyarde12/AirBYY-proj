@@ -4,7 +4,7 @@ import roomApp from "../views/room-app.vue";
 import roomDetails from "../views/room-details.vue";
 import roomEdit from "../views/room-edit.vue";
 import test from "../views/test.vue";
-// import userDetails from "../views/user-details.vue";
+import dashBoard from "../views/dashboard.vue";
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -18,11 +18,11 @@ const router = createRouter({
       path: "/test",
       component: test,
     },
-    // {
-    //   path: "/user/:userId?",
-    //   name: "user-details",
-    //   component: userDetails,
-    // },
+    {
+      path: "/dashboard",
+      name: "dashboard",
+      component: dashBoard,
+    },
     {
       path: "/explore",
       name: "room-app",

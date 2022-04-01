@@ -27,10 +27,9 @@ export default {
     actions: {
         async loadOrders({ commit, state }) {
             try {
-                const order = await orderService.query();
-                console.log('order', order);
-                commit({ type: 'setOrders', order });
-                return order;
+                const orders = await orderService.query();
+                console.log('order', orders);
+                commit({ type: 'setOrders', orders });
             }
             catch (err) {
                 console.log('Cannot load orders', err);

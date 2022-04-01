@@ -62,16 +62,16 @@
 				signUp: false,
 			};
 		},
+		created() {},
 		methods: {
 			async onLogin() {
 				if (!this.username && !this.password) return;
 				try {
-					const user = await this.$store.dispatch({
+					await this.$store.dispatch({
 						type: "login",
 						username: this.username,
 						password: this.password,
 					});
-					this.loggedInUser = user.data;
 					this.toggleShow();
 				} catch (err) {
 					console.log("Cannot signup", err);
@@ -100,6 +100,9 @@
 			},
 			toggleShow() {
 				this.$emit("closeLoginModal");
+			},
+			loggedinUser() {
+				this.loggedInUser = this.$store.getters.loggedInUser;
 			},
 		},
 		computed: {

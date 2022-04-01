@@ -2,14 +2,14 @@ import { userService } from '../../service/user-service.js';
 
 export default {
     state: {
-        loggedInUser: null,
+        loggedInUser: userService.getLoggedinUser(),
         avatar: null,
-        // loggedinUser: userService.getLoggedinUser(),
     },
     getters: {
         loggedInUser(state) {
             console.log('state.loggedInUser', state.loggedInUser);
-            return state.loggedInUser;
+            return { ...state.loggedInUser };
+
         },
         avatar(state) {
             return state.avatar;
@@ -28,26 +28,23 @@ export default {
         },
     },
     actions: {
-        // loadUser({ commit }) {
-        //     // commit({ type: 'setIsLoading', isLoading: true });
-        //     // debugger;
-        //     return userService.getLoggedinUser()
-        //         .then(user => {
-        //             console.log('user', user);
-        //             commit({ type: 'setUser', user });
-        //         })
-        //         .catch(err => {
-        //             console.error('Cannot Load User', err);
-
-        //         })
-        //         .finally(() => context.commit({ type: 'setIsLoading', isLoading: false }));
-        // },
+        loadUser({ commit }) {
+            // commit({ type: 'setIsLoading', isLoading: true });
+            // debugger;
+            try {
+                const user = userService.getLoggedinUser();
+                console.log('user', user);
+                commit({ type: 'setLoggedInUser', user });
+            }
+            catch (err) {
+                console.log('Cannot load user');
+                throw err;
+            }
+        },
         async login({ commit }, { username, password }) {
             try {
                 const loggedInUser = await userService.login(username, password);
                 commit({ type: 'setLoggedInUser', loggedInUser });
-                console.log('loggedInUser', loggedInUser);
-                return loggedInUser;
             }
             catch (err) {
                 console.log('Cannot login ', err);

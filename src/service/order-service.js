@@ -68,6 +68,7 @@ function getEmptyOrder() {
         guests: { adults: 1, children: 0, pets: 0, infants: 0 },
         dates: { from: null, to: null },
         reserve: { destination: '', roomName: '', roomId: "" },
+        status: 'pending'
     };
 }
 
