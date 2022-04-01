@@ -178,14 +178,16 @@
 .fd {
     text-align: start;
     margin: 0px 0px 0px -20px;
+    width: 190px;
 }
 
 .ld {
     display: flex;
     padding: 14px 0;
     gap: 40px;
-    justify-content: space-evenly;
+    justify-content: space-between;
     margin: 0px -27px 0px 0px;
+    width: 260px;
 }
 
 .first-date {
