@@ -202,8 +202,20 @@ export default {
     if (params.destination) {
       this.filterBy.destination = params.destination;
     }
+    window.addEventListener("scroll", this.onScroll);
+    // window.addEventListener("click", this.puki);
   },
+
   methods: {
+   
+    onScroll(){
+      this.modalGuests = false
+      this.modalDestination = false
+       this.modalDate = false
+       this. modal4 = false
+       this. modal5 = false
+        this.modalOpen = false
+    },
     add(addedVal, key) {
       if (addedVal && this.filterBy[key]) {
         this.filterBy[key]++;
