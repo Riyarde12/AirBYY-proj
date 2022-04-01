@@ -4,8 +4,22 @@ export default {
   state: {
     rooms: null,
     destination: null,
-    filterBy: null,
+    filterBy: {
+      destination: '',
+      adults: 0,
+      children: 0,
+      infants: 0,
+      pets: 0,
+      roomType: {
+        entirePlace: false,
+        privateRoom: false,
+        hotelRoom: false,
+        sharedRoom: false,
+      },
+      price: { min: null, max: null }
+    },
     homeRooms: null,
+    amenities: [],
     // userSignUp: {
     //   fullname: "",
     //   inputUsername: "",
@@ -22,6 +36,10 @@ export default {
     },
     currSearch({ filterBy }) {
       return filterBy.destination;
+    },
+    filterBy(state) {
+      console.log('filterBy ', state.filterBy);
+      return JSON.parse(JSON.stringify(state.filterBy));
     },
     roomsPrices(state) {
       // let prices = [];
@@ -45,14 +63,31 @@ export default {
       if (idx !== -1) state.rooms.splice(idx, 1, savedRoom);
       else state.rooms.push(savedRoom);
     },
-    // if some one use that function (setfilter) tell yosef please
-    setFilter(state, { filterBy }) {
-      state.filterBy = filterBy;
+    setFilter(state, { filterBy, }) {
+      const {
+        destination, adults, children, infants,
+        pets, roomType, price
+      } = filterBy;
+
+
+      state.filterBy.roomType = roomType || {};
+      state.filterBy.destination = destination || '';
+      state.filterBy.adultes = adults || 0;
+      state.filterBy.children = children || 0;
+      state.filterBy.infants = infants || 0;
+      state.filterBy.pets = pets || 0;
+      state.filterBy.price = price || 0;
+      console.log('state.filterBy', state.filterBy);
+
+
     },
     saveDestination(state) {
       const destinationToSave = state.rooms.filter(room => room.address.country);
       state.destination = destinationToSave;
-    }
+    },
+    setAmenities(state, amenities) {
+      state.amenities.push(amenities);
+    },
 
   },
   actions: {
@@ -61,7 +96,7 @@ export default {
       try {
         const rooms = await roomService.query(state.filterBy);
         commit({ type: 'setRooms', rooms });
-        commit({ type: 'setFilter', filterBy: {} });
+        // commit({ type: 'setFilter', filterBy: {} });
         return rooms;
       }
       catch (err) {
@@ -98,13 +133,14 @@ export default {
       }
     },
     async filter({ commit, dispatch }, { filterBy }) {
+      console.log('filterBy', filterBy);
       try {
         commit({ type: 'setFilter', filterBy });
         await dispatch({ type: 'loadRooms' });
       } catch (err) {
-
+        console.log('Cannot FilterBy', err);
+        throw err;
       }
-
     },
   },
 };
