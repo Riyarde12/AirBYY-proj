@@ -86,3 +86,11 @@
 .fixed {
     position: fixed;
 }
+
+.el-date-range-picker {
+    --el-datepicker-active-color: #222222 !important;
+    --el-datepicker-hover-text-color: #222222 !important;
+}
+.el-date-table td.today .el-date-table-cell__text {
+    color: #222222 !important;
+}
