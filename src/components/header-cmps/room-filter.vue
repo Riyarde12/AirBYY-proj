@@ -163,9 +163,10 @@
 			},
 			sendFilterBy() {
 				this.$store.commit({
-					type: "setFilter",
+					type: "setFilterByRoomType",
 					filterBy: JSON.parse(JSON.stringify(this.filterBy)),
 				});
+				this.$store.dispatch({ type: "loadRooms" });
 				console.log("this.filterBy", this.filterBy);
 			},
 		},

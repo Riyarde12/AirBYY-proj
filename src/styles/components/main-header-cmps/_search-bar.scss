@@ -133,6 +133,7 @@
         font-family: $txtDefault;
         &:focus-visible {
             outline: -webkit-focus-ring-color auto 0px;
+            outline: none;
         }
         &::placeholder {
             color: $clr4;

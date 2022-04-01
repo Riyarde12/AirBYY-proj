@@ -52,7 +52,7 @@ async function getById(id) {
 // }
 
 async function save(order) {
-    const approvedOrder = await httpService.post(ENDPOINT , order);
+    const approvedOrder = await httpService.post(ENDPOINT, order);
     return approvedOrder;
 
     // console.log('order', order);
@@ -65,7 +65,7 @@ async function save(order) {
 function getEmptyOrder() {
 
     return {
-        guests: { adults: 0, children: 0, pets: 0, infants: 0 },
+        guests: { adults: 1, children: 0, pets: 0, infants: 0 },
         dates: { from: null, to: null },
         reserve: { destination: '', roomName: '', roomId: "" },
     };
