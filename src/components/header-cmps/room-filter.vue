@@ -161,12 +161,42 @@
 			onFilterAmenities(amenities) {
 				this.$store.commit({ type: "setAmenities", amenities });
 			},
-			sendFilterBy() {
+			async sendFilterBy() {
 				this.$store.commit({
 					type: "setFilterByRoomType",
 					filterBy: JSON.parse(JSON.stringify(this.filterBy)),
 				});
-				this.$store.dispatch({ type: "loadRooms" });
+
+				try {
+					await this.$store.dispatch({ type: "loadRooms" });
+					this.setRouterParams();
+					// this.$router.go("/");
+				} catch (err) {
+					console.log("Cannot loadRooms", err);
+					throw err;
+				}
+			},
+			setRouterParams() {
+				// console.log("Hey");
+				const filterByRoomType = [];
+				const filterBy = this.$store.getters.filterBy;
+				// console.log("filterBy", filterBy);
+				const { roomType } = filterBy;
+				const { entirePlace, privateRoom } = roomType;
+				if (entirePlace) filterByRoomType.push("Entire place");
+				if (privateRoom) filterByRoomType.push("Private room");
+				// console.log("filterByRoomType", filterByRoomType);
+				this.$router.push({
+					path: "explore",
+					query: {
+						destination: filterBy.destination,
+						adults: filterBy.adults,
+						children: filterBy.children,
+						infants: filterBy.infants,
+						pets: filterBy.pets,
+						roomType: filterByRoomType,
+					},
+				});
 			},
 		},
 		computed: {

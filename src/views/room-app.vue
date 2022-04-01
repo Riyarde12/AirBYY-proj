@@ -11,6 +11,7 @@
 </template>
 
 <script>
+	import { hydrate } from "@vue/runtime-dom";
 	import roomList from "../components/room-list.vue";
 
 	export default {
@@ -22,29 +23,44 @@
 			return {
 				rooms: null,
 				searchedLocation: null,
+				params: null,
 			};
 		},
 		async created() {
-			const params = this.$route.query;
-			this.searchedLocation = params.destination;
+			this.params = this.$route.query;
+			this.searchedLocation = this.params.destination;
 			try {
 				await this.$store.dispatch({
 					type: "filter",
-					filterBy: JSON.parse(JSON.stringify(params)),
+					filterBy: JSON.parse(JSON.stringify(this.params)),
 				});
-				this.rooms = this.$store.getters.rooms;
+				this.setCurrRooms();
+				// this.rooms = this.$store.getters.rooms;
 				console.log("rooms", this.rooms);
 			} catch (err) {
 				console.log("err", err);
 			}
 		},
-		methods: {},
+		methods: {
+			setCurrRooms() {
+				console.log("hey");
+				this.rooms = this.$store.getters.rooms;
+			},
+		},
 		computed: {
 			getNumberOfRooms() {
 				return this.$store.getters.rooms.length;
 			},
 			getSearch() {
 				return this.$store.getters.currSearch;
+			},
+		},
+		watch: {
+			params: {
+				handler() {
+					console.log("hey");
+					this.setCurrRooms();
+				},
 			},
 		},
 	};
