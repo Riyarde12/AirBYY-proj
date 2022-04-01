@@ -2,7 +2,7 @@
 	<section class="dashboard">
 		<h1>Hello dashboard</h1>
 
-		<pre>{{ orders }}</pre>
+		<!-- <pre>{{ orders }}</pre> -->
 
 		<p>
 			Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia eius
@@ -65,10 +65,10 @@
 	export default {
 		name: "dashboard",
 		components: {},
-		created() {
-			this.$store.dipatch({ type: "loadOrders" });
-			this.orders = this.$store.getters.orders;
-		},
+		// created() {
+		// 	this.$store.dipatch({ type: "loadOrders" });
+		// 	this.orders = this.$store.getters.orders;
+		// },
 		data() {
 			return {
 				orders: [],
