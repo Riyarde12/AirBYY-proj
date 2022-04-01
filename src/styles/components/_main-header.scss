@@ -190,10 +190,12 @@
 }
 
 .header-detail-layout {
+  position: absolute;
   border-bottom: 1px solid $clr6;
   grid-template-columns: minmax(20px, 1fr) minmax(auto, 1120px) minmax(20px, 1fr);
   & .header-detail-extanded {
-    // grid-template-rows: 80px 80px;
-    // justify-content: center;
+    position: relative;
+    justify-content: center;
+    top: -10px;
   }
 }

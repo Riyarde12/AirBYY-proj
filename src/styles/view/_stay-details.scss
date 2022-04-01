@@ -1,5 +1,4 @@
 .room-detail {
-    // main layout needed
     h1 {
         font-size: 1.625rem;
         line-height: 1.6875rem;
@@ -18,7 +17,8 @@
         margin-bottom: 24px;
 
         h4 {
-            margin-block: 0;
+            font-family: $txtBookDefault;
+            font-weight: 500;
         }
 
         .short-detail-container {
