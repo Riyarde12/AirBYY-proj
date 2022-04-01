@@ -1,13 +1,17 @@
 <template>
   <section class="app-header" :style="getHomeStyle()" :class="getLayout()">
-    <section class="extanded-header" :class="getLayoutExtanded()">
-      <room-filter v-if="currPage === 'explore'" />
-    </section>
-    <section class="extanded-header" :class="getLayoutExtanded()">
+    <!-- <section :class="getLayoutExtanded()"> -->
+    <!-- </section> -->
+    <section
+      class="extanded-header"
+      :style="getfilterCenter()"
+      :class="getLayoutExtanded()"
+    >
       <search-bar
         class="search-bar-outline"
         :style="{ display: shrinkedHeader ? 'none' : 'block' }"
       />
+      <room-filter class="extanded-explore-header" v-if="showFilter" />
     </section>
     <section class="header-contact">
       <section class="home-btn">
@@ -162,6 +166,7 @@ export default {
         this.headerOnTop = false;
         if (this.currPage === "home") this.shrinkedHeader === false;
       } else {
+        if (this.currPage === "home") this.shrinkedHeader = false;
         this.headerOnTop = true;
       }
     },
@@ -218,6 +223,13 @@ export default {
     closeLoginModal() {
       this.showModal = false;
     },
+    getfilterCenter() {
+      if (this.currPage === "explore" && this.shrinkedHeader) {
+        return { justifyContent: "flex-start" };
+      } else {
+        return { justifyContent: "center" };
+      }
+    },
   },
   computed: {
     getStyle() {
@@ -233,6 +245,9 @@ export default {
       } else {
         return { color: "#ff385c" };
       }
+    },
+    showFilter() {
+      return this.currPage === "explore" && this.shrinkedHeader ? true : false;
     },
   },
 };
