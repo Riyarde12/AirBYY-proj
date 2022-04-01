@@ -3,11 +3,10 @@
     gap: 5px;
 
     & .modal-type {
-        height: 380px;
         width: 360px;
-        overflow: auto;
-        padding: 20px;
+
         & .options {
+            padding: 20px;
             border-bottom: 1px solid $clr6;
             & .filter-option {
                 padding: 12px 0;
@@ -37,10 +36,9 @@
         }
         & .btns-area {
             display: flex;
-            height: 40px;
+            padding: 20px;
             align-items: flex-end;
             justify-content: space-between;
-            margin-top: 15px;
 
             & .clear {
                 border: none;
@@ -49,7 +47,7 @@
                 background-color: $clr8;
                 font-weight: 600;
                 text-decoration: underline;
-                color: $clr6;
+                color: $clr5;
             }
 
             & .save {
