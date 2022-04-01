@@ -12,6 +12,7 @@
 							aria-hidden="true"
 							role="presentation"
 							focusable="false"
+							@click="closeLoginModal"
 						>
 							<path d="m6 6 20 20"></path>
 							<path d="m26 6-20 20"></path>
