@@ -26,6 +26,8 @@
 			</svg>
 		</button>
 
+		<!-- TYPE OF PLACE -->
+
 		<button @click="toggleModalType" class="filter-btn">
 			<p>Type Of Place</p>
 			<svg
@@ -143,8 +145,7 @@
 		name: "room-filter",
 		created() {
 			this.value = this.$store.getters.roomsPrices;
-			this.filterBy = this.$store.getters.filterBy;
-			console.log("this.filterBy", this.filterBy);
+			this.filterBy.roomType = this.$store.getters.filterByRoomType;
 		},
 		data() {
 			return {
@@ -159,7 +160,6 @@
 			},
 			onFilterAmenities(amenities) {
 				this.$store.commit({ type: "setAmenities", amenities });
-				console.log("amenities", amenities);
 			},
 			sendFilterBy() {
 				this.$store.commit({
@@ -167,7 +167,6 @@
 					filterBy: JSON.parse(JSON.stringify(this.filterBy)),
 				});
 				this.$store.dispatch({ type: "loadRooms" });
-				console.log("this.filterBy", this.filterBy);
 			},
 		},
 		computed: {
