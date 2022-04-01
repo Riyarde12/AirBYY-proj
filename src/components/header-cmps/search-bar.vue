@@ -279,7 +279,6 @@ export default {
     },
     onSelectDate() {
       this.$store.commit({ type: "saveDate", selectedDate: this.value1 });
-      console.log("this.value1", this.value1);
     },
     showDate(idx) {
       if (!this.value1) return "Add dates";

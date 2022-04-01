@@ -25,7 +25,6 @@
 		},
 		async created() {
 			this.params = this.$route.query;
-			console.log("this.params", this.params);
 			this.searchedLocation = this.params.destination;
 			try {
 				await this.$store.dispatch({
@@ -33,15 +32,13 @@
 					filterBy: JSON.parse(JSON.stringify(this.params)),
 				});
 				this.setCurrRooms();
-				// this.rooms = this.$store.getters.rooms;
-				console.log("rooms", this.rooms);
 			} catch (err) {
 				console.log("err", err);
 			}
 		},
 		methods: {
 			setCurrRooms() {
-				console.log("hey");
+				console.log("rooms changed after filter");
 				this.rooms = this.$store.getters.rooms;
 			},
 		},

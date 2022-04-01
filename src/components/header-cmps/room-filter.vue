@@ -177,15 +177,15 @@
 				}
 			},
 			setRouterParams() {
-				// console.log("Hey");
+				
 				const filterByRoomType = [];
 				const filterBy = this.$store.getters.filterBy;
-				// console.log("filterBy", filterBy);
+				
 				const { roomType } = filterBy;
 				const { entirePlace, privateRoom } = roomType;
 				if (entirePlace) filterByRoomType.push("Entire place");
 				if (privateRoom) filterByRoomType.push("Private room");
-				// console.log("filterByRoomType", filterByRoomType);
+		
 				this.$router.push({
 					path: "explore",
 					query: {
@@ -201,10 +201,6 @@
 		},
 		computed: {
 			pricesForDisplay() {
-				console.log(
-					"this.$store.getters.roomPrices",
-					this.$store.getters.roomPrices
-				);
 				return this.$store.getters.roomsPrices;
 			},
 			amenitiesForShow() {

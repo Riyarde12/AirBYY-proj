@@ -10,8 +10,6 @@ export default {
             return JSON.parse(JSON.stringify(state.orders));
         },
         getPreOrder({ preOrder }) {
-            console.log('preOrder', preOrder);
-            // return JSON.parse(JSON.stringify(preOrder));
             return JSON.parse(JSON.stringify(preOrder));
         },
     },
@@ -21,13 +19,10 @@ export default {
         },
         saveOrder(state, { order }) {
             state.orders.push(order);
-            console.log('state.orders', state.orders);
-
         },
         saveDate(state, { selectedDate }) {
             state.preOrder.dates = selectedDate;
         },
-
     },
     actions: {
         async loadOrders({ commit, state }) {
