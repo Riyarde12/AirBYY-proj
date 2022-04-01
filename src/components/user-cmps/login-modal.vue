@@ -96,11 +96,9 @@
 				}
 			},
 			onToggle() {
-				console.log("this.signUp", this.signUp);
 				this.signUp = !this.signUp;
 			},
 			toggleShow() {
-				console.log("hey");
 				this.$emit("closeLoginModal");
 			},
 		},

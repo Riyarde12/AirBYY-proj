@@ -76,9 +76,12 @@
                         color: $clr3;
                     }
 
-                    // & :first-child {
-                    //     width: 160.967px;
-                    // }
+                    & .el-range-editor.el-input__inner {
+                        height: 65px !important;
+                        position: absolute;
+                        width: 321px !important;
+                        opacity: 0;
+                    }
 
                     .checkin-out {
                         padding-left: 12px;

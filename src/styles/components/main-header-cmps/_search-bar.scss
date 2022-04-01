@@ -197,4 +197,13 @@
 
 .search-section {
     height: 4.1875rem !important;
+    position: relative;
+    & .el-range-editor.el-input__inner {
+        height: 68px !important;
+        position: absolute;
+        width: 363px !important;
+        top: -1px;
+        right: 260px;
+        opacity: 0;
+    }
 }

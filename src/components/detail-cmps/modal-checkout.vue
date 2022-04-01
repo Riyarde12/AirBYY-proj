@@ -57,7 +57,7 @@
 								</div>
 								<guests-modal
 									v-if="openGuestsModal"
-									:currOrder1="currOrder"
+									:currOrder="currOrder"
 									@closeModal="onCloseModal"
 									@onRemove="onRemove"
 									@onAdd="onAdd"
@@ -129,11 +129,9 @@
 			onRemove(guest) {
 				if (this.currOrder.guests[guest] <= 0) return;
 				this.currOrder.guests[guest]--;
-				console.log("this.currOrder", this.currOrder);
 			},
 			onAdd(guest) {
 				this.currOrder.guests[guest] += 1;
-				console.log("this.currOrder", this.currOrder);
 			},
 			onReserve() {
 				const { _id, address } = this.room;
@@ -159,7 +157,6 @@
 			},
 			guestsForDisplay() {
 				const guests = this.currOrder.guests;
-				console.log("guests", guests);
 				let sum = 0;
 				for (const item in guests) {
 					sum += guests[item];
@@ -212,10 +209,4 @@
 </script>
 
 <style>
-.el-range-editor.el-input__inner {
-  height: 65px !important;
-  position: absolute;
-  width: 321px !important;
-  /* opacity: 0; */
-}
 </style>

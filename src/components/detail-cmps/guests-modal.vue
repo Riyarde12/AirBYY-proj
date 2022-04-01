@@ -58,19 +58,11 @@
 		name: "guests-modal",
 		components: {},
 		props: {
-			currOrder1: { type: Object },
+			currOrder: { type: Object },
 		},
 		created() {},
 		data() {
-			return {
-				currOrder: this.currOrder1,
-				// guests: {
-				// 	adults: 0,
-				// 	children: 0,
-				// 	pets: 0,
-				// 	infants: 0,
-				// },
-			};
+			return {};
 		},
 		methods: {
 			onCloseModal() {
@@ -82,31 +74,7 @@
 			onAdd(guest) {
 				this.$emit("onAdd", guest);
 			},
-			// onRemove(guest) {
-			// 	if (this.guests[guest] <= 0) return;
-			// 	this.guests[guest]--;
-			// 	this.$emit("onRemove", this.guests);
-			// },
-			// onAdd(guest) {
-			// 	this.guests[guest]++;
-			// 	this.$emit("onAdd", this.guests);
-			// 	console.log(this.guests);
-			// },
 		},
-		computed: {
-			counterGuestsForShow() {
-				return this.currOrder;
-			},
-		},
-		watch: {
-			currOrder1: {
-				handler() {
-					console.log("hey", this.currOrder1);
-					this.currOrder = this.currOrder1;
-				},
-				deep: true,
-				immidiate: true,
-			},
-		},
+		computed: {},
 	};
 </script>

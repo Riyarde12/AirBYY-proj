@@ -302,15 +302,11 @@
 			},
 			changeStatusOrder() {
 				this.isOrderSuccesses = !this.isOrderSuccesses;
-				console.log("this.isOrderSuccesses", this.isOrderSuccesses);
 			},
 			onClose() {
 				this.showModal = false;
 				this.changeStatusOrder();
 			},
-			// toggleShow() {
-			// 	this.show = false;
-			// },
 		},
 		computed: {
 			showGreatloc() {
@@ -326,9 +322,7 @@
 				return this.room.imgUrls;
 			},
 			svgForDisplay(str) {
-				console.log(JSON.stringify(str));
 				str = str.replace(/\s/g, "");
-				console.log("str", str);
 			},
 			getLoggedInUser() {
 				return this.$store.getters.loggedInUser;

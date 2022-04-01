@@ -32,12 +32,12 @@ export default {
       return filterBy.destination;
     },
     filterBy(state) {
+      console.log('state.filterBy', state.filterBy);
       return JSON.parse(JSON.stringify(state.filterBy));
     },
     filterByRoomType(state) {
       const { roomType } = state.filterBy;
       return JSON.parse(JSON.stringify(roomType));
-
     },
     roomsPrices(state) {
       // let prices = [];
