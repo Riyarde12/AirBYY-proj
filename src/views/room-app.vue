@@ -25,6 +25,7 @@
 		},
 		async created() {
 			this.params = this.$route.query;
+			console.log("this.params", this.params);
 			this.searchedLocation = this.params.destination;
 			try {
 				await this.$store.dispatch({
@@ -53,11 +54,12 @@
 			},
 		},
 		watch: {
-			params: {
+			"$route.params": {
 				handler() {
-					console.log("hey");
 					this.setCurrRooms();
 				},
+				deep: true,
+				immediate: true,
 			},
 		},
 	};
