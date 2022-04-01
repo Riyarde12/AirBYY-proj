@@ -216,6 +216,6 @@
   height: 65px !important;
   position: absolute;
   width: 321px !important;
-  opacity: 0;
+  /* opacity: 0; */
 }
 </style>
