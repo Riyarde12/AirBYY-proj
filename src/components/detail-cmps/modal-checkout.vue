@@ -38,6 +38,9 @@
 									@click.stop="addGuests"
 								>
 									<div class="guests">GUESTS</div>
+									<span v-if="guestsForDisplay">
+										{{ guestsForDisplay }}
+									</span>
 									<svg
 										viewBox="0 0 32 32"
 										xmlns="http://www.w3.org/2000/svg"
@@ -67,14 +70,26 @@
 							@click="onReserve"
 							@mousemove="set"
 						>
-							<span>Check availability</span>
+							<span>{{ showCheckReserveTxt }}</span>
 							<!-- <pre>{{ totalPrice }}</pre> -->
 						</button>
 					</div>
-					<!-- <div>
-						<pre v-if="dates">{{ daysCounter }}</pre>
-						<pre v-if="dates">{{ totalPrice }}</pre>
-					</div> -->
+					<div v-if="dates">
+						<span>You won't be charged yet</span>
+						<p>
+							${{ room.price }} x {{ daysCounter }} nights
+							<span>${{ totalPrice }}</span>
+						</p>
+						<p>
+							Cleanning fee <span>${{ showCleanningFee }}</span>
+						</p>
+						<p>Service fee <span>$0</span></p>
+						<p>Occupancy taxes and fees <span>$0</span></p>
+						<p>
+							<span>Total</span>
+							<span>{{ totalPrice }}</span>
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -149,7 +164,9 @@
 				for (const item in guests) {
 					sum += guests[item];
 				}
-				return sum;
+				if (sum === 0) return "";
+				if (sum === 1) return `guest ${sum}`;
+				else return `guests ${sum}`;
 			},
 			daysCounter() {
 				const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
@@ -158,11 +175,11 @@
 				const diffDays = Math.round(Math.abs((firstDate - secondDate) / oneDay));
 				return diffDays;
 			},
-			// totalPrice() {
-			// 	if (!this.dates) return;
-			// 	let totalPrice = this.room.price * this.daysCounter;
-			// 	return totalPrice;
-			// },
+			totalPrice() {
+				if (!this.dates) return;
+				let totalPrice = this.room.price * this.daysCounter;
+				return totalPrice;
+			},
 			set() {
 				let btn = document.querySelector(".tracking");
 				btn.addEventListener("mousemove", (e) => {
@@ -172,6 +189,23 @@
 					btn.style.setProperty("--x", x + "px");
 					btn.style.setProperty("--y", y + "px");
 				});
+			},
+			showCheckReserveTxt() {
+				const { from, to } = this.currOrder.dates;
+				if (from && to) return "Reserve";
+				else return "Check avalability";
+			},
+			showCleanningFee() {
+				if (!this.room.cleanningfee) return 0;
+			},
+			showServiceFee() {
+				function getRandomInt(min, max) {
+					min = Math.ceil(min);
+					max = Math.floor(max);
+					return Math.floor(Math.random() * (max - min) + min);
+				}
+				let serviceFee = getRandomInt(0, 100);
+				return serviceFee;
 			},
 		},
 	};
