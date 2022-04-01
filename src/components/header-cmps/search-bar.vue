@@ -50,15 +50,10 @@
 					</div>
 					<!-- </div> -->
 					<!-- TEST -->
-					<div
+					<button
 						@click.stop="sendFilter"
 						:class="[modalOpen ? 'small-padding' : 'large-padding']"
-						class="
-							el-button el-button--danger el-button--large
-							is-circle
-							search-bar-btn
-						"
-						type="button"
+						class="search-bar-btn tracking"
 					>
 						<i class="el-icon">
 							<svg
@@ -84,7 +79,7 @@
 								</g></svg
 							><span v-if="modalOpen">search</span>
 						</i>
-					</div>
+					</button>
 					<!-- TEST -->
 					<!-- <el-button
             @click.prevent="sendFilter"
