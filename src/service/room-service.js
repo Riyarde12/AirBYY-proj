@@ -18,8 +18,7 @@ const BASE_URL = process.env.NODE_ENV !== "development"
   : "//localhost:3030/api/room/";
 
 async function query(filterBy) {
-  // filterBy = {}
-  console.log(filterBy);
+  filterBy = {};
   try {
     const rooms = httpService.get(ENDPOINT, filterBy);
     return rooms;

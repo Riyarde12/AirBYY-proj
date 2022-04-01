@@ -20,15 +20,9 @@ export default {
     },
     homeRooms: null,
     amenities: [],
-    // userSignUp: {
-    //   fullname: "",
-    //   inputUsername: "",
-    //   inputPassword: "",
-    // },
   },
   getters: {
     rooms(state) {
-      console.log(JSON.parse(JSON.stringify(state.rooms)));
       return JSON.parse(JSON.stringify(state.rooms));
     },
     destinations(state) {
@@ -39,6 +33,11 @@ export default {
     },
     filterBy(state) {
       return JSON.parse(JSON.stringify(state.filterBy));
+    },
+    filterByRoomType(state) {
+      const { roomType } = state.filterBy;
+      return JSON.parse(JSON.stringify(roomType));
+
     },
     roomsPrices(state) {
       // let prices = [];
@@ -85,24 +84,20 @@ export default {
     },
     clearFliterBy(state) {
       state.filterBy = {
-        rooms: null,
-        destination: null,
-        filterBy: {
-          destination: '',
-          adults: 0,
-          children: 0,
-          infants: 0,
-          pets: 0,
-          roomType: {
-            entirePlace: false,
-            privateRoom: false,
-            hotelRoom: false,
-            sharedRoom: false,
-          },
-          price: { min: null, max: null }
+        destination: '',
+        adults: 0,
+        children: 0,
+        infants: 0,
+        pets: 0,
+        roomType: {
+          entirePlace: false,
+          privateRoom: false,
+          hotelRoom: false,
+          sharedRoom: false,
         },
+        price: { min: null, max: null }
       };
-    }
+    },
   },
   actions: {
     async loadRooms({ commit, state }) {
@@ -157,3 +152,4 @@ export default {
     },
   }
 };
+
