@@ -45,6 +45,9 @@
     & .preview-details {
         & > * {
             margin: 3px 0;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
         }
 
         & .price {

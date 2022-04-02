@@ -12,7 +12,6 @@
         box-shadow: $op5;
         flex-direction: column;
         padding: 24px;
-        max-height: 290px;
         margin-top: 10px;
 
         .top-modal-container {
@@ -40,11 +39,37 @@
                 }
             }
         }
+
+        & .reserve-modal {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            & .reserve-msg {
+                font-size: 0.875rem;
+                line-height: 1.125rem;
+                margin: 20px 0;
+            }
+
+            & p {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                line-height: 1.25rem;
+                margin: 5px 0;
+                & .reserve-title {
+                    text-decoration: underline;
+                }
+                &.reserve-total {
+                    font-family: $txtBoldDefault;
+                    margin-top: 10px;
+                    padding-top: 23px;
+                    border-top: 1px solid $clr5;
+                }
+            }
+        }
     }
     .display-order-container {
-        width: 20.17081em;
-        height: 14.2em;
-
         .checkin-checkout-container {
             cursor: pointer;
             margin-bottom: 16px;
@@ -115,10 +140,15 @@
                     }
 
                     .guests {
-                        padding-bottom: 25px;
-                        font-size: 0.665rem;
-                        font-weight: 800;
+                        padding: 5px 0;
+                        color: $clr1;
+                        font-size: 0.675rem;
+                        // font-weight: 800;
+                        font-family: $txtBoldDefault;
                         line-height: 0.75;
+                    }
+                    .guests-val {
+                        color: $clr3;
                     }
                 }
             }
