@@ -122,6 +122,9 @@
 			</login-modal>
 		</Teleport>
 	</section>
+	<div @click="closeModal" v-if="tapOut" class="close-modal">
+
+	</div>
 </template>
 
 <script>
@@ -139,6 +142,7 @@
 				shrinkedHeader: false,
 				isUserModalOpen: false,
 				showModal: false,
+				tapOut: false
 			};
 		},
 		components: {
@@ -157,6 +161,11 @@
 			);
 		},
 		methods: {
+			closeModal(){
+				this.isUserModalOpen = false,
+				this.showModal = false,
+				this.tapOut = false
+			},
 			scrollToTop() {
 				window.scrollTo(0, 0);
 			},
@@ -208,6 +217,7 @@
 			},
 			toggleUserModal() {
 				this.isUserModalOpen = !this.isUserModalOpen;
+				this.tapOut = !this.tapOut
 			},
 			getHomeStyle() {
 				if (this.headerOnTop && this.currPage === "home") {
