@@ -141,9 +141,7 @@
 				<button class="save" @click="sendFilterBy">Save</button>
 			</section>
 		</div>
-		<div v-if="tapOut" @click="closeMdal" class="close-modal">
-
-    </div>
+		<div v-if="tapOut" @click="closeMdal" class="close-modal"></div>
 		<!-- <pre>{{ pricesForDisplay }}</pre> -->
 	</section>
 </template>
@@ -170,14 +168,14 @@
 			};
 		},
 		methods: {
-			closeMdal(){
-				this.tapOut = false,
-				this.modalType = false,
-				this.modalPrice = false
+			closeMdal() {
+				(this.tapOut = false),
+					(this.modalType = false),
+					(this.modalPrice = false);
 			},
-			scroll(){
-				this.modalType = false
-				this.modalPrice = false
+			scroll() {
+				this.modalType = false;
+				this.modalPrice = false;
 			},
 			toggleModalType() {
 				this.modalType = !this.modalType;
@@ -206,7 +204,9 @@
 				}
 			},
 			onAmenities(amenity) {
-				this.filterBy.amenities.push(amenity);
+				if (this.filterBy.amenities.includes(amenity))
+					this.filterBy.amenities.pop();
+				else this.filterBy.amenities.push(amenity);
 				console.log("amenities", amenity);
 
 				this.$store.commit({
