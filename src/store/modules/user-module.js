@@ -8,7 +8,7 @@ export default {
     getters: {
         loggedInUser(state) {
             console.log('state.loggedInUser', state.loggedInUser);
-            return { ...state.loggedInUser };
+            return state.loggedInUser;
 
         },
         avatar(state) {

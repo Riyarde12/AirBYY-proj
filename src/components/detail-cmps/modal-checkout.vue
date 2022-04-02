@@ -83,11 +83,16 @@
 						<p>
 							Cleanning fee <span>${{ showCleanningFee }}</span>
 						</p>
-						<p>Service fee <span>$0</span></p>
+						<p>
+							Service fee <span>${{ showServiceFee }}</span>
+						</p>
 						<p>Occupancy taxes and fees <span>$0</span></p>
+						<p v-if="room.securityDeposit">
+							Security deposite ${{ securityDeposit }}
+						</p>
 						<p>
 							<span>Total</span>
-							<span>{{ totalPrice }}</span>
+							<span>${{ calcTotalPriceWithServices }}</span>
 						</p>
 					</div>
 				</div>
@@ -136,6 +141,8 @@
 			onReserve() {
 				const { _id, address } = this.room;
 				this.currOrder.reserve.roomId = _id;
+				this.currOrder.dateOrdered = Date.now();
+				this.currOrder.totalAmount = this.calcTotalPriceWithServices;
 				this.currOrder.reserve.destination = address.country;
 				this.$emit("onReserve", this.currOrder);
 				this.currOrder.guests = { adults: 0, children: 0, pets: 0, infants: 0 };
@@ -177,6 +184,15 @@
 				let totalPrice = this.room.price * this.daysCounter;
 				return totalPrice;
 			},
+			calcTotalPriceWithServices() {
+				if (!this.dates) return;
+				let amount =
+					this.room.price * this.daysCounter +
+					this.showServiceFee +
+					this.securityDeposit;
+				console.log("amount", amount);
+				return amount;
+			},
 			set() {
 				let btn = document.querySelector(".tracking");
 				btn.addEventListener("mousemove", (e) => {
@@ -203,6 +219,10 @@
 				}
 				let serviceFee = getRandomInt(0, 100);
 				return serviceFee;
+			},
+			securityDeposit() {
+				if (!this.room.securityDeposit) return;
+				return this.room.securityDeposit;
 			},
 		},
 	};

@@ -16,10 +16,11 @@ export default {
         hotelRoom: false,
         sharedRoom: false,
       },
-      price: { min: null, max: null }
+      price: { from: null, to: null },
+      amenities: [],
     },
     homeRooms: null,
-    amenities: [],
+
   },
   getters: {
     rooms(state) {
@@ -39,12 +40,18 @@ export default {
       const { roomType } = state.filterBy;
       return JSON.parse(JSON.stringify(roomType));
     },
+    filterByPrice(state) {
+      return { ...state.filterBy.price };
+    },
+    // filterByAmenities(state) {
+    //   return { ...state.filterBy.amenities };
+    // },
     roomsPrices(state) {
-      // let prices = [];
-      // state.rooms.forEach(room => {
-      //   prices.push(room.price);
-      // });
-      // return prices;
+      let prices = [];
+      state.rooms.forEach(room => {
+        prices.push(room.price);
+      });
+      return prices;
     },
   },
   mutations: {
@@ -75,12 +82,13 @@ export default {
       state.filterBy.roomType = roomType;
       state.filterBy.price = price;
     },
+    setAmenities(state, { amenities }) {
+      console.log('amenities', amenities);
+      state.filterBy.amenities.push(amenities[0]);
+    },
     saveDestination(state) {
       const destinationToSave = state.rooms.filter(room => room.address.country);
       state.destination = destinationToSave;
-    },
-    setAmenities(state, amenities) {
-      state.amenities.push(amenities);
     },
     clearFliterBy(state) {
       state.filterBy = {

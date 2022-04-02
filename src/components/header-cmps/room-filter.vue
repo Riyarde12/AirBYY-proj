@@ -59,7 +59,7 @@
     <button
       v-for="(item, idx) in amenitiesForShow"
       :key="idx"
-      @click="onFilterAmenities(item)"
+      @click="onAmenities(item)"
       class="filter-btn"
     >
       <p>{{ item }}</p>
@@ -121,104 +121,132 @@
       </section>
     </div>
 
-    <!-- <div id="app">
-			<HistogramSlider
-				style="margin: 200px auto"
-				:width="300"
-				:bar-height="100"
-				:data="pricesForDisplay"
-				:drag-interval="true"
-				:force-edges="false"
-				:colors="['#4facfe', '#00f2fe']"
-				:min="0"
-				:max="250"
-				:barWidth="6"
-				:update="pricesForDisplay"
-			/>
-		</div>
-		<pre>{{ pricesForDisplay }}</pre> -->
+    <div class="modals modal-price" v-if="ModalPrice" id="app">
+      <section class="options">
+        <HistogramSlider
+          style="margin: 200px auto"
+          :width="400"
+          :bar-height="100"
+          :data="pricesForDisplay"
+          :min="0"
+          :max="500"
+          :force-edges="false"
+          :colors="['#ff385c', '#bd1e59']"
+          :barWidth="6"
+          @change="onChangePrice"
+        />
+      </section>
+      <section class="btns-area">
+        <button class="clear">Clear</button>
+        <button class="save" @click="sendFilterBy">Save</button>
+      </section>
+    </div>
+    <!-- <pre>{{ pricesForDisplay }}</pre> -->
   </section>
 </template>
 
 <script>
-	export default {
-		name: "room-filter",
-		created() {
-			this.value = this.$store.getters.roomsPrices;
-			this.filterBy.roomType = this.$store.getters.filterByRoomType;
-		},
-		data() {
-			return {
-				ModalType: false,
-				value: null,
-				filterBy: {},
-			};
-		},
-		methods: {
-			toggleModalType() {
-				this.ModalType = !this.ModalType;
-			},
-			onFilterAmenities(amenities) {
-				this.$store.commit({ type: "setAmenities", amenities });
-			},
-			async sendFilterBy() {
-				this.$store.commit({
-					type: "setFilterByRoomType",
-					filterBy: JSON.parse(JSON.stringify(this.filterBy)),
-				});
+export default {
+  name: "room-filter",
+  created() {
+    this.filterBy.roomType = this.$store.getters.filterByRoomType;
+    this.filterBy.price = this.$store.getters.filterByPrice;
+    // this.filterBy.amenities = this.$store.getters.filterByAmenities;
+    console.log("this.filterBy.amenities", this.filterBy.amenities);
+  },
+  data() {
+    return {
+      ModalType: false,
+      ModalPrice: false,
+      value: null,
+      filterBy: {
+        amenities: [],
+      },
+    };
+  },
+  methods: {
+    toggleModalType() {
+      this.ModalType = !this.ModalType;
+    },
+    toggleModalPrice() {
+      this.ModalPrice = !this.ModalPrice;
+    },
+    async sendFilterBy() {
+      this.ModalType = false;
+      this.ModalPrice = false;
+      console.log("filterBy", this.filterBy);
+      this.$store.commit({
+        type: "setFilterByRoomType",
+        filterBy: JSON.parse(JSON.stringify(this.filterBy)),
+      });
+      try {
+        await this.$store.dispatch({
+          type: "loadRooms",
+        });
+        this.setRouterParams();
+      } catch (err) {
+        console.log("Cannot loadRooms", err);
+        throw err;
+      }
+    },
+    onAmenities(amenities) {
+      this.filterBy.amenities.push(amenities);
+      this.$store.commit({
+        type: "setAmenities",
+        amenities: { ...this.filterBy.amenities },
+      });
+      this.setRouterParams();
+    },
+    setRouterParams() {
+      const { price } = this.filterBy;
+      const { from, to } = price;
+      const filterByRoomType = [];
 
-				try {
-					await this.$store.dispatch({ type: "loadRooms" });
-					this.setRouterParams();
-					// this.$router.go("/");
-				} catch (err) {
-					console.log("Cannot loadRooms", err);
-					throw err;
-				}
-			},
-			setRouterParams() {
-				
-				const filterByRoomType = [];
-				const filterBy = this.$store.getters.filterBy;
-				
-				const { roomType } = filterBy;
-				const { entirePlace, privateRoom } = roomType;
-				if (entirePlace) filterByRoomType.push("Entire place");
-				if (privateRoom) filterByRoomType.push("Private room");
-		
-				this.$router.push({
-					path: "explore",
-					query: {
-						destination: filterBy.destination,
-						adults: filterBy.adults,
-						children: filterBy.children,
-						infants: filterBy.infants,
-						pets: filterBy.pets,
-						roomType: filterByRoomType,
-					},
-				});
-			},
-		},
-		computed: {
-			pricesForDisplay() {
-				return this.$store.getters.roomsPrices;
-			},
-			amenitiesForShow() {
-				return [
-					"Wifi",
-					"Kitchen",
-					"Air conditioning",
-					"Free canellation",
-					"Gym",
-					"Dryer",
-					"Pool",
-					"Elevator",
-					"TV",
-					"Essentials",
-				];
-			},
-		},
-	};
+      const filterBy = this.$store.getters.filterBy;
+      const { roomType, amenities } = filterBy;
+      const { entirePlace, privateRoom } = roomType;
+      if (entirePlace) filterByRoomType.push("Entire place");
+      if (privateRoom) filterByRoomType.push("Private room");
+      this.$router.push({
+        path: "explore",
+        query: {
+          destination: filterBy.destination,
+          adults: filterBy.adults,
+          children: filterBy.children,
+          infants: filterBy.infants,
+          pets: filterBy.pets,
+          roomType: filterByRoomType,
+          pricefrom: from,
+          priceTo: to,
+          amenities: amenities,
+        },
+      });
+    },
+    onChangePrice(e) {
+      const { from, to } = e;
+      this.filterBy.price = { from, to };
+    },
+  },
+  computed: {
+    pricesForDisplay() {
+      return this.$store.getters.roomsPrices;
+    },
+    amenitiesForShow() {
+      return [
+        "Wifi",
+        "Kitchen",
+        "Air conditioning",
+        "Free canellation",
+        "Gym",
+        "Dryer",
+        "Pool",
+        "Elevator",
+        "TV",
+        "Essentials",
+      ];
+    },
+  },
+};
 </script>
 
 <style>

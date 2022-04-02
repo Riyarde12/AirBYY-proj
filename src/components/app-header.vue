@@ -104,6 +104,7 @@
 						class="user-info-modal"
 						v-if="isUserModalOpen"
 						@openModalLogin="onOpenloginModal"
+						@openModalSignup="openModalSignup"
 					/>
 				</button>
 			</section>
@@ -112,7 +113,6 @@
 		<!-- LOGIN / SIGNUP -->
 
 		<Teleport to="body">
-			<!-- use the modal component, pass in the prop -->
 			<login-modal
 				:loginModalOpen="showModal"
 				@close="showModal = false"
@@ -222,6 +222,7 @@
 			closeLoginModal() {
 				this.showModal = false;
 			},
+			openModalSignup() {},
 			getfilterCenter() {
 				if (this.currPage === "explore" && this.shrinkedHeader) {
 					return { justifyContent: "flex-start" };
