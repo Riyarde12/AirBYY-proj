@@ -172,6 +172,8 @@
 				this.modalPrice = !this.modalPrice;
 			},
 			async sendFilterBy() {
+				this.modalType = false;
+				this.modalPrice = false;
 				console.log("filterBy", this.filterBy);
 				this.$store.commit({
 					type: "setFilterByRoomType",
