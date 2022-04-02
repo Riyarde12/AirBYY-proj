@@ -53,7 +53,7 @@
           <button
             @click.stop="sendFilter"
             :class="[modalOpen ? 'small-padding' : 'large-padding']"
-            class="search-bar-btn tracking"
+            class="search-bar-btn demo-tracking"
           >
             <i class="el-icon">
               <svg
@@ -202,20 +202,8 @@ export default {
     if (params.destination) {
       this.filterBy.destination = params.destination;
     }
-    window.addEventListener("scroll", this.onScroll);
-    // window.addEventListener("click", this.puki);
   },
-
   methods: {
-   
-    onScroll(){
-      this.modalGuests = false
-      this.modalDestination = false
-       this.modalDate = false
-       this. modal4 = false
-       this. modal5 = false
-        this.modalOpen = false
-    },
     add(addedVal, key) {
       if (addedVal && this.filterBy[key]) {
         this.filterBy[key]++;
@@ -291,6 +279,7 @@ export default {
     },
     onSelectDate() {
       this.$store.commit({ type: "saveDate", selectedDate: this.value1 });
+      console.log("this.value1", this.value1);
     },
     showDate(idx) {
       if (!this.value1) return "Add dates";
