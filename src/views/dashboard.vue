@@ -91,6 +91,7 @@
 			dateOrderedForDisplay(dateOrdered) {
 				let currTimeExpires = Date.now() - dateOrdered;
 				const date = new Date(currTimeExpires);
+				// return date.setHours();
 				return date.toLocaleTimeString();
 			},
 		},
