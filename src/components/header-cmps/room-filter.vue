@@ -141,6 +141,9 @@
 				<button class="save" @click="sendFilterBy">Save</button>
 			</section>
 		</div>
+		<div v-if="tapOut" @click="closeMdal" class="close-modal">
+
+    </div>
 		<!-- <pre>{{ pricesForDisplay }}</pre> -->
 	</section>
 </template>
@@ -152,10 +155,12 @@
 			this.filterBy.roomType = this.$store.getters.filterByRoomType;
 			this.filterBy.price = this.$store.getters.filterByPrice;
 			// this.filterBy.amenities = this.$store.getters.filterByAmenities;
+			window.addEventListener("scroll", this.scroll);
 			console.log("this.filterBy.amenities", this.filterBy.amenities);
 		},
 		data() {
 			return {
+				tapOut: false,
 				modalType: false,
 				modalPrice: false,
 				value: null,
@@ -165,11 +170,22 @@
 			};
 		},
 		methods: {
+			closeMdal(){
+				this.tapOut = false,
+				this.modalType = false,
+				this.modalPrice = false
+			},
+			scroll(){
+				this.modalType = false
+				this.modalPrice = false
+			},
 			toggleModalType() {
 				this.modalType = !this.modalType;
+				this.tapOut = !this.tapOut;
 			},
 			toggleModalPrice() {
 				this.modalPrice = !this.modalPrice;
+				this.tapOut = !this.tapOut;
 			},
 			async sendFilterBy() {
 				this.modalType = false;

@@ -18,7 +18,7 @@
               <path d="m26 6-20 20"></path>
             </svg>
             <div class="modal-header">
-              <h1 name="header">You are not logged in</h1>
+              <h1 name="header">Please Login first to continue</h1>
             </div>
             <div class="modal-body">
               <button class="demo-tracking" id="show-modal" @click="onLogin">

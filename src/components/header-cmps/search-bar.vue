@@ -174,6 +174,9 @@
         />
       </div>
     </div>
+    <div v-if="tapOut" @click="closeMdal" class="close-modal">
+
+    </div>
   </section>
 </template>
 
@@ -195,6 +198,7 @@ export default {
       searchIcon,
       searchBarTaped: true,
       modalOpen: false,
+      tapOut: false
     };
   },
   created() {
@@ -202,8 +206,34 @@ export default {
     if (params.destination) {
       this.filterBy.destination = params.destination;
     }
+<<<<<<< HEAD
+    window.addEventListener("scroll", this.onScroll);
+    // window.addEventListener("click", this.puki);
+
+  },
+
+  
+
+  methods: {
+    closeAllModal(){
+       this.tapOut = false
+      this.modalGuests = false
+      this.modalDestination = false
+       this.modalDate = false
+       this. modal4 = false
+       this. modal5 = false
+        this.modalOpen = false
+    },
+    closeMdal(){ 
+      this.closeAllModal()
+    },
+    onScroll(){
+      this.closeAllModal()
+    },
+=======
   },
   methods: {
+>>>>>>> b451d4deca2981e1412ba13c897681dcb119e217
     add(addedVal, key) {
       if (addedVal && this.filterBy[key]) {
         this.filterBy[key]++;
@@ -236,7 +266,9 @@ export default {
             this.modal4 = false;
             this.modalDate = false;
             this.modalOpen = false;
+            this.tapOut = false;
           } else {
+            this.tapOut = true;
             this.modal4 = true;
             this.modal5 = false;
             this.modalDate = true;
@@ -247,11 +279,13 @@ export default {
             this.modal5 = false;
             this.modalDate = false;
             this.modalOpen = false;
+            this.tapOut = false;
           } else {
             this.$refs.input.focus();
             this.modal5 = true;
             this.modal4 = false;
             this.modalDate = true;
+            this.tapOut = true;
           }
         }
         this.modalGuests = false;
@@ -264,6 +298,8 @@ export default {
       if (this[modal] === true) {
         this[modal] = false;
         this.modalOpen = false;
+        this.tapOut = false
+        this.tapOut = false;
         return;
       }
       this.modalGuests = false;
@@ -276,6 +312,11 @@ export default {
         this.modalDestination === false
           ? false
           : true;
+          if (this.modalDestination||this.modalGuests){
+            this.tapOut = true
+          } else {
+            this.tapOut = false
+          }
     },
     onSelectDate() {
       this.$store.commit({ type: "saveDate", selectedDate: this.value1 });
@@ -296,4 +337,14 @@ export default {
 </script>
 
 <style>
+.close-modal {
+  position:fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  
+  z-index: 10;
+  opacity: 0;
+}
 </style>
