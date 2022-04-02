@@ -272,6 +272,8 @@
 			askLogin,
 		},
 		async created() {
+			this.loggedInUser = this.$store.getters.loggedInUser;
+			console.log("this.loggedInUser", this.loggedInUser);
 			const { roomId } = this.$route.params;
 			this.preOrder = this.$store.getters.getPreOrder;
 			try {

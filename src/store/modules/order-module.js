@@ -7,6 +7,7 @@ export default {
     },
     getters: {
         orders(state) {
+            console.log('state.orders', state.orders);
             return JSON.parse(JSON.stringify(state.orders));
         },
         getPreOrder({ preOrder }) {
