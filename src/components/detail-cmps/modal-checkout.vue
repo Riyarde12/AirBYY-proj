@@ -127,6 +127,7 @@ export default {
   },
   data() {
     return {
+      // openGuestsModal: true,
       openGuestsModal: false,
       currOrder: this.preOrder,
       dates: null,

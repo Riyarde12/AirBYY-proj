@@ -122,7 +122,7 @@
 			</login-modal>
 		</Teleport>
 	</section>
-	<div @click="closeModal" v-if="tapOut" class="close-modal">
+	<div @click="closeModal" v-if="tapOut" class="tap-close-modal">
 
 	</div>
 </template>

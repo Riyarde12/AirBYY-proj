@@ -174,7 +174,7 @@
         />
       </div>
     </div>
-    <div v-if="tapOut" @click="closeMdal" class="close-modal">
+    <div v-if="tapOut" @click="closeMdal" class="tap-close-modal">
 
     </div>
   </section>
@@ -308,7 +308,7 @@ export default {
           ? false
           : true;
           if (this.modalDestination||this.modalGuests){
-            this.tapOut = true
+            // this.tapOut = true
           } else {
             this.tapOut = false
           }
@@ -332,14 +332,5 @@ export default {
 </script>
 
 <style>
-.close-modal {
-  position:fixed;
-  left: 0;
-  top: 0;
-  height: 100vh;
-  width: 100vw;
-  
-  z-index: 10;
-  opacity: 0;
-}
+
 </style>
