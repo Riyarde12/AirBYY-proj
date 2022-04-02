@@ -1,11 +1,14 @@
 .login-modal {
     & .modal-container {
         width: 800px;
+        position: relative;
         & svg {
             display: block;
             fill: none;
             height: 16px;
             width: 16px;
+            top: 20px;
+            right: 20px;
             stroke: currentcolor;
             stroke-width: 3;
             overflow: visible;
