@@ -129,7 +129,7 @@
 					:bar-height="100"
 					:data="pricesForDisplay"
 					:min="0"
-					:max="500"
+					:max="300"
 					:force-edges="false"
 					:colors="['#ff385c', '#bd1e59']"
 					:barWidth="6"
