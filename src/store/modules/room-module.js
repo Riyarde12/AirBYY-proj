@@ -5,6 +5,7 @@ export default {
     rooms: null,
     destination: null,
     filterBy: {
+      amenities: [],
       destination: '',
       adults: 0,
       children: 0,
@@ -17,7 +18,6 @@ export default {
         sharedRoom: false,
       },
       price: { from: null, to: null },
-      amenities: [],
     },
     homeRooms: null,
 
@@ -44,7 +44,9 @@ export default {
       return { ...state.filterBy.price };
     },
     // filterByAmenities(state) {
-    //   return { ...state.filterBy.amenities };
+    //   console.log('state.filterBy.amenities', state.filterBy.amenities);
+    //   return JSON.parse(JSON.stringify(state.filterBy.amenities));
+
     // },
     roomsPrices(state) {
       let prices = [];
@@ -83,8 +85,7 @@ export default {
       state.filterBy.price = price;
     },
     setAmenities(state, { amenities }) {
-      console.log('amenities', amenities);
-      state.filterBy.amenities.push(amenities[0]);
+      state.filterBy.amenities.push(Object.values(amenities));
     },
     saveDestination(state) {
       const destinationToSave = state.rooms.filter(room => room.address.country);
@@ -103,7 +104,8 @@ export default {
           hotelRoom: false,
           sharedRoom: false,
         },
-        price: { min: null, max: null }
+        price: { min: null, max: null },
+        amenities: [],
       };
     },
   },
