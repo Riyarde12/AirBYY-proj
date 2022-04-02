@@ -4,6 +4,7 @@
 
     & .modal-type {
         width: 360px;
+        left: 190px;
 
         & .options {
             padding: 20px;
@@ -39,27 +40,37 @@
             padding: 20px;
             align-items: flex-end;
             justify-content: space-between;
+        }
+    }
+    & .modal-price {
+        width: 450px;
 
-            & .clear {
-                border: none;
-                font-size: 0.875rem;
-                padding: 8px 0;
-                background-color: $clr8;
-                font-weight: 600;
-                text-decoration: underline;
-                color: $clr5;
-            }
+        & .vue-histogram-slider-wrapper {
+            padding: 30px 0;
+            // padding: 20px;
+            border-bottom: 1px solid $clr6;
+            margin: 15px 0 !important;
+            --primary-color: $clr21;
+            --label-color: $clr21;
 
-            & .save {
-                height: 35px;
-                border-radius: 10px;
-                border: none;
-                padding: 8px 16px;
-                color: $clr8;
-                background-color: $clr2;
-                font-size: 0.875rem;
-                font-weight: 600;
+            --font-family: $txtDefault !important;
+
+            margin-left: 20px !important;
+            & .overlay {
+                width: 400px !important;
             }
+            .irs--round .irs-from,
+            .irs--round .irs-single,
+            .irs--round .irs-to,
+            .irs--round .irs-bar {
+                background-color: $clr21 !important;
+            }
+        }
+        & .btns-area {
+            display: flex;
+            padding: 20px;
+            align-items: flex-end;
+            justify-content: space-between;
         }
     }
 }
