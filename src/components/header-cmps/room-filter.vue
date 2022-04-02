@@ -189,11 +189,13 @@
 					throw err;
 				}
 			},
-			onAmenities(amenities) {
-				this.filterBy.amenities.push(amenities);
+			onAmenities(amenity) {
+				this.filterBy.amenities.push(amenity);
+				console.log("amenities", amenity);
+
 				this.$store.commit({
 					type: "setAmenities",
-					amenities: { ...this.filterBy.amenities },
+					amenities: [...this.filterBy.amenities],
 				});
 				this.setRouterParams();
 			},
@@ -201,7 +203,6 @@
 				const { price } = this.filterBy;
 				const { from, to } = price;
 				const filterByRoomType = [];
-
 				const filterBy = this.$store.getters.filterBy;
 				const { roomType, amenities } = filterBy;
 				const { entirePlace, privateRoom } = roomType;
