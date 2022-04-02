@@ -94,3 +94,13 @@
 .el-date-table td.today .el-date-table-cell__text {
     color: #222222 !important;
 }
+
+.close-modal {
+    position:fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 10;
+    opacity: 0;
+}

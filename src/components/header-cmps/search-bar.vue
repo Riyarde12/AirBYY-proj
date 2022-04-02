@@ -206,7 +206,6 @@ export default {
     if (params.destination) {
       this.filterBy.destination = params.destination;
     }
-<<<<<<< HEAD
     window.addEventListener("scroll", this.onScroll);
     // window.addEventListener("click", this.puki);
 
@@ -230,10 +229,6 @@ export default {
     onScroll(){
       this.closeAllModal()
     },
-=======
-  },
-  methods: {
->>>>>>> b451d4deca2981e1412ba13c897681dcb119e217
     add(addedVal, key) {
       if (addedVal && this.filterBy[key]) {
         this.filterBy[key]++;
