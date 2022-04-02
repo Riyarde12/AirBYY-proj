@@ -172,6 +172,8 @@ export default {
       this.ModalPrice = !this.ModalPrice;
     },
     async sendFilterBy() {
+      this.ModalType = false;
+      this.ModalPrice = false;
       console.log("filterBy", this.filterBy);
       this.$store.commit({
         type: "setFilterByRoomType",
