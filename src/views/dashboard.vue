@@ -42,15 +42,18 @@
 		<div>
 			<ul v-if="orders">
 				<li v-for="order in orders" :key="order._id">
+					<!-- <div v-if=""> -->
 					<div>
 						<span>{{ order.reserve.roomName }}</span>
 					</div>
-					<span>{{ dateOrderedForDisplay(order.dateOrdered) }}</span>
+					<span>Expires {{ dateOrderedForDisplay(order.dateOrdered) }}</span>
 					<div>
 						<span>{{ dateForDisplay(order.dates.from) }}</span>
 						<span>{{ dateForDisplay(order.dates.to) }}</span>
 					</div>
 					<div>{{ guestsAmount(order.guests) }}</div>
+					<button @click="onReponse">Response</button>
+					<!-- </div> -->
 				</li>
 			</ul>
 		</div>
@@ -89,10 +92,8 @@
 				return month + " " + year;
 			},
 			dateOrderedForDisplay(dateOrdered) {
-				let currTimeExpires = Date.now() - dateOrdered;
-				const date = new Date(currTimeExpires);
-				// return date.setHours();
-				return date.toLocaleTimeString();
+				const date = new Date(dateOrdered);
+				return date.toLocaleString();
 			},
 		},
 		computed: {},

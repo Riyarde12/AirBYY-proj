@@ -11,6 +11,7 @@
     "axios": "^0.26.1",
     "element-plus": "^2.1.4",
     "sass": "^1.49.9",
+    "socket.io-client": "^4.4.1",
     "vue": "^3.2.31",
     "vue-click-outside-element": "^1.0.15",
     "vue-histogram-slider": "^0.3.8",

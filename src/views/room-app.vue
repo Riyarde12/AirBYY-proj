@@ -25,7 +25,7 @@
 		},
 		async created() {
 			this.params = this.$route.query;
-			this.searchedLocation = this.params.destination;
+			this.searchedLocation = this.rooms[0].address.country;
 			try {
 				await this.$store.dispatch({
 					type: "filter",
