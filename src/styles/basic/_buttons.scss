@@ -81,6 +81,10 @@
     cursor: pointer;
     outline: none;
     overflow: hidden;
+
+    &:hover {
+        background: $clr21;
+    }
 }
 
 .small-padding {
@@ -109,4 +113,8 @@
     background-color: $clr2;
     font-size: 0.875rem;
     font-weight: 600;
+}
+
+.modal-default-button {
+    float: right;
 }

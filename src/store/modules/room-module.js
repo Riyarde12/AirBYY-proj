@@ -85,7 +85,8 @@ export default {
       state.filterBy.price = price;
     },
     setAmenities(state, { amenities }) {
-      state.filterBy.amenities.push(Object.values(amenities));
+      console.log('amenities', amenities);
+      state.filterBy.amenities = (Object.values(amenities));
     },
     saveDestination(state) {
       const destinationToSave = state.rooms.filter(room => room.address.country);
@@ -114,9 +115,8 @@ export default {
       console.log('state.filterBy', state.filterBy);
       try {
         const rooms = await roomService.query(state.filterBy);
+        console.log('rooms in action (load rooms)', rooms);
         commit({ type: 'setRooms', rooms });
-        // commit({ type: 'setFilter', filterBy: {} });
-        return rooms;
       }
       catch (err) {
         console.log('err', err);

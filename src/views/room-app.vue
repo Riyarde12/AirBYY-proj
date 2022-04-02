@@ -24,20 +24,32 @@
 			};
 		},
 		async created() {
-			this.params = this.$route.query;
-			this.searchedLocation = this.rooms[0].address.country;
+			// this.params = this.$route.query;
 			try {
-				await this.$store.dispatch({
-					type: "filter",
-					filterBy: JSON.parse(JSON.stringify(this.params)),
-				});
-				this.setCurrRooms();
+				await this.setCurrRooms();
+				this.searchedLocation = this.rooms[0].address.country;
+				// 	await this.$store.dispatch({
+				// 		type: "filter",
+				// 		filterBy: JSON.parse(JSON.stringify(this.params)),
+				// 	});
 			} catch (err) {
 				console.log("err", err);
 			}
 		},
 		methods: {
-			setCurrRooms() {
+			async setCurrRooms() {
+				console.log("Hey !");
+				this.params = this.$route.query;
+				console.log("this.params", this.params);
+				try {
+					await this.$store.dispatch({
+						type: "filter",
+						filterBy: JSON.parse(JSON.stringify(this.params)),
+					});
+				} catch (err) {
+					console.log("Cannot load rooms", err);
+					throw err;
+				}
 				console.log("rooms changed after filter");
 				this.rooms = this.$store.getters.rooms;
 			},
@@ -53,6 +65,7 @@
 		watch: {
 			"$route.params": {
 				handler() {
+					console.log("hey");
 					this.setCurrRooms();
 				},
 				deep: true,

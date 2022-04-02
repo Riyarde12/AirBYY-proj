@@ -73,13 +73,15 @@
 		async created() {
 			try {
 				this.$store.commit({ type: "clearFliterBy" });
-				this.rooms = await this.$store.dispatch({
+				await this.$store.dispatch({
 					type: "loadRooms",
 				});
+				this.rooms = this.$store.getters.rooms;
 				this.setDestination();
 				await this.$store.dispatch({ type: "loadUser" });
 				this.loggedInUser = this.$store.getters.loggedInUser;
-				console.log("this.loggedInUser", this.loggedInUser);
+				console.log("this.rooms", this.rooms);
+				// console.log("this.loggedInUser", this.loggedInUser);
 			} catch (err) {
 				console.log("err", err);
 			}
