@@ -83,6 +83,7 @@ export default {
       state.filterBy.price = price;
     },
     setAmenities(state, { amenities }) {
+      console.log('amenities', amenities);
       state.filterBy.amenities.push(amenities[0]);
     },
     saveDestination(state) {

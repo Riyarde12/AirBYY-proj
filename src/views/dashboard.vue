@@ -1,8 +1,8 @@
 <template>
-	<section class="dashboard">
+	<section class="dashboard page-layout details-header-recognaizer">
 		<h1>Hello dashboard</h1>
 
-		<pre>{{ orders }}</pre>
+		<!-- <pre>{{ orders }}</pre> -->
 
 		<div>
 			<span>Total Rate</span>
@@ -27,6 +27,7 @@
 
 		<div>
 			<span>Date</span>
+
 			<span>Book by</span>
 			<span>Place</span>
 			<span>Trip dates</span>
@@ -36,12 +37,23 @@
 		</div>
 
 		<!-- ORDERS -->
-		<!-- 
+
+		<hr />
 		<div>
-			<ul v-if="">
-				<li v-for=""></li>
+			<ul v-if="orders">
+				<li v-for="order in orders" :key="order._id">
+					<div>
+						<span>{{ order.reserve.roomName }}</span>
+					</div>
+					<span>{{ dateOrderedForDisplay(order.dateOrdered) }}</span>
+					<div>
+						<span>{{ dateForDisplay(order.dates.from) }}</span>
+						<span>{{ dateForDisplay(order.dates.to) }}</span>
+					</div>
+					<div>{{ guestsAmount(order.guests) }}</div>
+				</li>
 			</ul>
-		</div> -->
+		</div>
 	</section>
 </template>
 <script>
@@ -51,6 +63,7 @@
 		async created() {
 			await this.$store.dispatch({ type: "loadOrders" });
 			this.orders = this.$store.getters.orders;
+			console.log("this.orders", this.orders);
 		},
 		data() {
 			return {
@@ -58,5 +71,29 @@
 				hostLoggin: null,
 			};
 		},
+		methods: {
+			guestsAmount(guests) {
+				let sum = 0;
+				for (const item in guests) {
+					sum += guests[item];
+				}
+				// console.log("guests", sum);
+				if (sum === 0) return "";
+				if (sum === 1) return `guest ${sum}`;
+				else return `guests ${sum}`;
+			},
+			dateForDisplay(reviewDate) {
+				const date = new Date(reviewDate);
+				const year = date.toDateString().substring(11, 15);
+				const month = date.toDateString().substring(4, 7);
+				return month + " " + year;
+			},
+			dateOrderedForDisplay(dateOrdered) {
+				let currTimeExpires = Date.now() - dateOrdered;
+				const date = new Date(currTimeExpires);
+				return date.toLocaleTimeString();
+			},
+		},
+		computed: {},
 	};
 </script>

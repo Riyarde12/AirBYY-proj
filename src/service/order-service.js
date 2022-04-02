@@ -19,11 +19,11 @@ const BASE_URL = process.env.NODE_ENV !== "development"
 
 async function query(filterBy) {
 
-    // return await httpService.get(ENDPOINT, filterBy);
-    const orders = await storageService.query(ORDER_KEY);
-    const ordersForDisplay = _ordersForDisplay(orders, filterBy);
+    return await httpService.get(ENDPOINT, filterBy);
+    // const orders = await storageService.query(ORDER_KEY);
+    // const ordersForDisplay = _ordersForDisplay(orders, filterBy);
 
-    return ordersForDisplay;
+    // return ordersForDisplay;
 }
 
 
