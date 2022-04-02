@@ -1,14 +1,4 @@
-.close-modal {
-    cursor: pointer;
-    position:fixed;
-    left: 0;
-    top: 0;
-    height: 100vh;
-    width: 100vw;
-    background-color: orange;
-    z-index: 10;
-    // opacity: 0;
-}
+
 
 .modal {
     padding: 30px;
@@ -101,7 +91,6 @@
 }
 
 .search-bar {
-    z-index: 10;
     padding: 0px 16px 0px 12px;
     z-index: 10000;
     height: 4.125rem;
@@ -126,6 +115,7 @@
 }
 
 .filter-tag {
+    z-index: 20;
     cursor: pointer;
     height: 4.125rem;
     //    width: 200px;

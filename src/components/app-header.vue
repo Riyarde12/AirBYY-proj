@@ -26,7 +26,7 @@
 			<section class="search" v-if="shrinkedHeader" @click="exstandHeader">
 				<button class="search-btn">
 					<h4 v-if="currPage === 'explore'" class="exploreSearch">
-						Add place | Add dates | Add guests
+						<span>{{params}}</span> | Add dates | Add guests
 					</h4>
 					<h4 v-else>Start your search</h4>
 					<div
@@ -142,7 +142,8 @@
 				shrinkedHeader: false,
 				isUserModalOpen: false,
 				showModal: false,
-				tapOut: false
+				tapOut: false,
+				params: 'Add Place'
 			};
 		},
 		components: {
@@ -152,6 +153,8 @@
 			loginModal,
 		},
 		created() {
+			// this.params = this.$route.query;
+			
 			window.addEventListener("scroll", this.onScroll);
 			this.$watch(
 				() => this.$route.params,
@@ -161,6 +164,13 @@
 			);
 		},
 		methods: {
+			setSearchFiled(){
+            // this.params = this.$route.query.destination;
+            const param = this.$route.query.destination;
+			if(!param) return
+            this.params = param       
+			// console.log(params);
+			},
 			closeModal(){
 				this.isUserModalOpen = false,
 				this.showModal = false,
@@ -258,6 +268,15 @@
 			},
 			showFilter() {
 				return this.currPage === "explore" && this.shrinkedHeader ? true : false;
+			},
+		},
+		watch: {
+			"$route.params": {
+				handler() {
+					this.setSearchFiled();
+				},
+				deep: true,
+				immediate: true,
 			},
 		},
 	};
