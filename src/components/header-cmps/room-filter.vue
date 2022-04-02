@@ -141,7 +141,7 @@
 				<button class="save" @click="sendFilterBy">Save</button>
 			</section>
 		</div>
-		<div v-if="tapOut" @click="closeMdal" class="close-modal"></div>
+		<div v-if="tapOut" @click="closeMdal" class="tap-close-modal"></div>
 		<!-- <pre>{{ pricesForDisplay }}</pre> -->
 	</section>
 </template>
