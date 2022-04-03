@@ -2,6 +2,12 @@
     display: flex;
     gap: 5px;
 
+    & .filter-btn {
+        & svg {
+            margin-inline-start: 5px;
+        }
+    }
+
     & .modal-type {
         width: 360px;
         left: 190px;
@@ -59,16 +65,19 @@
             & .overlay {
                 width: 400px !important;
             }
-            .irs--round .irs-from,
+
             .irs--round .irs-single,
-            .irs--round .irs-to,
             .irs--round .irs-bar {
-                background-color: $clr21 !important;
+                background-color: $clr4 !important;
+            }
+            .irs--round .irs-to,
+            .irs--round .irs-from {
+                display: none;
             }
         }
         & .btns-area {
             display: flex;
-            padding: 20px;
+            margin: 20px 25px;
             align-items: flex-end;
             justify-content: space-between;
         }
