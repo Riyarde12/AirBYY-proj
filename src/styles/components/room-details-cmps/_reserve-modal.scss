@@ -97,9 +97,10 @@
                 width: 100%;
                 & .line {
                     display: flex;
-                    align-items: center;
+                    align-items: flex-start;
                     justify-content: space-between;
                     margin: 20px 0;
+                    flex-direction: column;
                 }
             }
         }

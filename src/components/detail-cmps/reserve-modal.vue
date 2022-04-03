@@ -8,60 +8,54 @@
 						<h4>{{ getTitle }}</h4>
 					</div>
 					<div class="modal-title">
-						<h1>Request to book</h1>
+						<h1>Order details</h1>
 					</div>
 					<div class="modal-body">
 						<div class="trip-side">
 							<h3>Your trip</h3>
 							<div class="trip-info">
 								<div class="line">
-									<div class="mini-title">
-										<h4>Dates</h4>
-										<p>From: {{ showDates(0) }}</p>
-										<p>To: {{ showDates(1) }}</p>
-									</div>
-									<button class="clear">Edit</button>
+									<h4>Dates</h4>
+									<p>From: {{ showDates(0) }}</p>
+									<p>To: {{ showDates(1) }}</p>
 								</div>
 								<div class="line">
-									<div class="mini-title">
-										<h4>Guests</h4>
+									<h4>Guests</h4>
 
-										<pre>{{ preOrder.guests.adults }}</pre>
-										<span v-if="preOrder.guests.adults">{{
-											preOrder.guests.adults
-										}}</span>
-										<span v-if="preOrder.guests.children">
-											{{ preOrder.guests.children }}</span
-										>
-										<span v-if="preOrder.guests.infants">{{
-											preOrder.guests.infants
-										}}</span>
-										<span v-if="preOrder.guests.pets">{{
-											preOrder.guests.pets
-										}}</span>
-									</div>
-									<button class="clear">Edit</button>
+									<pre>{{ preOrder.guests.adults }}</pre>
+									<span v-if="preOrder.guests.adults">{{
+										preOrder.guests.adults
+									}}</span>
+									<span v-if="preOrder.guests.children">
+										{{ preOrder.guests.children }}</span
+									>
+									<span v-if="preOrder.guests.infants">{{
+										preOrder.guests.infants
+									}}</span>
+									<span v-if="preOrder.guests.pets">{{
+										preOrder.guests.pets
+									}}</span>
 								</div>
 							</div>
 						</div>
 						<div class="order-side">
-							<span>{{ preOrder.reserve.roomName }}</span>
+							<span>{{ order.reserve.roomName }}</span>
 							<!-- <h4>Guests:</h4> -->
 							<div class="order-total">
 								<h4>Total</h4>
-								<span>${{ preOrder.totalAmount }}</span>
+								<span>${{ order.totalAmount }}</span>
 							</div>
 							<!-- <pre>{{ order }}</pre> -->
 						</div>
 					</div>
 					<h2>Thank you {{ loggedInUser.fullname }}</h2>
 					<div class="modals-footer">
-						<h4>press send to proceed</h4>
+						<h4>press ok to continue</h4>
 						<button
 							class="modal-default-button demo-tracking"
 							@click="$emit('close')"
 						>
-							Send
+							Ok
 						</button>
 					</div>
 				</div>
