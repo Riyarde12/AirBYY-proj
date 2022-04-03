@@ -214,6 +214,15 @@ export default {
   
 
   methods: {
+    setSearchFiled(){
+            // this.params = this.$route.query.destination;
+            const param = this.$route.query.destination;
+			if(!param) {
+        this.filterBy.destination = "Where are you going?"
+      } else {
+            this.filterBy.destination = param       
+      }
+			},
     closeAllModal(){
        this.tapOut = false
       this.modalGuests = false
@@ -328,6 +337,15 @@ export default {
       return this.filterBy.children;
     },
   },
+  watch: {
+			"$route.params": {
+				handler() {
+					this.setSearchFiled();
+				},
+				deep: true,
+				immediate: true,
+			},
+		},
 };
 </script>
 
