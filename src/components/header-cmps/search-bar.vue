@@ -308,7 +308,7 @@ export default {
           ? false
           : true;
           if (this.modalDestination||this.modalGuests){
-            // this.tapOut = true
+            this.tapOut = true
           } else {
             this.tapOut = false
           }
