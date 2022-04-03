@@ -67,7 +67,7 @@
 							</div>
 						</div>
 						<button
-                            :class="checkIsReserved"						
+							:class="checkIsReserved"
 							class="availability-container tracking"
 							ref="button"
 							@click="onReserve"
@@ -128,12 +128,11 @@
 		},
 		data() {
 			return {
-				// openGuestsModal: true,
+				openGuestsModal: true,
 				openGuestsModal: false,
 				currOrder: this.preOrder,
 				dates: null,
-				isReserved: false
-				// isReserve: false,
+				isReserved: false,
 			};
 		},
 		created() {},
@@ -148,12 +147,14 @@
 			onRemove(guest) {
 				if (this.currOrder.guests[guest] <= 0) return;
 				this.currOrder.guests[guest]--;
+				console.log("this.currOrder.guests", this.currOrder.guests);
 			},
 			onAdd(guest) {
 				this.currOrder.guests[guest] += 1;
+				console.log("this.currOrder.guests", this.currOrder.guests);
 			},
 			onReserve() {
-				const { _id, address, name, host} = this.room;
+				const { _id, address, name, host } = this.room;
 				this.currOrder.reserve.hostId = host._id;
 				this.currOrder.reserve.roomId = _id;
 				this.currOrder.dateOrdered = Date.now();
@@ -161,10 +162,9 @@
 				this.currOrder.reserve.destination = address.country;
 				this.currOrder.reserve.roomName = name;
 				console.log("this.currOrder", this.currOrder);
-				// this.isReserve = true;
 				this.$emit("onReserve", this.currOrder);
 				this.currOrder.guests = { adults: 0, children: 0, pets: 0, infants: 0 };
-				this.isReserved = true
+				this.isReserved = true;
 			},
 			showDate(idx) {
 				if (!this.dates) return "Add dates";
@@ -175,9 +175,9 @@
 			},
 		},
 		computed: {
-			checkIsReserved(){
-				return this.isReserved? 'disable':''
-			}, 
+			checkIsReserved() {
+				return this.isReserved ? "disable" : "";
+			},
 			showPrice() {
 				return this.room.price;
 			},
@@ -225,8 +225,7 @@
 			},
 			showCheckReserveTxt() {
 				const { from, to } = this.currOrder.dates;
-				// if (this.isReserve) return "Thank you";
-				if(this.isReserved) return "Booked"
+				if (this.isReserved) return "Booked";
 				if (from && to) return "Reserve";
 				else return "Check avalability";
 			},
