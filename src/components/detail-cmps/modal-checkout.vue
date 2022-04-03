@@ -67,6 +67,7 @@
 							</div>
 						</div>
 						<button
+                            :class="checkIsReserved"						
 							class="availability-container tracking"
 							ref="button"
 							@click="onReserve"
@@ -131,6 +132,7 @@
 				openGuestsModal: false,
 				currOrder: this.preOrder,
 				dates: null,
+				isReserved: false
 				// isReserve: false,
 			};
 		},
@@ -151,7 +153,8 @@
 				this.currOrder.guests[guest] += 1;
 			},
 			onReserve() {
-				const { _id, address, name } = this.room;
+				const { _id, address, name, host} = this.room;
+				this.currOrder.reserve.hostId = host._id;
 				this.currOrder.reserve.roomId = _id;
 				this.currOrder.dateOrdered = Date.now();
 				this.currOrder.totalAmount = this.calcTotalPriceWithServices;
@@ -161,6 +164,7 @@
 				// this.isReserve = true;
 				this.$emit("onReserve", this.currOrder);
 				this.currOrder.guests = { adults: 0, children: 0, pets: 0, infants: 0 };
+				this.isReserved = true
 			},
 			showDate(idx) {
 				if (!this.dates) return "Add dates";
@@ -171,6 +175,9 @@
 			},
 		},
 		computed: {
+			checkIsReserved(){
+				return this.isReserved? 'disable':''
+			}, 
 			showPrice() {
 				return this.room.price;
 			},
@@ -219,6 +226,7 @@
 			showCheckReserveTxt() {
 				const { from, to } = this.currOrder.dates;
 				// if (this.isReserve) return "Thank you";
+				if(this.isReserved) return "Booked"
 				if (from && to) return "Reserve";
 				else return "Check avalability";
 			},
