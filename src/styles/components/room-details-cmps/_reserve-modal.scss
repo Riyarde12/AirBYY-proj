@@ -77,3 +77,58 @@
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
 }
+
+.modal-reserve {
+    & .modal-body {
+        margin-top: 10px;
+    }
+    & .modal-body {
+        display: flex;
+        & .trip-side {
+            & h3 {
+                margin: 10px 0;
+            }
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: flex-start;
+            & .trip-info {
+                width: 100%;
+                & .line {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin: 20px 0;
+                }
+            }
+        }
+        & .order-side {
+            border: 1px $clr5 solid;
+            border-radius: 10px;
+            padding: 15px;
+            margin-left: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            & .order-total {
+                border-top: 1px $clr5 solid;
+                padding-top: 15px;
+                display: flex;
+                justify-content: space-between;
+                & span {
+                    font-family: $txtBoldDefault;
+                }
+            }
+        }
+    }
+    & .modals-footer {
+        display: flex;
+        align-items: center !important;
+        justify-content: space-between !important;
+        margin-bottom: 10px;
+        & button {
+            border-radius: 15px;
+        }
+    }
+}
