@@ -8,37 +8,29 @@
             <h4>{{ getTitle }}</h4>
           </div>
           <div class="modal-title">
-            <h1>Request to book</h1>
+            <h1>Order details</h1>
           </div>
           <div class="modal-body">
             <div class="trip-side">
               <h3>Your trip</h3>
               <div class="trip-info">
                 <div class="line">
-                  <div class="mini-title">
-                    <h4>Dates</h4>
-                    <p>computed dates</p>
-                  </div>
-                  <button class="clear">Edit</button>
+                  <h4>Dates</h4>
+                  <p>computed dates</p>
                 </div>
                 <div class="line">
-                  <div class="mini-title">
-                    <h4>Guests</h4>
+                  <h4>Guests</h4>
 
-                    <span v-if="order.guests.adults">{{
-                      order.guests.adults
-                    }}</span>
-                    <span v-if="order.guests.children">
-                      {{ order.guests.children }}</span
-                    >
-                    <span v-if="order.guests.infants">{{
-                      order.guests.infants
-                    }}</span>
-                    <span v-if="order.guests.pets">{{
-                      order.guests.pets
-                    }}</span>
-                  </div>
-                  <button class="clear">Edit</button>
+                  <span v-if="order.guests.adults">{{
+                    order.guests.adults
+                  }}</span>
+                  <span v-if="order.guests.children">
+                    {{ order.guests.children }}</span
+                  >
+                  <span v-if="order.guests.infants">{{
+                    order.guests.infants
+                  }}</span>
+                  <span v-if="order.guests.pets">{{ order.guests.pets }}</span>
                 </div>
               </div>
             </div>
@@ -54,12 +46,12 @@
           </div>
           <h2>Thank you {{ loggedInUser.fullname }}</h2>
           <div class="modals-footer">
-            <h4>press send to proceed</h4>
+            <h4>press ok to continue</h4>
             <button
               class="modal-default-button demo-tracking"
               @click="$emit('close')"
             >
-              Send
+              Ok
             </button>
           </div>
         </div>
