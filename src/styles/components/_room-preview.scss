@@ -13,6 +13,10 @@
         aspect-ratio: 3/1.9;
         overflow: hidden;
 
+        & .el-carousel__container {
+            height: 100%;
+        }
+
         & .el-carousel__arrow {
             color: $clr2;
             background-color: $clr6;

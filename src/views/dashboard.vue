@@ -68,7 +68,7 @@
 </template>
 <script>
 export default {
-  name: "dashboard",
+  name: "dashboard-page",
   components: {},
   async created() {
     await this.$store.dispatch({ type: "loadOrders" });
