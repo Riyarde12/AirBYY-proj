@@ -27,7 +27,8 @@
 			// this.params = this.$route.query;
 			try {
 				await this.setCurrRooms();
-				this.searchedLocation = this.rooms[0].address.country;
+				// this.searchedLocation = this.rooms[0].address.country;
+				this.searchedLocation = this.params.destination;
 				// 	await this.$store.dispatch({
 				// 		type: "filter",
 				// 		filterBy: JSON.parse(JSON.stringify(this.params)),
@@ -39,7 +40,6 @@
 		methods: {
 			async setCurrRooms() {
 				this.params = this.$route.query;
-
 				try {
 					await this.$store.dispatch({
 						type: "filter",

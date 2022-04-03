@@ -235,7 +235,7 @@
 				return serviceFee;
 			},
 			securityDeposit() {
-				if (!this.room.securityDeposit) return;
+				if (!this.room.securityDeposit) return 0;
 				return this.room.securityDeposit;
 			},
 		},
