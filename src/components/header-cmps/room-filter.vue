@@ -1,6 +1,6 @@
 <template>
 	<section class="room-filter">
-		<button class="filter-btn" @click="toggleModalPrice">
+		<button class="filter-btn" @click="toggleModalPrice" :style="priceIsTappeds">
 			<p>Price</p>
 			<svg
 				viewBox="0 0 32 32"
@@ -28,7 +28,7 @@
 
 		<!-- TYPE OF PLACE -->
 
-		<button @click="toggleModalType" class="filter-btn">
+		<button @click="toggleModalType" class="filter-btn" :style="typeIsTapets">
 			<p>Type Of Place</p>
 			<svg
 				viewBox="0 0 32 32"
@@ -59,12 +59,15 @@
 		<button
 			v-for="(item, idx) in amenitiesForShow"
 			:key="idx"
-			@click="onAmenities(item)"
-			class="filter-btn"
+			@click="onAmenities(item,idx)"
+			:class="'filter-btn btn-'+idx "
+			:style="chackInclud(item)"
 		>
 			<p>{{ item }}</p>
 		</button>
-
+         <button class="filter-btn" @click="clearAll">
+        Clear All
+		 </button>
 		<div class="modals modal-type" v-if="modalType">
 			<section class="options">
 				<div class="filter-option">
@@ -116,7 +119,7 @@
 				</div>
 			</section>
 			<section class="btns-area">
-				<button class="clear">Clear</button>
+				<button class="clear" @click="clear(0)">Clear</button>
 				<button class="save" @click="sendFilterBy">Save</button>
 			</section>
 		</div>
@@ -137,7 +140,7 @@
 				/>
 			</section>
 			<section class="btns-area">
-				<button class="clear">Clear</button>
+				<button class="clear" @click="clear(1)">Clear</button>
 				<button class="save" @click="sendFilterBy">Save</button>
 			</section>
 		</div>
@@ -158,6 +161,9 @@
 		},
 		data() {
 			return {
+				priceIsTapped: false,
+				typeIsTapet: false,
+				// priceIsTapped: false,
 				tapOut: false,
 				modalType: false,
 				modalPrice: false,
@@ -168,6 +174,36 @@
 			};
 		},
 		methods: {
+			// yarden todo
+			clearAll(){
+				this.priceIsTapped = false
+				this.typeIsTapet = false
+				this.tapOut = false
+				this.modalType = false
+				this.modalPrice = false
+				this.value = null
+				this.filterBy.amenities = []
+				this.clear(0)
+				this.clear(1)
+				this.sendFilterBy()
+			},
+			clear(num) {
+			if(num) {
+				this.filterBy.price.from = null
+				this.filterBy.price.to = null
+				this.priceIsTapped = false
+			} else {
+				this.filterBy.roomType.privateRoom = false
+				this.filterBy.roomType.entirePlace = false
+				this.filterBy.roomType.sharedRoom = false
+				this.filterBy.roomType.hotal = false
+				this.typeIsTapet = false
+				
+			}
+			},
+			chackInclud(item){
+				if(this.filterBy.amenities.includes(item)) return {boxShadow: 'inset 0px 0px 0px 2px #000000' ,  backgroundColor: '#f7f7f7'} 
+			},
 			closeMdal() {
 				(this.tapOut = false),
 					(this.modalType = false),
@@ -180,6 +216,7 @@
 			toggleModalType() {
 				this.modalType = !this.modalType;
 				this.tapOut = !this.tapOut;
+
 			},
 			toggleModalPrice() {
 				this.modalPrice = !this.modalPrice;
@@ -193,6 +230,12 @@
 					type: "setFilterByRoomType",
 					filterBy: JSON.parse(JSON.stringify(this.filterBy)),
 				});
+				if(this.filterBy.roomType.entirePlace || this.filterBy.roomType.privateRoom) {
+					this.typeIsTapet = true
+				}else {
+					this.typeIsTapet = false
+				}
+				if(this.filterBy.price.to&&this.filterBy.price.from) this.priceIsTapped = true
 				try {
 					await this.$store.dispatch({
 						type: "loadRooms",
@@ -204,11 +247,10 @@
 				}
 			},
 			onAmenities(amenity) {
-				if (this.filterBy.amenities.includes(amenity))
-					this.filterBy.amenities.pop();
-				else this.filterBy.amenities.push(amenity);
-				console.log("amenities", amenity);
-
+				if (this.filterBy.amenities.includes(amenity)) {
+				const idx = this.filterBy.amenities.indexOf(amenity)
+				this.filterBy.amenities.splice(idx,1)
+				 } else this.filterBy.amenities.push(amenity);
 				this.$store.commit({
 					type: "setAmenities",
 					amenities: [...this.filterBy.amenities],
@@ -245,6 +287,12 @@
 			},
 		},
 		computed: {
+			typeIsTapets() {
+					if(this.typeIsTapet) return {boxShadow: 'inset 0px 0px 0px 2px #000000' , backgroundColor: '#f7f7f7'}
+			},
+			priceIsTappeds() {
+					if(this.priceIsTapped) return {boxShadow: 'inset 0px 0px 0px 2px #000000' , backgroundColor: '#f7f7f7'}
+			},
 			pricesForDisplay() {
 				return this.$store.getters.roomsPrices;
 			},
