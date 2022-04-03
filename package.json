@@ -9,10 +9,13 @@
   },
   "dependencies": {
     "axios": "^0.26.1",
+    "chart.js": "^3.7.1",
     "element-plus": "^2.1.4",
+    "lodash": "^4.17.21",
     "sass": "^1.49.9",
     "socket.io-client": "^4.4.1",
     "vue": "^3.2.31",
+    "vue-chart-3": "^3.1.8",
     "vue-click-outside-element": "^1.0.15",
     "vue-histogram-slider": "^0.3.8",
     "vue-router": "^4.0.12",

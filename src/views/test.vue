@@ -1,53 +1,39 @@
 <template>
-	<section class="dashboard">
-		<h1>Hello dashboard</h1>
-
-		<pre>{{ orders }}</pre>
-
-		<div>
-			<span>Total Rate</span>
-			<span>Avg</span>
-			<span>Reviews</span>
-		</div>
-
-		<div>
-			<span>Total Revenus</span>
-			<!-- Amount -->
-		</div>
-
-		<div>
-			<span>Orders</span>
-			<span>Orders</span>
-		</div>
-
-		<div>
-			<span>Guests</span>
-			<span>Guests</span>
-		</div>
-
-		<div>
-			<span>Date</span>
-			<span>Book by</span>
-			<span>Place</span>
-			<span>Trip dates</span>
-			<span>nights</span>
-			<span>Amount</span>
-			<span>Status</span>
-		</div>
-
-		<!-- ORDERS -->
-		<!-- 
-		<div>
-			<ul v-if="">
-				<li v-for=""></li>
-			</ul>
-		</div> -->
-	</section>
+	<DoughnutChart :chartData="testData" />
 </template>
 
 <script>
-	export default {};
-</script>
+	import { DoughnutChart } from "vue-chart-3";
+	import { Chart, registerables } from "chart.js";
 
-<style>
-</style>
+	Chart.register(...registerables);
+	export default {
+		name: "dashboard-chart",
+		props: {
+			labels: Array,
+			chartData: Array,
+		},
+		computed: {
+			testData() {
+				return {
+					labels: this.labels,
+					datasets: [
+						{
+							data: this.chartData,
+							backgroundColor: [
+								"#77CEFF",
+								"#0079AF",
+								"#123E6B",
+								"#97B0C4",
+								"#A5C8ED",
+							],
+						},
+					],
+				};
+			},
+		},
+		components: {
+			DoughnutChart,
+		},
+	};
+</script>
