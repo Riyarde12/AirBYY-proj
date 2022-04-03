@@ -18,9 +18,9 @@ export default {
         setOrders(state, { orders }) {
             state.orders = orders;
         },
-        saveOrder(state, { order }) {
-            state.orders.push(order);
-        },
+        // saveOrder(state, { order }) {
+        //     state.orders.push(order);
+        // },
         saveDate(state, { selectedDate }) {
             state.preOrder.dates = selectedDate;
         },
@@ -43,7 +43,7 @@ export default {
             try {
                 const savedOrder = await orderService.save(order);
                 console.log(savedOrder);
-                commit({ type: 'saveOrder', savedOrder });
+                // commit({ type: 'saveOrder', savedOrder });
                 return 'ordered';
             }
             catch (err) {
