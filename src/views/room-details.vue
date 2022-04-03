@@ -223,6 +223,7 @@
 				:show="showModal"
 				@close="onClose"
 				:loggedInUser="loggedInUser"
+				:preOrder="preOrder"
 			>
 				<template #header>
 					<h3>custom header</h3>
@@ -272,7 +273,8 @@
 			askLogin,
 		},
 		async created() {
-			this.loggedInUser = this.$store.getters.loggedInUser;
+			// this.loggedInUser = this.$store.getters.loggedInUser;
+			this.loggedInUser = { username: "Ben", password: "1234" };
 			console.log("this.loggedInUser", this.loggedInUser);
 			const { roomId } = this.$route.params;
 			this.preOrder = this.$store.getters.getPreOrder;
@@ -289,9 +291,11 @@
 					this.showAskLoginModal = true;
 					return;
 				}
+				console.log("order", order);
+				this.preOrder = order;
 				this.$store.dispatch({
 					type: "addOrder",
-					order: JSON.parse(JSON.stringify(order)),
+					order,
 				});
 				this.showModal = true;
 				this.changeStatusOrder();

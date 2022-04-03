@@ -13,9 +13,6 @@ export const orderService = {
 };
 
 
-const BASE_URL = process.env.NODE_ENV !== "development"
-    ? "/api/room/"
-    : "//localhost:3030/api/room/";
 
 async function query(filterBy) {
 

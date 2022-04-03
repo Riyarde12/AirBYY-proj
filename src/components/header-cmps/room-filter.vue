@@ -54,7 +54,7 @@
 			</svg>
 		</button>
 
-		<!-- FILTER BUTTONS -->
+		<!-- AMENITIES FILTER BUTTONS -->
 
 		<button
 			v-for="(item, idx) in amenitiesForShow"
