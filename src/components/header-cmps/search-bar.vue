@@ -6,7 +6,7 @@
         <div
           @click="clickedModal('modalDestination')"
           :class="modalDestination ? 'choose' : ''"
-          class="filter-tag 1 fd"
+          class="filter-tag fd search-bar-right-btn"
         >
           <p class="bold title-tag">Location</p>
           <input
@@ -174,9 +174,7 @@
         />
       </div>
     </div>
-    <div v-if="tapOut" @click="closeMdal" class="tap-close-modal">
-
-    </div>
+    <div v-if="tapOut" @click="closeMdal" class="tap-close-modal"></div>
   </section>
 </template>
 
@@ -198,7 +196,7 @@ export default {
       searchIcon,
       searchBarTaped: true,
       modalOpen: false,
-      tapOut: false
+      tapOut: false,
     };
   },
   created() {
@@ -208,34 +206,31 @@ export default {
     }
     window.addEventListener("scroll", this.onScroll);
     // window.addEventListener("click", this.puki);
-
   },
 
-  
-
   methods: {
-    setSearchFiled(){
-            const param = this.$route.query.destination;
-			if(!param) {
-        this.filterBy = {}
+    setSearchFiled() {
+      const param = this.$route.query.destination;
+      if (!param) {
+        this.filterBy = {};
       } else {
-            this.filterBy.destination = param       
+        this.filterBy.destination = param;
       }
-			},
-    closeAllModal(){
-       this.tapOut = false
-      this.modalGuests = false
-      this.modalDestination = false
-       this.modalDate = false
-       this. modal4 = false
-       this. modal5 = false
-        this.modalOpen = false
     },
-    closeMdal(){ 
-      this.closeAllModal()
+    closeAllModal() {
+      this.tapOut = false;
+      this.modalGuests = false;
+      this.modalDestination = false;
+      this.modalDate = false;
+      this.modal4 = false;
+      this.modal5 = false;
+      this.modalOpen = false;
     },
-    onScroll(){
-      this.closeAllModal()
+    closeMdal() {
+      this.closeAllModal();
+    },
+    onScroll() {
+      this.closeAllModal();
     },
     add(addedVal, key) {
       if (addedVal && this.filterBy[key]) {
@@ -260,7 +255,7 @@ export default {
           pets: this.filterBy.pets,
         },
       });
-        this.closeAllModal()
+      this.closeAllModal();
     },
     clickedModal(modal, modal45 = null, idx) {
       if (modal === "modalDate") {
@@ -302,7 +297,7 @@ export default {
       if (this[modal] === true) {
         this[modal] = false;
         this.modalOpen = false;
-        this.tapOut = false
+        this.tapOut = false;
         this.tapOut = false;
         return;
       }
@@ -316,11 +311,11 @@ export default {
         this.modalDestination === false
           ? false
           : true;
-          if (this.modalDestination||this.modalGuests){
-            this.tapOut = true
-          } else {
-            this.tapOut = false
-          }
+      if (this.modalDestination || this.modalGuests) {
+        this.tapOut = true;
+      } else {
+        this.tapOut = false;
+      }
     },
     onSelectDate() {
       this.$store.commit({ type: "saveDate", selectedDate: this.value1 });
@@ -338,17 +333,16 @@ export default {
     },
   },
   watch: {
-			"$route.params": {
-				handler() {
-					this.setSearchFiled();
-				},
-				deep: true,
-				immediate: true,
-			},
-		},
+    "$route.params": {
+      handler() {
+        this.setSearchFiled();
+      },
+      deep: true,
+      immediate: true,
+    },
+  },
 };
 </script>
 
 <style>
-
 </style>

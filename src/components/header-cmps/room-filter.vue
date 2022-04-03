@@ -54,7 +54,7 @@
 			</svg>
 		</button>
 
-		<!-- FILTER BUTTONS -->
+		<!-- AMENITIES FILTER BUTTONS -->
 
 		<button
 			v-for="(item, idx) in amenitiesForShow"
@@ -132,7 +132,7 @@
 					:min="0"
 					:max="300"
 					:force-edges="false"
-					:colors="['#ff385c', '#bd1e59']"
+					:colors="['#b0b0b0', '#717171']"
 					:barWidth="6"
 					@change="onChangePrice"
 				/>
