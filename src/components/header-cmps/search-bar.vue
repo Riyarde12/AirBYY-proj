@@ -209,6 +209,14 @@ export default {
   },
 
   methods: {
+    setSearchFiled() {
+      const param = this.$route.query.destination;
+      if (!param) {
+        this.filterBy = {};
+      } else {
+        this.filterBy.destination = param;
+      }
+    },
     closeAllModal() {
       this.tapOut = false;
       this.modalGuests = false;
@@ -247,6 +255,7 @@ export default {
           pets: this.filterBy.pets,
         },
       });
+      this.closeAllModal();
     },
     clickedModal(modal, modal45 = null, idx) {
       if (modal === "modalDate") {
@@ -321,6 +330,15 @@ export default {
   computed: {
     children() {
       return this.filterBy.children;
+    },
+  },
+  watch: {
+    "$route.params": {
+      handler() {
+        this.setSearchFiled();
+      },
+      deep: true,
+      immediate: true,
     },
   },
 };
