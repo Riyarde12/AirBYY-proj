@@ -1,6 +1,6 @@
 <template>
 	<section class="room-filter">
-		<button class="filter-btn" @click="toggleModalPrice" :style="priceIsTapets">
+		<button class="filter-btn" @click="toggleModalPrice" :style="priceIsTappeds">
 			<p>Price</p>
 			<svg
 				viewBox="0 0 32 32"
@@ -65,7 +65,9 @@
 		>
 			<p>{{ item }}</p>
 		</button>
-
+         <button class="filter-btn" @click="clearAll">
+        Clear All
+		 </button>
 		<div class="modals modal-type" v-if="modalType">
 			<section class="options">
 				<div class="filter-option">
@@ -159,9 +161,9 @@
 		},
 		data() {
 			return {
-				priceIsTapet: false,
+				priceIsTapped: false,
 				typeIsTapet: false,
-				priceIsTapet: false,
+				// priceIsTapped: false,
 				tapOut: false,
 				modalType: false,
 				modalPrice: false,
@@ -172,17 +174,31 @@
 			};
 		},
 		methods: {
+			// yarden todo
+			clearAll(){
+				this.priceIsTapped = false
+				this.typeIsTapet = false
+				this.tapOut = false
+				this.modalType = false
+				this.modalPrice = false
+				this.value = null
+				this.filterBy.amenities = []
+				this.clear(0)
+				this.clear(1)
+				this.sendFilterBy()
+			},
 			clear(num) {
 			if(num) {
 				this.filterBy.price.from = null
 				this.filterBy.price.to = null
-				this.priceIsTapet = false
+				this.priceIsTapped = false
 			} else {
 				this.filterBy.roomType.privateRoom = false
 				this.filterBy.roomType.entirePlace = false
 				this.filterBy.roomType.sharedRoom = false
 				this.filterBy.roomType.hotal = false
 				this.typeIsTapet = false
+				
 			}
 			},
 			chackInclud(item){
@@ -219,7 +235,7 @@
 				}else {
 					this.typeIsTapet = false
 				}
-				if(this.filterBy.price.to&&this.filterBy.price.from) this.priceIsTapet = true
+				if(this.filterBy.price.to&&this.filterBy.price.from) this.priceIsTapped = true
 				try {
 					await this.$store.dispatch({
 						type: "loadRooms",
@@ -274,8 +290,8 @@
 			typeIsTapets() {
 					if(this.typeIsTapet) return {boxShadow: 'inset 0px 0px 0px 2px #000000' , backgroundColor: '#f7f7f7'}
 			},
-			priceIsTapets() {
-					if(this.priceIsTapet) return {boxShadow: 'inset 0px 0px 0px 2px #000000' , backgroundColor: '#f7f7f7'}
+			priceIsTappeds() {
+					if(this.priceIsTapped) return {boxShadow: 'inset 0px 0px 0px 2px #000000' , backgroundColor: '#f7f7f7'}
 			},
 			pricesForDisplay() {
 				return this.$store.getters.roomsPrices;
