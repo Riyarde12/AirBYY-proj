@@ -20,6 +20,7 @@ const router = createRouter({
     },
     {
       path: "/dashboard",
+      name: "dashboard-page",
       component: dashBoard,
     },
     {
