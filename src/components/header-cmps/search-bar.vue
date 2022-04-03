@@ -215,10 +215,9 @@ export default {
 
   methods: {
     setSearchFiled(){
-            // this.params = this.$route.query.destination;
             const param = this.$route.query.destination;
 			if(!param) {
-        this.filterBy.destination = "Where are you going?"
+        this.filterBy = {}
       } else {
             this.filterBy.destination = param       
       }
@@ -261,6 +260,7 @@ export default {
           pets: this.filterBy.pets,
         },
       });
+        this.closeAllModal()
     },
     clickedModal(modal, modal45 = null, idx) {
       if (modal === "modalDate") {
