@@ -12,6 +12,7 @@
         justify-content: flex-start;
         align-items: center;
         gap: 60px;
+        border-left: 1px $clr5 solid;
     }
     & .main-layout-dashboard {
         display: grid;
