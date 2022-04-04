@@ -5,7 +5,7 @@
       <div class="modal-wrapper">
         <div class="modal-container modal-reserve">
           <div class="modal-title">
-            <h1>Order details</h1>
+            <h1>Order summary</h1>
           </div>
           <div class="modal-body">
             <div class="trip-side">
@@ -99,12 +99,12 @@
             </div>
           </div>
           <div class="modals-footer">
-            <h2>Thank you {{ loggedInUser.fullname }}</h2>
+            <h2>Thank you {{ loggedInUser.fullname }} , enjoy your vacation</h2>
             <button
               class="modal-default-button demo-tracking"
               @click="$emit('close')"
             >
-              Ok
+              Close
             </button>
           </div>
         </div>
