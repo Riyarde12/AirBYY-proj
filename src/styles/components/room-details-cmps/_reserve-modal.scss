@@ -13,6 +13,7 @@
         display: flex;
         justify-content: space-between;
         flex-direction: column;
+
         & .modal-footer {
             display: flex;
             align-items: flex-end;
@@ -79,11 +80,15 @@
 }
 
 .modal-reserve {
-    & .modal-body {
-        margin-top: 10px;
+    width: 730px !important;
+    height: 500px !important;
+    & .modal-title {
+        margin-bottom: 10px;
     }
     & .modal-body {
         display: flex;
+        margin-top: 10px;
+        height: 500px;
         & .trip-side {
             & h3 {
                 margin: 10px 0;
@@ -91,16 +96,15 @@
             width: 300px;
             display: flex;
             flex-direction: column;
-            justify-content: space-around;
+            justify-content: flex-start;
             align-items: flex-start;
             & .trip-info {
-                width: 100%;
+                width: 260px;
                 & .line {
-                    display: flex;
-                    align-items: flex-start;
-                    justify-content: space-between;
-                    margin: 20px 0;
-                    flex-direction: column;
+                    margin-bottom: 20px;
+                    & h4 {
+                        margin-bottom: 10px;
+                    }
                 }
             }
         }
@@ -108,10 +112,57 @@
             border: 1px $clr5 solid;
             border-radius: 10px;
             padding: 15px;
-            margin-left: 30px;
+            margin-left: 40px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            & .room-details {
+                display: flex;
+                & img {
+                    width: 160px;
+                    height: 110px;
+                    border-radius: 10px;
+                }
+                & .room-details-info {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    padding-left: 10px;
+                    & .preview-rating {
+                        & img {
+                            height: 15px;
+                            width: 15px;
+                        }
+
+                        & .preview-rating {
+                            font-size: 0.875rem;
+                            display: flex;
+                            align-items: flex-start;
+                            margin: 6px 0;
+
+                            & > * {
+                                margin-inline-end: 3px;
+                            }
+
+                            & .num-of-reviews {
+                                color: $clr3;
+                            }
+                        }
+                    }
+                }
+            }
+            & .price-details {
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+                border-top: 1px solid $clr5;
+                padding-top: 15px;
+                & .line {
+                    display: flex;
+                    justify-content: space-between;
+                    flex-direction: row;
+                }
+            }
             & .order-total {
                 border-top: 1px $clr5 solid;
                 padding-top: 15px;
