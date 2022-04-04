@@ -128,25 +128,30 @@
                     flex-direction: column;
                     justify-content: space-between;
                     padding-left: 10px;
+                    & .propertyType {
+                        color: $clr3;
+                        font-size: 0.75rem;
+                    }
                     & .preview-rating {
                         & img {
                             height: 15px;
                             width: 15px;
                         }
 
-                        & .preview-rating {
-                            font-size: 0.875rem;
-                            display: flex;
-                            align-items: flex-start;
-                            margin: 6px 0;
+                        font-size: 0.875rem;
+                        display: flex;
+                        align-items: flex-start;
+                        margin: 6px 0;
 
-                            & > * {
-                                margin-inline-end: 3px;
-                            }
+                        & > * {
+                            margin-inline-end: 3px;
+                        }
 
-                            & .num-of-reviews {
-                                color: $clr3;
-                            }
+                        & .rating {
+                            font-family: $txtBoldDefault;
+                        }
+                        & .num-of-reviews {
+                            color: $clr3;
                         }
                     }
                 }
@@ -161,6 +166,9 @@
                     display: flex;
                     justify-content: space-between;
                     flex-direction: row;
+                    & .fee {
+                        text-decoration: underline;
+                    }
                 }
             }
             & .order-total {
