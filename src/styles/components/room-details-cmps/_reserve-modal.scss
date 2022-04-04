@@ -80,7 +80,7 @@
 }
 
 .modal-reserve {
-    width: 730px !important;
+    min-width: 800px !important;
     height: 500px !important;
     & .modal-title {
         margin-bottom: 10px;
@@ -89,6 +89,7 @@
         display: flex;
         margin-top: 10px;
         height: 500px;
+        justify-content: space-between;
         & .trip-side {
             & h3 {
                 margin: 10px 0;
@@ -112,14 +113,13 @@
             border: 1px $clr5 solid;
             border-radius: 10px;
             padding: 15px;
-            margin-left: 40px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             & .room-details {
                 display: flex;
                 & img {
-                    width: 160px;
+                    width: 140px;
                     height: 110px;
                     border-radius: 10px;
                 }

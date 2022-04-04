@@ -77,7 +77,7 @@
                 </div>
                 <div class="line">
                   <p>
-                    <span class="service-fee">service-fee</span>
+                    <span class="service-fee">service fee</span>
                   </p>
                   <p>total price</p>
                 </div>
