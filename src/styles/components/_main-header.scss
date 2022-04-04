@@ -199,3 +199,21 @@
     top: -10px;
   }
 }
+
+.header-dashboard-layout {
+  grid-template-columns: 7vw 1fr 7vw;
+  border-bottom: 1px solid $clr6;
+  & .header-detail-extanded {
+    position: relative;
+    justify-content: center;
+    top: -10px;
+  }
+  // & .header-explore-extanded {
+  //   grid-template-rows: 80px 80px;
+  //   grid-column: 2;
+  //   grid-row: 2;
+  //   display: flex;
+  //   align-items: center;
+  //   padding-bottom: 15px;
+  // }
+}
