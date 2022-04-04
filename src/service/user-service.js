@@ -55,7 +55,6 @@ async function logout() {
 }
 
 function getLoggedinUser() {
-    console.log('example', JSON.parse(sessionStorage.getItem(LOGGEDIN_USER) || 'null'));
     let loggedInUser = JSON.parse(sessionStorage.getItem(LOGGEDIN_USER) || 'null');
     console.log('loggedInUser', loggedInUser);
     return loggedInUser;

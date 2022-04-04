@@ -78,175 +78,176 @@
             </button>
           </div>
 
-          <section class="reserve-modal" v-if="dates">
-            <span class="reserve-msg">You won't be charged yet</span>
-            <p>
-              <span class="reserve-title"
-                >${{ room.price }} x {{ daysCounter }} nights </span
-              ><span>${{ totalPrice }}</span>
-            </p>
-            <p>
-              <span class="reserve-title">Cleanning fee </span
-              ><span>${{ showCleanningFee }}</span>
-            </p>
-            <p>
-              <span class="reserve-title">Service fee </span
-              ><span>${{ showServiceFee }}</span>
-            </p>
-            <p>
-              <span class="reserve-title">Occupancy taxes and fees </span
-              ><span>$0</span>
-            </p>
-            <p v-if="room.securityDeposit">
-              <span class="reserve-title">Security deposite</span>
-              <span>${{ securityDeposit }}</span>
-            </p>
-            <p class="reserve-total">
-              <span>Total</span>
-              <span>${{ calcTotalPriceWithServices }}</span>
-            </p>
-          </section>
-        </div>
-      </div>
-    </div>
-  </section>
+					<section class="reserve-modal" v-if="dates">
+						<span class="reserve-msg">You won't be charged yet</span>
+						<p>
+							<span class="reserve-title"
+								>${{ room.price }} x {{ daysCounter }} nights </span
+							><span>${{ totalPrice }}</span>
+						</p>
+						<p>
+							<span class="reserve-title">Cleanning fee </span
+							><span>${{ showCleanningFee }}</span>
+						</p>
+						<p>
+							<span class="reserve-title">Service fee </span
+							><span>${{ showServiceFee }}</span>
+						</p>
+						<p>
+							<span class="reserve-title">Occupancy taxes and fees </span
+							><span>$0</span>
+						</p>
+						<p v-if="room.securityDeposit">
+							<span class="reserve-title">Security deposite</span>
+							<span>${{ securityDeposit }}</span>
+						</p>
+						<p class="reserve-total">
+							<span>Total</span>
+							<span>${{ calcTotalPriceWithServices }}</span>
+							<pre>{{this.currOrder.guests}}</pre>
+							<pre>{{this.currOrder}}</pre>
+						</p>
+					</section>
+				</div>
+			</div>
+		</div>
+	</section>
 </template>
 
 <script>
-import guestsModal from "./guests-modal.vue";
-export default {
-  name: "modal-checkout",
-  components: {
-    guestsModal,
-  },
-  props: {
-    room: {
-      type: Object,
-      require: true,
-    },
-    preOrder: { type: Object },
-  },
-  data() {
-    return {
-      openGuestsModal: true,
-      openGuestsModal: false,
-      currOrder: this.preOrder,
-      dates: null,
-      isReserved: false,
-    };
-  },
-  created() {},
-  methods: {
-    addGuests() {
-      this.openGuestsModal = !this.openGuestsModal;
-    },
-    onCloseModal(guests) {
-      this.openGuestsModal = false;
-      this.currOrder.guests = guests;
-    },
-    onRemove(guest) {
-      if (this.currOrder.guests[guest] <= 0) return;
-      this.currOrder.guests[guest]--;
-      console.log("this.currOrder.guests", this.currOrder.guests);
-    },
-    onAdd(guest) {
-      this.currOrder.guests[guest] += 1;
-      console.log("this.currOrder.guests", this.currOrder.guests);
-    },
-    onReserve() {
-      const { _id, address, name, host } = this.room;
-      this.currOrder.reserve.hostId = host._id;
-      this.currOrder.reserve.roomId = _id;
-      this.currOrder.dateOrdered = Date.now();
-      this.currOrder.totalAmount = this.calcTotalPriceWithServices;
-      this.currOrder.reserve.destination = address.country;
-      this.currOrder.reserve.roomName = name;
-      console.log("this.currOrder", this.currOrder);
-      this.$emit("onReserve", this.currOrder);
-      this.currOrder.guests = { adults: 0, children: 0, pets: 0, infants: 0 };
-      this.isReserved = true;
-    },
-    showDate(idx) {
-      if (!this.dates) return "Add dates";
-      const date = new Date(this.dates[idx]);
-      if (idx === 0) this.currOrder.dates.from = this.dates[idx];
-      else this.currOrder.dates.to = this.dates[idx];
-      return date.toDateString();
-    },
-  },
-  computed: {
-    checkIsReserved() {
-      return this.isReserved ? "disable" : "";
-    },
-    showPrice() {
-      return this.room.price;
-    },
-    avgReviewScores() {
-      return this.room.reviewScores.rating / 20;
-    },
-    guestsForDisplay() {
-      const guests = this.currOrder.guests;
-      let sum = 0;
-      for (const item in guests) {
-        sum += guests[item];
-      }
-      return sum === 0 ? `Add guest` : `${sum} guest`;
-    },
-    daysCounter() {
-      const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
-      const firstDate = new Date(this.dates[0]);
-      const secondDate = new Date(this.dates[1]);
-      const diffDays = Math.round(Math.abs((firstDate - secondDate) / oneDay));
-      return diffDays;
-    },
-    totalPrice() {
-      if (!this.dates) return;
-      let totalPrice = this.room.price * this.daysCounter;
-      return totalPrice;
-    },
-    calcTotalPriceWithServices() {
-      if (!this.dates) return;
-      let amount =
-        this.room.price * this.daysCounter +
-        this.showServiceFee +
-        this.securityDeposit;
-      console.log("amount", amount);
-      return amount;
-    },
-    set() {
-      let btn = document.querySelector(".tracking");
-      btn.addEventListener("mousemove", (e) => {
-        let rect = e.target.getBoundingClientRect();
-        let x = e.clientX - rect.left;
-        let y = e.clientY - rect.top;
-        btn.style.setProperty("--x", x + "px");
-        btn.style.setProperty("--y", y + "px");
-      });
-    },
-    showCheckReserveTxt() {
-      const { from, to } = this.currOrder.dates;
-      if (this.isReserved) return "Booked";
-      if (from && to) return "Reserve";
-      else return "Check avalability";
-    },
-    showCleanningFee() {
-      if (!this.room.cleanningfee) return 0;
-    },
-    showServiceFee() {
-      function getRandomInt(min, max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min) + min);
-      }
-      let serviceFee = getRandomInt(0, 100);
-      return serviceFee;
-    },
-    securityDeposit() {
-      if (!this.room.securityDeposit) return 0;
-      return this.room.securityDeposit;
-    },
-  },
-};
+	import guestsModal from "./guests-modal.vue";
+	export default {
+		name: "modal-checkout",
+		components: {
+			guestsModal,
+		},
+		props: {
+			room: {
+				type: Object,
+				require: true,
+			},
+			preOrder: { type: Object },
+		},
+		data() {
+			return {
+				openGuestsModal: true,
+				openGuestsModal: false,
+				currOrder: { ...this.preOrder },
+				dates: null,
+				isReserved: false,
+			};
+		},
+		created() {},
+		methods: {
+			addGuests() {
+				this.openGuestsModal = !this.openGuestsModal;
+			},
+			onCloseModal(guests) {
+				this.openGuestsModal = false;
+				this.currOrder.guests = guests;
+			},
+			onRemove(guest) {
+				if (this.currOrder.guests[guest] <= 0) return;
+				this.currOrder.guests[guest]--;
+				console.log("this.currOrder.guests", this.currOrder.guests);
+			},
+			onAdd(guest) {
+				this.currOrder.guests[guest] += 1;
+				console.log("this.currOrder.guests", this.currOrder.guests);
+			},
+			onReserve() {
+				const { _id, address, name, host } = this.room;
+				this.currOrder.reserve.hostId = host._id;
+				this.currOrder.reserve.roomId = _id;
+				this.currOrder.dateOrdered = Date.now();
+				this.currOrder.totalAmount = this.calcTotalPriceWithServices;
+				this.currOrder.reserve.destination = address.country;
+				this.currOrder.reserve.roomName = name;
+				this.$emit("onReserve", this.currOrder);
+				this.currOrder.guests = { adults: 0, children: 0, pets: 0, infants: 0 };
+				this.isReserved = true;
+			},
+			showDate(idx) {
+				if (!this.dates) return "Add dates";
+				const date = new Date(this.dates[idx]);
+				if (idx === 0) this.currOrder.dates.from = this.dates[idx];
+				else this.currOrder.dates.to = this.dates[idx];
+				return date.toDateString();
+			},
+		},
+		computed: {
+			checkIsReserved() {
+				return this.isReserved ? "disable" : "";
+			},
+			showPrice() {
+				return this.room.price;
+			},
+			avgReviewScores() {
+				return this.room.reviewScores.rating / 20;
+			},
+			guestsForDisplay() {
+				const guests = this.currOrder.guests;
+				let sum = 0;
+				for (const item in guests) {
+					sum += guests[item];
+				}
+				return sum === 0 ? `Add guest` : `${sum} guest`;
+			},
+			daysCounter() {
+				const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+				const firstDate = new Date(this.dates[0]);
+				const secondDate = new Date(this.dates[1]);
+				const diffDays = Math.round(Math.abs((firstDate - secondDate) / oneDay));
+				return diffDays;
+			},
+			totalPrice() {
+				if (!this.dates) return;
+				let totalPrice = this.room.price * this.daysCounter;
+				return totalPrice;
+			},
+			calcTotalPriceWithServices() {
+				if (!this.dates) return;
+				let amount =
+					this.room.price * this.daysCounter +
+					this.showServiceFee +
+					this.securityDeposit;
+				console.log("amount", amount);
+				return amount;
+			},
+			set() {
+				let btn = document.querySelector(".tracking");
+				btn.addEventListener("mousemove", (e) => {
+					let rect = e.target.getBoundingClientRect();
+					let x = e.clientX - rect.left;
+					let y = e.clientY - rect.top;
+					btn.style.setProperty("--x", x + "px");
+					btn.style.setProperty("--y", y + "px");
+				});
+			},
+			showCheckReserveTxt() {
+				const { from, to } = this.currOrder.dates;
+				if (this.isReserved) return "Booked";
+				if (from && to) return "Reserve";
+				else return "Check avalability";
+			},
+			showCleanningFee() {
+				if (!this.room.cleanningfee) return 0;
+			},
+			showServiceFee() {
+				function getRandomInt(min, max) {
+					min = Math.ceil(min);
+					max = Math.floor(max);
+					return Math.floor(Math.random() * (max - min) + min);
+				}
+				let serviceFee = getRandomInt(0, 100);
+				return serviceFee;
+			},
+			securityDeposit() {
+				if (!this.room.securityDeposit) return 0;
+				return this.room.securityDeposit;
+			},
+		},
+	};
 </script>
 
 <style>

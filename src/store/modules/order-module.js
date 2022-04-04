@@ -35,15 +35,15 @@ export default {
             catch (err) {
                 console.log('Cannot load orders', err);
                 throw err;
-
             }
         },
         async addOrder({ commit }, { order }) {
             console.log('order', order);
             try {
                 const savedOrder = await orderService.save(order);
+
                 console.log(savedOrder);
-                // commit({ type: 'saveOrder', savedOrder });
+                commit({ type: 'saveOrder', savedOrder });
                 return 'ordered';
             }
             catch (err) {
