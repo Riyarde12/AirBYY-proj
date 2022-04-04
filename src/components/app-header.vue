@@ -89,7 +89,9 @@
               <path d="m2 8h28"></path>
             </g>
           </svg>
-          <svg
+          <!-- <img class="user-img" v-if="loggedInUser" :src="loggedInUser.imgUrl" alt=""> -->
+          <img class="user-img" v-if="loggedInUser" :src="loggedInUser.imgUrl" alt="">
+          <svg v-else
             class="user-icon"
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
@@ -136,6 +138,7 @@ export default {
   name: "app-header",
   data() {
     return {
+      loggedInUser:null,
       headerOnTop: true,
       currPage: "home",
       shrinkedHeader: false,
@@ -152,6 +155,8 @@ export default {
     loginModal,
   },
   created() {
+     this.loggedInUser = this.$store.getters.loggedInUser
+     console.log('app header :>>>>>>>>>>>>>>>>>>',this.loggedInUser);
     // this.params = this.$route.query;
 
     window.addEventListener("scroll", this.onScroll);
@@ -163,6 +168,10 @@ export default {
     );
   },
   methods: {
+    setLoggedInUser(){
+      console.log('hihi 172');
+      this.loggedInUser = this.$store.getters.loggedInUser
+    },
     setSearchFiled() {
       // this.params = this.$route.query.destination;
       const param = this.$route.query.destination;
@@ -260,6 +269,14 @@ export default {
     },
   },
   computed: {
+    userImg(){
+      // return this.loggedInUser.imgUrl
+      // const logUser = this.$store.getters.loggedInUser
+      // console.log(logUser);
+      // this.user = this.$store.getters.loggedInUser
+      // console.log(this.user);
+      return "https://res.cloudinary.com/canjan22/image/upload/v1649073598/avatars/Ben_avatar.jpg"
+    },
     getStyle() {
       if (this.headerOnTop && this.currPage === "home") {
         return { color: "white" };
@@ -286,6 +303,14 @@ export default {
       deep: true,
       immediate: true,
     },
+    "$store.getters.loggedInUser": {
+      handler() {
+        console.log('hiii:>>>>>>>>');
+        this.setLoggedInUser()
+      },
+      deep: true,
+      immediate: true,
+    }
   },
 };
 </script>
