@@ -43,11 +43,6 @@ export default {
     filterByPrice(state) {
       return { ...state.filterBy.price };
     },
-    // filterByAmenities(state) {
-    //   console.log('state.filterBy.amenities', state.filterBy.amenities);
-    //   return JSON.parse(JSON.stringify(state.filterBy.amenities));
-
-    // },
     roomsPrices(state) {
       let prices = [];
       state.rooms.forEach(room => {

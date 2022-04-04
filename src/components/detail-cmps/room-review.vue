@@ -61,36 +61,50 @@
 							v-if="isLongReview(review.txt.length)"
 						>
 							<p>Show more</p>
-							<svg
-								viewBox="0 0 32 32"
-								xmlns="http://www.w3.org/2000/svg"
-								aria-hidden="true"
-								role="presentation"
-								focusable="false"
-								style="
-									display: block;
-									fill: none;
-									height: 12px;
-									width: 12px;
-									stroke: currentcolor;
-									stroke-width: 5.33333;
-									overflow: visible;
-								"
-							>
-								<g fill="none">
-									<path
-										d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932"
-									></path>
-								</g>
-							</svg>
+
+							<!-- READ-MORE -->
+						</button>
+
+						<svg
+							viewBox="0 0 32 32"
+							xmlns="http://www.w3.org/2000/svg"
+							aria-hidden="true"
+							role="presentation"
+							focusable="false"
+							style="
+								display: block;
+								fill: none;
+								height: 12px;
+								width: 12px;
+								stroke: currentcolor;
+								stroke-width: 5.33333;
+								overflow: visible;
+							"
+						>
+							<g fill="none">
+								<path
+									d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932"
+								></path>
+							</g>
+						</svg>
+						<button @click="(open = true), readMoreReviews(idx)">
+							Open Modal
 						</button>
 					</section>
 				</li>
 			</ul>
 		</section>
+		<Teleport to="body">
+			<div v-if="open" class="modal">
+				<p>Hello from the modal!</p>
+				<pre>{{ currReview }}</pre>
+
+				<button @click="open = false">Close</button>
+			</div>
+		</Teleport>
 	</section>
 </template>
-<script>
+ <script>
 	export default {
 		name: "review",
 		components: {},
@@ -106,9 +120,11 @@
 				showMore: {
 					idx: false,
 				},
+				open: false,
+				currRoom: this.room,
+				currReview: null,
 			};
 		},
-		created() {},
 		computed: {
 			reviewScore() {
 				const { accuracy, cleanliness, checkin, communication, location, value } =
@@ -122,14 +138,20 @@
 					location,
 					value,
 				};
-
 				return scores;
 			},
 			avgReviewScores() {
 				return this.room.reviewScores.rating / 20;
 			},
+			// reviewForDisplay(review) {
+			// 	return review;
+			// },
 		},
 		methods: {
+			readMoreReviews(idx) {
+				this.currReview = this.room.reviews[idx];
+				// return;
+			},
 			adjustTxt(review) {
 				if (review.length <= 170) return review;
 				else {
@@ -152,3 +174,4 @@
 		},
 	};
 </script>
+
