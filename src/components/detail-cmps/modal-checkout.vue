@@ -35,7 +35,7 @@
 								</div>
 								<div
 									class="add-guests-container flex space-between"
-									@click.stop="addGuests"
+									@click="addGuests"
 								>
 									<div>
 										<div class="guests">GUESTS</div>
@@ -131,7 +131,6 @@
 		},
 		data() {
 			return {
-				// openGuestsModal: true,
 				openGuestsModal: false,
 				currOrder: { ...this.preOrder },
 				dates: null,
@@ -145,7 +144,7 @@
 			},
 			onCloseModal(guests) {
 				this.openGuestsModal = false;
-				this.currOrder.guests = guests;
+				// this.currOrder.guests = guests;
 			},
 			onRemove(guest) {
 				if (this.currOrder.guests[guest] <= 0) return;
