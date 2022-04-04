@@ -131,10 +131,6 @@
 		},
 		data() {
 			return {
-<<<<<<< HEAD
-=======
-				// openGuestsModal: true,
->>>>>>> 65178d451630d777ccf546567f00d865ea90ce79
 				openGuestsModal: false,
 				currOrder: { ...this.preOrder },
 				dates: null,
