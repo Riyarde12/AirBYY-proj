@@ -4,9 +4,6 @@
 		<div v-if="show" class="modal-mask">
 			<div class="modal-wrapper">
 				<div class="modal-container modal-reserve">
-					<div class="modal-header">
-						<h4>{{ getTitle }}</h4>
-					</div>
 					<div class="modal-title">
 						<h1>Order details</h1>
 					</div>
@@ -16,8 +13,7 @@
 							<div class="trip-info">
 								<div class="line">
 									<h4>Dates</h4>
-									<p>From: {{ showDates(0) }}</p>
-									<p>To: {{ showDates(1) }}</p>
+									<p>{{ showDates(0) }} - {{ showDates(1) }}</p>
 								</div>
 								<div class="line">
 									<h4>Guests</h4>
@@ -39,11 +35,11 @@
 							</div>
 						</div>
 						<div class="order-side">
-							<span>{{ order.reserve.roomName }}</span>
+							<span>{{ preOrder.reserve.roomName }}</span>
 							<!-- <h4>Guests:</h4> -->
 							<div class="order-total">
 								<h4>Total</h4>
-								<span>${{ order.totalAmount }}</span>
+								<span>${{ preOrder.totalAmount }}</span>
 							</div>
 							<!-- <pre>{{ order }}</pre> -->
 						</div>

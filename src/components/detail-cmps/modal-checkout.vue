@@ -104,6 +104,8 @@
 						<p class="reserve-total">
 							<span>Total</span>
 							<span>${{ calcTotalPriceWithServices }}</span>
+							<pre>{{this.currOrder.guests}}</pre>
+							<pre>{{this.currOrder}}</pre>
 						</p>
 					</section>
 				</div>
@@ -130,7 +132,7 @@
 			return {
 				openGuestsModal: true,
 				openGuestsModal: false,
-				currOrder: this.preOrder,
+				currOrder: { ...this.preOrder },
 				dates: null,
 				isReserved: false,
 			};
@@ -161,7 +163,6 @@
 				this.currOrder.totalAmount = this.calcTotalPriceWithServices;
 				this.currOrder.reserve.destination = address.country;
 				this.currOrder.reserve.roomName = name;
-				console.log("this.currOrder", this.currOrder);
 				this.$emit("onReserve", this.currOrder);
 				this.currOrder.guests = { adults: 0, children: 0, pets: 0, infants: 0 };
 				this.isReserved = true;

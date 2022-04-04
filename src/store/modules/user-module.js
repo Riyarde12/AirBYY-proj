@@ -2,26 +2,22 @@ import { userService } from '../../service/user-service.js';
 
 export default {
     state: {
-        loggedInUser: userService.getLoggedinUser(),
+        loggedInUser: null,
         avatar: null,
     },
     getters: {
         loggedInUser(state) {
             console.log('state.loggedInUser', state.loggedInUser);
-            return state.loggedInUser;
-
+            return { ...state.loggedInUser };
         },
         avatar(state) {
             return state.avatar;
         }
     },
     mutations: {
-        setUser(state, { user }) {
-            state.loggedInUser = user;
-        },
         setLoggedInUser(state, { loggedInUser }) {
             state.loggedInUser = loggedInUser;
-            console.log('loggedInUser after mutation', state.loggedInUser);
+            console.log('loggedInUser after mutation', loggedInUser);
         },
         setAvatars(state, { avatar }) {
             state.avatar = avatar;
@@ -32,9 +28,9 @@ export default {
             // commit({ type: 'setIsLoading', isLoading: true });
             // debugger;
             try {
-                const user = userService.getLoggedinUser();
-                console.log('user', user);
-                commit({ type: 'setLoggedInUser', user });
+                const loggedInUser = userService.getLoggedinUser();
+                console.log('loggedInUser', loggedInUser);
+                commit({ type: 'setLoggedInUser', loggedInUser });
             }
             catch (err) {
                 console.log('Cannot load user');
@@ -44,6 +40,7 @@ export default {
         async login({ commit }, { username, password }) {
             try {
                 const loggedInUser = await userService.login(username, password);
+
                 commit({ type: 'setLoggedInUser', loggedInUser });
             }
             catch (err) {
@@ -66,7 +63,6 @@ export default {
                 const avatar = await userService.getUsersAvatar();
                 commit({ type: 'setAvatars', avatar });
                 return avatar;
-                console.log('avatar', avatar);
             }
             catch (err) {
                 console.log('Cannot load avatar', err);

@@ -274,11 +274,12 @@
 		},
 		async created() {
 			// this.loggedInUser = this.$store.getters.loggedInUser;
-			this.loggedInUser = { username: "Ben", password: "1234" };
-			console.log("this.loggedInUser", this.loggedInUser);
 			const { roomId } = this.$route.params;
 			this.preOrder = this.$store.getters.getPreOrder;
+			this.$store.dispatch({ type: "loadUser" });
 			try {
+				this.loggedInUser = this.$store.getters.loggedInUser;
+				console.log("this.loggedInUser", this.loggedInUser);
 				this.room = await this.$store.dispatch({ type: "getRoom", id: roomId });
 			} catch (err) {
 				console.log("err", err);
@@ -291,8 +292,6 @@
 					this.showAskLoginModal = true;
 					return;
 				}
-				console.log("order", order);
-				this.preOrder = order;
 				this.$store.dispatch({
 					type: "addOrder",
 					order,
