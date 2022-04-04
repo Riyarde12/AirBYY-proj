@@ -10,43 +10,45 @@
 					<div class="modal-body">
 						<div class="trip-side">
 							<h3>Your trip</h3>
+							<h4>{{ room.address.country }}</h4>
+							<h4>{{ room.address.city }}</h4>
+							<h4>
+								Status <span>{{ booked.status }}</span>
+							</h4>
 							<div class="trip-info">
 								<div class="line">
 									<h4>Dates</h4>
+									<span>Booked At {{ dateForShow }}</span>
 									<p>{{ showDates(0) }} - {{ showDates(1) }}</p>
 								</div>
 								<div class="line">
 									<h4>Guests</h4>
-
-									<pre>{{ preOrder.guests.adults }}</pre>
-									<span v-if="preOrder.guests.adults">{{
-										preOrder.guests.adults
-									}}</span>
-									<span v-if="preOrder.guests.children">
-										{{ preOrder.guests.children }}</span
+									<span v-if="booked.guests.adults"
+										>Adults {{ booked.guests.adults }}</span
 									>
-									<span v-if="preOrder.guests.infants">{{
-										preOrder.guests.infants
-									}}</span>
-									<span v-if="preOrder.guests.pets">{{
-										preOrder.guests.pets
-									}}</span>
+									<span v-if="booked.guests.children">
+										Children {{ booked.guests.children }}</span
+									>
+									<span v-if="booked.guests.infants">
+										infants {{ booked.guests.infants }}</span
+									>
+									<span v-if="booked.guests.pets">
+										Pets {{ booked.guests.pets }}</span
+									>
 								</div>
 							</div>
 						</div>
 						<div class="order-side">
-							<span>{{ preOrder.reserve.roomName }}</span>
-							<!-- <h4>Guests:</h4> -->
+							<span>{{ booked.reserve.roomName }}</span>
 							<div class="order-total">
 								<h4>Total</h4>
-								<span>${{ preOrder.totalAmount }}</span>
+								<span>${{ booked.totalAmount }}</span>
 							</div>
-							<!-- <pre>{{ order }}</pre> -->
 						</div>
 					</div>
 					<h2>Thank you {{ loggedInUser.fullname }}</h2>
 					<div class="modals-footer">
-						<h4>press ok to continue</h4>
+						<!-- <h4>press ok to continue</h4> -->
 						<button
 							class="modal-default-button demo-tracking"
 							@click="$emit('close')"
@@ -66,22 +68,32 @@
 		props: {
 			show: Boolean,
 			loggedInUser: Object,
-			preOrder: Object,
+			room: Object,
 		},
 		data() {
 			return {
-				// order: this.preOrder,
+				booked: null,
+				loggedInUser: null,
 			};
+		},
+		created() {
+			this.booked = this.$store.getters.booked;
+			this.loggedInUser = this.$store.getters.loggedInUser;
 		},
 		methods: {
 			showDates(idx) {
-				const dates = Object.values(this.preOrder.dates);
+				if (!this.booked) return;
+				const dates = Object.values(this.booked.dates);
 				const date = new Date(dates[idx]);
 				return date.toDateString();
 			},
 		},
 		computed: {
-			showAmountGuests() {},
+			dateForShow() {
+				const { dateOrdered } = this.booked;
+				let date = new Date(dateOrdered);
+				return date.toLocaleString();
+			},
 		},
 	};
 </script>

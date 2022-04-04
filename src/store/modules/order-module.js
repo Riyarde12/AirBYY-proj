@@ -4,6 +4,7 @@ export default {
     state: {
         preOrder: orderService.getEmptyOrder(),
         orders: [],
+        booked: null,
     },
     getters: {
         orders(state) {
@@ -13,14 +14,17 @@ export default {
         getPreOrder({ preOrder }) {
             return JSON.parse(JSON.stringify(preOrder));
         },
+        booked({ booked }) {
+            return booked;
+        },
     },
     mutations: {
         setOrders(state, { orders }) {
             state.orders = orders;
         },
-        // saveOrder(state, { order }) {
-        //     state.orders.push(order);
-        // },
+        saveOrder(state, { savedOrder }) {
+            state.booked = savedOrder;
+        },
         saveDate(state, { selectedDate }) {
             state.preOrder.dates = selectedDate;
         },
@@ -29,7 +33,6 @@ export default {
         async loadOrders({ commit, state }) {
             try {
                 const orders = await orderService.query();
-                console.log('order', orders);
                 commit({ type: 'setOrders', orders });
             }
             catch (err) {
@@ -41,10 +44,8 @@ export default {
             console.log('order', order);
             try {
                 const savedOrder = await orderService.save(order);
-
-                console.log(savedOrder);
                 commit({ type: 'saveOrder', savedOrder });
-                return 'ordered';
+                return 'booked';
             }
             catch (err) {
                 console.log('Cannot create order', err);

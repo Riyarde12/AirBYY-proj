@@ -207,6 +207,7 @@
 					:preOrder="preOrder"
 					@onReserve="sendReserve"
 					:room="room"
+					:isReserved="isReserved"
 				/>
 			</div>
 		</article>
@@ -223,7 +224,7 @@
 				:show="showModal"
 				@close="onClose"
 				:loggedInUser="loggedInUser"
-				:preOrder="preOrder"
+				:room="room"
 			>
 				<template #header>
 					<h3>custom header</h3>
@@ -264,6 +265,7 @@
 				loggedInUser: null,
 				showAskLoginModal: false,
 				avatar: null,
+				isReserved: false,
 			};
 		},
 		components: {
@@ -273,7 +275,6 @@
 			askLogin,
 		},
 		async created() {
-			// this.loggedInUser = this.$store.getters.loggedInUser;
 			const { roomId } = this.$route.params;
 			this.preOrder = this.$store.getters.getPreOrder;
 			this.$store.dispatch({ type: "loadUser" });
@@ -287,17 +288,23 @@
 			}
 		},
 		methods: {
-			sendReserve(order) {
+			async sendReserve(order) {
 				if (!this.loggedInUser) {
 					this.showAskLoginModal = true;
 					return;
 				}
-				this.$store.dispatch({
-					type: "addOrder",
-					order,
-				});
-				this.showModal = true;
-				this.changeStatusOrder();
+				try {
+					await this.$store.dispatch({
+						type: "addOrder",
+						order,
+					});
+					this.showModal = true;
+					this.isReserved = true;
+					this.changeStatusOrder();
+				} catch (err) {
+					console.log("Cannot send order");
+					throw err;
+				}
 			},
 			replaceByDefault(e) {
 				e.target.src = `src/assets/icons/other.svg`;

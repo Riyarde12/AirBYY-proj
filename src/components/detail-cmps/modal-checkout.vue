@@ -1,82 +1,82 @@
 <template>
-  <section class="modal-display-checkout sticky">
-    <div class="checkout-modal">
-      <div class="checkout-container flex">
-        <div class="tools-container flex space-between align-center">
-          <div class="top-modal-container flex">
-            <div v-if="room">
-              <span class="price">${{ showPrice }} </span> / night
-            </div>
-            <div class="display-review-info flex">
-              <span><img src="../../assets/img/star.png" alt="" /> </span>
-              <span v-if="room"> {{ avgReviewScores }} · </span>
-              <span class="under-line">{{ room.numOfReviews }} reviews</span>
-            </div>
-          </div>
+	<section class="modal-display-checkout sticky">
+		<div class="checkout-modal">
+			<div class="checkout-container flex">
+				<div class="tools-container flex space-between align-center">
+					<div class="top-modal-container flex">
+						<div v-if="room">
+							<span class="price">${{ showPrice }} </span> / night
+						</div>
+						<div class="display-review-info flex">
+							<span><img src="../../assets/img/star.png" alt="" /> </span>
+							<span v-if="room"> {{ avgReviewScores }} · </span>
+							<span class="under-line">{{ room.numOfReviews }} reviews</span>
+						</div>
+					</div>
 
-          <div class="display-order-container pointer">
-            <div class="checkin-checkout-container flex">
-              <div class="checkin-btn">
-                <div class="modal-date-btn flex">
-                  <div class="add-dates-container right-border">
-                    <div class="checkin-out">CHECK-IN</div>
-                    <div class="add-date">{{ showDate(0) }}</div>
-                    <el-date-picker
-                      v-model="dates"
-                      type="daterange"
-                      start-placeholder="CHECK-IN"
-                      end-placeholder="CHECKOUT"
-                    />
-                  </div>
-                  <div class="add-dates-container">
-                    <div class="checkin-out">CHECKOUT</div>
-                    <div class="add-date">{{ showDate(1) }}</div>
-                  </div>
-                </div>
-                <div
-                  class="add-guests-container flex space-between"
-                  @click.stop="addGuests"
-                >
-                  <div>
-                    <div class="guests">GUESTS</div>
-                    <span class="guests-val" v-if="guestsForDisplay">
-                      {{ guestsForDisplay }}
-                    </span>
-                  </div>
-                  <svg
-                    viewBox="0 0 32 32"
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                    role="presentation"
-                    focusable="false"
-                  >
-                    <g fill="none">
-                      <path
-                        d="m28 12-11.2928932 11.2928932c-.3905243.3905243-1.0236893.3905243-1.4142136 0l-11.2928932-11.2928932"
-                      ></path>
-                    </g>
-                  </svg>
-                </div>
-                <guests-modal
-                  v-if="openGuestsModal"
-                  :currOrder="currOrder"
-                  @closeModal="onCloseModal"
-                  @onRemove="onRemove"
-                  @onAdd="onAdd"
-                />
-              </div>
-            </div>
-            <button
-              :class="checkIsReserved"
-              class="availability-container tracking"
-              ref="button"
-              @click="onReserve"
-              @mousemove="set"
-            >
-              <span>{{ showCheckReserveTxt }}</span>
-              <!-- <pre>{{ totalPrice }}</pre> -->
-            </button>
-          </div>
+					<div class="display-order-container pointer">
+						<div class="checkin-checkout-container flex">
+							<div class="checkin-btn">
+								<div class="modal-date-btn flex">
+									<div class="add-dates-container right-border">
+										<div class="checkin-out">CHECK-IN</div>
+										<div class="add-date">{{ showDate(0) }}</div>
+										<el-date-picker
+											v-model="dates"
+											type="daterange"
+											start-placeholder="CHECK-IN"
+											end-placeholder="CHECKOUT"
+										/>
+									</div>
+									<div class="add-dates-container">
+										<div class="checkin-out">CHECKOUT</div>
+										<div class="add-date">{{ showDate(1) }}</div>
+									</div>
+								</div>
+								<div
+									class="add-guests-container flex space-between"
+									@click.stop="addGuests"
+								>
+									<div>
+										<div class="guests">GUESTS</div>
+										<span class="guests-val" v-if="guestsForDisplay">
+											{{ guestsForDisplay }}
+										</span>
+									</div>
+									<svg
+										viewBox="0 0 32 32"
+										xmlns="http://www.w3.org/2000/svg"
+										aria-hidden="true"
+										role="presentation"
+										focusable="false"
+									>
+										<g fill="none">
+											<path
+												d="m28 12-11.2928932 11.2928932c-.3905243.3905243-1.0236893.3905243-1.4142136 0l-11.2928932-11.2928932"
+											></path>
+										</g>
+									</svg>
+								</div>
+								<guests-modal
+									v-if="openGuestsModal"
+									:currOrder="currOrder"
+									@closeModal="onCloseModal"
+									@onRemove="onRemove"
+									@onAdd="onAdd"
+								/>
+							</div>
+						</div>
+						<button
+							:class="checkIsReserved"
+							class="availability-container tracking"
+							ref="button"
+							@click="onReserve"
+							@mousemove="set"
+						>
+							<span>{{ showCheckReserveTxt }}</span>
+							<!-- <pre>{{ totalPrice }}</pre> -->
+						</button>
+					</div>
 
 					<section class="reserve-modal" v-if="dates">
 						<span class="reserve-msg">You won't be charged yet</span>
@@ -104,8 +104,6 @@
 						<p class="reserve-total">
 							<span>Total</span>
 							<span>${{ calcTotalPriceWithServices }}</span>
-							<pre>{{this.currOrder.guests}}</pre>
-							<pre>{{this.currOrder}}</pre>
 						</p>
 					</section>
 				</div>
@@ -127,6 +125,7 @@
 				require: true,
 			},
 			preOrder: { type: Object },
+			isReserved: Boolean,
 		},
 		data() {
 			return {
@@ -134,7 +133,7 @@
 				openGuestsModal: false,
 				currOrder: { ...this.preOrder },
 				dates: null,
-				isReserved: false,
+				// isReserved: false,
 			};
 		},
 		created() {},
@@ -165,7 +164,7 @@
 				this.currOrder.reserve.roomName = name;
 				this.$emit("onReserve", this.currOrder);
 				this.currOrder.guests = { adults: 0, children: 0, pets: 0, infants: 0 };
-				this.isReserved = true;
+				// this.isReserved = true;
 			},
 			showDate(idx) {
 				if (!this.dates) return "Add dates";

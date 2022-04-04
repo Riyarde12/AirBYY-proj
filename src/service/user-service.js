@@ -21,8 +21,7 @@ async function login(username, password) {
     const loggedinUser = { username, password };
     try {
         const user = await httpService.post("auth/login", loggedinUser);
-        console.log('user login');
-        utilService.saveToStorage('loggedin', loggedinUser);
+        utilService.saveToStorage('loggedin', user);
         return user;
     } catch (err) {
         console.log('cent login', err);
