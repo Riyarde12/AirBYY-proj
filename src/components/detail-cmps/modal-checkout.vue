@@ -78,6 +78,8 @@
 						</button>
 					</div>
 
+					<!-- ORDER CALC -->
+
 					<section class="reserve-modal" v-if="dates">
 						<span class="reserve-msg">You won't be charged yet</span>
 						<p>
@@ -129,6 +131,10 @@
 		},
 		data() {
 			return {
+<<<<<<< HEAD
+=======
+				// openGuestsModal: true,
+>>>>>>> 65178d451630d777ccf546567f00d865ea90ce79
 				openGuestsModal: false,
 				currOrder: { ...this.preOrder },
 				dates: null,
@@ -155,9 +161,13 @@
 			},
 			onReserve() {
 				const { _id, address, name, host } = this.room;
+				console.log("example", this.showCleanningFee);
 				this.currOrder.reserve.hostId = host._id;
 				this.currOrder.reserve.roomId = _id;
 				this.currOrder.dateOrdered = Date.now();
+				this.currOrder.totalPrice = this.totalPrice;
+				this.currOrder.cleanningFee = this.showCleanningFee;
+				this.currOrder.serviceFee = this.showServiceFee;
 				this.currOrder.totalAmount = this.calcTotalPriceWithServices;
 				this.currOrder.reserve.destination = address.country;
 				this.currOrder.reserve.roomName = name;
