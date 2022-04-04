@@ -230,7 +230,6 @@
 
     <!-- RESERVE-MODAL -->
 
-<<<<<<< HEAD
 		<Teleport to="body">
 			<reserve-modal
 				v-if="loggedInUser && isOrderSuccesses"
@@ -244,21 +243,6 @@
 				</template>
 			</reserve-modal>
 		</Teleport>
-=======
-    <Teleport to="body">
-      <reserve-modal
-        v-if="loggedInUser && isOrderSuccesses"
-        :show="showModal"
-        @close="onClose"
-        :loggedInUser="loggedInUser"
-        :preOrder="preOrder"
-      >
-        <template #header>
-          <h3>custom header</h3>
-        </template>
-      </reserve-modal>
-    </Teleport>
->>>>>>> cbb137cdf8fcdd821bf9bfe6f1144800e074d31d
 
     <!-- ASK-GUEST-FOR-LOGIN -->
 
