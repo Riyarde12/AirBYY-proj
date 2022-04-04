@@ -100,7 +100,7 @@
 					<div>
 						<el-avatar
 							:size="56"
-							:src="'https://res.cloudinary.com/canjan22/image/upload/v1648736344/avatars/19.jpg'"
+							:src="'https://res.cloudinary.com/canjan22/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1649083454/AirByy/Yarden_Avatar.jpg'"
 						/>
 					</div>
 				</div>
@@ -161,11 +161,15 @@
 						</div>
 					</form>
 					<div class="info-line">
-						<img
+						<!-- <img
 							:src="`src/assets/icons/${room.amenities[0].replace(
 								/\s/g,
 								''
 							)}.svg`"
+							alt=""
+						/> -->
+						<img
+							:src="getImage(`${room.amenities[0].replace(/\s/g, '')}.svg`)"
 							alt=""
 						/>
 
@@ -188,8 +192,13 @@
 					<h2>What this place to offers</h2>
 					<ul class="clean-list flex">
 						<li v-for="(item, idx) in amenitiesForDisplay" :key="idx">
-							<img
+							<!-- <img
 								:src="`src/assets/icons/${item.replace(/\s/g, '')}.svg`"
+								@error="replaceByDefault"
+								alt="Icon Missed"
+							/> -->
+							<img
+								:src="getImage(`${item.replace(/\s/g, '')}.svg`)"
 								@error="replaceByDefault"
 								alt="Icon Missed"
 							/>
@@ -307,10 +316,12 @@
 				}
 			},
 			replaceByDefault(e) {
-				e.target.src = `src/assets/icons/other.svg`;
+				// e.target.src = `src/assets/icons/other.svg`;
+				e.target.src = this.getImage("other.svg");
 			},
 			replaceImgByDefault(e) {
-				e.target.src = `src/assets/img/room.jpeg`;
+				// e.target.src = `src/assets/img/room.jpeg`;
+				e.target.src = this.getImage("room.jpeg");
 			},
 			changeStatusOrder() {
 				this.isOrderSuccesses = !this.isOrderSuccesses;
@@ -321,6 +332,7 @@
 			},
 		},
 		computed: {
+			getImage() {},
 			showGreatloc() {
 				return this.room.reviewScores.location;
 			},
@@ -338,6 +350,9 @@
 			},
 			getLoggedInUser() {
 				return this.$store.getters.loggedInUser;
+			},
+			getImage() {
+				return (path) => new URL(`../assets/icons/${path}`, import.meta.url).href;
 			},
 		},
 		watch: {

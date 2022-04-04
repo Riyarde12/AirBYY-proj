@@ -51,18 +51,22 @@
                   alt="room image"
                 />
                 <div class="room-details-info">
-                  <p>{{ room.propertyType }}</p>
+                  <p class="propertyType">{{ room.propertyType }}</p>
 
-                  <p>{{ room.name }}</p>
                   <p>
-                    <span>{{ room.address.city }}</span>
-                    <span>{{ room.address.country }}</span>
+                    {{ room.name }}
+                  </p>
+                  <p>
+                    <span
+                      >{{ room.address.city }} ,
+                      {{ room.address.country }}</span
+                    >
                   </p>
                   <div class="preview-rating">
                     <img src="../../assets/img/star.png" alt="" />
                     <span class="rating">{{ getAvgRating }}</span>
                     <span class="num-of-reviews"
-                      >({{ room.numOfReviews }})</span
+                      >({{ room.numOfReviews }} reviews)</span
                     >
                   </div>
                 </div>
@@ -73,19 +77,19 @@
                   <p>
                     <span class="price">${{ room.price }}</span> x 1 night
                   </p>
-                  <p>total price</p>
+                  <p>${{ booked.totalPrice }}</p>
                 </div>
                 <div class="line">
                   <p>
-                    <span class="service-fee">service fee</span>
+                    <span class="fee">service fee</span>
                   </p>
-                  <p>total price</p>
+                  <p>${{ booked.serviceFee }}</p>
                 </div>
                 <div class="line">
                   <p>
-                    <span class="cleaning-fee">cleaning fee</span>
+                    <span class="fee">cleaning fee</span>
                   </p>
-                  <p>total price</p>
+                  <p>${{ booked.cleanningFee }}</p>
                 </div>
               </div>
               <div class="order-total">
