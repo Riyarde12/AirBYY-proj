@@ -2,9 +2,22 @@
   height: 10vh;
   background-color: $clr7;
   justify-items: start;
-  & .right-section {
+  & .contact {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    width: 100%;
+    & .right-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    & .left-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      width: 150px;
+      flex-direction: row-reverse;
+    }
   }
 }

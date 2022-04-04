@@ -304,7 +304,7 @@ export default {
       e.target.src = `src/assets/icons/other.svg`;
     },
     replaceImgByDefault(e) {
-      e.target.src = `src/assets/img/hero.jpg`;
+      e.target.src = `src/assets/img/room.jpeg`;
     },
     changeStatusOrder() {
       this.isOrderSuccesses = !this.isOrderSuccesses;

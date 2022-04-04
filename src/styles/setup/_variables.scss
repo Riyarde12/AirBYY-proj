@@ -11,7 +11,7 @@ $clr9: #fff8f6;
 $clr10: #c13515;
 $clr11: #b32505;
 $clr12: #e07912;
-$clr13: #025805;
+$clr13: #008a05;
 $clr14: #428bff;
 $clr15: #ff385c;
 $clr16: #92174d;
@@ -20,11 +20,12 @@ $clr18: #cc2d4a;
 $clr19: #9e9e9e41;
 $clr20: #ffffff65;
 $clr21: #bd1e59;
+$clr22: #b6304f;
 
 // LINEAR-GRADIENT
 
 $lg1: linear-gradient(to right, #e61e4d 0%, #e31c5f 50%, #d70466 100%);
-$lg2: radial-gradient(circle closest-side, #bd1e59 0%, #ff385c 90%);
+$lg2: radial-gradient(circle closest-side, $clr22 0%, $clr15 90%);
 $lg3: linear-gradient(to right, #bd1e59 0%, #92174d 50%, #861453 100%);
 $lg4: radial-gradient(
     circle closest-side,
