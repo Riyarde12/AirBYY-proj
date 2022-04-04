@@ -14,7 +14,7 @@ export const orderService = {
 
 
 
-async function query(filterBy) {
+async function query(filterBy ={}) {
 
     return await httpService.get(ENDPOINT, filterBy);
     // const orders = await storageService.query(ORDER_KEY);
