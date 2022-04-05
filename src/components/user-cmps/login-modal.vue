@@ -90,6 +90,7 @@ export default {
             fullname: this.fullname,
             username: this.username,
             password: this.password,
+            
           },
         });
         this.username = '',

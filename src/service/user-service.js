@@ -43,7 +43,6 @@ async function signup(userSignUp) {
 }
 
 async function logout() {
-    console.log(':>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>logout');
     try {
         await httpService.post(`${ENDPOINT}/logout`);
         utilService.saveToStorage(USER, '');
