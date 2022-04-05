@@ -25,6 +25,7 @@
             // left: 70px;
             color: $clr8;
             font-size: 5.9375rem;
+            line-height: 6.5rem;
         }
         & .img {
             & img {
@@ -41,7 +42,7 @@
             flex-direction: column;
             align-items: flex-start;
             justify-content: space-between;
-            padding: 50px;
+            padding: 5vh;
 
             & button {
                 // bottom: 35px;

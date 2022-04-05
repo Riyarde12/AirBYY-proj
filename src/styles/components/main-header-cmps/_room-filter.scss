@@ -1,7 +1,14 @@
 .room-filter {
     display: flex;
+    align-items: center;
     gap: 5px;
 
+    & .seperator {
+        width: 10px;
+        height: 30px;
+        border-right: $clr5 solid 1px;
+        margin-right: 10px;
+    }
     & .filter-btn {
         & svg {
             margin-inline-start: 5px;
