@@ -108,6 +108,7 @@
             v-if="isUserModalOpen"
             @openModalLogin="onOpenloginModal"
             @openModalSignup="openModalSignup"
+            @logout="logout"
           />
         </button>
       </section>
@@ -156,7 +157,6 @@ export default {
   },
   created() {
      this.loggedInUser = this.$store.getters.loggedInUser
-     console.log('app header :>>>>>>>>>>>>>>>>>>',this.loggedInUser);
     // this.params = this.$route.query;
 
     window.addEventListener("scroll", this.onScroll);
@@ -168,6 +168,11 @@ export default {
     );
   },
   methods: {
+    logout(){
+      this.$store.dispatch({
+        type: 'logoutUser'
+      })
+    },
     setLoggedInUser(){
       console.log('hihi 172');
       this.loggedInUser = this.$store.getters.loggedInUser

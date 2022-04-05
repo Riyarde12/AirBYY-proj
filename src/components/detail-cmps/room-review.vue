@@ -58,51 +58,61 @@
 						</div>
 						<p>{{ showMore[idx] ? review.txt : adjustTxt(review.txt) }}</p>
 						<button
-							@click="showUnshow(idx)"
+							@click="(open = true), readMoreReviews(idx)"
 							class="show-more-btn"
 							v-if="isLongReview(review.txt.length)"
 						>
 							<p>Show more</p>
 
-							<!-- READ-MORE -->
-						</button>
-
-						<svg
-							viewBox="0 0 32 32"
-							xmlns="http://www.w3.org/2000/svg"
-							aria-hidden="true"
-							role="presentation"
-							focusable="false"
-							style="
-								display: block;
-								fill: none;
-								height: 12px;
-								width: 12px;
-								stroke: currentcolor;
-								stroke-width: 5.33333;
-								overflow: visible;
-							"
-						>
-							<g fill="none">
-								<path
-									d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932"
-								></path>
-							</g>
-						</svg>
-						<button @click="(open = true), readMoreReviews(idx)">
-							Open Modal
+							<svg
+								viewBox="0 0 32 32"
+								xmlns="http://www.w3.org/2000/svg"
+								aria-hidden="true"
+								role="presentation"
+								focusable="false"
+								style="
+									display: block;
+									fill: none;
+									height: 12px;
+									width: 12px;
+									stroke: currentcolor;
+									stroke-width: 5.33333;
+									overflow: visible;
+								"
+							>
+								<g fill="none">
+									<path
+										d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932"
+									></path>
+								</g>
+							</svg>
 						</button>
 					</section>
 				</li>
 			</ul>
 		</section>
-		<Teleport to="body">
-			<div v-if="open" class="modal">
-				<p>Hello from the modal!</p>
-				<pre>{{ currReview }}</pre>
 
-				<button @click="open = false">Close</button>
-			</div>
+		<Teleport to="body">
+			<section>
+				<div v-if="open" class="modal modal-review">
+					<section class="review-modal">
+						<div class="review-by-container flex">
+							<el-avatar
+								:size="56"
+								:src="`https://res.cloudinary.com/canjan22/image/upload/v1648736344/avatars/${currReview.idx}.jpg`"
+							/>
+							<div class="container">
+								<h3 class="name">{{ currReview.by.fullname }}</h3>
+								<h3 class="date">{{ getReviewDate(currReview.at) }}</h3>
+							</div>
+						</div>
+						<p>{{ currReview.txt }}</p>
+						<div class="close-line">
+							<button class="close" @click="open = false"><p>Close</p></button>
+						</div>
+					</section>
+				</div>
+			</section>
 		</Teleport>
 	</section>
 </template>
@@ -155,6 +165,7 @@
 		methods: {
 			readMoreReviews(idx) {
 				this.currReview = this.room.reviews[idx];
+				this.currReview.idx = idx;
 				// return;
 			},
 			adjustTxt(review) {
@@ -163,9 +174,6 @@
 					const newTxt = review.substring(0, 170) + "...";
 					return newTxt;
 				}
-			},
-			showUnshow(idx) {
-				this.showMore[idx] = !this.showMore[idx];
 			},
 			isLongReview(review) {
 				return review >= 170 ? true : false;

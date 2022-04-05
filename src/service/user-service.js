@@ -2,7 +2,7 @@ import { httpService } from './http.service.js';
 import { utilService } from './util-service.js';
 import axios from 'axios';
 // axios.defaults.withCredentials = true;
-const LOGGEDIN_USER = 'loggedin';
+const USER = 'user';
 const ENDPOINT = "auth/";
 
 // const BASE_URL = (process.env.NODE_ENV !== 'development')
@@ -21,7 +21,7 @@ async function login(username, password) {
     const loggedinUser = { username, password };
     try {
         const user = await httpService.post("auth/login", loggedinUser);
-        utilService.saveToStorage('loggedin', user);
+        utilService.saveToStorage(USER, user);
         return user;
     } catch (err) {
         console.log('cent login', err);
@@ -31,8 +31,9 @@ async function login(username, password) {
 async function signup(userSignUp) {
     console.log('userSignUp', userSignUp);
     try {
-        userSignUp.id = utilService.makeId;
+        userSignUp.id = utilService.makeId();
         const user = await httpService.post('auth/signup', userSignUp);
+        utilService.saveToStorage(USER, user)
         console.log('sucsess signup', user);
         return user;
     }
@@ -42,9 +43,15 @@ async function signup(userSignUp) {
 }
 
 async function logout() {
+    console.log(':>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>logout');
     try {
+<<<<<<< HEAD
         utilService.saveToStorage('loggedinUser', '');
         return await httpService.post(`${ENDPOINT}/logout`);
+=======
+        await httpService.post(`${ENDPOINT}/logout`);
+        utilService.saveToStorage(USER, '');
+>>>>>>> a1787a00108c38c883d26fd53bb44b01acf2d0ca
     }
     catch (err) {
         console.log('Cannot logout', err);
@@ -53,7 +60,7 @@ async function logout() {
 }
 
 function getLoggedinUser() {
-    let loggedInUser = JSON.parse(sessionStorage.getItem(LOGGEDIN_USER) || 'null');
+    let loggedInUser = JSON.parse(sessionStorage.getItem(USER) || 'null');
     console.log('loggedInUser', loggedInUser);
     return loggedInUser;
 }

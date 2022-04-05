@@ -107,3 +107,60 @@
         }
     }
 }
+
+.modal-review {
+    width: 700px;
+    transform: translateX(-50%);
+    top: 30%;
+    // transform: translateY(-50%);
+    // top: 50%;
+    left: 50%;
+    & .review-modal {
+        .review-by-container {
+            // align-items: center;
+            justify-content: flex-start;
+            padding-bottom: 10px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            margin-left: 12px;
+
+            & .name {
+                font-weight: 600;
+                font-size: 1rem;
+                margin-bottom: 5px;
+            }
+            & .date {
+                font-size: 0.875rem;
+                font-weight: 500;
+                color: $clr3;
+            }
+        }
+
+        & p {
+            line-height: 1.5rem;
+            margin: 10px 0;
+        }
+        & .close-line {
+            display: flex;
+            justify-content: flex-end;
+            & .close {
+                background-color: $clr8;
+                border: none;
+                width: 55px;
+                display: flex;
+                align-items: center;
+                margin-top: 7px;
+                font-size: 1rem;
+                padding: 0;
+                font-family: $txtBookDefault;
+
+                & p {
+                    margin: 3px;
+                }
+            }
+        }
+    }
+}
