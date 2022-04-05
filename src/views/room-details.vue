@@ -316,11 +316,9 @@
 				}
 			},
 			replaceByDefault(e) {
-				// e.target.src = `src/assets/icons/other.svg`;
 				e.target.src = this.getImage("other.svg");
 			},
 			replaceImgByDefault(e) {
-				// e.target.src = `src/assets/img/room.jpeg`;
 				e.target.src = this.getImage("room.jpeg");
 			},
 			changeStatusOrder() {

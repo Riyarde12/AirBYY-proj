@@ -44,8 +44,13 @@ async function signup(userSignUp) {
 
 async function logout() {
     try {
+<<<<<<< HEAD
+        utilService.saveToStorage('loggedinUser', '');
+        return await httpService.post(`${ENDPOINT}/logout`);
+=======
         await httpService.post(`${ENDPOINT}/logout`);
         utilService.saveToStorage(USER, '');
+>>>>>>> a1787a00108c38c883d26fd53bb44b01acf2d0ca
     }
     catch (err) {
         console.log('Cannot logout', err);

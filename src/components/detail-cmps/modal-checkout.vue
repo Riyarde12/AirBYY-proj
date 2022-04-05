@@ -164,6 +164,7 @@
 				this.currOrder.totalPrice = this.totalPrice;
 				this.currOrder.cleanningFee = this.showCleanningFee;
 				this.currOrder.serviceFee = this.showServiceFee;
+				this.currOrder.securityDeposit = this.securityDeposit;
 				this.currOrder.totalAmount = this.calcTotalPriceWithServices;
 				this.currOrder.reserve.destination = address.country;
 				this.currOrder.reserve.roomName = name;
