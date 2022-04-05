@@ -8,7 +8,6 @@ export default {
     },
     getters: {
         orders(state) {
-            console.log('state.orders', state.orders);
             return JSON.parse(JSON.stringify(state.orders));
         },
         getPreOrder({ preOrder }) {
@@ -41,7 +40,6 @@ export default {
             }
         },
         async addOrder({ commit }, { order }) {
-            console.log('order', order);
             try {
                 const savedOrder = await orderService.save(order);
                 commit({ type: 'saveOrder', savedOrder });

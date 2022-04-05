@@ -15,7 +15,6 @@
 		},
 		methods: {
 			country(place) {
-				// console.log(place);
 				this.$emit("goTo", place);
 			},
 		},

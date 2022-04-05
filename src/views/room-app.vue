@@ -24,15 +24,10 @@
 			};
 		},
 		async created() {
-			// this.params = this.$route.query;
 			try {
 				await this.setCurrRooms();
-				// this.searchedLocation = this.rooms[0].address.country;
+
 				this.searchedLocation = this.params.destination;
-				// 	await this.$store.dispatch({
-				// 		type: "filter",
-				// 		filterBy: JSON.parse(JSON.stringify(this.params)),
-				// 	});
 			} catch (err) {
 				console.log("err", err);
 			}
@@ -50,7 +45,6 @@
 					console.log("Cannot load rooms", err);
 					throw err;
 				}
-				console.log("rooms changed after filter");
 			},
 		},
 		computed: {
@@ -64,7 +58,6 @@
 		watch: {
 			"$route.params": {
 				handler() {
-					console.log("hey");
 					this.setCurrRooms();
 				},
 				deep: true,

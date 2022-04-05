@@ -33,7 +33,6 @@ export default {
       return filterBy.destination;
     },
     filterBy(state) {
-      console.log('state.filterBy', state.filterBy);
       return JSON.parse(JSON.stringify(state.filterBy));
     },
     filterByRoomType(state) {
@@ -80,7 +79,6 @@ export default {
       state.filterBy.price = price;
     },
     setAmenities(state, { amenities }) {
-      console.log('amenities', amenities);
       state.filterBy.amenities = (Object.values(amenities));
     },
     saveDestination(state) {
@@ -107,36 +105,14 @@ export default {
   },
   actions: {
     async loadRooms({ commit, state }) {
-      console.log('state.filterBy', state.filterBy);
       try {
         const rooms = await roomService.query(state.filterBy);
-        console.log('rooms in action (load rooms)', rooms);
         commit({ type: 'setRooms', rooms });
       }
       catch (err) {
         console.log('err', err);
       }
     },
-    // async removeRoom({ commit }, { id }) {
-    //   console.log('id', id);
-    //   try {
-    //     await roomService.remove(id);
-    //     commit({ type: 'removeRoom', id });
-    //   }
-    //   catch (err) {
-    //     console.log('err', err);
-    //   }
-    // },
-    // async saveRoom({ commit }, { room }) {
-    //   console.log('room', room);
-    //   try {
-    //     const savedRoom = await roomService.save(room);
-    //     commit({ type: 'saveRoom', savedRoom });
-    //   }
-    //   catch (err) {
-    //     console.log('err', err);
-    //   }
-    // // },
     async getRoom({ commit, state }, { id }) {
       try {
         const room = await roomService.getById(id);

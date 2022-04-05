@@ -161,7 +161,6 @@
 			this.filterBy.price = this.$store.getters.filterByPrice;
 			// this.filterBy.amenities = this.$store.getters.filterByAmenities;
 			window.addEventListener("scroll", this.scroll);
-			console.log("this.filterBy.amenities", this.filterBy.amenities);
 		},
 		data() {
 			return {

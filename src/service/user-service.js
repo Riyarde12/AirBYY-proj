@@ -29,12 +29,10 @@ async function login(username, password) {
 };
 
 async function signup(userSignUp) {
-    console.log('userSignUp', userSignUp);
     try {
         userSignUp.id = utilService.makeId();
         const user = await httpService.post('auth/signup', userSignUp);
-        utilService.saveToStorage(USER, user)
-        console.log('sucsess signup', user);
+        utilService.saveToStorage(USER, user);
         return user;
     }
     catch (err) {
@@ -55,14 +53,12 @@ async function logout() {
 
 function getLoggedinUser() {
     let loggedInUser = JSON.parse(sessionStorage.getItem(USER) || 'null');
-    console.log('loggedInUser', loggedInUser);
     return loggedInUser;
 }
 
 async function getUsersAvatar() {
     try {
         const res = await axios.get('https://randomuser.me/api/');
-        console.log('res.data', res.data.results[0].picture.medium);
         return res.data.results[0].picture.medium;
     }
     catch (err) {

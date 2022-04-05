@@ -174,15 +174,13 @@ export default {
       })
     },
     setLoggedInUser(){
-      console.log('hihi 172');
       this.loggedInUser = this.$store.getters.loggedInUser
     },
     setSearchFiled() {
-      // this.params = this.$route.query.destination;
       const param = this.$route.query.destination;
       if (!param) return;
       this.params = param;
-      // console.log(params);
+
     },
     closeModal() {
       (this.isUserModalOpen = false),
@@ -275,11 +273,7 @@ export default {
   },
   computed: {
     userImg(){
-      // return this.loggedInUser.imgUrl
-      // const logUser = this.$store.getters.loggedInUser
-      // console.log(logUser);
-      // this.user = this.$store.getters.loggedInUser
-      // console.log(this.user);
+   
       return "https://res.cloudinary.com/canjan22/image/upload/v1649073598/avatars/Ben_avatar.jpg"
     },
     getStyle() {

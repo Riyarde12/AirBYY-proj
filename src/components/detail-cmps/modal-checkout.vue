@@ -144,16 +144,16 @@
 			},
 			onCloseModal(guests) {
 				this.openGuestsModal = false;
-				// this.currOrder.guests = guests;
+	
 			},
 			onRemove(guest) {
 				if (this.currOrder.guests[guest] <= 0) return;
 				this.currOrder.guests[guest]--;
-				console.log("this.currOrder.guests", this.currOrder.guests);
+
 			},
 			onAdd(guest) {
 				this.currOrder.guests[guest] += 1;
-				console.log("this.currOrder.guests", this.currOrder.guests);
+
 			},
 			onReserve() {
 				const { _id, address, name, host } = this.room;
@@ -216,7 +216,7 @@
 					this.room.price * this.daysCounter +
 					this.showServiceFee +
 					this.securityDeposit;
-				console.log("amount", amount);
+
 				return amount;
 			},
 			set() {

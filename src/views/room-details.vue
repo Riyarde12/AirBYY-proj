@@ -289,7 +289,6 @@
 			this.$store.dispatch({ type: "loadUser" });
 			try {
 				this.loggedInUser = this.$store.getters.loggedInUser;
-				console.log("this.loggedInUser", this.loggedInUser);
 				this.room = await this.$store.dispatch({ type: "getRoom", id: roomId });
 			} catch (err) {
 				console.log("err", err);

@@ -81,7 +81,6 @@
 			try {
 				await this.$store.dispatch({ type: "loadOrders" });
 				this.orders = this.$store.getters.orders;
-				console.log("this.orders", this.orders);
 			} catch (err) {
 				console.log("Cannot load order");
 				throw err;

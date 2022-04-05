@@ -18,12 +18,11 @@
 		},
 		methods: {
 			openModalLogin() {
-				console.log("hey");
 				this.$emit("openModalLogin");
 			},
-			logout(){
-				this.$emit('logout')
-			}
+			logout() {
+				this.$emit("logout");
+			},
 		},
 	};
 </script>

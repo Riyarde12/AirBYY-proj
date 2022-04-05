@@ -7,7 +7,6 @@ export default {
     },
     getters: {
         loggedInUser(state) {
-            console.log('state.loggedInUser', state.loggedInUser);
             return state.loggedInUser;
         },
         avatar(state) {
@@ -16,24 +15,23 @@ export default {
     },
     mutations: {
         clearLoggedInUser(state) {
-            state.loggedInUser = null
+            state.loggedInUser = null;
         },
         setLoggedInUser(state, { loggedInUser }) {
             state.loggedInUser = loggedInUser;
-            console.log('loggedInUser after mutation', loggedInUser);
+
         },
         setAvatars(state, { avatar }) {
             state.avatar = avatar;
         },
     },
     actions: {
-        logoutUser({commit}){
-            console.log('app header :>>>>>>>>>>>>>>>>>>');
+        logoutUser({ commit }) {
             try {
-                userService.logout()
-                commit({type: 'clearLoggedInUser'})
+                userService.logout();
+                commit({ type: 'clearLoggedInUser' });
             } catch (err) {
-                console.log('Cannot logout user' ,err);
+                console.log('Cannot logout user', err);
             }
         },
         loadUser({ commit }) {
@@ -41,7 +39,6 @@ export default {
             // debugger;
             try {
                 const loggedInUser = userService.getLoggedinUser();
-                console.log('loggedInUser', loggedInUser);
                 commit({ type: 'setLoggedInUser', loggedInUser });
             }
             catch (err) {
@@ -61,7 +58,6 @@ export default {
             }
         },
         async signUp({ commit }, { userSignUp }) {
-            console.log('userSignUp', userSignUp);
             try {
                 const newUser = await userService.signup(userSignUp);
             }

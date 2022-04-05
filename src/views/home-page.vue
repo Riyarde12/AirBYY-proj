@@ -83,8 +83,6 @@
 				this.setDestination();
 				await this.$store.dispatch({ type: "loadUser" });
 				this.loggedInUser = this.$store.getters.loggedInUser;
-				console.log("this.rooms", this.rooms);
-				// console.log("this.loggedInUser", this.loggedInUser);
 			} catch (err) {
 				console.log("err", err);
 			}
