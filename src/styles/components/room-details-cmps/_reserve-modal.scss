@@ -160,8 +160,9 @@
                 display: flex;
                 flex-direction: column;
                 gap: 6px;
-                border-top: 1px solid $clr5;
-                padding-top: 15px;
+                border: 1px solid $clr5;
+                padding: 8px 0;
+                border-width: 1px 0;
                 & .line {
                     display: flex;
                     justify-content: space-between;
@@ -172,8 +173,6 @@
                 }
             }
             & .order-total {
-                border-top: 1px $clr5 solid;
-                padding-top: 15px;
                 display: flex;
                 justify-content: space-between;
                 & span {
