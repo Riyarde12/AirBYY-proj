@@ -15,6 +15,9 @@ export default {
         }
     },
     mutations: {
+        clearLoggedInUser(state) {
+            state.loggedInUser = null
+        },
         setLoggedInUser(state, { loggedInUser }) {
             state.loggedInUser = loggedInUser;
             console.log('loggedInUser after mutation', loggedInUser);
@@ -24,6 +27,15 @@ export default {
         },
     },
     actions: {
+        logoutUser({commit}){
+            console.log('app header :>>>>>>>>>>>>>>>>>>');
+            try {
+                userService.logout()
+                commit({type: 'clearLoggedInUser'})
+            } catch (err) {
+                console.log('Cannot logout user' ,err);
+            }
+        },
         loadUser({ commit }) {
             // commit({ type: 'setIsLoading', isLoading: true });
             // debugger;

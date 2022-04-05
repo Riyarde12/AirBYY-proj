@@ -24,7 +24,7 @@
             </div>
             <div class="modal-body" v-if="!signUp">
               <input type="text" placeholder="username" v-model="username" />
-              <input type="text" placeholder="password" v-model="password" />
+              <input type="password" placeholder="password" v-model="password" />
               <button class="demo-tracking" @click.prevent="onLogin">
                 <span>Continue</span>
               </button>
@@ -62,7 +62,8 @@ export default {
       signUp: false,
     };
   },
-  created() {},
+  created() {
+  },
   methods: {
     async onLogin() {
       if (!this.username && !this.password) return;
@@ -72,6 +73,8 @@ export default {
           username: this.username,
           password: this.password,
         });
+         this.username = '',
+        this.password = ''
         this.toggleShow();
       } catch (err) {
         console.log("Cannot signup", err);
@@ -89,6 +92,9 @@ export default {
             password: this.password,
           },
         });
+        this.username = '',
+        this.password = '',
+        this.fullname = ''
         this.toggleShow();
       } catch (err) {
         console.log("Cannot signup", err);
