@@ -76,6 +76,9 @@
 			imgForDisplay() {
 				return this.room.imgUrls;
 			},
+			getImage() {
+				return (path) => new URL(`../assets/img/${path}`, import.meta.url).href;
+			},
 		},
 	};
 </script>

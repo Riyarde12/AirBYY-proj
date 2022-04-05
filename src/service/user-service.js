@@ -45,7 +45,6 @@ async function logout() {
     try {
         utilService.saveToStorage('loggedinUser', '');
         return await httpService.post(`${ENDPOINT}/logout`);
-
     }
     catch (err) {
         console.log('Cannot logout', err);

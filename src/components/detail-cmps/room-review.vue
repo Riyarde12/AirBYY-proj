@@ -46,6 +46,8 @@
 									<el-avatar
 										:size="56"
 										:src="`https://res.cloudinary.com/canjan22/image/upload/v1648736344/avatars/${idx}.jpg`"
+										@error="replaceImgByDefault"
+										alt="Image"
 									/>
 									<div class="container">
 										<h3 class="name">{{ review.by.fullname }}</h3>
@@ -143,6 +145,9 @@
 			avgReviewScores() {
 				return this.room.reviewScores.rating / 20;
 			},
+			getImage() {
+				return (path) => new URL(`../assets/img/${path}`, import.meta.url).href;
+			},
 			// reviewForDisplay(review) {
 			// 	return review;
 			// },
@@ -170,6 +175,9 @@
 				const year = date.toDateString().substring(11, 15);
 				const month = date.toDateString().substring(4, 7);
 				return month + " " + year;
+			},
+			replaceImgByDefault(e) {
+				e.target.src = this.getImage("room.jpeg");
 			},
 		},
 	};
