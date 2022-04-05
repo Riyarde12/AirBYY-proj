@@ -112,8 +112,7 @@
     width: 700px;
     transform: translateX(-50%);
     top: 30%;
-    // transform: translateY(-50%);
-    // top: 50%;
+    border: 1px solid $clr6;
     left: 50%;
     & .review-modal {
         .review-by-container {
