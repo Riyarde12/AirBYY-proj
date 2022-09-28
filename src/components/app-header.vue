@@ -304,7 +304,7 @@ export default {
     },
     "$store.getters.loggedInUser": {
       handler() {
-        console.log('hiii:>>>>>>>>');
+        
         this.setLoggedInUser()
       },
       deep: true,

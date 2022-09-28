@@ -20,7 +20,7 @@ export default {
       price: { from: null, to: null },
     },
     homeRooms: null,
-
+    currentDestination: null
   },
   getters: {
     rooms(state) {
@@ -49,6 +49,9 @@ export default {
       });
       return prices;
     },
+    getCurrentDestination(state) {
+      return state.currentDestination;
+    }
   },
   mutations: {
     setRooms(state, { rooms }) {
@@ -81,9 +84,16 @@ export default {
     setAmenities(state, { amenities }) {
       state.filterBy.amenities = (Object.values(amenities));
     },
-    saveDestination(state) {
+    saveDestination(state, { destination }) {
+
       const destinationToSave = state.rooms.filter(room => room.address.country);
+
       state.destination = destinationToSave;
+    },
+    saveDestination(state, { destination }) {
+      state.currentDestination = destination;
+
+
     },
     clearFliterBy(state) {
       state.filterBy = {

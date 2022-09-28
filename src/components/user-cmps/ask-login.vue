@@ -63,9 +63,7 @@
 				loginModalOpen: false,
 			};
 		},
-		created() {
-			console.log("hey!");
-		},
+		created() {},
 		components: {
 			loginModal,
 		},

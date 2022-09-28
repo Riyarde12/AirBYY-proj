@@ -70,6 +70,9 @@
 				this.topRated = topRated.slice(idx, idx + 4);
 			},
 			setDestination() {
+				const params = (this.params = this.$route.query);
+				console.log("params", params);
+
 				this.$store.commit({ type: "saveDestination" });
 			},
 		},

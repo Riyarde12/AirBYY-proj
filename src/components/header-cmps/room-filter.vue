@@ -177,7 +177,6 @@
 			};
 		},
 		methods: {
-			// yarden todo
 			clearAll() {
 				this.priceIsTapped = false;
 				this.typeIsTapet = false;
@@ -230,7 +229,7 @@
 			async sendFilterBy() {
 				this.modalType = false;
 				this.modalPrice = false;
-				console.log("filterBy", this.filterBy);
+
 				this.$store.commit({
 					type: "setFilterByRoomType",
 					filterBy: JSON.parse(JSON.stringify(this.filterBy)),
@@ -314,7 +313,7 @@
 				return this.$store.getters.roomsPrices;
 			},
 			amenitiesForShow() {
-				return [
+				const amenities = [
 					"Wifi",
 					"Kitchen",
 					"Air conditioning",
@@ -326,6 +325,18 @@
 					"TV",
 					"Essentials",
 				];
+				const rooms = this.$store.getters.rooms;
+				const amenitiesForDisplay = [];
+				amenities.forEach((item) => {
+					rooms.forEach((room) => {
+						if (room.amenities.includes(item)) {
+							if (!amenitiesForDisplay.includes(item)) {
+								amenitiesForDisplay.push(item);
+							}
+						}
+					});
+				});
+				return amenitiesForDisplay;
 			},
 		},
 	};

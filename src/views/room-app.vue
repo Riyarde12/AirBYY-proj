@@ -1,7 +1,15 @@
 <template>
 	<section class="room-app page-layout explore-layout header-recognaizer">
 		<div class="alerts">
-			<p>{{ getNumberOfRooms }} stays in {{ searchedLocation }}</p>
+			<p>
+				{{ getNumberOfRooms }} stays in {{ searchedLocation }}
+				<br />
+				<span>Filter the search results by :</span>
+				<br />
+				<span v-for="(item, index) in getAmenitiesFilterForDisplay" :key="index"
+					>{{ item }}{{ " " }}
+				</span>
+			</p>
 		</div>
 		<room-list v-if="rooms && rooms.length" :rooms="rooms"></room-list>
 	</section>
@@ -35,11 +43,17 @@
 		methods: {
 			async setCurrRooms() {
 				this.params = this.$route.query;
+
+				this.$store.commit({
+					type: "saveDestination",
+					destination: this.params.destination,
+				});
 				try {
 					await this.$store.dispatch({
 						type: "filter",
 						filterBy: JSON.parse(JSON.stringify(this.params)),
 					});
+
 					this.rooms = this.$store.getters.rooms;
 				} catch (err) {
 					console.log("Cannot load rooms", err);
@@ -53,6 +67,10 @@
 			},
 			getSearch() {
 				return this.$store.getters.currSearch;
+			},
+			getAmenitiesFilterForDisplay() {
+				return this.params.amenities;
+				// console.log("example", this.params.amenities);
 			},
 		},
 		watch: {
